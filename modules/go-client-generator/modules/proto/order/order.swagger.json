@@ -1,0 +1,3812 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "order/order.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/order.Order/ApproveOrder": {
+      "post": {
+        "operationId": "Order_ApproveOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderApproveOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderApproveOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/AssignShipment": {
+      "post": {
+        "operationId": "Order_AssignShipment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderAssignShipmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderAssignShipmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CalculateRefund": {
+      "post": {
+        "summary": "Refund custom methods",
+        "operationId": "Order_CalculateRefund",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCalculateRefundResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCalculateRefundRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CancelFulfillment": {
+      "post": {
+        "operationId": "Order_CancelFulfillment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCancelFulfillmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCancelFulfillmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CancelOrder": {
+      "post": {
+        "operationId": "Order_CancelOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCancelOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCancelOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CancelShipment": {
+      "post": {
+        "operationId": "Order_CancelShipment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCancelShipmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCancelShipmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CompleteShipmentPacking": {
+      "post": {
+        "operationId": "Order_CompleteShipmentPacking",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderCompleteShipmentPackingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCompleteShipmentPackingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreateFulfillment": {
+      "post": {
+        "operationId": "Order_CreateFulfillment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderFulfillment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateFulfillmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreateHistory": {
+      "post": {
+        "operationId": "Order_CreateHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/OrderDataHistory"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateHistoryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreateOrder": {
+      "post": {
+        "operationId": "Order_CreateOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreatePayment": {
+      "post": {
+        "operationId": "Order_CreatePayment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderPayment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreatePaymentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreatePaymentTransaction": {
+      "post": {
+        "operationId": "Order_CreatePaymentTransaction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderTransaction"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreatePaymentTransactionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreateRefund": {
+      "post": {
+        "operationId": "Order_CreateRefund",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderRefund"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateRefundRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreateRefundTransaction": {
+      "post": {
+        "operationId": "Order_CreateRefundTransaction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderTransaction"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateRefundTransactionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/CreateShipment": {
+      "post": {
+        "operationId": "Order_CreateShipment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderShipment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderCreateShipmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/DeleteOrder": {
+      "post": {
+        "operationId": "Order_DeleteOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderDeleteOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderDeleteOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/GetFulfillment": {
+      "post": {
+        "operationId": "Order_GetFulfillment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderFulfillment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderGetFulfillmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/GetOrder": {
+      "post": {
+        "operationId": "Order_GetOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderGetOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/GetOrderByCartId": {
+      "post": {
+        "summary": "cart method",
+        "operationId": "Order_GetOrderByCartId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderGetOrderByCartIdRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/GetOrderByOrderNumber": {
+      "post": {
+        "operationId": "Order_GetOrderByOrderNumber",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderGetOrderByOrderNumberRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/GetPayment": {
+      "post": {
+        "operationId": "Order_GetPayment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderPayment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderGetPaymentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/GetShipment": {
+      "post": {
+        "operationId": "Order_GetShipment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderShipment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderGetShipmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/GetTransaction": {
+      "post": {
+        "operationId": "Order_GetTransaction",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderTransaction"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderGetTransactionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/HoldOrder": {
+      "post": {
+        "summary": "Order custom methods",
+        "operationId": "Order_HoldOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderHoldOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderHoldOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ImportOrder": {
+      "post": {
+        "summary": "Import orders API",
+        "operationId": "Order_ImportOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderImportOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ListFulfillments": {
+      "post": {
+        "operationId": "Order_ListFulfillments",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderListFulfillmentsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderListFulfillmentsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ListOrders": {
+      "post": {
+        "operationId": "Order_ListOrders",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderListOrdersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderListOrdersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ListOrdersByCustomer": {
+      "post": {
+        "operationId": "Order_ListOrdersByCustomer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderListOrdersByCustomerResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderListOrdersByCustomerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ListOrdersByNumbers": {
+      "post": {
+        "operationId": "Order_ListOrdersByNumbers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderListOrdersByNumbersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderListOrdersByNumbersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ListShipments": {
+      "post": {
+        "operationId": "Order_ListShipments",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderListShipmentsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderListShipmentsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/PrintOrdersLabels": {
+      "post": {
+        "summary": "Labels custom methods",
+        "operationId": "Order_PrintOrdersLabels",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderPrintOrdersLabelsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderPrintOrdersLabelsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/QuashFulfillment": {
+      "post": {
+        "operationId": "Order_QuashFulfillment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderQuashFulfillmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderQuashFulfillmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/QuashShipment": {
+      "post": {
+        "operationId": "Order_QuashShipment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderQuashShipmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderQuashShipmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ReceiveFulfillment": {
+      "post": {
+        "operationId": "Order_ReceiveFulfillment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderReceiveFulfillmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderReceiveFulfillmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ReportFulfillmentError": {
+      "post": {
+        "operationId": "Order_ReportFulfillmentError",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderReportFulfillmentErrorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderReportFulfillmentErrorRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ReportFulfillmentNotResolvable": {
+      "post": {
+        "operationId": "Order_ReportFulfillmentNotResolvable",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderReportFulfillmentNotResolvableResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderReportFulfillmentNotResolvableRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ReportFulfillmentReady": {
+      "post": {
+        "operationId": "Order_ReportFulfillmentReady",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderReportFulfillmentReadyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderReportFulfillmentReadyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ReportShipmentDelivery": {
+      "post": {
+        "operationId": "Order_ReportShipmentDelivery",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderReportShipmentDeliveryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderReportShipmentDeliveryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ReportShipmentMissingStock": {
+      "post": {
+        "operationId": "Order_ReportShipmentMissingStock",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderReportShipmentMissingStockResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderReportShipmentMissingStockRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/ResolveShipmentMissingStock": {
+      "post": {
+        "operationId": "Order_ResolveShipmentMissingStock",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderResolveShipmentMissingStockResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderResolveShipmentMissingStockRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/RetryFulfillment": {
+      "post": {
+        "operationId": "Order_RetryFulfillment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderRetryFulfillmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderRetryFulfillmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/SearchOrders": {
+      "post": {
+        "operationId": "Order_SearchOrders",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderSearchOrdersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderSearchOrdersRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/SendFulfillment": {
+      "post": {
+        "operationId": "Order_SendFulfillment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderSendFulfillmentResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderSendFulfillmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/SendOrderNotification": {
+      "post": {
+        "operationId": "Order_SendOrderNotification",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderSendOrderNotificationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderSendOrderNotificationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/StartFulfillmentProcessing": {
+      "post": {
+        "summary": "Fulfillment custom methods",
+        "operationId": "Order_StartFulfillmentProcessing",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderStartFulfillmentProcessingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderStartFulfillmentProcessingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/StartShipmentProcessing": {
+      "post": {
+        "summary": "Shipment custom methods",
+        "operationId": "Order_StartShipmentProcessing",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderStartShipmentProcessingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderStartShipmentProcessingRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/UnholdOrder": {
+      "post": {
+        "operationId": "Order_UnholdOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderUnholdOrderResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderUnholdOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/UpdateOrder": {
+      "post": {
+        "operationId": "Order_UpdateOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderUpdateOrderRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    },
+    "/order.Order/UpdatePayment": {
+      "post": {
+        "operationId": "Order_UpdatePayment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orderPayment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/orderUpdatePaymentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Order"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "CreateOrderRequestInitialPayment": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "ccInfo": {
+          "$ref": "#/definitions/PaymentCcInfo"
+        },
+        "transaction": {
+          "$ref": "#/definitions/InitialPaymentInitialTransaction"
+        }
+      }
+    },
+    "ImportOrderRequestImportedPayment": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "amounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderPaymentAmount"
+          }
+        },
+        "ccInfo": {
+          "$ref": "#/definitions/PaymentCcInfo"
+        }
+      }
+    },
+    "InitialPaymentInitialTransaction": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/orderTransactionType"
+        },
+        "additionalInfo": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderByDirection": {
+      "type": "string",
+      "enum": [
+        "DEFAULT",
+        "ASC",
+        "DESC"
+      ],
+      "default": "DEFAULT"
+    },
+    "OrderDataCustomerInfo": {
+      "type": "object",
+      "properties": {
+        "grn": {
+          "type": "string"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "segment": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        },
+        "certifiedEmail": {
+          "type": "string"
+        },
+        "taxCode": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderDataHistory": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderDataPaymentInfo": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "fee": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "vatAmount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "vatPercentage": {
+          "type": "number",
+          "format": "float"
+        },
+        "vatInaccurate": {
+          "type": "boolean"
+        },
+        "vatCalculated": {
+          "type": "boolean"
+        },
+        "title": {
+          "$ref": "#/definitions/orderLocalizedText"
+        },
+        "label": {
+          "$ref": "#/definitions/orderLocalizedText"
+        }
+      }
+    },
+    "OrderDataPromotionInfo": {
+      "type": "object",
+      "properties": {
+        "promotionGrn": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "couponCode": {
+          "type": "string"
+        },
+        "vatAmount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "vatPercentage": {
+          "type": "number",
+          "format": "float"
+        },
+        "vatInaccurate": {
+          "type": "boolean"
+        },
+        "vatCalculated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "OrderDataShipmentInfo": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "fee": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "vatAmount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "vatPercentage": {
+          "type": "number",
+          "format": "float"
+        },
+        "vatInaccurate": {
+          "type": "boolean"
+        },
+        "vatCalculated": {
+          "type": "boolean"
+        },
+        "grn": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderDataSubtotal": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/OrderDataSubtotalCode"
+        },
+        "value": {
+          "$ref": "#/definitions/orderMoney"
+        }
+      }
+    },
+    "OrderDataSubtotalCode": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "PAYMENT",
+        "SHIPMENT",
+        "TAX",
+        "ITEMS",
+        "ITEMS_DISCOUNTED",
+        "DISCOUNT"
+      ],
+      "default": "UNKNOWN"
+    },
+    "OrderDataTotal": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/OrderDataTotalCode"
+        },
+        "value": {
+          "$ref": "#/definitions/orderMoney"
+        }
+      }
+    },
+    "OrderDataTotalCode": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "ORDERED",
+        "PAID",
+        "REFUNDED"
+      ],
+      "default": "UNKNOWN"
+    },
+    "PaymentCcInfo": {
+      "type": "object",
+      "properties": {
+        "approval": {
+          "type": "string"
+        },
+        "expMonth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "expYear": {
+          "type": "string"
+        },
+        "last4": {
+          "type": "string"
+        },
+        "numberEnc": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "avsStatus": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "PrintOrdersLabelsResponseFailedOrder": {
+      "type": "object",
+      "properties": {
+        "orderNumber": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "string"
+        }
+      }
+    },
+    "ShipmentTracking": {
+      "type": "object",
+      "properties": {
+        "carrierCode": {
+          "type": "string"
+        },
+        "carrierTitle": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "labelUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateOrderRequestPayload": {
+      "type": "object",
+      "properties": {
+        "billingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "shippingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "additionalInfo": {
+          "type": "object"
+        }
+      }
+    },
+    "orderApproveOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderApproveOrderResponse": {
+      "type": "object"
+    },
+    "orderAssignShipmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderAssignShipmentResponse": {
+      "type": "object"
+    },
+    "orderCalculateRefundRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "paymentId": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderRefundItem"
+          }
+        },
+        "shipping": {
+          "type": "boolean",
+          "description": "Boolean indicating whether to calculate refund for shipping."
+        }
+      }
+    },
+    "orderCalculateRefundResponse": {
+      "type": "object",
+      "properties": {
+        "createRefundRequest": {
+          "$ref": "#/definitions/orderCreateRefundRequest"
+        }
+      }
+    },
+    "orderCancelFulfillmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCancelFulfillmentResponse": {
+      "type": "object"
+    },
+    "orderCancelOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCancelOrderResponse": {
+      "type": "object"
+    },
+    "orderCancelShipmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCancelShipmentResponse": {
+      "type": "object"
+    },
+    "orderCompleteShipmentPackingRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCompleteShipmentPackingResponse": {
+      "type": "object"
+    },
+    "orderCreateFulfillmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderFulfillmentItem"
+          }
+        }
+      }
+    },
+    "orderCreateHistoryRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "market": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderDataItem"
+          }
+        },
+        "paymentsInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataPaymentInfo"
+          }
+        },
+        "shipmentsInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataShipmentInfo"
+          }
+        },
+        "promotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataPromotionInfo"
+          }
+        },
+        "payments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CreateOrderRequestInitialPayment"
+          }
+        },
+        "currency": {
+          "$ref": "#/definitions/orderCurrency"
+        },
+        "subtotals": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/OrderDataSubtotal"
+          }
+        },
+        "totals": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/OrderDataTotal"
+          }
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "billingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "shippingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "customerInfo": {
+          "$ref": "#/definitions/OrderDataCustomerInfo"
+        },
+        "cartGrn": {
+          "type": "string"
+        },
+        "onHold": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreatePaymentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "ccInfo": {
+          "$ref": "#/definitions/PaymentCcInfo"
+        }
+      }
+    },
+    "orderCreatePaymentTransactionRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "paymentId": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/orderTransactionType"
+        },
+        "additionalInfo": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateRefundRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "paymentId": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderRefundItem"
+          }
+        },
+        "amounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderRefundAmount"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateRefundTransactionRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "refundId": {
+          "type": "string"
+        },
+        "parentTransactionId": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/orderTransactionType"
+        },
+        "additionalInfo": {
+          "type": "string"
+        }
+      }
+    },
+    "orderCreateShipmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderShipmentItem"
+          }
+        },
+        "address": {
+          "$ref": "#/definitions/orderPostalAddress"
+        }
+      }
+    },
+    "orderCurrency": {
+      "type": "string",
+      "enum": [
+        "XXX",
+        "ALL",
+        "DZD",
+        "ARS",
+        "AUD",
+        "BSD",
+        "BHD",
+        "BDT",
+        "AMD",
+        "BBD",
+        "BMD",
+        "BTN",
+        "BOB",
+        "BWP",
+        "BZD",
+        "SBD",
+        "BND",
+        "MMK",
+        "BIF",
+        "KHR",
+        "CAD",
+        "CVE",
+        "KYD",
+        "LKR",
+        "CLP",
+        "CNY",
+        "COP",
+        "KMF",
+        "CRC",
+        "HRK",
+        "CUP",
+        "CZK",
+        "DKK",
+        "DOP",
+        "SVC",
+        "ETB",
+        "ERN",
+        "FKP",
+        "FJD",
+        "DJF",
+        "GMD",
+        "GIP",
+        "GTQ",
+        "GNF",
+        "GYD",
+        "HTG",
+        "HNL",
+        "HKD",
+        "HUF",
+        "ISK",
+        "INR",
+        "IDR",
+        "IRR",
+        "IQD",
+        "ILS",
+        "JMD",
+        "JPY",
+        "KZT",
+        "JOD",
+        "KES",
+        "KPW",
+        "KRW",
+        "KWD",
+        "KGS",
+        "LAK",
+        "LBP",
+        "LSL",
+        "LRD",
+        "LYD",
+        "LTL",
+        "MOP",
+        "MWK",
+        "MYR",
+        "MVR",
+        "MRO",
+        "MUR",
+        "MXN",
+        "MNT",
+        "MDL",
+        "MAD",
+        "OMR",
+        "NAD",
+        "NPR",
+        "ANG",
+        "AWG",
+        "VUV",
+        "NZD",
+        "NIO",
+        "NGN",
+        "NOK",
+        "PKR",
+        "PAB",
+        "PGK",
+        "PYG",
+        "PEN",
+        "PHP",
+        "QAR",
+        "RUB",
+        "RWF",
+        "SHP",
+        "STD",
+        "SAR",
+        "SCR",
+        "SLL",
+        "SGD",
+        "VND",
+        "SOS",
+        "ZAR",
+        "SSP",
+        "SZL",
+        "SEK",
+        "CHF",
+        "SYP",
+        "THB",
+        "TOP",
+        "TTD",
+        "AED",
+        "TND",
+        "UGX",
+        "MKD",
+        "EGP",
+        "GBP",
+        "TZS",
+        "USD",
+        "UYU",
+        "UZS",
+        "WST",
+        "YER",
+        "TWD",
+        "CUC",
+        "ZWL",
+        "TMT",
+        "GHS",
+        "VEF",
+        "SDG",
+        "UYI",
+        "RSD",
+        "MZN",
+        "AZN",
+        "RON",
+        "CHE",
+        "CHW",
+        "TRY",
+        "XAF",
+        "XCD",
+        "XOF",
+        "XPF",
+        "XBA",
+        "XBB",
+        "XBC",
+        "XBD",
+        "XAU",
+        "XDR",
+        "XAG",
+        "XPT",
+        "XPD",
+        "XUA",
+        "ZMW",
+        "SRD",
+        "MGA",
+        "COU",
+        "AFN",
+        "TJS",
+        "AOA",
+        "BYR",
+        "BGN",
+        "CDF",
+        "BAM",
+        "EUR",
+        "MXV",
+        "UAH",
+        "GEL",
+        "BOV",
+        "PLN",
+        "BRL",
+        "CLF",
+        "XSU",
+        "USN"
+      ],
+      "default": "XXX",
+      "title": "- XXX: XXX = 999; //Changed to 0 because proto3 requires the default to be 0\n - ALL: XTS = 963; //Codes specifically reserved for testing purposes"
+    },
+    "orderDeleteOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderDeleteOrderResponse": {
+      "type": "object"
+    },
+    "orderFulfillment": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderFulfillmentItem"
+          }
+        }
+      }
+    },
+    "orderFulfillmentItem": {
+      "type": "object",
+      "properties": {
+        "orderItemId": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "orderGetFulfillmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "orderGetOrderByCartIdRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "cartId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderGetOrderByOrderNumberRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "orderGetOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "orderGetPaymentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "orderGetShipmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "orderGetTransactionRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "orderHoldOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "orderHoldOrderResponse": {
+      "type": "object"
+    },
+    "orderImportOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "number": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "market": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "customerInfo": {
+          "$ref": "#/definitions/OrderDataCustomerInfo"
+        },
+        "shippingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "billingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "payments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImportOrderRequestImportedPayment"
+          }
+        },
+        "paymentsInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataPaymentInfo"
+          }
+        },
+        "shipmentsInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataShipmentInfo"
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderDataItem"
+          }
+        },
+        "subtotals": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/OrderDataSubtotal"
+          }
+        },
+        "totals": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/OrderDataTotal"
+          }
+        },
+        "status": {
+          "type": "string"
+        },
+        "currency": {
+          "$ref": "#/definitions/orderCurrency"
+        }
+      }
+    },
+    "orderListFulfillmentsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderListFulfillmentsResponse": {
+      "type": "object",
+      "properties": {
+        "fulfillments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderFulfillment"
+          }
+        }
+      }
+    },
+    "orderListOrdersByCustomerRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "customerGrn": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum number of orders to return. The service may return fewer than\nthis value.\nIf unspecified, at most 10 orders will be returned.\nThe maximum value is 100; values above 100 will be coerced to 100."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "A page token, received from a previous `ListOrders` call.\nProvide this to retrieve the subsequent page.\n\n\nWhen paginating, all other parameters provided to `ListOrders` must match\nthe call that provided the page token."
+        }
+      }
+    },
+    "orderListOrdersByCustomerResponse": {
+      "type": "object",
+      "properties": {
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderData"
+          }
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "A token that can be sent as `page_token` to retrieve the next page.\nIf this field is omitted, there are no subsequent pages."
+        }
+      }
+    },
+    "orderListOrdersByNumbersRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "numbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum number of orders to return. The service may return fewer than\nthis value.\nIf unspecified, at most 10 orders will be returned.\nThe maximum value is 100; values above 100 will be coerced to 100."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "A page token, received from a previous `ListOrders` call.\nProvide this to retrieve the subsequent page.\n\n\nWhen paginating, all other parameters provided to `ListOrders` must match\nthe call that provided the page token."
+        }
+      }
+    },
+    "orderListOrdersByNumbersResponse": {
+      "type": "object",
+      "properties": {
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderData"
+          }
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "A token that can be sent as `page_token` to retrieve the next page.\nIf this field is omitted, there are no subsequent pages."
+        }
+      }
+    },
+    "orderListOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum number of orders to return. The service may return fewer than\nthis value.\nIf unspecified, at most 10 orders will be returned.\nThe maximum value is 100; values above 100 will be coerced to 100."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "A page token, received from a previous `ListOrders` call.\nProvide this to retrieve the subsequent page.\n\n\nWhen paginating, all other parameters provided to `ListOrders` must match\nthe call that provided the page token."
+        },
+        "orderBy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderBy"
+          }
+        },
+        "statusFilter": {
+          "$ref": "#/definitions/orderStatusFilter"
+        }
+      }
+    },
+    "orderListOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderData"
+          }
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "A token that can be sent as `page_token` to retrieve the next page.\nIf this field is omitted, there are no subsequent pages."
+        }
+      }
+    },
+    "orderListShipmentsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderListShipmentsResponse": {
+      "type": "object",
+      "properties": {
+        "shipments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderShipment"
+          }
+        }
+      }
+    },
+    "orderLocalizedText": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "orderMoney": {
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "string",
+          "format": "int64",
+          "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar."
+        },
+        "micros": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of micro (10^-6) units of the amount.\nThe value must be between -999,999 and +999,999 inclusive.\nIf `units` is positive, `micros` must be positive or zero.\nIf `units` is zero, `micros` can be positive, zero, or negative.\nIf `units` is negative, `micros` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `micros`=-750,000."
+        }
+      }
+    },
+    "orderOrderBy": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "direction": {
+          "$ref": "#/definitions/OrderByDirection"
+        }
+      }
+    },
+    "orderOrderData": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "market": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "object"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderDataItem"
+          }
+        },
+        "payments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderPayment"
+          }
+        },
+        "shipments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderShipment"
+          }
+        },
+        "paymentsInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataPaymentInfo"
+          }
+        },
+        "shipmentsInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataShipmentInfo"
+          }
+        },
+        "promotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataPromotionInfo"
+          }
+        },
+        "currency": {
+          "$ref": "#/definitions/orderCurrency"
+        },
+        "subtotals": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/OrderDataSubtotal"
+          }
+        },
+        "totals": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/OrderDataTotal"
+          }
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "billingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "shippingAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "customerInfo": {
+          "$ref": "#/definitions/OrderDataCustomerInfo"
+        },
+        "cartGrn": {
+          "type": "string"
+        },
+        "onHold": {
+          "type": "boolean"
+        },
+        "historyEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderDataHistory"
+          }
+        },
+        "fulfillments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderFulfillment"
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "isDeleted": {
+          "type": "boolean",
+          "description": "this field is used to delete an order in \"soft-delete mode\". This field must be used from get/list endpoint to exclude these orders."
+        },
+        "insertedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "this field is used to save the original created_at order date. The created_at field is used to filter data."
+        },
+        "deletedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "orderOrderDataItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "productGrn": {
+          "type": "string"
+        },
+        "qtyOrdered": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "qtyCommitted": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "unitSalePrice": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "unitListPrice": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "unitVatAmount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "rowSalePrice": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "rowListPrice": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "rowVatAmount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "discountAmount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "vatPercentage": {
+          "type": "number",
+          "format": "float"
+        },
+        "vatInaccurate": {
+          "type": "boolean"
+        },
+        "vatCalculated": {
+          "type": "boolean"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productCode": {
+          "type": "string"
+        },
+        "productSku": {
+          "type": "string"
+        },
+        "productOptions": {
+          "type": "string"
+        },
+        "productImg": {
+          "type": "string"
+        },
+        "productData": {
+          "type": "string"
+        },
+        "shipmentInfoReference": {
+          "type": "string"
+        },
+        "promotionGrn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "productIsVirtual": {
+          "type": "boolean"
+        }
+      }
+    },
+    "orderPayment": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "amounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderPaymentAmount"
+          }
+        },
+        "ccInfo": {
+          "$ref": "#/definitions/PaymentCcInfo"
+        },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderTransaction"
+          }
+        }
+      }
+    },
+    "orderPaymentAmount": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/orderPaymentAmountCode"
+        },
+        "value": {
+          "$ref": "#/definitions/orderMoney"
+        }
+      }
+    },
+    "orderPaymentAmountCode": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "CANCELED",
+        "ORDERED",
+        "PAID",
+        "REFUNDED",
+        "AUTHORIZED"
+      ],
+      "default": "UNKNOWN"
+    },
+    "orderPaymentFilter": {
+      "type": "object",
+      "properties": {
+        "codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/orderPaymentFilterCondition"
+        }
+      }
+    },
+    "orderPaymentFilterCondition": {
+      "type": "string",
+      "enum": [
+        "IN",
+        "NOT_IN"
+      ],
+      "default": "IN"
+    },
+    "orderPostalAddress": {
+      "type": "object",
+      "properties": {
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The schema revision of the `PostalAddress`. This must be set to 0, which is\nthe latest revision.\n\nAll new revisions **must** be backward compatible with old revisions."
+        },
+        "regionCode": {
+          "type": "string",
+          "description": "Required. CLDR region code of the country/region of the address. This\nis never inferred and it is up to the user to ensure the value is\ncorrect. See http://cldr.unicode.org/ and\nhttp://www.unicode.org/cldr/charts/30/supplemental/territory_information.html\nfor details. Example: \"CH\" for Switzerland."
+        },
+        "languageCode": {
+          "type": "string",
+          "description": "Optional. BCP-47 language code of the contents of this address (if\nknown). This is often the UI language of the input form or is expected\nto match one of the languages used in the address' country/region, or their\ntransliterated equivalents.\nThis can affect formatting in certain countries, but is not critical\nto the correctness of the data and will never affect any validation or\nother non-formatting related operations.\n\nIf this value is not known, it should be omitted (rather than specifying a\npossibly incorrect default).\n\nExamples: \"zh-Hant\", \"ja\", \"ja-Latn\", \"en\"."
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Optional. Postal code of the address. Not all countries use or require\npostal codes to be present, but where they are used, they may trigger\nadditional validation with other parts of the address (e.g. state/zip\nvalidation in the U.S.A.)."
+        },
+        "sortingCode": {
+          "type": "string",
+          "description": "Optional. Additional, country-specific, sorting code. This is not used\nin most regions. Where it is used, the value is either a string like\n\"CEDEX\", optionally followed by a number (e.g. \"CEDEX 7\"), or just a number\nalone, representing the \"sector code\" (Jamaica), \"delivery area indicator\"\n(Malawi) or \"post office indicator\" (e.g. Côte d'Ivoire)."
+        },
+        "administrativeArea": {
+          "type": "string",
+          "description": "Optional. Highest administrative subdivision which is used for postal\naddresses of a country or region.\nFor example, this can be a state, a province, an oblast, or a prefecture.\nSpecifically, for Spain this is the province and not the autonomous\ncommunity (e.g. \"Barcelona\" and not \"Catalonia\").\nMany countries don't use an administrative area in postal addresses. E.g.\nin Switzerland this should be left unpopulated."
+        },
+        "locality": {
+          "type": "string",
+          "description": "Optional. Generally refers to the city/town portion of the address.\nExamples: US city, IT comune, UK post town.\nIn regions of the world where localities are not well defined or do not fit\ninto this structure well, leave locality empty and use address_lines."
+        },
+        "sublocality": {
+          "type": "string",
+          "description": "Optional. Sublocality of the address.\nFor example, this can be neighborhoods, boroughs, districts."
+        },
+        "addressLines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Unstructured address lines describing the lower levels of an address.\n\nBecause values in address_lines do not have type information and may\nsometimes contain multiple values in a single field (e.g.\n\"Austin, TX\"), it is important that the line order is clear. The order of\naddress lines should be \"envelope order\" for the country/region of the\naddress. In places where this can vary (e.g. Japan), address_language is\nused to make it explicit (e.g. \"ja\" for large-to-small ordering and\n\"ja-Latn\" or \"en\" for small-to-large). This way, the most specific line of\nan address can be selected based on the language.\n\nThe minimum permitted structural representation of an address consists\nof a region_code with all remaining information placed in the\naddress_lines. It would be possible to format such an address very\napproximately without geocoding, but no semantic reasoning could be\nmade about any of the address components until it was at least\npartially resolved.\n\nCreating an address only containing a region_code and address_lines, and\nthen geocoding is the recommended way to handle completely unstructured\naddresses (as opposed to guessing which parts of the address should be\nlocalities or administrative areas)."
+        },
+        "recipients": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional. The recipient at the address.\nThis field may, under certain circumstances, contain multiline information.\nFor example, it might contain \"care of\" information."
+        },
+        "organization": {
+          "type": "string",
+          "description": "Optional. The name of the organization at the address."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Optional."
+        },
+        "additionalInfo": {
+          "type": "object",
+          "description": "Optional."
+        }
+      },
+      "description": "Represents a postal address, e.g. for postal delivery or payments addresses.\nGiven a postal address, a postal service can deliver items to a premise, P.O.\nBox or similar.\nIt is not intended to model geographical locations (roads, towns,\nmountains).\n\nIn typical usage an address would be created via user input or from importing\nexisting data, depending on the type of process.\n\nAdvice on address input / editing:\n - Use an i18n-ready address widget such as\n   https://github.com/google/libaddressinput)\n- Users should not be presented with UI elements for input or editing of\n  fields outside countries where that field is used.\n\nFor more guidance on how to use this schema, please see:\nhttps://support.google.com/business/answer/6397478"
+    },
+    "orderPrintOrdersLabelsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderNumbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "orderPrintOrdersLabelsResponse": {
+      "type": "object",
+      "properties": {
+        "downloadUrl": {
+          "type": "string"
+        },
+        "failedOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintOrdersLabelsResponseFailedOrder"
+          }
+        }
+      }
+    },
+    "orderQuashFulfillmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "orderQuashFulfillmentResponse": {
+      "type": "object"
+    },
+    "orderQuashShipmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "orderQuashShipmentResponse": {
+      "type": "object"
+    },
+    "orderReceiveFulfillmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderReceiveFulfillmentResponse": {
+      "type": "object"
+    },
+    "orderRefund": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "paymentId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderRefundItem"
+          }
+        },
+        "amounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderRefundAmount"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "transactionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "The list of transactions ids that are involved"
+        }
+      }
+    },
+    "orderRefundAmount": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/orderRefundAmountCode"
+        },
+        "value": {
+          "$ref": "#/definitions/orderMoney"
+        }
+      }
+    },
+    "orderRefundAmountCode": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "ORDERED",
+        "SHIPPING"
+      ],
+      "default": "UNKNOWN"
+    },
+    "orderRefundItem": {
+      "type": "object",
+      "properties": {
+        "orderItemId": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "orderReportFulfillmentErrorRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderReportFulfillmentErrorResponse": {
+      "type": "object"
+    },
+    "orderReportFulfillmentNotResolvableRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderReportFulfillmentNotResolvableResponse": {
+      "type": "object"
+    },
+    "orderReportFulfillmentReadyRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderReportFulfillmentReadyResponse": {
+      "type": "object"
+    },
+    "orderReportShipmentDeliveryRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderReportShipmentDeliveryResponse": {
+      "type": "object"
+    },
+    "orderReportShipmentMissingStockRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "orderReportShipmentMissingStockResponse": {
+      "type": "object"
+    },
+    "orderResolveShipmentMissingStockRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderResolveShipmentMissingStockResponse": {
+      "type": "object"
+    },
+    "orderRetryFulfillmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderRetryFulfillmentResponse": {
+      "type": "object"
+    },
+    "orderSearchOrdersRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "searchQuery": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum number of orders to return. The service may return fewer than\nthis value.\nIf unspecified, at most 10 orders will be returned.\nThe maximum value is 100; values above 100 will be coerced to 100."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "A page token, received from a previous `ListOrders` call.\nProvide this to retrieve the subsequent page.\n\n\nWhen paginating, all other parameters provided to `ListOrders` must match\nthe call that provided the page token."
+        },
+        "orderBy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderBy"
+          }
+        },
+        "statusFilter": {
+          "$ref": "#/definitions/orderStatusFilter"
+        },
+        "fromDate": {
+          "type": "string",
+          "format": "date-time",
+          "title": "filter by date"
+        },
+        "toDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "paymentFilter": {
+          "$ref": "#/definitions/orderPaymentFilter"
+        }
+      }
+    },
+    "orderSearchOrdersResponse": {
+      "type": "object",
+      "properties": {
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderOrderData"
+          }
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "A token that can be sent as `page_token` to retrieve the next page.\nIf this field is omitted, there are no subsequent pages."
+        }
+      }
+    },
+    "orderSendFulfillmentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderSendFulfillmentResponse": {
+      "type": "object"
+    },
+    "orderSendOrderNotificationRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "orderSendOrderNotificationResponse": {
+      "type": "object"
+    },
+    "orderShipment": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderShipmentItem"
+          }
+        },
+        "address": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "tracking": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShipmentTracking"
+          }
+        },
+        "returnTracking": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShipmentTracking"
+          }
+        }
+      }
+    },
+    "orderShipmentItem": {
+      "type": "object",
+      "properties": {
+        "orderItemId": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "rowWeight": {
+          "type": "string"
+        }
+      }
+    },
+    "orderStartFulfillmentProcessingRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "fulfillmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderStartFulfillmentProcessingResponse": {
+      "type": "object"
+    },
+    "orderStartShipmentProcessingRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "shipmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderStartShipmentProcessingResponse": {
+      "type": "object"
+    },
+    "orderStatusFilter": {
+      "type": "object",
+      "properties": {
+        "statuses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/orderStatusFilterCondition"
+        }
+      }
+    },
+    "orderStatusFilterCondition": {
+      "type": "string",
+      "enum": [
+        "IN",
+        "NOT_IN"
+      ],
+      "default": "IN"
+    },
+    "orderTransaction": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "paymentId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/orderTransactionType"
+        },
+        "additionalInfo": {
+          "type": "string"
+        },
+        "childTransactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orderTransaction"
+          }
+        }
+      }
+    },
+    "orderTransactionType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "AUTHORIZATION",
+        "CAPTURE",
+        "SALE",
+        "REFUND",
+        "VOID",
+        "FAILED",
+        "PENDING",
+        "FRAUD"
+      ],
+      "default": "UNKNOWN"
+    },
+    "orderUnholdOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "orderUnholdOrderResponse": {
+      "type": "object"
+    },
+    "orderUpdateOrderRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/UpdateOrderRequestPayload"
+        },
+        "fieldMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "orderUpdatePaymentRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "paymentId": {
+          "type": "string"
+        },
+        "ccInfo": {
+          "$ref": "#/definitions/PaymentCcInfo"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "protobufNullValue": {
+      "type": "string",
+      "enum": [
+        "NULL_VALUE"
+      ],
+      "default": "NULL_VALUE",
+      "description": "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value."
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
