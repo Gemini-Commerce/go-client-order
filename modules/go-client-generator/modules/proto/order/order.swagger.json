@@ -1,9 +1,22 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "order/order.proto",
-    "version": "version not set"
+    "title": "order Service",
+    "version": "v1",
+    "contact": {
+      "name": "Gemini Team",
+      "email": "info@gemini-commerce.com"
+    },
+    "license": {
+      "name": "Gemini fair use license",
+      "url": "https://gemini-commerce.com/api/fair-use-license"
+    }
   },
+  "host": "dom.api.gogemini.io",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -13,12 +26,25 @@
   "paths": {
     "/order.Order/ApproveOrder": {
       "post": {
-        "operationId": "Order_ApproveOrder",
+        "summary": "Approve Order",
+        "operationId": "ApproveOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderApproveOrderResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -40,17 +66,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/AssignShipment": {
       "post": {
-        "operationId": "Order_AssignShipment",
+        "summary": "Assign Shipment",
+        "operationId": "AssignShipment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderAssignShipmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -72,18 +116,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CalculateRefund": {
       "post": {
-        "summary": "Refund custom methods",
-        "operationId": "Order_CalculateRefund",
+        "summary": "Calculate Refund",
+        "operationId": "CalculateRefund",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderCalculateRefundResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -105,17 +166,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CancelFulfillment": {
       "post": {
-        "operationId": "Order_CancelFulfillment",
+        "summary": "Cancel Fulfillment",
+        "operationId": "CancelFulfillment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderCancelFulfillmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -137,17 +216,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CancelOrder": {
       "post": {
-        "operationId": "Order_CancelOrder",
+        "summary": "Cancel Order",
+        "operationId": "CancelOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderCancelOrderResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -169,17 +266,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CancelShipment": {
       "post": {
-        "operationId": "Order_CancelShipment",
+        "summary": "Cancel Shipment",
+        "operationId": "CancelShipment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderCancelShipmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -201,17 +316,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CompleteShipmentPacking": {
       "post": {
-        "operationId": "Order_CompleteShipmentPacking",
+        "summary": "Complete Shipment Packing",
+        "operationId": "CompleteShipmentPacking",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderCompleteShipmentPackingResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -233,17 +366,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreateFulfillment": {
       "post": {
-        "operationId": "Order_CreateFulfillment",
+        "summary": "Create Fulfillment",
+        "operationId": "CreateFulfillment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderFulfillment"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -265,17 +416,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreateHistory": {
       "post": {
-        "operationId": "Order_CreateHistory",
+        "summary": "Create Order History",
+        "operationId": "CreateOrderHistory",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/OrderDataHistory"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -297,17 +466,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreateOrder": {
       "post": {
-        "operationId": "Order_CreateOrder",
+        "summary": "Create Order",
+        "operationId": "CreateOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -329,17 +516,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreatePayment": {
       "post": {
-        "operationId": "Order_CreatePayment",
+        "summary": "Create Payment",
+        "operationId": "CreatePayment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderPayment"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -361,17 +566,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreatePaymentTransaction": {
       "post": {
-        "operationId": "Order_CreatePaymentTransaction",
+        "summary": "Create Payment Transaction",
+        "operationId": "CreatePaymentTransaction",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderTransaction"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -393,17 +616,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreateRefund": {
       "post": {
-        "operationId": "Order_CreateRefund",
+        "summary": "Create Refund",
+        "operationId": "CreateRefund",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderRefund"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -425,17 +666,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreateRefundTransaction": {
       "post": {
-        "operationId": "Order_CreateRefundTransaction",
+        "summary": "Create Refund Transaction",
+        "operationId": "CreateRefundTransaction",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderTransaction"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -457,17 +716,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/CreateShipment": {
       "post": {
-        "operationId": "Order_CreateShipment",
+        "summary": "Create Shipment",
+        "operationId": "CreateShipment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderShipment"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -489,17 +766,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/DeleteOrder": {
       "post": {
-        "operationId": "Order_DeleteOrder",
+        "summary": "Delete Order",
+        "operationId": "DeleteOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderDeleteOrderResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -521,17 +816,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/GetFulfillment": {
       "post": {
-        "operationId": "Order_GetFulfillment",
+        "summary": "Get Fulfillment",
+        "operationId": "GetFulfillment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderFulfillment"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -553,17 +866,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/GetOrder": {
       "post": {
-        "operationId": "Order_GetOrder",
+        "summary": "Get Order",
+        "operationId": "GetOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -585,18 +916,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/GetOrderByCartId": {
       "post": {
-        "summary": "cart method",
-        "operationId": "Order_GetOrderByCartId",
+        "summary": "Get Order by Cart ID",
+        "operationId": "GetOrderByCartId",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -618,17 +966,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/GetOrderByOrderNumber": {
       "post": {
-        "operationId": "Order_GetOrderByOrderNumber",
+        "summary": "Get Order by Order Number",
+        "operationId": "GetOrderByOrderNumber",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -650,17 +1016,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/GetPayment": {
       "post": {
-        "operationId": "Order_GetPayment",
+        "summary": "Get Payment",
+        "operationId": "GetPayment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderPayment"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -682,17 +1066,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/GetShipment": {
       "post": {
-        "operationId": "Order_GetShipment",
+        "summary": "Get Shipment",
+        "operationId": "GetShipment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderShipment"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -714,17 +1116,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/GetTransaction": {
       "post": {
-        "operationId": "Order_GetTransaction",
+        "summary": "Get Transaction",
+        "operationId": "GetTransaction",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderTransaction"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -746,18 +1166,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/HoldOrder": {
       "post": {
-        "summary": "Order custom methods",
-        "operationId": "Order_HoldOrder",
+        "summary": "Hold Order",
+        "operationId": "HoldOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderHoldOrderResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -779,18 +1216,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ImportOrder": {
       "post": {
-        "summary": "Import orders API",
-        "operationId": "Order_ImportOrder",
+        "summary": "Import Order",
+        "operationId": "ImportOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -812,17 +1266,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ListFulfillments": {
       "post": {
-        "operationId": "Order_ListFulfillments",
+        "summary": "List Fulfillments",
+        "operationId": "ListFulfillments",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderListFulfillmentsResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -844,17 +1316,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ListOrders": {
       "post": {
-        "operationId": "Order_ListOrders",
+        "summary": "List Orders",
+        "operationId": "ListOrders",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderListOrdersResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -876,17 +1366,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ListOrdersByCustomer": {
       "post": {
-        "operationId": "Order_ListOrdersByCustomer",
+        "summary": "List Orders by Customer",
+        "operationId": "ListOrdersByCustomer",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderListOrdersByCustomerResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -908,17 +1416,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ListOrdersByNumbers": {
       "post": {
-        "operationId": "Order_ListOrdersByNumbers",
+        "summary": "List Orders by Numbers",
+        "operationId": "ListOrdersByNumbers",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderListOrdersByNumbersResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -940,17 +1466,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ListShipments": {
       "post": {
-        "operationId": "Order_ListShipments",
+        "summary": "List Shipments",
+        "operationId": "ListShipments",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderListShipmentsResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -972,18 +1516,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/PrintOrdersLabels": {
       "post": {
-        "summary": "Labels custom methods",
-        "operationId": "Order_PrintOrdersLabels",
+        "summary": "Print Orders Labels",
+        "operationId": "PrintOrdersLabels",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderPrintOrdersLabelsResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1005,17 +1566,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/QuashFulfillment": {
       "post": {
-        "operationId": "Order_QuashFulfillment",
+        "summary": "Quash Fulfillment",
+        "operationId": "QuashFulfillment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderQuashFulfillmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1037,17 +1616,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/QuashShipment": {
       "post": {
-        "operationId": "Order_QuashShipment",
+        "summary": "Quash Shipment",
+        "operationId": "QuashShipment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderQuashShipmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1069,17 +1666,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ReceiveFulfillment": {
       "post": {
-        "operationId": "Order_ReceiveFulfillment",
+        "summary": "Receive Fulfillment",
+        "operationId": "ReceiveFulfillment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderReceiveFulfillmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1101,17 +1716,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ReportFulfillmentError": {
       "post": {
-        "operationId": "Order_ReportFulfillmentError",
+        "summary": "Report Fulfillment Error",
+        "operationId": "ReportFulfillmentError",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderReportFulfillmentErrorResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1133,17 +1766,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ReportFulfillmentNotResolvable": {
       "post": {
-        "operationId": "Order_ReportFulfillmentNotResolvable",
+        "summary": "Report Fulfillment Not Resolvable",
+        "operationId": "ReportFulfillmentNotResolvable",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderReportFulfillmentNotResolvableResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1165,17 +1816,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ReportFulfillmentReady": {
       "post": {
-        "operationId": "Order_ReportFulfillmentReady",
+        "summary": "Report Fulfillment Ready",
+        "operationId": "ReportFulfillmentReady",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderReportFulfillmentReadyResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1197,17 +1866,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ReportShipmentDelivery": {
       "post": {
-        "operationId": "Order_ReportShipmentDelivery",
+        "summary": "Report Shipment Delivery",
+        "operationId": "ReportShipmentDelivery",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderReportShipmentDeliveryResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1229,17 +1916,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ReportShipmentMissingStock": {
       "post": {
-        "operationId": "Order_ReportShipmentMissingStock",
+        "summary": "Report Shipment Missing Stock",
+        "operationId": "ReportShipmentMissingStock",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderReportShipmentMissingStockResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1261,17 +1966,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/ResolveShipmentMissingStock": {
       "post": {
-        "operationId": "Order_ResolveShipmentMissingStock",
+        "summary": "Resolve Shipment Missing Stock",
+        "operationId": "ResolveShipmentMissingStock",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderResolveShipmentMissingStockResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1293,17 +2016,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/RetryFulfillment": {
       "post": {
-        "operationId": "Order_RetryFulfillment",
+        "summary": "Retry Fulfillment",
+        "operationId": "RetryFulfillment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderRetryFulfillmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1325,17 +2066,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/SearchOrders": {
       "post": {
-        "operationId": "Order_SearchOrders",
+        "summary": "Search Orders",
+        "operationId": "SearchOrders",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderSearchOrdersResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1357,17 +2116,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/SendFulfillment": {
       "post": {
-        "operationId": "Order_SendFulfillment",
+        "summary": "Send Fulfillment",
+        "operationId": "SendFulfillment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderSendFulfillmentResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1389,17 +2166,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/SendOrderNotification": {
       "post": {
-        "operationId": "Order_SendOrderNotification",
+        "summary": "Send Order Notification",
+        "operationId": "SendOrderNotification",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderSendOrderNotificationResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1421,18 +2216,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/StartFulfillmentProcessing": {
       "post": {
-        "summary": "Fulfillment custom methods",
-        "operationId": "Order_StartFulfillmentProcessing",
+        "summary": "Start Fulfillment Processing",
+        "operationId": "StartFulfillmentProcessing",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderStartFulfillmentProcessingResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1454,18 +2266,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/StartShipmentProcessing": {
       "post": {
-        "summary": "Shipment custom methods",
-        "operationId": "Order_StartShipmentProcessing",
+        "summary": "Start Shipment Processing",
+        "operationId": "StartShipmentProcessing",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderStartShipmentProcessingResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1487,17 +2316,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/UnholdOrder": {
       "post": {
-        "operationId": "Order_UnholdOrder",
+        "summary": "Unhold Order",
+        "operationId": "UnholdOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderUnholdOrderResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1519,17 +2366,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/UpdateOrder": {
       "post": {
-        "operationId": "Order_UpdateOrder",
+        "summary": "Update Order",
+        "operationId": "UpdateOrder",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderOrderData"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1551,17 +2416,35 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/order.Order/UpdatePayment": {
       "post": {
-        "operationId": "Order_UpdatePayment",
+        "summary": "Update Payment",
+        "operationId": "UpdatePayment",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/orderPayment"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
             }
           },
           "default": {
@@ -1583,6 +2466,11 @@
         ],
         "tags": [
           "Order"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     }
@@ -1779,6 +2667,9 @@
         "code": {
           "type": "string"
         },
+        "method": {
+          "type": "string"
+        },
         "title": {
           "type": "string"
         },
@@ -1806,6 +2697,12 @@
         },
         "grn": {
           "type": "string"
+        },
+        "fromAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "returnAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
         }
       }
     },
@@ -2277,6 +3174,18 @@
         },
         "address": {
           "$ref": "#/definitions/orderPostalAddress"
+        },
+        "fromAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "returnAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "code": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
         }
       }
     },
@@ -3040,6 +3949,9 @@
         "unitListPrice": {
           "$ref": "#/definitions/orderMoney"
         },
+        "unitBasePrice": {
+          "$ref": "#/definitions/orderMoney"
+        },
         "unitVatAmount": {
           "$ref": "#/definitions/orderMoney"
         },
@@ -3053,6 +3965,9 @@
           "$ref": "#/definitions/orderMoney"
         },
         "discountAmount": {
+          "$ref": "#/definitions/orderMoney"
+        },
+        "rowBasePrice": {
           "$ref": "#/definitions/orderMoney"
         },
         "vatPercentage": {
@@ -3601,6 +4516,12 @@
         "address": {
           "$ref": "#/definitions/orderPostalAddress"
         },
+        "fromAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
+        "returnAddress": {
+          "$ref": "#/definitions/orderPostalAddress"
+        },
         "tracking": {
           "type": "array",
           "items": {
@@ -3773,7 +4694,7 @@
     "protobufAny": {
       "type": "object",
       "properties": {
-        "typeUrl": {
+        "@type": {
           "type": "string"
         },
         "value": {
@@ -3807,6 +4728,13 @@
           }
         }
       }
+    }
+  },
+  "securityDefinitions": {
+    "standardAuthorization": {
+      "type": "oauth2",
+      "name": "Authorization",
+      "in": "header"
     }
   }
 }

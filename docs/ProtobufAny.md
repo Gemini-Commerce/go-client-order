@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TypeUrl**| **string** |   | [optional]
+**Type**| **string** |   | [optional]
 **Value**| **string** |   | [optional]
 
 

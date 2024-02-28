@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -9,7 +8,7 @@ configuration.go
 docs/CreateOrderRequestInitialPayment.md
 docs/ImportOrderRequestImportedPayment.md
 docs/InitialPaymentInitialTransaction.md
-docs/OrderApi.md
+docs/OrderAPI.md
 docs/OrderApproveOrderRequest.md
 docs/OrderAssignShipmentRequest.md
 docs/OrderByDirection.md
@@ -213,5 +212,4 @@ model_rpc_status.go
 model_shipment_tracking.go
 model_update_order_request_payload.go
 response.go
-test/api_order_test.go
 utils.go

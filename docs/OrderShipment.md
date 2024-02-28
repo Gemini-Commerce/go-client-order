@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **Status**| **string** |   | [optional]
 **Items**| [**[]OrderShipmentItem**](OrderShipmentItem.md) |   | [optional]
 **Address**| [**OrderPostalAddress**](OrderPostalAddress.md) |   | [optional]
+**FromAddress**| [**OrderPostalAddress**](OrderPostalAddress.md) |   | [optional]
+**ReturnAddress**| [**OrderPostalAddress**](OrderPostalAddress.md) |   | [optional]
 **Tracking**| [**[]ShipmentTracking**](ShipmentTracking.md) |   | [optional]
 **ReturnTracking**| [**[]ShipmentTracking**](ShipmentTracking.md) |   | [optional]
 
