@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderGetOrderRequest type satisfies the MappedNullable interface at compile time
@@ -20,16 +22,20 @@ var _ MappedNullable = &OrderGetOrderRequest{}
 
 // OrderGetOrderRequest struct for OrderGetOrderRequest
 type OrderGetOrderRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	Id *string `json:"id,omitempty"`
+	TenantId string `json:"tenantId"`
+	Id string `json:"id"`
 }
+
+type _OrderGetOrderRequest OrderGetOrderRequest
 
 // NewOrderGetOrderRequest instantiates a new OrderGetOrderRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderGetOrderRequest() *OrderGetOrderRequest {
+func NewOrderGetOrderRequest(tenantId string, id string) *OrderGetOrderRequest {
 	this := OrderGetOrderRequest{}
+	this.TenantId = tenantId
+	this.Id = id
 	return &this
 }
 
@@ -41,68 +47,52 @@ func NewOrderGetOrderRequestWithDefaults() *OrderGetOrderRequest {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderGetOrderRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderGetOrderRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderGetOrderRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderGetOrderRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *OrderGetOrderRequest) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *OrderGetOrderRequest) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *OrderGetOrderRequest) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *OrderGetOrderRequest) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 func (o OrderGetOrderRequest) MarshalJSON() ([]byte, error) {
@@ -115,13 +105,47 @@ func (o OrderGetOrderRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderGetOrderRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["id"] = o.Id
 	return toSerialize, nil
+}
+
+func (o *OrderGetOrderRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"id",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderGetOrderRequest := _OrderGetOrderRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderGetOrderRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderGetOrderRequest(varOrderGetOrderRequest)
+
+	return err
 }
 
 type NullableOrderGetOrderRequest struct {

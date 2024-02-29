@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderDataPromotionInfo type satisfies the MappedNullable interface at compile time
@@ -21,11 +23,11 @@ var _ MappedNullable = &OrderDataPromotionInfo{}
 // OrderDataPromotionInfo struct for OrderDataPromotionInfo
 type OrderDataPromotionInfo struct {
 	PromotionGrn *string `json:"promotionGrn,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Type string `json:"type"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name string `json:"name"`
 	Description *string `json:"description,omitempty"`
-	Amount *OrderMoney `json:"amount,omitempty"`
+	Amount OrderMoney `json:"amount"`
 	CouponCode *string `json:"couponCode,omitempty"`
 	VatAmount *OrderMoney `json:"vatAmount,omitempty"`
 	VatPercentage *float32 `json:"vatPercentage,omitempty"`
@@ -33,12 +35,17 @@ type OrderDataPromotionInfo struct {
 	VatCalculated *bool `json:"vatCalculated,omitempty"`
 }
 
+type _OrderDataPromotionInfo OrderDataPromotionInfo
+
 // NewOrderDataPromotionInfo instantiates a new OrderDataPromotionInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderDataPromotionInfo() *OrderDataPromotionInfo {
+func NewOrderDataPromotionInfo(type_ string, name string, amount OrderMoney) *OrderDataPromotionInfo {
 	this := OrderDataPromotionInfo{}
+	this.Type = type_
+	this.Name = name
+	this.Amount = amount
 	return &this
 }
 
@@ -82,36 +89,28 @@ func (o *OrderDataPromotionInfo) SetPromotionGrn(v string) {
 	o.PromotionGrn = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value
 func (o *OrderDataPromotionInfo) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Type
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataPromotionInfo) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType sets field value
 func (o *OrderDataPromotionInfo) SetType(v string) {
-	o.Type = &v
+	o.Type = v
 }
 
 // GetAdditionalInfo returns the AdditionalInfo field value if set, zero value otherwise.
@@ -146,36 +145,28 @@ func (o *OrderDataPromotionInfo) SetAdditionalInfo(v string) {
 	o.AdditionalInfo = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *OrderDataPromotionInfo) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataPromotionInfo) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *OrderDataPromotionInfo) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -210,36 +201,28 @@ func (o *OrderDataPromotionInfo) SetDescription(v string) {
 	o.Description = &v
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise.
+// GetAmount returns the Amount field value
 func (o *OrderDataPromotionInfo) GetAmount() OrderMoney {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		var ret OrderMoney
 		return ret
 	}
-	return *o.Amount
+
+	return o.Amount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataPromotionInfo) GetAmountOk() (*OrderMoney, bool) {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Amount, true
+	return &o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given OrderMoney and assigns it to the Amount field.
+// SetAmount sets field value
 func (o *OrderDataPromotionInfo) SetAmount(v OrderMoney) {
-	o.Amount = &v
+	o.Amount = v
 }
 
 // GetCouponCode returns the CouponCode field value if set, zero value otherwise.
@@ -415,21 +398,15 @@ func (o OrderDataPromotionInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PromotionGrn) {
 		toSerialize["promotionGrn"] = o.PromotionGrn
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
+	toSerialize["type"] = o.Type
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
+	toSerialize["name"] = o.Name
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !IsNil(o.Amount) {
-		toSerialize["amount"] = o.Amount
-	}
+	toSerialize["amount"] = o.Amount
 	if !IsNil(o.CouponCode) {
 		toSerialize["couponCode"] = o.CouponCode
 	}
@@ -446,6 +423,45 @@ func (o OrderDataPromotionInfo) ToMap() (map[string]interface{}, error) {
 		toSerialize["vatCalculated"] = o.VatCalculated
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderDataPromotionInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"type",
+		"name",
+		"amount",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderDataPromotionInfo := _OrderDataPromotionInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataPromotionInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDataPromotionInfo(varOrderDataPromotionInfo)
+
+	return err
 }
 
 type NullableOrderDataPromotionInfo struct {

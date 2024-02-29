@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderCreateShipmentRequest type satisfies the MappedNullable interface at compile time
@@ -20,22 +22,30 @@ var _ MappedNullable = &OrderCreateShipmentRequest{}
 
 // OrderCreateShipmentRequest struct for OrderCreateShipmentRequest
 type OrderCreateShipmentRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	OrderId *string `json:"orderId,omitempty"`
-	Items []OrderShipmentItem `json:"items,omitempty"`
-	Address *OrderPostalAddress `json:"address,omitempty"`
+	TenantId string `json:"tenantId"`
+	OrderId string `json:"orderId"`
+	Items []OrderShipmentItem `json:"items"`
+	Address OrderPostalAddress `json:"address"`
 	FromAddress *OrderPostalAddress `json:"fromAddress,omitempty"`
 	ReturnAddress *OrderPostalAddress `json:"returnAddress,omitempty"`
+	Tracking []ShipmentTracking `json:"tracking,omitempty"`
+	ReturnTracking []ShipmentTracking `json:"returnTracking,omitempty"`
 	Code *string `json:"code,omitempty"`
 	Method *string `json:"method,omitempty"`
 }
+
+type _OrderCreateShipmentRequest OrderCreateShipmentRequest
 
 // NewOrderCreateShipmentRequest instantiates a new OrderCreateShipmentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderCreateShipmentRequest() *OrderCreateShipmentRequest {
+func NewOrderCreateShipmentRequest(tenantId string, orderId string, items []OrderShipmentItem, address OrderPostalAddress) *OrderCreateShipmentRequest {
 	this := OrderCreateShipmentRequest{}
+	this.TenantId = tenantId
+	this.OrderId = orderId
+	this.Items = items
+	this.Address = address
 	return &this
 }
 
@@ -47,132 +57,100 @@ func NewOrderCreateShipmentRequestWithDefaults() *OrderCreateShipmentRequest {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderCreateShipmentRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateShipmentRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderCreateShipmentRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *OrderCreateShipmentRequest) GetOrderId() string {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateShipmentRequest) GetOrderIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given string and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *OrderCreateShipmentRequest) SetOrderId(v string) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value
 func (o *OrderCreateShipmentRequest) GetItems() []OrderShipmentItem {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []OrderShipmentItem
 		return ret
 	}
+
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateShipmentRequest) GetItemsOk() ([]OrderShipmentItem, bool) {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasItems() bool {
-	if o != nil && !IsNil(o.Items) {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []OrderShipmentItem and assigns it to the Items field.
+// SetItems sets field value
 func (o *OrderCreateShipmentRequest) SetItems(v []OrderShipmentItem) {
 	o.Items = v
 }
 
-// GetAddress returns the Address field value if set, zero value otherwise.
+// GetAddress returns the Address field value
 func (o *OrderCreateShipmentRequest) GetAddress() OrderPostalAddress {
-	if o == nil || IsNil(o.Address) {
+	if o == nil {
 		var ret OrderPostalAddress
 		return ret
 	}
-	return *o.Address
+
+	return o.Address
 }
 
-// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
+// GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateShipmentRequest) GetAddressOk() (*OrderPostalAddress, bool) {
-	if o == nil || IsNil(o.Address) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Address, true
+	return &o.Address, true
 }
 
-// HasAddress returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasAddress() bool {
-	if o != nil && !IsNil(o.Address) {
-		return true
-	}
-
-	return false
-}
-
-// SetAddress gets a reference to the given OrderPostalAddress and assigns it to the Address field.
+// SetAddress sets field value
 func (o *OrderCreateShipmentRequest) SetAddress(v OrderPostalAddress) {
-	o.Address = &v
+	o.Address = v
 }
 
 // GetFromAddress returns the FromAddress field value if set, zero value otherwise.
@@ -237,6 +215,70 @@ func (o *OrderCreateShipmentRequest) HasReturnAddress() bool {
 // SetReturnAddress gets a reference to the given OrderPostalAddress and assigns it to the ReturnAddress field.
 func (o *OrderCreateShipmentRequest) SetReturnAddress(v OrderPostalAddress) {
 	o.ReturnAddress = &v
+}
+
+// GetTracking returns the Tracking field value if set, zero value otherwise.
+func (o *OrderCreateShipmentRequest) GetTracking() []ShipmentTracking {
+	if o == nil || IsNil(o.Tracking) {
+		var ret []ShipmentTracking
+		return ret
+	}
+	return o.Tracking
+}
+
+// GetTrackingOk returns a tuple with the Tracking field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderCreateShipmentRequest) GetTrackingOk() ([]ShipmentTracking, bool) {
+	if o == nil || IsNil(o.Tracking) {
+		return nil, false
+	}
+	return o.Tracking, true
+}
+
+// HasTracking returns a boolean if a field has been set.
+func (o *OrderCreateShipmentRequest) HasTracking() bool {
+	if o != nil && !IsNil(o.Tracking) {
+		return true
+	}
+
+	return false
+}
+
+// SetTracking gets a reference to the given []ShipmentTracking and assigns it to the Tracking field.
+func (o *OrderCreateShipmentRequest) SetTracking(v []ShipmentTracking) {
+	o.Tracking = v
+}
+
+// GetReturnTracking returns the ReturnTracking field value if set, zero value otherwise.
+func (o *OrderCreateShipmentRequest) GetReturnTracking() []ShipmentTracking {
+	if o == nil || IsNil(o.ReturnTracking) {
+		var ret []ShipmentTracking
+		return ret
+	}
+	return o.ReturnTracking
+}
+
+// GetReturnTrackingOk returns a tuple with the ReturnTracking field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderCreateShipmentRequest) GetReturnTrackingOk() ([]ShipmentTracking, bool) {
+	if o == nil || IsNil(o.ReturnTracking) {
+		return nil, false
+	}
+	return o.ReturnTracking, true
+}
+
+// HasReturnTracking returns a boolean if a field has been set.
+func (o *OrderCreateShipmentRequest) HasReturnTracking() bool {
+	if o != nil && !IsNil(o.ReturnTracking) {
+		return true
+	}
+
+	return false
+}
+
+// SetReturnTracking gets a reference to the given []ShipmentTracking and assigns it to the ReturnTracking field.
+func (o *OrderCreateShipmentRequest) SetReturnTracking(v []ShipmentTracking) {
+	o.ReturnTracking = v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
@@ -313,23 +355,21 @@ func (o OrderCreateShipmentRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderCreateShipmentRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
-	if !IsNil(o.Items) {
-		toSerialize["items"] = o.Items
-	}
-	if !IsNil(o.Address) {
-		toSerialize["address"] = o.Address
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["orderId"] = o.OrderId
+	toSerialize["items"] = o.Items
+	toSerialize["address"] = o.Address
 	if !IsNil(o.FromAddress) {
 		toSerialize["fromAddress"] = o.FromAddress
 	}
 	if !IsNil(o.ReturnAddress) {
 		toSerialize["returnAddress"] = o.ReturnAddress
+	}
+	if !IsNil(o.Tracking) {
+		toSerialize["tracking"] = o.Tracking
+	}
+	if !IsNil(o.ReturnTracking) {
+		toSerialize["returnTracking"] = o.ReturnTracking
 	}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
@@ -338,6 +378,46 @@ func (o OrderCreateShipmentRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["method"] = o.Method
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderCreateShipmentRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"orderId",
+		"items",
+		"address",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderCreateShipmentRequest := _OrderCreateShipmentRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderCreateShipmentRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderCreateShipmentRequest(varOrderCreateShipmentRequest)
+
+	return err
 }
 
 type NullableOrderCreateShipmentRequest struct {

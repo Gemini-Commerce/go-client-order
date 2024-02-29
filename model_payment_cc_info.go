@@ -27,6 +27,7 @@ type PaymentCcInfo struct {
 	NumberEnc *string `json:"numberEnc,omitempty"`
 	Owner *string `json:"owner,omitempty"`
 	AvsStatus *string `json:"avsStatus,omitempty"`
+	// card type MasterCard, Visa..
 	Type *string `json:"type,omitempty"`
 }
 

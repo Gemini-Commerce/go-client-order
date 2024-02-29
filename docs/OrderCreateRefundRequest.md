@@ -6,10 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId**| **string** |   | [optional]
-**PaymentId**| **string** |   | [optional]
+**TenantId**| **string** |   |
+**PaymentId**| **string** |   |
 **Items**| [**[]OrderRefundItem**](OrderRefundItem.md) |   | [optional]
-**Amounts**| [**[]OrderRefundAmount**](OrderRefundAmount.md) |   | [optional]
+**Amounts**| [**[]OrderRefundAmount**](OrderRefundAmount.md) |   |
 **Note**| **string** |   | [optional]
 **AdditionalInfo**| **string** |   | [optional]
 

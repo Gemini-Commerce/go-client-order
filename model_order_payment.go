@@ -22,6 +22,7 @@ var _ MappedNullable = &OrderPayment{}
 type OrderPayment struct {
 	OrderId *string `json:"orderId,omitempty"`
 	Id *string `json:"id,omitempty"`
+	// payment type stripe, paypal..
 	Code *string `json:"code,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 	Amounts []OrderPaymentAmount `json:"amounts,omitempty"`

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrderId**| **string** |   | [optional]
 **Id**| **string** |   | [optional]
-**Code**| **string** |   | [optional]
+**Code**| **string** | payment type stripe, paypal..  | [optional]
 **AdditionalInfo**| **string** |   | [optional]
 **Amounts**| [**[]OrderPaymentAmount**](OrderPaymentAmount.md) |   | [optional]
 **CcInfo**| [**PaymentCcInfo**](PaymentCcInfo.md) |   | [optional]

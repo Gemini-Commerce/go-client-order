@@ -33,6 +33,8 @@ type OrderOrderDataItem struct {
 	RowVatAmount *OrderMoney `json:"rowVatAmount,omitempty"`
 	DiscountAmount *OrderMoney `json:"discountAmount,omitempty"`
 	RowBasePrice *OrderMoney `json:"rowBasePrice,omitempty"`
+	UnitCustomPrice *OrderMoney `json:"unitCustomPrice,omitempty"`
+	RowCustomPrice *OrderMoney `json:"rowCustomPrice,omitempty"`
 	VatPercentage *float32 `json:"vatPercentage,omitempty"`
 	VatInaccurate *bool `json:"vatInaccurate,omitempty"`
 	VatCalculated *bool `json:"vatCalculated,omitempty"`
@@ -45,6 +47,7 @@ type OrderOrderDataItem struct {
 	ShipmentInfoReference *string `json:"shipmentInfoReference,omitempty"`
 	PromotionGrn []string `json:"promotionGrn,omitempty"`
 	ProductIsVirtual *bool `json:"productIsVirtual,omitempty"`
+	ProductConfiguration []ItemProductConfigurationStep `json:"productConfiguration,omitempty"`
 }
 
 // NewOrderOrderDataItem instantiates a new OrderOrderDataItem object
@@ -480,6 +483,70 @@ func (o *OrderOrderDataItem) SetRowBasePrice(v OrderMoney) {
 	o.RowBasePrice = &v
 }
 
+// GetUnitCustomPrice returns the UnitCustomPrice field value if set, zero value otherwise.
+func (o *OrderOrderDataItem) GetUnitCustomPrice() OrderMoney {
+	if o == nil || IsNil(o.UnitCustomPrice) {
+		var ret OrderMoney
+		return ret
+	}
+	return *o.UnitCustomPrice
+}
+
+// GetUnitCustomPriceOk returns a tuple with the UnitCustomPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderOrderDataItem) GetUnitCustomPriceOk() (*OrderMoney, bool) {
+	if o == nil || IsNil(o.UnitCustomPrice) {
+		return nil, false
+	}
+	return o.UnitCustomPrice, true
+}
+
+// HasUnitCustomPrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasUnitCustomPrice() bool {
+	if o != nil && !IsNil(o.UnitCustomPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnitCustomPrice gets a reference to the given OrderMoney and assigns it to the UnitCustomPrice field.
+func (o *OrderOrderDataItem) SetUnitCustomPrice(v OrderMoney) {
+	o.UnitCustomPrice = &v
+}
+
+// GetRowCustomPrice returns the RowCustomPrice field value if set, zero value otherwise.
+func (o *OrderOrderDataItem) GetRowCustomPrice() OrderMoney {
+	if o == nil || IsNil(o.RowCustomPrice) {
+		var ret OrderMoney
+		return ret
+	}
+	return *o.RowCustomPrice
+}
+
+// GetRowCustomPriceOk returns a tuple with the RowCustomPrice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderOrderDataItem) GetRowCustomPriceOk() (*OrderMoney, bool) {
+	if o == nil || IsNil(o.RowCustomPrice) {
+		return nil, false
+	}
+	return o.RowCustomPrice, true
+}
+
+// HasRowCustomPrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasRowCustomPrice() bool {
+	if o != nil && !IsNil(o.RowCustomPrice) {
+		return true
+	}
+
+	return false
+}
+
+// SetRowCustomPrice gets a reference to the given OrderMoney and assigns it to the RowCustomPrice field.
+func (o *OrderOrderDataItem) SetRowCustomPrice(v OrderMoney) {
+	o.RowCustomPrice = &v
+}
+
 // GetVatPercentage returns the VatPercentage field value if set, zero value otherwise.
 func (o *OrderOrderDataItem) GetVatPercentage() float32 {
 	if o == nil || IsNil(o.VatPercentage) {
@@ -864,6 +931,38 @@ func (o *OrderOrderDataItem) SetProductIsVirtual(v bool) {
 	o.ProductIsVirtual = &v
 }
 
+// GetProductConfiguration returns the ProductConfiguration field value if set, zero value otherwise.
+func (o *OrderOrderDataItem) GetProductConfiguration() []ItemProductConfigurationStep {
+	if o == nil || IsNil(o.ProductConfiguration) {
+		var ret []ItemProductConfigurationStep
+		return ret
+	}
+	return o.ProductConfiguration
+}
+
+// GetProductConfigurationOk returns a tuple with the ProductConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderOrderDataItem) GetProductConfigurationOk() ([]ItemProductConfigurationStep, bool) {
+	if o == nil || IsNil(o.ProductConfiguration) {
+		return nil, false
+	}
+	return o.ProductConfiguration, true
+}
+
+// HasProductConfiguration returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductConfiguration() bool {
+	if o != nil && !IsNil(o.ProductConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetProductConfiguration gets a reference to the given []ItemProductConfigurationStep and assigns it to the ProductConfiguration field.
+func (o *OrderOrderDataItem) SetProductConfiguration(v []ItemProductConfigurationStep) {
+	o.ProductConfiguration = v
+}
+
 func (o OrderOrderDataItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -913,6 +1012,12 @@ func (o OrderOrderDataItem) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.RowBasePrice) {
 		toSerialize["rowBasePrice"] = o.RowBasePrice
 	}
+	if !IsNil(o.UnitCustomPrice) {
+		toSerialize["unitCustomPrice"] = o.UnitCustomPrice
+	}
+	if !IsNil(o.RowCustomPrice) {
+		toSerialize["rowCustomPrice"] = o.RowCustomPrice
+	}
 	if !IsNil(o.VatPercentage) {
 		toSerialize["vatPercentage"] = o.VatPercentage
 	}
@@ -948,6 +1053,9 @@ func (o OrderOrderDataItem) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ProductIsVirtual) {
 		toSerialize["productIsVirtual"] = o.ProductIsVirtual
+	}
+	if !IsNil(o.ProductConfiguration) {
+		toSerialize["productConfiguration"] = o.ProductConfiguration
 	}
 	return toSerialize, nil
 }

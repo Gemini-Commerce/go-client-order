@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderListOrdersByNumbersRequest type satisfies the MappedNullable interface at compile time
@@ -20,20 +22,24 @@ var _ MappedNullable = &OrderListOrdersByNumbersRequest{}
 
 // OrderListOrdersByNumbersRequest struct for OrderListOrdersByNumbersRequest
 type OrderListOrdersByNumbersRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	Numbers []string `json:"numbers,omitempty"`
+	TenantId string `json:"tenantId"`
+	Numbers []string `json:"numbers"`
 	// The maximum number of orders to return. The service may return fewer than this value. If unspecified, at most 10 orders will be returned. The maximum value is 100; values above 100 will be coerced to 100.
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// A page token, received from a previous `ListOrders` call. Provide this to retrieve the subsequent page.   When paginating, all other parameters provided to `ListOrders` must match the call that provided the page token.
 	PageToken *string `json:"pageToken,omitempty"`
 }
 
+type _OrderListOrdersByNumbersRequest OrderListOrdersByNumbersRequest
+
 // NewOrderListOrdersByNumbersRequest instantiates a new OrderListOrdersByNumbersRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderListOrdersByNumbersRequest() *OrderListOrdersByNumbersRequest {
+func NewOrderListOrdersByNumbersRequest(tenantId string, numbers []string) *OrderListOrdersByNumbersRequest {
 	this := OrderListOrdersByNumbersRequest{}
+	this.TenantId = tenantId
+	this.Numbers = numbers
 	return &this
 }
 
@@ -45,66 +51,50 @@ func NewOrderListOrdersByNumbersRequestWithDefaults() *OrderListOrdersByNumbersR
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderListOrdersByNumbersRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderListOrdersByNumbersRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderListOrdersByNumbersRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderListOrdersByNumbersRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetNumbers returns the Numbers field value if set, zero value otherwise.
+// GetNumbers returns the Numbers field value
 func (o *OrderListOrdersByNumbersRequest) GetNumbers() []string {
-	if o == nil || IsNil(o.Numbers) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.Numbers
 }
 
-// GetNumbersOk returns a tuple with the Numbers field value if set, nil otherwise
+// GetNumbersOk returns a tuple with the Numbers field value
 // and a boolean to check if the value has been set.
 func (o *OrderListOrdersByNumbersRequest) GetNumbersOk() ([]string, bool) {
-	if o == nil || IsNil(o.Numbers) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Numbers, true
 }
 
-// HasNumbers returns a boolean if a field has been set.
-func (o *OrderListOrdersByNumbersRequest) HasNumbers() bool {
-	if o != nil && !IsNil(o.Numbers) {
-		return true
-	}
-
-	return false
-}
-
-// SetNumbers gets a reference to the given []string and assigns it to the Numbers field.
+// SetNumbers sets field value
 func (o *OrderListOrdersByNumbersRequest) SetNumbers(v []string) {
 	o.Numbers = v
 }
@@ -183,12 +173,8 @@ func (o OrderListOrdersByNumbersRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderListOrdersByNumbersRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.Numbers) {
-		toSerialize["numbers"] = o.Numbers
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["numbers"] = o.Numbers
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
 	}
@@ -196,6 +182,44 @@ func (o OrderListOrdersByNumbersRequest) ToMap() (map[string]interface{}, error)
 		toSerialize["pageToken"] = o.PageToken
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderListOrdersByNumbersRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"numbers",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderListOrdersByNumbersRequest := _OrderListOrdersByNumbersRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderListOrdersByNumbersRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderListOrdersByNumbersRequest(varOrderListOrdersByNumbersRequest)
+
+	return err
 }
 
 type NullableOrderListOrdersByNumbersRequest struct {

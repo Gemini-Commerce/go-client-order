@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
+**CreatedAt**| [**time.Time**](time.Time.md) |   | [optional] [readonly]
 **PaymentId**| **string** |   | [optional]
 **Id**| **string** |   | [optional]
 **Type**| [**OrderTransactionType**](OrderTransactionType.md) |  for more information please, see Model/OrderTransactionType.php  | [optional] [default to UNKNOWN]

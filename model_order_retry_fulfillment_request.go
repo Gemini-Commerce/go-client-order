@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderRetryFulfillmentRequest type satisfies the MappedNullable interface at compile time
@@ -20,16 +22,20 @@ var _ MappedNullable = &OrderRetryFulfillmentRequest{}
 
 // OrderRetryFulfillmentRequest struct for OrderRetryFulfillmentRequest
 type OrderRetryFulfillmentRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	FulfillmentId *string `json:"fulfillmentId,omitempty"`
+	TenantId string `json:"tenantId"`
+	FulfillmentId string `json:"fulfillmentId"`
 }
+
+type _OrderRetryFulfillmentRequest OrderRetryFulfillmentRequest
 
 // NewOrderRetryFulfillmentRequest instantiates a new OrderRetryFulfillmentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderRetryFulfillmentRequest() *OrderRetryFulfillmentRequest {
+func NewOrderRetryFulfillmentRequest(tenantId string, fulfillmentId string) *OrderRetryFulfillmentRequest {
 	this := OrderRetryFulfillmentRequest{}
+	this.TenantId = tenantId
+	this.FulfillmentId = fulfillmentId
 	return &this
 }
 
@@ -41,68 +47,52 @@ func NewOrderRetryFulfillmentRequestWithDefaults() *OrderRetryFulfillmentRequest
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderRetryFulfillmentRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderRetryFulfillmentRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderRetryFulfillmentRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderRetryFulfillmentRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetFulfillmentId returns the FulfillmentId field value if set, zero value otherwise.
+// GetFulfillmentId returns the FulfillmentId field value
 func (o *OrderRetryFulfillmentRequest) GetFulfillmentId() string {
-	if o == nil || IsNil(o.FulfillmentId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FulfillmentId
+
+	return o.FulfillmentId
 }
 
-// GetFulfillmentIdOk returns a tuple with the FulfillmentId field value if set, nil otherwise
+// GetFulfillmentIdOk returns a tuple with the FulfillmentId field value
 // and a boolean to check if the value has been set.
 func (o *OrderRetryFulfillmentRequest) GetFulfillmentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.FulfillmentId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FulfillmentId, true
+	return &o.FulfillmentId, true
 }
 
-// HasFulfillmentId returns a boolean if a field has been set.
-func (o *OrderRetryFulfillmentRequest) HasFulfillmentId() bool {
-	if o != nil && !IsNil(o.FulfillmentId) {
-		return true
-	}
-
-	return false
-}
-
-// SetFulfillmentId gets a reference to the given string and assigns it to the FulfillmentId field.
+// SetFulfillmentId sets field value
 func (o *OrderRetryFulfillmentRequest) SetFulfillmentId(v string) {
-	o.FulfillmentId = &v
+	o.FulfillmentId = v
 }
 
 func (o OrderRetryFulfillmentRequest) MarshalJSON() ([]byte, error) {
@@ -115,13 +105,47 @@ func (o OrderRetryFulfillmentRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderRetryFulfillmentRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.FulfillmentId) {
-		toSerialize["fulfillmentId"] = o.FulfillmentId
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["fulfillmentId"] = o.FulfillmentId
 	return toSerialize, nil
+}
+
+func (o *OrderRetryFulfillmentRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"fulfillmentId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderRetryFulfillmentRequest := _OrderRetryFulfillmentRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderRetryFulfillmentRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderRetryFulfillmentRequest(varOrderRetryFulfillmentRequest)
+
+	return err
 }
 
 type NullableOrderRetryFulfillmentRequest struct {

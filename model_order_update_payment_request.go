@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderUpdatePaymentRequest type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &OrderUpdatePaymentRequest{}
 
 // OrderUpdatePaymentRequest struct for OrderUpdatePaymentRequest
 type OrderUpdatePaymentRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	PaymentId *string `json:"paymentId,omitempty"`
+	TenantId string `json:"tenantId"`
+	PaymentId string `json:"paymentId"`
 	CcInfo *PaymentCcInfo `json:"ccInfo,omitempty"`
 }
+
+type _OrderUpdatePaymentRequest OrderUpdatePaymentRequest
 
 // NewOrderUpdatePaymentRequest instantiates a new OrderUpdatePaymentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderUpdatePaymentRequest() *OrderUpdatePaymentRequest {
+func NewOrderUpdatePaymentRequest(tenantId string, paymentId string) *OrderUpdatePaymentRequest {
 	this := OrderUpdatePaymentRequest{}
+	this.TenantId = tenantId
+	this.PaymentId = paymentId
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewOrderUpdatePaymentRequestWithDefaults() *OrderUpdatePaymentRequest {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderUpdatePaymentRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderUpdatePaymentRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderUpdatePaymentRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderUpdatePaymentRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetPaymentId returns the PaymentId field value if set, zero value otherwise.
+// GetPaymentId returns the PaymentId field value
 func (o *OrderUpdatePaymentRequest) GetPaymentId() string {
-	if o == nil || IsNil(o.PaymentId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PaymentId
+
+	return o.PaymentId
 }
 
-// GetPaymentIdOk returns a tuple with the PaymentId field value if set, nil otherwise
+// GetPaymentIdOk returns a tuple with the PaymentId field value
 // and a boolean to check if the value has been set.
 func (o *OrderUpdatePaymentRequest) GetPaymentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PaymentId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PaymentId, true
+	return &o.PaymentId, true
 }
 
-// HasPaymentId returns a boolean if a field has been set.
-func (o *OrderUpdatePaymentRequest) HasPaymentId() bool {
-	if o != nil && !IsNil(o.PaymentId) {
-		return true
-	}
-
-	return false
-}
-
-// SetPaymentId gets a reference to the given string and assigns it to the PaymentId field.
+// SetPaymentId sets field value
 func (o *OrderUpdatePaymentRequest) SetPaymentId(v string) {
-	o.PaymentId = &v
+	o.PaymentId = v
 }
 
 // GetCcInfo returns the CcInfo field value if set, zero value otherwise.
@@ -148,16 +138,50 @@ func (o OrderUpdatePaymentRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderUpdatePaymentRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.PaymentId) {
-		toSerialize["paymentId"] = o.PaymentId
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["paymentId"] = o.PaymentId
 	if !IsNil(o.CcInfo) {
 		toSerialize["ccInfo"] = o.CcInfo
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderUpdatePaymentRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"paymentId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderUpdatePaymentRequest := _OrderUpdatePaymentRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderUpdatePaymentRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderUpdatePaymentRequest(varOrderUpdatePaymentRequest)
+
+	return err
 }
 
 type NullableOrderUpdatePaymentRequest struct {

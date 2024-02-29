@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderDataPaymentInfo type satisfies the MappedNullable interface at compile time
@@ -20,9 +22,9 @@ var _ MappedNullable = &OrderDataPaymentInfo{}
 
 // OrderDataPaymentInfo struct for OrderDataPaymentInfo
 type OrderDataPaymentInfo struct {
-	Code *string `json:"code,omitempty"`
+	Code string `json:"code"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
-	Amount *OrderMoney `json:"amount,omitempty"`
+	Amount OrderMoney `json:"amount"`
 	Fee *OrderMoney `json:"fee,omitempty"`
 	VatAmount *OrderMoney `json:"vatAmount,omitempty"`
 	VatPercentage *float32 `json:"vatPercentage,omitempty"`
@@ -32,12 +34,16 @@ type OrderDataPaymentInfo struct {
 	Label *OrderLocalizedText `json:"label,omitempty"`
 }
 
+type _OrderDataPaymentInfo OrderDataPaymentInfo
+
 // NewOrderDataPaymentInfo instantiates a new OrderDataPaymentInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderDataPaymentInfo() *OrderDataPaymentInfo {
+func NewOrderDataPaymentInfo(code string, amount OrderMoney) *OrderDataPaymentInfo {
 	this := OrderDataPaymentInfo{}
+	this.Code = code
+	this.Amount = amount
 	return &this
 }
 
@@ -49,36 +55,28 @@ func NewOrderDataPaymentInfoWithDefaults() *OrderDataPaymentInfo {
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *OrderDataPaymentInfo) GetCode() string {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataPaymentInfo) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given string and assigns it to the Code field.
+// SetCode sets field value
 func (o *OrderDataPaymentInfo) SetCode(v string) {
-	o.Code = &v
+	o.Code = v
 }
 
 // GetAdditionalInfo returns the AdditionalInfo field value if set, zero value otherwise.
@@ -113,36 +111,28 @@ func (o *OrderDataPaymentInfo) SetAdditionalInfo(v string) {
 	o.AdditionalInfo = &v
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise.
+// GetAmount returns the Amount field value
 func (o *OrderDataPaymentInfo) GetAmount() OrderMoney {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		var ret OrderMoney
 		return ret
 	}
-	return *o.Amount
+
+	return o.Amount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataPaymentInfo) GetAmountOk() (*OrderMoney, bool) {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Amount, true
+	return &o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given OrderMoney and assigns it to the Amount field.
+// SetAmount sets field value
 func (o *OrderDataPaymentInfo) SetAmount(v OrderMoney) {
-	o.Amount = &v
+	o.Amount = v
 }
 
 // GetFee returns the Fee field value if set, zero value otherwise.
@@ -379,15 +369,11 @@ func (o OrderDataPaymentInfo) MarshalJSON() ([]byte, error) {
 
 func (o OrderDataPaymentInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
+	toSerialize["code"] = o.Code
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
-	if !IsNil(o.Amount) {
-		toSerialize["amount"] = o.Amount
-	}
+	toSerialize["amount"] = o.Amount
 	if !IsNil(o.Fee) {
 		toSerialize["fee"] = o.Fee
 	}
@@ -410,6 +396,44 @@ func (o OrderDataPaymentInfo) ToMap() (map[string]interface{}, error) {
 		toSerialize["label"] = o.Label
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderDataPaymentInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"code",
+		"amount",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderDataPaymentInfo := _OrderDataPaymentInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataPaymentInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDataPaymentInfo(varOrderDataPaymentInfo)
+
+	return err
 }
 
 type NullableOrderDataPaymentInfo struct {

@@ -14,6 +14,8 @@ package order
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderOrderData type satisfies the MappedNullable interface at compile time
@@ -29,8 +31,9 @@ type OrderOrderData struct {
 	Status *string `json:"status,omitempty"`
 	Channel *string `json:"channel,omitempty"`
 	Market *string `json:"market,omitempty"`
-	Locale *string `json:"locale,omitempty"`
+	Locale string `json:"locale"`
 	AdditionalInfo map[string]interface{} `json:"additionalInfo,omitempty"`
+	Documents []OrderDataDocument `json:"documents,omitempty"`
 	Items []OrderOrderDataItem `json:"items,omitempty"`
 	Payments []OrderPayment `json:"payments,omitempty"`
 	Shipments []OrderShipment `json:"shipments,omitempty"`
@@ -56,12 +59,15 @@ type OrderOrderData struct {
 	DeletedAt *time.Time `json:"deletedAt,omitempty"`
 }
 
+type _OrderOrderData OrderOrderData
+
 // NewOrderOrderData instantiates a new OrderOrderData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderOrderData() *OrderOrderData {
+func NewOrderOrderData(locale string) *OrderOrderData {
 	this := OrderOrderData{}
+	this.Locale = locale
 	var currency OrderCurrency = XXX
 	this.Currency = &currency
 	return &this
@@ -333,36 +339,28 @@ func (o *OrderOrderData) SetMarket(v string) {
 	o.Market = &v
 }
 
-// GetLocale returns the Locale field value if set, zero value otherwise.
+// GetLocale returns the Locale field value
 func (o *OrderOrderData) GetLocale() string {
-	if o == nil || IsNil(o.Locale) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Locale
+
+	return o.Locale
 }
 
-// GetLocaleOk returns a tuple with the Locale field value if set, nil otherwise
+// GetLocaleOk returns a tuple with the Locale field value
 // and a boolean to check if the value has been set.
 func (o *OrderOrderData) GetLocaleOk() (*string, bool) {
-	if o == nil || IsNil(o.Locale) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Locale, true
+	return &o.Locale, true
 }
 
-// HasLocale returns a boolean if a field has been set.
-func (o *OrderOrderData) HasLocale() bool {
-	if o != nil && !IsNil(o.Locale) {
-		return true
-	}
-
-	return false
-}
-
-// SetLocale gets a reference to the given string and assigns it to the Locale field.
+// SetLocale sets field value
 func (o *OrderOrderData) SetLocale(v string) {
-	o.Locale = &v
+	o.Locale = v
 }
 
 // GetAdditionalInfo returns the AdditionalInfo field value if set, zero value otherwise.
@@ -395,6 +393,38 @@ func (o *OrderOrderData) HasAdditionalInfo() bool {
 // SetAdditionalInfo gets a reference to the given map[string]interface{} and assigns it to the AdditionalInfo field.
 func (o *OrderOrderData) SetAdditionalInfo(v map[string]interface{}) {
 	o.AdditionalInfo = v
+}
+
+// GetDocuments returns the Documents field value if set, zero value otherwise.
+func (o *OrderOrderData) GetDocuments() []OrderDataDocument {
+	if o == nil || IsNil(o.Documents) {
+		var ret []OrderDataDocument
+		return ret
+	}
+	return o.Documents
+}
+
+// GetDocumentsOk returns a tuple with the Documents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderOrderData) GetDocumentsOk() ([]OrderDataDocument, bool) {
+	if o == nil || IsNil(o.Documents) {
+		return nil, false
+	}
+	return o.Documents, true
+}
+
+// HasDocuments returns a boolean if a field has been set.
+func (o *OrderOrderData) HasDocuments() bool {
+	if o != nil && !IsNil(o.Documents) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocuments gets a reference to the given []OrderDataDocument and assigns it to the Documents field.
+func (o *OrderOrderData) SetDocuments(v []OrderDataDocument) {
+	o.Documents = v
 }
 
 // GetItems returns the Items field value if set, zero value otherwise.
@@ -1103,11 +1133,12 @@ func (o OrderOrderData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Market) {
 		toSerialize["market"] = o.Market
 	}
-	if !IsNil(o.Locale) {
-		toSerialize["locale"] = o.Locale
-	}
+	toSerialize["locale"] = o.Locale
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
+	}
+	if !IsNil(o.Documents) {
+		toSerialize["documents"] = o.Documents
 	}
 	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
@@ -1173,6 +1204,43 @@ func (o OrderOrderData) ToMap() (map[string]interface{}, error) {
 		toSerialize["deletedAt"] = o.DeletedAt
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderOrderData) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"locale",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderOrderData := _OrderOrderData{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderOrderData)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderOrderData(varOrderOrderData)
+
+	return err
 }
 
 type NullableOrderOrderData struct {

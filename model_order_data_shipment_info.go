@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderDataShipmentInfo type satisfies the MappedNullable interface at compile time
@@ -20,12 +22,12 @@ var _ MappedNullable = &OrderDataShipmentInfo{}
 
 // OrderDataShipmentInfo struct for OrderDataShipmentInfo
 type OrderDataShipmentInfo struct {
-	Reference *string `json:"reference,omitempty"`
-	Code *string `json:"code,omitempty"`
+	Reference string `json:"reference"`
+	Code string `json:"code"`
 	Method *string `json:"method,omitempty"`
 	Title *string `json:"title,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
-	Amount *OrderMoney `json:"amount,omitempty"`
+	Amount OrderMoney `json:"amount"`
 	Fee *OrderMoney `json:"fee,omitempty"`
 	VatAmount *OrderMoney `json:"vatAmount,omitempty"`
 	VatPercentage *float32 `json:"vatPercentage,omitempty"`
@@ -36,12 +38,17 @@ type OrderDataShipmentInfo struct {
 	ReturnAddress *OrderPostalAddress `json:"returnAddress,omitempty"`
 }
 
+type _OrderDataShipmentInfo OrderDataShipmentInfo
+
 // NewOrderDataShipmentInfo instantiates a new OrderDataShipmentInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderDataShipmentInfo() *OrderDataShipmentInfo {
+func NewOrderDataShipmentInfo(reference string, code string, amount OrderMoney) *OrderDataShipmentInfo {
 	this := OrderDataShipmentInfo{}
+	this.Reference = reference
+	this.Code = code
+	this.Amount = amount
 	return &this
 }
 
@@ -53,68 +60,52 @@ func NewOrderDataShipmentInfoWithDefaults() *OrderDataShipmentInfo {
 	return &this
 }
 
-// GetReference returns the Reference field value if set, zero value otherwise.
+// GetReference returns the Reference field value
 func (o *OrderDataShipmentInfo) GetReference() string {
-	if o == nil || IsNil(o.Reference) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Reference
+
+	return o.Reference
 }
 
-// GetReferenceOk returns a tuple with the Reference field value if set, nil otherwise
+// GetReferenceOk returns a tuple with the Reference field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataShipmentInfo) GetReferenceOk() (*string, bool) {
-	if o == nil || IsNil(o.Reference) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Reference, true
+	return &o.Reference, true
 }
 
-// HasReference returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasReference() bool {
-	if o != nil && !IsNil(o.Reference) {
-		return true
-	}
-
-	return false
-}
-
-// SetReference gets a reference to the given string and assigns it to the Reference field.
+// SetReference sets field value
 func (o *OrderDataShipmentInfo) SetReference(v string) {
-	o.Reference = &v
+	o.Reference = v
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *OrderDataShipmentInfo) GetCode() string {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataShipmentInfo) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given string and assigns it to the Code field.
+// SetCode sets field value
 func (o *OrderDataShipmentInfo) SetCode(v string) {
-	o.Code = &v
+	o.Code = v
 }
 
 // GetMethod returns the Method field value if set, zero value otherwise.
@@ -213,36 +204,28 @@ func (o *OrderDataShipmentInfo) SetAdditionalInfo(v string) {
 	o.AdditionalInfo = &v
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise.
+// GetAmount returns the Amount field value
 func (o *OrderDataShipmentInfo) GetAmount() OrderMoney {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		var ret OrderMoney
 		return ret
 	}
-	return *o.Amount
+
+	return o.Amount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataShipmentInfo) GetAmountOk() (*OrderMoney, bool) {
-	if o == nil || IsNil(o.Amount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Amount, true
+	return &o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given OrderMoney and assigns it to the Amount field.
+// SetAmount sets field value
 func (o *OrderDataShipmentInfo) SetAmount(v OrderMoney) {
-	o.Amount = &v
+	o.Amount = v
 }
 
 // GetFee returns the Fee field value if set, zero value otherwise.
@@ -511,12 +494,8 @@ func (o OrderDataShipmentInfo) MarshalJSON() ([]byte, error) {
 
 func (o OrderDataShipmentInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Reference) {
-		toSerialize["reference"] = o.Reference
-	}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
+	toSerialize["reference"] = o.Reference
+	toSerialize["code"] = o.Code
 	if !IsNil(o.Method) {
 		toSerialize["method"] = o.Method
 	}
@@ -526,9 +505,7 @@ func (o OrderDataShipmentInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
-	if !IsNil(o.Amount) {
-		toSerialize["amount"] = o.Amount
-	}
+	toSerialize["amount"] = o.Amount
 	if !IsNil(o.Fee) {
 		toSerialize["fee"] = o.Fee
 	}
@@ -554,6 +531,45 @@ func (o OrderDataShipmentInfo) ToMap() (map[string]interface{}, error) {
 		toSerialize["returnAddress"] = o.ReturnAddress
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderDataShipmentInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"reference",
+		"code",
+		"amount",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderDataShipmentInfo := _OrderDataShipmentInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataShipmentInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDataShipmentInfo(varOrderDataShipmentInfo)
+
+	return err
 }
 
 type NullableOrderDataShipmentInfo struct {

@@ -34,6 +34,8 @@ Method | HTTP request | Description
 [**ListOrdersByCustomer**](OrderAPI.md#ListOrdersByCustomer) | **Post** /order.Order/ListOrdersByCustomer | List Orders by Customer
 [**ListOrdersByNumbers**](OrderAPI.md#ListOrdersByNumbers) | **Post** /order.Order/ListOrdersByNumbers | List Orders by Numbers
 [**ListShipments**](OrderAPI.md#ListShipments) | **Post** /order.Order/ListShipments | List Shipments
+[**OrderAddDocument**](OrderAPI.md#OrderAddDocument) | **Post** /order.Order/AddDocument | Documents
+[**OrderRemoveDocumentByCode**](OrderAPI.md#OrderRemoveDocumentByCode) | **Post** /order.Order/RemoveDocumentByCode | 
 [**PrintOrdersLabels**](OrderAPI.md#PrintOrdersLabels) | **Post** /order.Order/PrintOrdersLabels | Print Orders Labels
 [**QuashFulfillment**](OrderAPI.md#QuashFulfillment) | **Post** /order.Order/QuashFulfillment | Quash Fulfillment
 [**QuashShipment**](OrderAPI.md#QuashShipment) | **Post** /order.Order/QuashShipment | Quash Shipment
@@ -75,7 +77,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderApproveOrderRequest() // OrderApproveOrderRequest | 
+	body := *openapiclient.NewOrderApproveOrderRequest("TenantId_example", "OrderId_example") // OrderApproveOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -108,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -139,7 +141,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderAssignShipmentRequest() // OrderAssignShipmentRequest | 
+	body := *openapiclient.NewOrderAssignShipmentRequest("TenantId_example", "ShipmentId_example") // OrderAssignShipmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -172,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -203,7 +205,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCalculateRefundRequest() // OrderCalculateRefundRequest | 
+	body := *openapiclient.NewOrderCalculateRefundRequest("TenantId_example", "PaymentId_example") // OrderCalculateRefundRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -236,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -267,7 +269,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCancelFulfillmentRequest() // OrderCancelFulfillmentRequest | 
+	body := *openapiclient.NewOrderCancelFulfillmentRequest("TenantId_example", "FulfillmentId_example") // OrderCancelFulfillmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -300,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -331,7 +333,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCancelOrderRequest() // OrderCancelOrderRequest | 
+	body := *openapiclient.NewOrderCancelOrderRequest("TenantId_example", "OrderId_example") // OrderCancelOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -364,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -395,7 +397,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCancelShipmentRequest() // OrderCancelShipmentRequest | 
+	body := *openapiclient.NewOrderCancelShipmentRequest("TenantId_example", "ShipmentId_example") // OrderCancelShipmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -428,7 +430,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -459,7 +461,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCompleteShipmentPackingRequest() // OrderCompleteShipmentPackingRequest | 
+	body := *openapiclient.NewOrderCompleteShipmentPackingRequest("TenantId_example", "ShipmentId_example") // OrderCompleteShipmentPackingRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -492,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -523,7 +525,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreateFulfillmentRequest() // OrderCreateFulfillmentRequest | 
+	body := *openapiclient.NewOrderCreateFulfillmentRequest("TenantId_example", "OrderId_example", []openapiclient.OrderFulfillmentItem{*openapiclient.NewOrderFulfillmentItem()}) // OrderCreateFulfillmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -556,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -587,7 +589,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreateOrderRequest() // OrderCreateOrderRequest | 
+	body := *openapiclient.NewOrderCreateOrderRequest("TenantId_example", "Number_example", "Market_example", "Locale_example", []openapiclient.OrderOrderDataItem{*openapiclient.NewOrderOrderDataItem()}, openapiclient.orderCurrency("XXX"), map[string]OrderDataSubtotal{"key": *openapiclient.NewOrderDataSubtotal(openapiclient.OrderDataSubtotalCode("UNKNOWN"), *openapiclient.NewOrderMoney())}, map[string]OrderDataTotal{"key": *openapiclient.NewOrderDataTotal(openapiclient.OrderDataTotalCode("UNKNOWN"), *openapiclient.NewOrderMoney())}, false, *openapiclient.NewOrderPostalAddress(), *openapiclient.NewOrderPostalAddress(), *openapiclient.NewOrderDataCustomerInfo("Firstname_example", "Lastname_example", "Email_example")) // OrderCreateOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -620,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -651,7 +653,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreateHistoryRequest() // OrderCreateHistoryRequest | 
+	body := *openapiclient.NewOrderCreateHistoryRequest("TenantId_example", "OrderId_example") // OrderCreateHistoryRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -684,7 +686,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -715,7 +717,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreatePaymentRequest() // OrderCreatePaymentRequest | 
+	body := *openapiclient.NewOrderCreatePaymentRequest("TenantId_example", "OrderId_example", "Code_example", *openapiclient.NewOrderMoney()) // OrderCreatePaymentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -748,7 +750,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -779,7 +781,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreatePaymentTransactionRequest() // OrderCreatePaymentTransactionRequest | 
+	body := *openapiclient.NewOrderCreatePaymentTransactionRequest("TenantId_example", "PaymentId_example", openapiclient.orderTransactionType("UNKNOWN")) // OrderCreatePaymentTransactionRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -812,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -843,7 +845,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreateRefundRequest() // OrderCreateRefundRequest | 
+	body := *openapiclient.NewOrderCreateRefundRequest("TenantId_example", "PaymentId_example", []openapiclient.OrderRefundAmount{*openapiclient.NewOrderRefundAmount()}) // OrderCreateRefundRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -876,7 +878,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -907,7 +909,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreateRefundTransactionRequest() // OrderCreateRefundTransactionRequest | 
+	body := *openapiclient.NewOrderCreateRefundTransactionRequest("TenantId_example", "RefundId_example") // OrderCreateRefundTransactionRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -940,7 +942,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -971,7 +973,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderCreateShipmentRequest() // OrderCreateShipmentRequest | 
+	body := *openapiclient.NewOrderCreateShipmentRequest("TenantId_example", "OrderId_example", []openapiclient.OrderShipmentItem{*openapiclient.NewOrderShipmentItem()}, *openapiclient.NewOrderPostalAddress()) // OrderCreateShipmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1004,7 +1006,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1035,7 +1037,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderDeleteOrderRequest() // OrderDeleteOrderRequest | 
+	body := *openapiclient.NewOrderDeleteOrderRequest("TenantId_example", "OrderId_example") // OrderDeleteOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1068,7 +1070,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1099,7 +1101,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderGetFulfillmentRequest() // OrderGetFulfillmentRequest | 
+	body := *openapiclient.NewOrderGetFulfillmentRequest("TenantId_example", "Id_example") // OrderGetFulfillmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1132,7 +1134,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1163,7 +1165,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderGetOrderRequest() // OrderGetOrderRequest | 
+	body := *openapiclient.NewOrderGetOrderRequest("TenantId_example", "Id_example") // OrderGetOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1196,7 +1198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1227,7 +1229,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderGetOrderByCartIdRequest() // OrderGetOrderByCartIdRequest | 
+	body := *openapiclient.NewOrderGetOrderByCartIdRequest("TenantId_example", "CartId_example") // OrderGetOrderByCartIdRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1260,7 +1262,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1291,7 +1293,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderGetOrderByOrderNumberRequest() // OrderGetOrderByOrderNumberRequest | 
+	body := *openapiclient.NewOrderGetOrderByOrderNumberRequest("TenantId_example", "OrderNumber_example") // OrderGetOrderByOrderNumberRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1324,7 +1326,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1355,7 +1357,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderGetPaymentRequest() // OrderGetPaymentRequest | 
+	body := *openapiclient.NewOrderGetPaymentRequest("TenantId_example", "Id_example") // OrderGetPaymentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1388,7 +1390,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1419,7 +1421,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderGetShipmentRequest() // OrderGetShipmentRequest | 
+	body := *openapiclient.NewOrderGetShipmentRequest("TenantId_example", "Id_example") // OrderGetShipmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1452,7 +1454,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1483,7 +1485,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderGetTransactionRequest() // OrderGetTransactionRequest | 
+	body := *openapiclient.NewOrderGetTransactionRequest("TenantId_example", "Id_example") // OrderGetTransactionRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1516,7 +1518,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1547,7 +1549,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderHoldOrderRequest() // OrderHoldOrderRequest | 
+	body := *openapiclient.NewOrderHoldOrderRequest("OrderId_example") // OrderHoldOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1580,7 +1582,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1611,7 +1613,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderImportOrderRequest() // OrderImportOrderRequest | 
+	body := *openapiclient.NewOrderImportOrderRequest("TenantId_example", "Number_example", "Market_example", "Locale_example", *openapiclient.NewOrderDataCustomerInfo("Firstname_example", "Lastname_example", "Email_example"), *openapiclient.NewOrderPostalAddress(), *openapiclient.NewOrderPostalAddress(), []openapiclient.ImportOrderRequestImportedPayment{*openapiclient.NewImportOrderRequestImportedPayment("Code_example", []openapiclient.OrderPaymentAmount{*openapiclient.NewOrderPaymentAmount()})}, []openapiclient.OrderDataPaymentInfo{*openapiclient.NewOrderDataPaymentInfo("Code_example", *openapiclient.NewOrderMoney())}, []openapiclient.OrderDataShipmentInfo{*openapiclient.NewOrderDataShipmentInfo("Reference_example", "Code_example", *openapiclient.NewOrderMoney())}, []openapiclient.OrderOrderDataItem{*openapiclient.NewOrderOrderDataItem()}, map[string]OrderDataSubtotal{"key": *openapiclient.NewOrderDataSubtotal(openapiclient.OrderDataSubtotalCode("UNKNOWN"), *openapiclient.NewOrderMoney())}, map[string]OrderDataTotal{"key": *openapiclient.NewOrderDataTotal(openapiclient.OrderDataTotalCode("UNKNOWN"), *openapiclient.NewOrderMoney())}, "Status_example", openapiclient.orderCurrency("XXX")) // OrderImportOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1644,7 +1646,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1675,7 +1677,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderListFulfillmentsRequest() // OrderListFulfillmentsRequest | 
+	body := *openapiclient.NewOrderListFulfillmentsRequest("TenantId_example") // OrderListFulfillmentsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1708,7 +1710,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1739,7 +1741,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderListOrdersRequest() // OrderListOrdersRequest | 
+	body := *openapiclient.NewOrderListOrdersRequest("TenantId_example") // OrderListOrdersRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1772,7 +1774,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1803,7 +1805,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderListOrdersByCustomerRequest() // OrderListOrdersByCustomerRequest | 
+	body := *openapiclient.NewOrderListOrdersByCustomerRequest("TenantId_example", "CustomerGrn_example") // OrderListOrdersByCustomerRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1836,7 +1838,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1867,7 +1869,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderListOrdersByNumbersRequest() // OrderListOrdersByNumbersRequest | 
+	body := *openapiclient.NewOrderListOrdersByNumbersRequest("TenantId_example", []string{"Numbers_example"}) // OrderListOrdersByNumbersRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1900,7 +1902,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1931,7 +1933,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderListShipmentsRequest() // OrderListShipmentsRequest | 
+	body := *openapiclient.NewOrderListShipmentsRequest("TenantId_example") // OrderListShipmentsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1964,7 +1966,135 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OrderAddDocument
+
+> map[string]interface{} OrderAddDocument(ctx).Body(body).Execute()
+
+Documents
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
+)
+
+func main() {
+	body := *openapiclient.NewOrderAddDocumentRequest("TenantId_example", "OrderId_example", "Code_example") // OrderAddDocumentRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OrderAPI.OrderAddDocument(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OrderAPI.OrderAddDocument``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OrderAddDocument`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `OrderAPI.OrderAddDocument`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOrderAddDocumentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**OrderAddDocumentRequest**](OrderAddDocumentRequest.md) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OrderRemoveDocumentByCode
+
+> map[string]interface{} OrderRemoveDocumentByCode(ctx).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
+)
+
+func main() {
+	body := *openapiclient.NewOrderRemoveDocumentByCodeRequest("TenantId_example", "OrderId_example", "Code_example") // OrderRemoveDocumentByCodeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OrderAPI.OrderRemoveDocumentByCode(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OrderAPI.OrderRemoveDocumentByCode``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OrderRemoveDocumentByCode`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `OrderAPI.OrderRemoveDocumentByCode`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOrderRemoveDocumentByCodeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**OrderRemoveDocumentByCodeRequest**](OrderRemoveDocumentByCodeRequest.md) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -1995,7 +2125,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderPrintOrdersLabelsRequest() // OrderPrintOrdersLabelsRequest | 
+	body := *openapiclient.NewOrderPrintOrdersLabelsRequest("TenantId_example", []string{"OrderNumbers_example"}) // OrderPrintOrdersLabelsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2028,7 +2158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2059,7 +2189,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderQuashFulfillmentRequest() // OrderQuashFulfillmentRequest | 
+	body := *openapiclient.NewOrderQuashFulfillmentRequest("TenantId_example", "FulfillmentId_example") // OrderQuashFulfillmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2092,7 +2222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2123,7 +2253,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderQuashShipmentRequest() // OrderQuashShipmentRequest | 
+	body := *openapiclient.NewOrderQuashShipmentRequest("TenantId_example", "ShipmentId_example") // OrderQuashShipmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2156,7 +2286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2187,7 +2317,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderReceiveFulfillmentRequest() // OrderReceiveFulfillmentRequest | 
+	body := *openapiclient.NewOrderReceiveFulfillmentRequest("TenantId_example", "FulfillmentId_example") // OrderReceiveFulfillmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2220,7 +2350,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2251,7 +2381,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderReportFulfillmentErrorRequest() // OrderReportFulfillmentErrorRequest | 
+	body := *openapiclient.NewOrderReportFulfillmentErrorRequest("TenantId_example", "FulfillmentId_example") // OrderReportFulfillmentErrorRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2284,7 +2414,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2315,7 +2445,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderReportFulfillmentNotResolvableRequest() // OrderReportFulfillmentNotResolvableRequest | 
+	body := *openapiclient.NewOrderReportFulfillmentNotResolvableRequest("TenantId_example", "FulfillmentId_example") // OrderReportFulfillmentNotResolvableRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2348,7 +2478,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2379,7 +2509,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderReportFulfillmentReadyRequest() // OrderReportFulfillmentReadyRequest | 
+	body := *openapiclient.NewOrderReportFulfillmentReadyRequest("TenantId_example", "FulfillmentId_example") // OrderReportFulfillmentReadyRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2412,7 +2542,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2443,7 +2573,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderReportShipmentDeliveryRequest() // OrderReportShipmentDeliveryRequest | 
+	body := *openapiclient.NewOrderReportShipmentDeliveryRequest("TenantId_example", "ShipmentId_example") // OrderReportShipmentDeliveryRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2476,7 +2606,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2507,7 +2637,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderReportShipmentMissingStockRequest() // OrderReportShipmentMissingStockRequest | 
+	body := *openapiclient.NewOrderReportShipmentMissingStockRequest("TenantId_example", "ShipmentId_example") // OrderReportShipmentMissingStockRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2540,7 +2670,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2571,7 +2701,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderResolveShipmentMissingStockRequest() // OrderResolveShipmentMissingStockRequest | 
+	body := *openapiclient.NewOrderResolveShipmentMissingStockRequest("TenantId_example", "ShipmentId_example") // OrderResolveShipmentMissingStockRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2604,7 +2734,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2635,7 +2765,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderRetryFulfillmentRequest() // OrderRetryFulfillmentRequest | 
+	body := *openapiclient.NewOrderRetryFulfillmentRequest("TenantId_example", "FulfillmentId_example") // OrderRetryFulfillmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2668,7 +2798,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2699,7 +2829,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderSearchOrdersRequest() // OrderSearchOrdersRequest | 
+	body := *openapiclient.NewOrderSearchOrdersRequest("TenantId_example") // OrderSearchOrdersRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2732,7 +2862,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2763,7 +2893,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderSendFulfillmentRequest() // OrderSendFulfillmentRequest | 
+	body := *openapiclient.NewOrderSendFulfillmentRequest("TenantId_example", "FulfillmentId_example") // OrderSendFulfillmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2796,7 +2926,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2860,7 +2990,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2891,7 +3021,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderStartFulfillmentProcessingRequest() // OrderStartFulfillmentProcessingRequest | 
+	body := *openapiclient.NewOrderStartFulfillmentProcessingRequest("TenantId_example", "FulfillmentId_example") // OrderStartFulfillmentProcessingRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2924,7 +3054,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -2955,7 +3085,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderStartShipmentProcessingRequest() // OrderStartShipmentProcessingRequest | 
+	body := *openapiclient.NewOrderStartShipmentProcessingRequest("TenantId_example", "ShipmentId_example") // OrderStartShipmentProcessingRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2988,7 +3118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -3019,7 +3149,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderUnholdOrderRequest() // OrderUnholdOrderRequest | 
+	body := *openapiclient.NewOrderUnholdOrderRequest("TenantId_example", "OrderId_example") // OrderUnholdOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3052,7 +3182,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -3083,7 +3213,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderUpdateOrderRequest() // OrderUpdateOrderRequest | 
+	body := *openapiclient.NewOrderUpdateOrderRequest("TenantId_example", "Id_example") // OrderUpdateOrderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3116,7 +3246,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 
@@ -3147,7 +3277,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewOrderUpdatePaymentRequest() // OrderUpdatePaymentRequest | 
+	body := *openapiclient.NewOrderUpdatePaymentRequest("TenantId_example", "PaymentId_example") // OrderUpdatePaymentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3180,7 +3310,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[Authorization](../README.md#Authorization)
 
 ### HTTP request headers
 

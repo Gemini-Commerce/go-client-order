@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
-**Status**| **string** |   | [optional]
+**CreatedAt**| [**time.Time**](time.Time.md) |   | [optional] [readonly]
+**Status**| **string** |   | [optional] [readonly]
 **Comment**| **string** |   | [optional]
 
 

@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderCreatePaymentTransactionRequest type satisfies the MappedNullable interface at compile time
@@ -20,20 +22,23 @@ var _ MappedNullable = &OrderCreatePaymentTransactionRequest{}
 
 // OrderCreatePaymentTransactionRequest struct for OrderCreatePaymentTransactionRequest
 type OrderCreatePaymentTransactionRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	PaymentId *string `json:"paymentId,omitempty"`
-	Type *OrderTransactionType `json:"type,omitempty"`
+	TenantId string `json:"tenantId"`
+	PaymentId string `json:"paymentId"`
+	Type OrderTransactionType `json:"type"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 }
+
+type _OrderCreatePaymentTransactionRequest OrderCreatePaymentTransactionRequest
 
 // NewOrderCreatePaymentTransactionRequest instantiates a new OrderCreatePaymentTransactionRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderCreatePaymentTransactionRequest() *OrderCreatePaymentTransactionRequest {
+func NewOrderCreatePaymentTransactionRequest(tenantId string, paymentId string, type_ OrderTransactionType) *OrderCreatePaymentTransactionRequest {
 	this := OrderCreatePaymentTransactionRequest{}
-	var type_ OrderTransactionType = UNKNOWN
-	this.Type = &type_
+	this.TenantId = tenantId
+	this.PaymentId = paymentId
+	this.Type = type_
 	return &this
 }
 
@@ -43,104 +48,80 @@ func NewOrderCreatePaymentTransactionRequest() *OrderCreatePaymentTransactionReq
 func NewOrderCreatePaymentTransactionRequestWithDefaults() *OrderCreatePaymentTransactionRequest {
 	this := OrderCreatePaymentTransactionRequest{}
 	var type_ OrderTransactionType = UNKNOWN
-	this.Type = &type_
+	this.Type = type_
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderCreatePaymentTransactionRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreatePaymentTransactionRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderCreatePaymentTransactionRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderCreatePaymentTransactionRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetPaymentId returns the PaymentId field value if set, zero value otherwise.
+// GetPaymentId returns the PaymentId field value
 func (o *OrderCreatePaymentTransactionRequest) GetPaymentId() string {
-	if o == nil || IsNil(o.PaymentId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PaymentId
+
+	return o.PaymentId
 }
 
-// GetPaymentIdOk returns a tuple with the PaymentId field value if set, nil otherwise
+// GetPaymentIdOk returns a tuple with the PaymentId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreatePaymentTransactionRequest) GetPaymentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.PaymentId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PaymentId, true
+	return &o.PaymentId, true
 }
 
-// HasPaymentId returns a boolean if a field has been set.
-func (o *OrderCreatePaymentTransactionRequest) HasPaymentId() bool {
-	if o != nil && !IsNil(o.PaymentId) {
-		return true
-	}
-
-	return false
-}
-
-// SetPaymentId gets a reference to the given string and assigns it to the PaymentId field.
+// SetPaymentId sets field value
 func (o *OrderCreatePaymentTransactionRequest) SetPaymentId(v string) {
-	o.PaymentId = &v
+	o.PaymentId = v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value
 func (o *OrderCreatePaymentTransactionRequest) GetType() OrderTransactionType {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		var ret OrderTransactionType
 		return ret
 	}
-	return *o.Type
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreatePaymentTransactionRequest) GetTypeOk() (*OrderTransactionType, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *OrderCreatePaymentTransactionRequest) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given OrderTransactionType and assigns it to the Type field.
+// SetType sets field value
 func (o *OrderCreatePaymentTransactionRequest) SetType(v OrderTransactionType) {
-	o.Type = &v
+	o.Type = v
 }
 
 // GetAdditionalInfo returns the AdditionalInfo field value if set, zero value otherwise.
@@ -185,19 +166,52 @@ func (o OrderCreatePaymentTransactionRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderCreatePaymentTransactionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.PaymentId) {
-		toSerialize["paymentId"] = o.PaymentId
-	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["paymentId"] = o.PaymentId
+	toSerialize["type"] = o.Type
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderCreatePaymentTransactionRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"paymentId",
+		"type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderCreatePaymentTransactionRequest := _OrderCreatePaymentTransactionRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderCreatePaymentTransactionRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderCreatePaymentTransactionRequest(varOrderCreatePaymentTransactionRequest)
+
+	return err
 }
 
 type NullableOrderCreatePaymentTransactionRequest struct {

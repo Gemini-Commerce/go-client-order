@@ -10,7 +10,40 @@ info:
   version: v1
 servers:
 - url: https://dom.api.gogemini.io/
+security:
+- Authorization: []
+tags:
+- description: Order Description
+  externalDocs:
+    url: https://gemini-commerce.com/api/order
+  name: Order
 paths:
+  /order.Order/AddDocument:
+    post:
+      operationId: Order_AddDocument
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orderAddDocumentRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderAddDocumentResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      summary: Documents
+      tags:
+      - Order
+      x-codegen-request-body-name: body
   /order.Order/ApproveOrder:
     post:
       operationId: ApproveOrder
@@ -46,8 +79,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Approve Order
       tags:
       - Order
@@ -87,8 +118,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Assign Shipment
       tags:
       - Order
@@ -128,8 +157,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Calculate Refund
       tags:
       - Order
@@ -169,8 +196,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Cancel Fulfillment
       tags:
       - Order
@@ -210,8 +235,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Cancel Order
       tags:
       - Order
@@ -251,8 +274,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Cancel Shipment
       tags:
       - Order
@@ -292,8 +313,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Complete Shipment Packing
       tags:
       - Order
@@ -333,8 +352,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Fulfillment
       tags:
       - Order
@@ -374,8 +391,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Order History
       tags:
       - Order
@@ -415,8 +430,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Order
       tags:
       - Order
@@ -456,8 +469,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Payment
       tags:
       - Order
@@ -497,8 +508,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Payment Transaction
       tags:
       - Order
@@ -538,8 +547,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Refund
       tags:
       - Order
@@ -579,8 +586,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Refund Transaction
       tags:
       - Order
@@ -620,8 +625,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Create Shipment
       tags:
       - Order
@@ -661,8 +664,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Delete Order
       tags:
       - Order
@@ -702,8 +703,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Fulfillment
       tags:
       - Order
@@ -743,8 +742,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Order
       tags:
       - Order
@@ -784,8 +781,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Order by Cart ID
       tags:
       - Order
@@ -825,8 +820,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Order by Order Number
       tags:
       - Order
@@ -866,8 +859,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Payment
       tags:
       - Order
@@ -907,8 +898,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Shipment
       tags:
       - Order
@@ -948,8 +937,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Get Transaction
       tags:
       - Order
@@ -989,8 +976,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Hold Order
       tags:
       - Order
@@ -1030,8 +1015,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Import Order
       tags:
       - Order
@@ -1071,8 +1054,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: List Fulfillments
       tags:
       - Order
@@ -1112,8 +1093,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: List Orders
       tags:
       - Order
@@ -1153,8 +1132,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: List Orders by Customer
       tags:
       - Order
@@ -1194,8 +1171,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: List Orders by Numbers
       tags:
       - Order
@@ -1235,8 +1210,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: List Shipments
       tags:
       - Order
@@ -1276,8 +1249,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Print Orders Labels
       tags:
       - Order
@@ -1317,8 +1288,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Quash Fulfillment
       tags:
       - Order
@@ -1358,8 +1327,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Quash Shipment
       tags:
       - Order
@@ -1399,9 +1366,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Receive Fulfillment
+      tags:
+      - Order
+      x-codegen-request-body-name: body
+  /order.Order/RemoveDocumentByCode:
+    post:
+      operationId: Order_RemoveDocumentByCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orderRemoveDocumentByCodeRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderRemoveDocumentByCodeResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
       tags:
       - Order
       x-codegen-request-body-name: body
@@ -1440,8 +1430,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Report Fulfillment Error
       tags:
       - Order
@@ -1481,8 +1469,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Report Fulfillment Not Resolvable
       tags:
       - Order
@@ -1522,8 +1508,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Report Fulfillment Ready
       tags:
       - Order
@@ -1563,8 +1547,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Report Shipment Delivery
       tags:
       - Order
@@ -1604,8 +1586,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Report Shipment Missing Stock
       tags:
       - Order
@@ -1645,8 +1625,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Resolve Shipment Missing Stock
       tags:
       - Order
@@ -1686,8 +1664,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Retry Fulfillment
       tags:
       - Order
@@ -1727,8 +1703,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Search Orders
       tags:
       - Order
@@ -1768,8 +1742,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Send Fulfillment
       tags:
       - Order
@@ -1809,8 +1781,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Send Order Notification
       tags:
       - Order
@@ -1850,8 +1820,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Start Fulfillment Processing
       tags:
       - Order
@@ -1891,8 +1859,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Start Shipment Processing
       tags:
       - Order
@@ -1932,8 +1898,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Unhold Order
       tags:
       - Order
@@ -1973,8 +1937,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Update Order
       tags:
       - Order
@@ -2014,8 +1976,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      security:
-      - standardAuthorization: []
       summary: Update Payment
       tags:
       - Order
@@ -2034,6 +1994,9 @@ components:
           $ref: '#/components/schemas/PaymentCcInfo'
         transaction:
           $ref: '#/components/schemas/InitialPaymentInitialTransaction'
+      required:
+      - amount
+      - code
       type: object
     ImportOrderRequestImportedPayment:
       properties:
@@ -2047,12 +2010,72 @@ components:
           type: array
         ccInfo:
           $ref: '#/components/schemas/PaymentCcInfo'
+        isUpfront:
+          type: boolean
+      required:
+      - amounts
+      - code
       type: object
     InitialPaymentInitialTransaction:
       properties:
         type:
           $ref: '#/components/schemas/orderTransactionType'
         additionalInfo:
+          type: string
+      required:
+      - type
+      type: object
+    ItemProductConfigurationStep:
+      example:
+        grn: grn
+        options:
+        - image:
+            grn: grn
+            url: url
+          grn: grn
+          priceVariation:
+            micros: 6
+            units: units
+          quantity: 5
+          hasQuantity: true
+          id: id
+          label: label
+        - image:
+            grn: grn
+            url: url
+          grn: grn
+          priceVariation:
+            micros: 6
+            units: units
+          quantity: 5
+          hasQuantity: true
+          id: id
+          label: label
+        description: description
+        id: id
+        label: label
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          type: string
+        description:
+          type: string
+        options:
+          items:
+            $ref: '#/components/schemas/ProductConfigurationStepOption'
+          type: array
+      type: object
+    OptionImage:
+      example:
+        grn: grn
+        url: url
+      properties:
+        grn:
+          type: string
+        url:
           type: string
       type: object
     OrderByDirection:
@@ -2067,14 +2090,19 @@ components:
         grn: grn
         firstname: firstname
         data: data
+        companyName: companyName
+        taxCode: taxCode
+        lastname: lastname
+        agentGrn: agentGrn
         phone: phone
         segment: segment
-        taxCode: taxCode
+        fiscalCode: fiscalCode
+        sdiCode: sdiCode
         email: email
         certifiedEmail: certifiedEmail
-        lastname: lastname
       properties:
         grn:
+          title: empty for guests
           type: string
         firstname:
           type: string
@@ -2087,10 +2115,44 @@ components:
         segment:
           type: string
         data:
+          title: customer additional info as json object
           type: string
         certifiedEmail:
           type: string
         taxCode:
+          type: string
+        sdiCode:
+          type: string
+        fiscalCode:
+          type: string
+        companyName:
+          type: string
+        agentGrn:
+          type: string
+      required:
+      - email
+      - firstname
+      - lastname
+      type: object
+    OrderDataDocument:
+      example:
+        assetGrn: assetGrn
+        code: code
+        insertedAt: 2000-01-23T04:56:07.000+00:00
+        label: label
+        url: url
+      properties:
+        code:
+          type: string
+        label:
+          type: string
+        assetGrn:
+          type: string
+        url:
+          type: string
+        insertedAt:
+          format: date-time
+          readOnly: true
           type: string
       type: object
     OrderDataHistory:
@@ -2101,8 +2163,10 @@ components:
       properties:
         createdAt:
           format: date-time
+          readOnly: true
           type: string
         status:
+          readOnly: true
           type: string
         comment:
           type: string
@@ -2113,7 +2177,7 @@ components:
           micros: 6
           units: units
         code: code
-        vatPercentage: 7.0614014
+        vatPercentage: 9.301444
         fee:
           micros: 6
           units: units
@@ -2142,22 +2206,29 @@ components:
           $ref: '#/components/schemas/orderMoney'
         vatPercentage:
           format: float
+          title: The VAT percentage to show (not to be used for calculation)
           type: number
         vatInaccurate:
+          title: Is set to true if the VAT percentage is inaccurate (fallback with
+            BaseCalculator)
           type: boolean
         vatCalculated:
+          title: Is set to true if the VAT is calculated
           type: boolean
         title:
           $ref: '#/components/schemas/orderLocalizedText'
         label:
           $ref: '#/components/schemas/orderLocalizedText'
+      required:
+      - amount
+      - code
       type: object
     OrderDataPromotionInfo:
       example:
         amount:
           micros: 6
           units: units
-        vatPercentage: 3.6160767
+        vatPercentage: 2.027123
         additionalInfo: additionalInfo
         name: name
         description: description
@@ -2188,11 +2259,19 @@ components:
           $ref: '#/components/schemas/orderMoney'
         vatPercentage:
           format: float
+          title: The VAT percentage to show (not to be used for calculation)
           type: number
         vatInaccurate:
+          title: Is set to true if the VAT percentage is inaccurate (fallback with
+            BaseCalculator)
           type: boolean
         vatCalculated:
+          title: Is set to true if the VAT is calculated
           type: boolean
+      required:
+      - amount
+      - name
+      - type
       type: object
     OrderDataShipmentInfo:
       example:
@@ -2216,7 +2295,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 2
+          revision: 7
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -2229,7 +2308,7 @@ components:
           - addressLines
           - addressLines
         reference: reference
-        vatPercentage: 9.301444
+        vatPercentage: 3.6160767
         additionalInfo: additionalInfo
         fromAddress:
           postalCode: postalCode
@@ -2237,7 +2316,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 2
+          revision: 7
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -2269,10 +2348,14 @@ components:
           $ref: '#/components/schemas/orderMoney'
         vatPercentage:
           format: float
+          title: The VAT percentage to show (not to be used for calculation)
           type: number
         vatInaccurate:
+          title: Is set to true if the VAT percentage is inaccurate (fallback with
+            BaseCalculator)
           type: boolean
         vatCalculated:
+          title: Is set to true if the VAT is calculated
           type: boolean
         grn:
           type: string
@@ -2280,6 +2363,10 @@ components:
           $ref: '#/components/schemas/orderPostalAddress'
         returnAddress:
           $ref: '#/components/schemas/orderPostalAddress'
+      required:
+      - amount
+      - code
+      - reference
       type: object
     OrderDataSubtotal:
       example:
@@ -2292,9 +2379,16 @@ components:
           $ref: '#/components/schemas/OrderDataSubtotalCode'
         value:
           $ref: '#/components/schemas/orderMoney'
+      required:
+      - code
+      - value
       type: object
     OrderDataSubtotalCode:
       default: UNKNOWN
+      description: |2-
+         - ITEMS: gross discount items amount.
+         - ITEMS_DISCOUNTED: discounted items amount.
+         - DISCOUNT: discount amount. It is a NEGATIVE amount.
       enum:
       - UNKNOWN
       - PAYMENT
@@ -2315,6 +2409,9 @@ components:
           $ref: '#/components/schemas/OrderDataTotalCode'
         value:
           $ref: '#/components/schemas/orderMoney'
+      required:
+      - code
+      - value
       type: object
     OrderDataTotalCode:
       default: UNKNOWN
@@ -2351,6 +2448,7 @@ components:
         avsStatus:
           type: string
         type:
+          description: "card type MasterCard, Visa.."
           type: string
       type: object
     PrintOrdersLabelsResponseFailedOrder:
@@ -2365,6 +2463,36 @@ components:
           type: string
         errorCode:
           type: string
+      type: object
+    ProductConfigurationStepOption:
+      example:
+        image:
+          grn: grn
+          url: url
+        grn: grn
+        priceVariation:
+          micros: 6
+          units: units
+        quantity: 5
+        hasQuantity: true
+        id: id
+        label: label
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          type: string
+        priceVariation:
+          $ref: '#/components/schemas/orderMoney'
+        image:
+          $ref: '#/components/schemas/OptionImage'
+        hasQuantity:
+          type: boolean
+        quantity:
+          format: int64
+          type: integer
       type: object
     ShipmentTracking:
       example:
@@ -2395,12 +2523,36 @@ components:
           properties: {}
           type: object
       type: object
+    orderAddDocumentRequest:
+      properties:
+        tenantId:
+          type: string
+        orderId:
+          type: string
+        code:
+          type: string
+        label:
+          type: string
+        assetGrn:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - orderId
+      - tenantId
+      type: object
+    orderAddDocumentResponse:
+      type: object
     orderApproveOrderRequest:
       properties:
         tenantId:
           type: string
         orderId:
           type: string
+      required:
+      - orderId
+      - tenantId
       type: object
     orderApproveOrderResponse:
       type: object
@@ -2410,6 +2562,9 @@ components:
           type: string
         shipmentId:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderAssignShipmentResponse:
       type: object
@@ -2426,6 +2581,9 @@ components:
         shipping:
           description: Boolean indicating whether to calculate refund for shipping.
           type: boolean
+      required:
+      - paymentId
+      - tenantId
       type: object
     orderCalculateRefundResponse:
       example:
@@ -2460,6 +2618,9 @@ components:
           type: string
         reason:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderCancelFulfillmentResponse:
       type: object
@@ -2471,6 +2632,9 @@ components:
           type: string
         reason:
           type: string
+      required:
+      - orderId
+      - tenantId
       type: object
     orderCancelOrderResponse:
       type: object
@@ -2482,6 +2646,9 @@ components:
           type: string
         reason:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderCancelShipmentResponse:
       type: object
@@ -2491,6 +2658,9 @@ components:
           type: string
         shipmentId:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderCompleteShipmentPackingResponse:
       type: object
@@ -2504,6 +2674,10 @@ components:
           items:
             $ref: '#/components/schemas/orderFulfillmentItem'
           type: array
+      required:
+      - items
+      - orderId
+      - tenantId
       type: object
     orderCreateHistoryRequest:
       properties:
@@ -2513,6 +2687,9 @@ components:
           type: string
         comment:
           type: string
+      required:
+      - orderId
+      - tenantId
       type: object
     orderCreateOrderRequest:
       properties:
@@ -2570,6 +2747,19 @@ components:
           type: boolean
         notes:
           type: string
+      required:
+      - billingAddress
+      - currency
+      - customerInfo
+      - items
+      - locale
+      - market
+      - number
+      - shippingAddress
+      - subtotals
+      - tenantId
+      - totals
+      - vatIncluded
       type: object
     orderCreatePaymentRequest:
       properties:
@@ -2585,6 +2775,11 @@ components:
           $ref: '#/components/schemas/orderMoney'
         ccInfo:
           $ref: '#/components/schemas/PaymentCcInfo'
+      required:
+      - amount
+      - code
+      - orderId
+      - tenantId
       type: object
     orderCreatePaymentTransactionRequest:
       properties:
@@ -2596,6 +2791,10 @@ components:
           $ref: '#/components/schemas/orderTransactionType'
         additionalInfo:
           type: string
+      required:
+      - paymentId
+      - tenantId
+      - type
       type: object
     orderCreateRefundRequest:
       example:
@@ -2634,6 +2833,10 @@ components:
           type: string
         additionalInfo:
           type: string
+      required:
+      - amounts
+      - paymentId
+      - tenantId
       type: object
     orderCreateRefundTransactionRequest:
       properties:
@@ -2647,6 +2850,9 @@ components:
           $ref: '#/components/schemas/orderTransactionType'
         additionalInfo:
           type: string
+      required:
+      - refundId
+      - tenantId
       type: object
     orderCreateShipmentRequest:
       properties:
@@ -2664,13 +2870,27 @@ components:
           $ref: '#/components/schemas/orderPostalAddress'
         returnAddress:
           $ref: '#/components/schemas/orderPostalAddress'
+        tracking:
+          items:
+            $ref: '#/components/schemas/ShipmentTracking'
+          type: array
+        returnTracking:
+          items:
+            $ref: '#/components/schemas/ShipmentTracking'
+          type: array
         code:
           type: string
         method:
           type: string
+      required:
+      - address
+      - items
+      - orderId
+      - tenantId
       type: object
     orderCurrency:
       default: XXX
+      description: "Stands for Albania, not all ;-)"
       enum:
       - XXX
       - ALL
@@ -2860,6 +3080,9 @@ components:
           type: string
         orderId:
           type: string
+      required:
+      - orderId
+      - tenantId
       type: object
     orderDeleteOrderResponse:
       type: object
@@ -2878,11 +3101,14 @@ components:
       properties:
         createdAt:
           format: date-time
+          readOnly: true
           type: string
         updatedAt:
           format: date-time
+          readOnly: true
           type: string
         orderId:
+          title: order id
           type: string
         id:
           type: string
@@ -2910,6 +3136,9 @@ components:
           type: string
         id:
           type: string
+      required:
+      - id
+      - tenantId
       type: object
     orderGetOrderByCartIdRequest:
       properties:
@@ -2917,6 +3146,9 @@ components:
           type: string
         cartId:
           type: string
+      required:
+      - cartId
+      - tenantId
       type: object
     orderGetOrderByOrderNumberRequest:
       properties:
@@ -2924,6 +3156,9 @@ components:
           type: string
         orderNumber:
           type: string
+      required:
+      - orderNumber
+      - tenantId
       type: object
     orderGetOrderRequest:
       properties:
@@ -2931,6 +3166,9 @@ components:
           type: string
         id:
           type: string
+      required:
+      - id
+      - tenantId
       type: object
     orderGetPaymentRequest:
       properties:
@@ -2938,6 +3176,9 @@ components:
           type: string
         id:
           type: string
+      required:
+      - id
+      - tenantId
       type: object
     orderGetShipmentRequest:
       properties:
@@ -2945,6 +3186,9 @@ components:
           type: string
         id:
           type: string
+      required:
+      - id
+      - tenantId
       type: object
     orderGetTransactionRequest:
       properties:
@@ -2952,6 +3196,9 @@ components:
           type: string
         id:
           type: string
+      required:
+      - id
+      - tenantId
       type: object
     orderHoldOrderRequest:
       properties:
@@ -2961,6 +3208,8 @@ components:
           type: string
         reason:
           type: string
+      required:
+      - orderId
       type: object
     orderHoldOrderResponse:
       type: object
@@ -3013,6 +3262,22 @@ components:
           type: string
         currency:
           $ref: '#/components/schemas/orderCurrency'
+      required:
+      - billingAddress
+      - currency
+      - customerInfo
+      - items
+      - locale
+      - market
+      - number
+      - payments
+      - paymentsInfo
+      - shipmentsInfo
+      - shippingAddress
+      - status
+      - subtotals
+      - tenantId
+      - totals
       type: object
     orderListFulfillmentsRequest:
       properties:
@@ -3020,6 +3285,8 @@ components:
           type: string
         orderId:
           type: string
+      required:
+      - tenantId
       type: object
     orderListFulfillmentsResponse:
       example:
@@ -3073,12 +3340,30 @@ components:
             When paginating, all other parameters provided to `ListOrders` must match
             the call that provided the page token.
           type: string
+        orderBy:
+          items:
+            $ref: '#/components/schemas/orderOrderBy'
+          type: array
+      required:
+      - customerGrn
+      - tenantId
       type: object
     orderListOrdersByCustomerResponse:
       example:
         nextPageToken: nextPageToken
         orders:
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -3170,12 +3455,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -3209,7 +3498,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -3229,7 +3518,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -3267,7 +3556,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3280,7 +3569,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -3288,7 +3577,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3321,7 +3610,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3334,7 +3623,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -3342,7 +3631,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3378,7 +3667,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3397,7 +3686,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3413,10 +3702,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -3447,7 +3736,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3466,7 +3755,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3485,7 +3774,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3501,10 +3790,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -3535,7 +3824,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3552,7 +3841,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -3567,7 +3856,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -3588,7 +3877,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -3606,7 +3895,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -3620,6 +3909,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -3640,6 +3932,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -3667,6 +4017,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -3685,6 +4038,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -3711,6 +4122,17 @@ components:
             vatInaccurate: true
           status: status
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -3802,12 +4224,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -3841,7 +4267,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -3861,7 +4287,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -3899,7 +4325,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3912,7 +4338,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -3920,7 +4346,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3953,7 +4379,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3966,7 +4392,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -3974,7 +4400,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4010,7 +4436,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4029,7 +4455,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4045,10 +4471,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -4079,7 +4505,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4098,7 +4524,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4117,7 +4543,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4133,10 +4559,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -4167,7 +4593,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4184,7 +4610,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -4199,7 +4625,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -4220,7 +4646,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -4238,7 +4664,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -4252,6 +4678,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -4272,6 +4701,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -4299,6 +4786,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -4317,6 +4807,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -4378,12 +4926,26 @@ components:
             When paginating, all other parameters provided to `ListOrders` must match
             the call that provided the page token.
           type: string
+      required:
+      - numbers
+      - tenantId
       type: object
     orderListOrdersByNumbersResponse:
       example:
         nextPageToken: nextPageToken
         orders:
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -4475,12 +5037,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -4514,7 +5080,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -4534,7 +5100,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -4572,7 +5138,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4585,7 +5151,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -4593,7 +5159,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4626,7 +5192,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4639,7 +5205,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -4647,7 +5213,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4683,7 +5249,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4702,7 +5268,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4718,10 +5284,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -4752,7 +5318,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4771,7 +5337,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4790,7 +5356,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4806,10 +5372,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -4840,7 +5406,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4857,7 +5423,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -4872,7 +5438,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -4893,7 +5459,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -4911,7 +5477,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -4925,6 +5491,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -4945,6 +5514,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -4972,6 +5599,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -4990,6 +5620,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -5016,6 +5704,17 @@ components:
             vatInaccurate: true
           status: status
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -5107,12 +5806,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -5146,7 +5849,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -5166,7 +5869,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -5204,7 +5907,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5217,7 +5920,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5225,7 +5928,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5258,7 +5961,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5271,7 +5974,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5279,7 +5982,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5315,7 +6018,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5334,7 +6037,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5350,10 +6053,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -5384,7 +6087,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5403,7 +6106,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5422,7 +6125,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5438,10 +6141,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -5472,7 +6175,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5489,7 +6192,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -5504,7 +6207,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -5525,7 +6228,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -5543,7 +6246,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -5557,6 +6260,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -5577,6 +6283,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -5604,6 +6368,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -5622,6 +6389,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -5685,12 +6510,25 @@ components:
           type: array
         statusFilter:
           $ref: '#/components/schemas/orderStatusFilter'
+      required:
+      - tenantId
       type: object
     orderListOrdersResponse:
       example:
         nextPageToken: nextPageToken
         orders:
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -5782,12 +6620,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -5821,7 +6663,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -5841,7 +6683,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -5879,7 +6721,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5892,7 +6734,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5900,7 +6742,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5933,7 +6775,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5946,7 +6788,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5954,7 +6796,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5990,7 +6832,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6009,7 +6851,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6025,10 +6867,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6059,7 +6901,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6078,7 +6920,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6097,7 +6939,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6113,10 +6955,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6147,7 +6989,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6164,7 +7006,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -6179,7 +7021,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -6200,7 +7042,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -6218,7 +7060,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -6232,6 +7074,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -6252,6 +7097,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -6279,6 +7182,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -6297,6 +7203,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -6323,6 +7287,17 @@ components:
             vatInaccurate: true
           status: status
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -6414,12 +7389,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -6453,7 +7432,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -6473,7 +7452,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -6511,7 +7490,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6524,7 +7503,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -6532,7 +7511,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6565,7 +7544,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6578,7 +7557,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -6586,7 +7565,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6622,7 +7601,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6641,7 +7620,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6657,10 +7636,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6691,7 +7670,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6710,7 +7689,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6729,7 +7708,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6745,10 +7724,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6779,7 +7758,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6796,7 +7775,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -6811,7 +7790,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -6832,7 +7811,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -6850,7 +7829,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -6864,6 +7843,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -6884,6 +7866,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -6911,6 +7951,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -6929,6 +7972,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -6971,6 +8072,8 @@ components:
           type: string
         orderId:
           type: string
+      required:
+      - tenantId
       type: object
     orderListShipmentsResponse:
       example:
@@ -6982,7 +8085,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7001,7 +8104,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7017,10 +8120,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -7051,7 +8154,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7070,7 +8173,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7089,7 +8192,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7105,10 +8208,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -7139,7 +8242,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7199,6 +8302,17 @@ components:
     orderOrderData:
       example:
         notes: notes
+        documents:
+        - assetGrn: assetGrn
+          code: code
+          insertedAt: 2000-01-23T04:56:07.000+00:00
+          label: label
+          url: url
+        - assetGrn: assetGrn
+          code: code
+          insertedAt: 2000-01-23T04:56:07.000+00:00
+          label: label
+          url: url
         historyEvents:
         - createdAt: 2000-01-23T04:56:07.000+00:00
           comment: comment
@@ -7290,12 +8404,16 @@ components:
           grn: grn
           firstname: firstname
           data: data
+          companyName: companyName
+          taxCode: taxCode
+          lastname: lastname
+          agentGrn: agentGrn
           phone: phone
           segment: segment
-          taxCode: taxCode
+          fiscalCode: fiscalCode
+          sdiCode: sdiCode
           email: email
           certifiedEmail: certifiedEmail
-          lastname: lastname
         locale: locale
         createdAt: 2000-01-23T04:56:07.000+00:00
         number: number
@@ -7329,7 +8447,7 @@ components:
             micros: 6
             units: units
           code: code
-          vatPercentage: 7.0614014
+          vatPercentage: 9.301444
           fee:
             micros: 6
             units: units
@@ -7349,7 +8467,7 @@ components:
             micros: 6
             units: units
           code: code
-          vatPercentage: 7.0614014
+          vatPercentage: 9.301444
           fee:
             micros: 6
             units: units
@@ -7387,7 +8505,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7400,7 +8518,7 @@ components:
             - addressLines
             - addressLines
           reference: reference
-          vatPercentage: 9.301444
+          vatPercentage: 3.6160767
           additionalInfo: additionalInfo
           fromAddress:
             postalCode: postalCode
@@ -7408,7 +8526,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7441,7 +8559,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7454,7 +8572,7 @@ components:
             - addressLines
             - addressLines
           reference: reference
-          vatPercentage: 9.301444
+          vatPercentage: 3.6160767
           additionalInfo: additionalInfo
           fromAddress:
             postalCode: postalCode
@@ -7462,7 +8580,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7498,7 +8616,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7517,7 +8635,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7533,10 +8651,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -7567,7 +8685,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7586,7 +8704,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7605,7 +8723,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7621,10 +8739,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 5
+            qty: 2
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -7655,7 +8773,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7672,7 +8790,7 @@ components:
         - amount:
             micros: 6
             units: units
-          vatPercentage: 3.6160767
+          vatPercentage: 2.027123
           additionalInfo: additionalInfo
           name: name
           description: description
@@ -7687,7 +8805,7 @@ components:
         - amount:
             micros: 6
             units: units
-          vatPercentage: 3.6160767
+          vatPercentage: 2.027123
           additionalInfo: additionalInfo
           name: name
           description: description
@@ -7708,7 +8826,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 2
+          revision: 7
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -7726,7 +8844,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 2
+          revision: 7
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -7740,6 +8858,9 @@ components:
           - addressLines
         items:
         - rowListPrice:
+            micros: 6
+            units: units
+          unitCustomPrice:
             micros: 6
             units: units
           productGrn: productGrn
@@ -7760,6 +8881,64 @@ components:
             micros: 6
             units: units
           vatPercentage: 1.4658129
+          rowCustomPrice:
+            micros: 6
+            units: units
+          productConfiguration:
+          - grn: grn
+            options:
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            description: description
+            id: id
+            label: label
+          - grn: grn
+            options:
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            description: description
+            id: id
+            label: label
           id: id
           productOptions: productOptions
           productIsVirtual: true
@@ -7787,6 +8966,9 @@ components:
         - rowListPrice:
             micros: 6
             units: units
+          unitCustomPrice:
+            micros: 6
+            units: units
           productGrn: productGrn
           rowSalePrice:
             micros: 6
@@ -7805,6 +8987,64 @@ components:
             micros: 6
             units: units
           vatPercentage: 1.4658129
+          rowCustomPrice:
+            micros: 6
+            units: units
+          productConfiguration:
+          - grn: grn
+            options:
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            description: description
+            id: id
+            label: label
+          - grn: grn
+            options:
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            - image:
+                grn: grn
+                url: url
+              grn: grn
+              priceVariation:
+                micros: 6
+                units: units
+              quantity: 5
+              hasQuantity: true
+              id: id
+              label: label
+            description: description
+            id: id
+            label: label
           id: id
           productOptions: productOptions
           productIsVirtual: true
@@ -7833,17 +9073,22 @@ components:
       properties:
         createdAt:
           format: date-time
+          readOnly: true
           type: string
         updatedAt:
           format: date-time
+          readOnly: true
           type: string
         id:
+          readOnly: true
           type: string
         grn:
+          readOnly: true
           type: string
         number:
           type: string
         status:
+          readOnly: true
           type: string
         channel:
           type: string
@@ -7854,6 +9099,10 @@ components:
         additionalInfo:
           properties: {}
           type: object
+        documents:
+          items:
+            $ref: '#/components/schemas/OrderDataDocument'
+          type: array
         items:
           items:
             $ref: '#/components/schemas/orderOrderDataItem'
@@ -7889,6 +9138,7 @@ components:
             $ref: '#/components/schemas/OrderDataTotal'
           type: object
         vatIncluded:
+          title: is set by tenant settings
           type: boolean
         billingAddress:
           $ref: '#/components/schemas/orderPostalAddress'
@@ -7907,6 +9157,7 @@ components:
         fulfillments:
           items:
             $ref: '#/components/schemas/orderFulfillment'
+          readOnly: true
           type: array
         notes:
           type: string
@@ -7918,14 +9169,21 @@ components:
           description: this field is used to save the original created_at order date.
             The created_at field is used to filter data.
           format: date-time
+          readOnly: true
           type: string
         deletedAt:
           format: date-time
+          readOnly: true
           type: string
+      required:
+      - locale
       type: object
     orderOrderDataItem:
       example:
         rowListPrice:
+          micros: 6
+          units: units
+        unitCustomPrice:
           micros: 6
           units: units
         productGrn: productGrn
@@ -7946,6 +9204,64 @@ components:
           micros: 6
           units: units
         vatPercentage: 1.4658129
+        rowCustomPrice:
+          micros: 6
+          units: units
+        productConfiguration:
+        - grn: grn
+          options:
+          - image:
+              grn: grn
+              url: url
+            grn: grn
+            priceVariation:
+              micros: 6
+              units: units
+            quantity: 5
+            hasQuantity: true
+            id: id
+            label: label
+          - image:
+              grn: grn
+              url: url
+            grn: grn
+            priceVariation:
+              micros: 6
+              units: units
+            quantity: 5
+            hasQuantity: true
+            id: id
+            label: label
+          description: description
+          id: id
+          label: label
+        - grn: grn
+          options:
+          - image:
+              grn: grn
+              url: url
+            grn: grn
+            priceVariation:
+              micros: 6
+              units: units
+            quantity: 5
+            hasQuantity: true
+            id: id
+            label: label
+          - image:
+              grn: grn
+              url: url
+            grn: grn
+            priceVariation:
+              micros: 6
+              units: units
+            quantity: 5
+            hasQuantity: true
+            id: id
+            label: label
+          description: description
+          id: id
+          label: label
         id: id
         productOptions: productOptions
         productIsVirtual: true
@@ -7980,6 +9296,7 @@ components:
           type: integer
         qtyCommitted:
           format: int64
+          title: keep in sync with inventory qty_committed
           type: integer
         unitSalePrice:
           $ref: '#/components/schemas/orderMoney'
@@ -7999,12 +9316,21 @@ components:
           $ref: '#/components/schemas/orderMoney'
         rowBasePrice:
           $ref: '#/components/schemas/orderMoney'
+        unitCustomPrice:
+          $ref: '#/components/schemas/orderMoney'
+        rowCustomPrice:
+          $ref: '#/components/schemas/orderMoney'
         vatPercentage:
           format: float
+          title: The VAT percentage to show (not to be used for calculation)
           type: number
         vatInaccurate:
+          title: Is set to true if the VAT percentage is inaccurate (fallback with
+            BaseCalculator)
           type: boolean
         vatCalculated:
+          title: Is set to true if the VAT percentage is inaccurate (fallback with
+            BaseCalculator)
           type: boolean
         productName:
           type: string
@@ -8015,6 +9341,7 @@ components:
         productOptions:
           type: string
         productImg:
+          title: asset grn
           type: string
         productData:
           type: string
@@ -8026,6 +9353,10 @@ components:
           type: array
         productIsVirtual:
           type: boolean
+        productConfiguration:
+          items:
+            $ref: '#/components/schemas/ItemProductConfigurationStep'
+          type: array
       type: object
     orderPayment:
       example:
@@ -8070,12 +9401,15 @@ components:
           type: null
       properties:
         orderId:
+          title: order id
           type: string
         id:
           type: string
         code:
+          description: "payment type stripe, paypal.."
           type: string
         additionalInfo:
+          title: additional information as json object
           type: string
         amounts:
           items:
@@ -8109,6 +9443,7 @@ components:
       - PAID
       - REFUNDED
       - AUTHORIZED
+      title: "- ORDERED: amount to be paid"
       type: string
     orderPaymentFilter:
       properties:
@@ -8150,7 +9485,7 @@ components:
         sublocality: sublocality
         languageCode: languageCode
         administrativeArea: administrativeArea
-        revision: 2
+        revision: 7
         regionCode: regionCode
         phoneNumber: phoneNumber
         sortingCode: sortingCode
@@ -8285,6 +9620,9 @@ components:
           items:
             type: string
           type: array
+      required:
+      - orderNumbers
+      - tenantId
       type: object
     orderPrintOrdersLabelsResponse:
       example:
@@ -8312,6 +9650,9 @@ components:
           type: string
         reason:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderQuashFulfillmentResponse:
       type: object
@@ -8323,6 +9664,9 @@ components:
           type: string
         reason:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderQuashShipmentResponse:
       type: object
@@ -8332,6 +9676,9 @@ components:
           type: string
         fulfillmentId:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderReceiveFulfillmentResponse:
       type: object
@@ -8362,6 +9709,7 @@ components:
       properties:
         createdAt:
           format: date-time
+          readOnly: true
           type: string
         paymentId:
           type: string
@@ -8378,6 +9726,7 @@ components:
         note:
           type: string
         additionalInfo:
+          title: additional information as json object
           type: string
         transactionIds:
           items:
@@ -8403,6 +9752,9 @@ components:
       - UNKNOWN
       - ORDERED
       - SHIPPING
+      title: |-
+        - ORDERED: amount to be refunded for items ordered
+         - SHIPPING: amount to be refunded for shipping cost
       type: string
     orderRefundItem:
       example:
@@ -8413,7 +9765,23 @@ components:
           type: string
         qty:
           format: int64
+          title: qty refunded
           type: integer
+      type: object
+    orderRemoveDocumentByCodeRequest:
+      properties:
+        tenantId:
+          type: string
+        orderId:
+          type: string
+        code:
+          type: string
+      required:
+      - code
+      - orderId
+      - tenantId
+      type: object
+    orderRemoveDocumentByCodeResponse:
       type: object
     orderReportFulfillmentErrorRequest:
       properties:
@@ -8421,6 +9789,9 @@ components:
           type: string
         fulfillmentId:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderReportFulfillmentErrorResponse:
       type: object
@@ -8430,6 +9801,9 @@ components:
           type: string
         fulfillmentId:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderReportFulfillmentNotResolvableResponse:
       type: object
@@ -8439,6 +9813,9 @@ components:
           type: string
         fulfillmentId:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderReportFulfillmentReadyResponse:
       type: object
@@ -8448,6 +9825,9 @@ components:
           type: string
         shipmentId:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderReportShipmentDeliveryResponse:
       type: object
@@ -8459,6 +9839,9 @@ components:
           type: string
         reason:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderReportShipmentMissingStockResponse:
       type: object
@@ -8468,6 +9851,9 @@ components:
           type: string
         shipmentId:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderResolveShipmentMissingStockResponse:
       type: object
@@ -8477,6 +9863,9 @@ components:
           type: string
         fulfillmentId:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderRetryFulfillmentResponse:
       type: object
@@ -8518,12 +9907,27 @@ components:
           type: string
         paymentFilter:
           $ref: '#/components/schemas/orderPaymentFilter'
+        agentGrn:
+          type: string
+      required:
+      - tenantId
       type: object
     orderSearchOrdersResponse:
       example:
         nextPageToken: nextPageToken
         orders:
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -8615,12 +10019,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -8654,7 +10062,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -8674,7 +10082,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -8712,7 +10120,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8725,7 +10133,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -8733,7 +10141,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8766,7 +10174,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8779,7 +10187,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -8787,7 +10195,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8823,7 +10231,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8842,7 +10250,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8858,10 +10266,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -8892,7 +10300,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8911,7 +10319,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8930,7 +10338,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8946,10 +10354,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -8980,7 +10388,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -8997,7 +10405,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -9012,7 +10420,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -9033,7 +10441,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -9051,7 +10459,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -9065,6 +10473,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -9085,6 +10496,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -9112,6 +10581,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -9130,6 +10602,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -9156,6 +10686,17 @@ components:
             vatInaccurate: true
           status: status
         - notes: notes
+          documents:
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
+          - assetGrn: assetGrn
+            code: code
+            insertedAt: 2000-01-23T04:56:07.000+00:00
+            label: label
+            url: url
           historyEvents:
           - createdAt: 2000-01-23T04:56:07.000+00:00
             comment: comment
@@ -9247,12 +10788,16 @@ components:
             grn: grn
             firstname: firstname
             data: data
+            companyName: companyName
+            taxCode: taxCode
+            lastname: lastname
+            agentGrn: agentGrn
             phone: phone
             segment: segment
-            taxCode: taxCode
+            fiscalCode: fiscalCode
+            sdiCode: sdiCode
             email: email
             certifiedEmail: certifiedEmail
-            lastname: lastname
           locale: locale
           createdAt: 2000-01-23T04:56:07.000+00:00
           number: number
@@ -9286,7 +10831,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -9306,7 +10851,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 7.0614014
+            vatPercentage: 9.301444
             fee:
               micros: 6
               units: units
@@ -9344,7 +10889,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9357,7 +10902,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -9365,7 +10910,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9398,7 +10943,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9411,7 +10956,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -9419,7 +10964,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9455,7 +11000,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9474,7 +11019,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9490,10 +11035,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -9524,7 +11069,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9543,7 +11088,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9562,7 +11107,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9578,10 +11123,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 5
+              qty: 2
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -9612,7 +11157,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 2
+              revision: 7
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -9629,7 +11174,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -9644,7 +11189,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -9665,7 +11210,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -9683,7 +11228,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 2
+            revision: 7
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -9697,6 +11242,9 @@ components:
             - addressLines
           items:
           - rowListPrice:
+              micros: 6
+              units: units
+            unitCustomPrice:
               micros: 6
               units: units
             productGrn: productGrn
@@ -9717,6 +11265,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -9744,6 +11350,9 @@ components:
           - rowListPrice:
               micros: 6
               units: units
+            unitCustomPrice:
+              micros: 6
+              units: units
             productGrn: productGrn
             rowSalePrice:
               micros: 6
@@ -9762,6 +11371,64 @@ components:
               micros: 6
               units: units
             vatPercentage: 1.4658129
+            rowCustomPrice:
+              micros: 6
+              units: units
+            productConfiguration:
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
+            - grn: grn
+              options:
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              - image:
+                  grn: grn
+                  url: url
+                grn: grn
+                priceVariation:
+                  micros: 6
+                  units: units
+                quantity: 5
+                hasQuantity: true
+                id: id
+                label: label
+              description: description
+              id: id
+              label: label
             id: id
             productOptions: productOptions
             productIsVirtual: true
@@ -9804,6 +11471,9 @@ components:
           type: string
         fulfillmentId:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderSendFulfillmentResponse:
       type: object
@@ -9812,6 +11482,7 @@ components:
         tenantId:
           type: string
         id:
+          title: TODO add all other info needed to send a message
           type: string
       type: object
     orderSendOrderNotificationResponse:
@@ -9825,7 +11496,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 2
+          revision: 7
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -9844,7 +11515,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 2
+          revision: 7
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -9860,10 +11531,10 @@ components:
         items:
         - rowWeight: rowWeight
           orderItemId: orderItemId
-          qty: 5
+          qty: 2
         - rowWeight: rowWeight
           orderItemId: orderItemId
-          qty: 5
+          qty: 2
         tracking:
         - number: number
           carrierTitle: carrierTitle
@@ -9894,7 +11565,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 2
+          revision: 7
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -9909,11 +11580,14 @@ components:
       properties:
         createdAt:
           format: date-time
+          readOnly: true
           type: string
         updatedAt:
           format: date-time
+          readOnly: true
           type: string
         orderId:
+          title: order id
           type: string
         id:
           type: string
@@ -9942,7 +11616,7 @@ components:
       example:
         rowWeight: rowWeight
         orderItemId: orderItemId
-        qty: 5
+        qty: 2
       properties:
         orderItemId:
           type: string
@@ -9958,6 +11632,9 @@ components:
           type: string
         fulfillmentId:
           type: string
+      required:
+      - fulfillmentId
+      - tenantId
       type: object
     orderStartFulfillmentProcessingResponse:
       type: object
@@ -9967,6 +11644,9 @@ components:
           type: string
         shipmentId:
           type: string
+      required:
+      - shipmentId
+      - tenantId
       type: object
     orderStartShipmentProcessingResponse:
       type: object
@@ -9998,6 +11678,7 @@ components:
       properties:
         createdAt:
           format: date-time
+          readOnly: true
           type: string
         paymentId:
           type: string
@@ -10006,6 +11687,7 @@ components:
         type:
           $ref: '#/components/schemas/orderTransactionType'
         additionalInfo:
+          title: additional information as json object
           type: string
         childTransactions:
           items:
@@ -10024,6 +11706,10 @@ components:
       - FAILED
       - PENDING
       - FRAUD
+      title: |-
+        - SALE: authorize and capture
+         - PENDING: pending for payment provider
+         - FRAUD: fraud for payment provider
       type: string
     orderUnholdOrderRequest:
       properties:
@@ -10031,6 +11717,9 @@ components:
           type: string
         orderId:
           type: string
+      required:
+      - orderId
+      - tenantId
       type: object
     orderUnholdOrderResponse:
       type: object
@@ -10043,9 +11732,10 @@ components:
         payload:
           $ref: '#/components/schemas/UpdateOrderRequestPayload'
         fieldMask:
-          items:
-            type: string
-          type: array
+          type: string
+      required:
+      - id
+      - tenantId
       type: object
     orderUpdatePaymentRequest:
       properties:
@@ -10055,14 +11745,15 @@ components:
           type: string
         ccInfo:
           $ref: '#/components/schemas/PaymentCcInfo'
+      required:
+      - paymentId
+      - tenantId
       type: object
     protobufAny:
+      additionalProperties:
+        type: object
       properties:
         '@type':
-          type: string
-        value:
-          format: byte
-          pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
           type: string
       type: object
     protobufNullValue:
@@ -10090,7 +11781,13 @@ components:
           type: array
       type: object
   securitySchemes:
+    Authorization:
+      in: header
+      name: Authorization
+      type: apiKey
     standardAuthorization:
-      flows: {}
+      flows:
+        implicit:
+          scopes: {}
       type: oauth2
 x-original-swagger-version: "2.0"

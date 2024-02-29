@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// OrderCurrency the model 'OrderCurrency'
+// OrderCurrency Stands for Albania, not all ;-)
 type OrderCurrency string
 
 // List of orderCurrency

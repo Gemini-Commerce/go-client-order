@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the InitialPaymentInitialTransaction type satisfies the MappedNullable interface at compile time
@@ -20,18 +22,19 @@ var _ MappedNullable = &InitialPaymentInitialTransaction{}
 
 // InitialPaymentInitialTransaction struct for InitialPaymentInitialTransaction
 type InitialPaymentInitialTransaction struct {
-	Type *OrderTransactionType `json:"type,omitempty"`
+	Type OrderTransactionType `json:"type"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 }
+
+type _InitialPaymentInitialTransaction InitialPaymentInitialTransaction
 
 // NewInitialPaymentInitialTransaction instantiates a new InitialPaymentInitialTransaction object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInitialPaymentInitialTransaction() *InitialPaymentInitialTransaction {
+func NewInitialPaymentInitialTransaction(type_ OrderTransactionType) *InitialPaymentInitialTransaction {
 	this := InitialPaymentInitialTransaction{}
-	var type_ OrderTransactionType = UNKNOWN
-	this.Type = &type_
+	this.Type = type_
 	return &this
 }
 
@@ -41,40 +44,32 @@ func NewInitialPaymentInitialTransaction() *InitialPaymentInitialTransaction {
 func NewInitialPaymentInitialTransactionWithDefaults() *InitialPaymentInitialTransaction {
 	this := InitialPaymentInitialTransaction{}
 	var type_ OrderTransactionType = UNKNOWN
-	this.Type = &type_
+	this.Type = type_
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value
 func (o *InitialPaymentInitialTransaction) GetType() OrderTransactionType {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		var ret OrderTransactionType
 		return ret
 	}
-	return *o.Type
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *InitialPaymentInitialTransaction) GetTypeOk() (*OrderTransactionType, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *InitialPaymentInitialTransaction) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given OrderTransactionType and assigns it to the Type field.
+// SetType sets field value
 func (o *InitialPaymentInitialTransaction) SetType(v OrderTransactionType) {
-	o.Type = &v
+	o.Type = v
 }
 
 // GetAdditionalInfo returns the AdditionalInfo field value if set, zero value otherwise.
@@ -119,13 +114,48 @@ func (o InitialPaymentInitialTransaction) MarshalJSON() ([]byte, error) {
 
 func (o InitialPaymentInitialTransaction) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
+	toSerialize["type"] = o.Type
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
 	return toSerialize, nil
+}
+
+func (o *InitialPaymentInitialTransaction) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"type",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varInitialPaymentInitialTransaction := _InitialPaymentInitialTransaction{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varInitialPaymentInitialTransaction)
+
+	if err != nil {
+		return err
+	}
+
+	*o = InitialPaymentInitialTransaction(varInitialPaymentInitialTransaction)
+
+	return err
 }
 
 type NullableInitialPaymentInitialTransaction struct {

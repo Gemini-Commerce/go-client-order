@@ -8,7 +8,10 @@ configuration.go
 docs/CreateOrderRequestInitialPayment.md
 docs/ImportOrderRequestImportedPayment.md
 docs/InitialPaymentInitialTransaction.md
+docs/ItemProductConfigurationStep.md
+docs/OptionImage.md
 docs/OrderAPI.md
+docs/OrderAddDocumentRequest.md
 docs/OrderApproveOrderRequest.md
 docs/OrderAssignShipmentRequest.md
 docs/OrderByDirection.md
@@ -28,6 +31,7 @@ docs/OrderCreateRefundTransactionRequest.md
 docs/OrderCreateShipmentRequest.md
 docs/OrderCurrency.md
 docs/OrderDataCustomerInfo.md
+docs/OrderDataDocument.md
 docs/OrderDataHistory.md
 docs/OrderDataPaymentInfo.md
 docs/OrderDataPromotionInfo.md
@@ -78,6 +82,7 @@ docs/OrderRefund.md
 docs/OrderRefundAmount.md
 docs/OrderRefundAmountCode.md
 docs/OrderRefundItem.md
+docs/OrderRemoveDocumentByCodeRequest.md
 docs/OrderReportFulfillmentErrorRequest.md
 docs/OrderReportFulfillmentNotResolvableRequest.md
 docs/OrderReportFulfillmentReadyRequest.md
@@ -102,6 +107,7 @@ docs/OrderUpdateOrderRequest.md
 docs/OrderUpdatePaymentRequest.md
 docs/PaymentCcInfo.md
 docs/PrintOrdersLabelsResponseFailedOrder.md
+docs/ProductConfigurationStepOption.md
 docs/ProtobufAny.md
 docs/ProtobufNullValue.md
 docs/RpcStatus.md
@@ -113,6 +119,9 @@ go.sum
 model_create_order_request_initial_payment.go
 model_import_order_request_imported_payment.go
 model_initial_payment_initial_transaction.go
+model_item_product_configuration_step.go
+model_option_image.go
+model_order_add_document_request.go
 model_order_approve_order_request.go
 model_order_assign_shipment_request.go
 model_order_by_direction.go
@@ -132,6 +141,7 @@ model_order_create_refund_transaction_request.go
 model_order_create_shipment_request.go
 model_order_currency.go
 model_order_data_customer_info.go
+model_order_data_document.go
 model_order_data_history.go
 model_order_data_payment_info.go
 model_order_data_promotion_info.go
@@ -182,6 +192,7 @@ model_order_refund.go
 model_order_refund_amount.go
 model_order_refund_amount_code.go
 model_order_refund_item.go
+model_order_remove_document_by_code_request.go
 model_order_report_fulfillment_error_request.go
 model_order_report_fulfillment_not_resolvable_request.go
 model_order_report_fulfillment_ready_request.go
@@ -206,6 +217,7 @@ model_order_update_order_request.go
 model_order_update_payment_request.go
 model_payment_cc_info.go
 model_print_orders_labels_response_failed_order.go
+model_product_configuration_step_option.go
 model_protobuf_any.go
 model_protobuf_null_value.go
 model_rpc_status.go

@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderListOrdersByCustomerRequest type satisfies the MappedNullable interface at compile time
@@ -20,20 +22,25 @@ var _ MappedNullable = &OrderListOrdersByCustomerRequest{}
 
 // OrderListOrdersByCustomerRequest struct for OrderListOrdersByCustomerRequest
 type OrderListOrdersByCustomerRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	CustomerGrn *string `json:"customerGrn,omitempty"`
+	TenantId string `json:"tenantId"`
+	CustomerGrn string `json:"customerGrn"`
 	// The maximum number of orders to return. The service may return fewer than this value. If unspecified, at most 10 orders will be returned. The maximum value is 100; values above 100 will be coerced to 100.
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// A page token, received from a previous `ListOrders` call. Provide this to retrieve the subsequent page.   When paginating, all other parameters provided to `ListOrders` must match the call that provided the page token.
 	PageToken *string `json:"pageToken,omitempty"`
+	OrderBy []OrderOrderBy `json:"orderBy,omitempty"`
 }
+
+type _OrderListOrdersByCustomerRequest OrderListOrdersByCustomerRequest
 
 // NewOrderListOrdersByCustomerRequest instantiates a new OrderListOrdersByCustomerRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderListOrdersByCustomerRequest() *OrderListOrdersByCustomerRequest {
+func NewOrderListOrdersByCustomerRequest(tenantId string, customerGrn string) *OrderListOrdersByCustomerRequest {
 	this := OrderListOrdersByCustomerRequest{}
+	this.TenantId = tenantId
+	this.CustomerGrn = customerGrn
 	return &this
 }
 
@@ -45,68 +52,52 @@ func NewOrderListOrdersByCustomerRequestWithDefaults() *OrderListOrdersByCustome
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderListOrdersByCustomerRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderListOrdersByCustomerRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderListOrdersByCustomerRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderListOrdersByCustomerRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetCustomerGrn returns the CustomerGrn field value if set, zero value otherwise.
+// GetCustomerGrn returns the CustomerGrn field value
 func (o *OrderListOrdersByCustomerRequest) GetCustomerGrn() string {
-	if o == nil || IsNil(o.CustomerGrn) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CustomerGrn
+
+	return o.CustomerGrn
 }
 
-// GetCustomerGrnOk returns a tuple with the CustomerGrn field value if set, nil otherwise
+// GetCustomerGrnOk returns a tuple with the CustomerGrn field value
 // and a boolean to check if the value has been set.
 func (o *OrderListOrdersByCustomerRequest) GetCustomerGrnOk() (*string, bool) {
-	if o == nil || IsNil(o.CustomerGrn) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomerGrn, true
+	return &o.CustomerGrn, true
 }
 
-// HasCustomerGrn returns a boolean if a field has been set.
-func (o *OrderListOrdersByCustomerRequest) HasCustomerGrn() bool {
-	if o != nil && !IsNil(o.CustomerGrn) {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomerGrn gets a reference to the given string and assigns it to the CustomerGrn field.
+// SetCustomerGrn sets field value
 func (o *OrderListOrdersByCustomerRequest) SetCustomerGrn(v string) {
-	o.CustomerGrn = &v
+	o.CustomerGrn = v
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
@@ -173,6 +164,38 @@ func (o *OrderListOrdersByCustomerRequest) SetPageToken(v string) {
 	o.PageToken = &v
 }
 
+// GetOrderBy returns the OrderBy field value if set, zero value otherwise.
+func (o *OrderListOrdersByCustomerRequest) GetOrderBy() []OrderOrderBy {
+	if o == nil || IsNil(o.OrderBy) {
+		var ret []OrderOrderBy
+		return ret
+	}
+	return o.OrderBy
+}
+
+// GetOrderByOk returns a tuple with the OrderBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderListOrdersByCustomerRequest) GetOrderByOk() ([]OrderOrderBy, bool) {
+	if o == nil || IsNil(o.OrderBy) {
+		return nil, false
+	}
+	return o.OrderBy, true
+}
+
+// HasOrderBy returns a boolean if a field has been set.
+func (o *OrderListOrdersByCustomerRequest) HasOrderBy() bool {
+	if o != nil && !IsNil(o.OrderBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderBy gets a reference to the given []OrderOrderBy and assigns it to the OrderBy field.
+func (o *OrderListOrdersByCustomerRequest) SetOrderBy(v []OrderOrderBy) {
+	o.OrderBy = v
+}
+
 func (o OrderListOrdersByCustomerRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -183,19 +206,56 @@ func (o OrderListOrdersByCustomerRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderListOrdersByCustomerRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.CustomerGrn) {
-		toSerialize["customerGrn"] = o.CustomerGrn
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["customerGrn"] = o.CustomerGrn
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
 	}
 	if !IsNil(o.PageToken) {
 		toSerialize["pageToken"] = o.PageToken
 	}
+	if !IsNil(o.OrderBy) {
+		toSerialize["orderBy"] = o.OrderBy
+	}
 	return toSerialize, nil
+}
+
+func (o *OrderListOrdersByCustomerRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"customerGrn",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderListOrdersByCustomerRequest := _OrderListOrdersByCustomerRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderListOrdersByCustomerRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderListOrdersByCustomerRequest(varOrderListOrdersByCustomerRequest)
+
+	return err
 }
 
 type NullableOrderListOrdersByCustomerRequest struct {

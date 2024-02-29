@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderDataCustomerInfo type satisfies the MappedNullable interface at compile time
@@ -21,22 +23,31 @@ var _ MappedNullable = &OrderDataCustomerInfo{}
 // OrderDataCustomerInfo struct for OrderDataCustomerInfo
 type OrderDataCustomerInfo struct {
 	Grn *string `json:"grn,omitempty"`
-	Firstname *string `json:"firstname,omitempty"`
-	Lastname *string `json:"lastname,omitempty"`
-	Email *string `json:"email,omitempty"`
+	Firstname string `json:"firstname"`
+	Lastname string `json:"lastname"`
+	Email string `json:"email"`
 	Phone *string `json:"phone,omitempty"`
 	Segment *string `json:"segment,omitempty"`
 	Data *string `json:"data,omitempty"`
 	CertifiedEmail *string `json:"certifiedEmail,omitempty"`
 	TaxCode *string `json:"taxCode,omitempty"`
+	SdiCode *string `json:"sdiCode,omitempty"`
+	FiscalCode *string `json:"fiscalCode,omitempty"`
+	CompanyName *string `json:"companyName,omitempty"`
+	AgentGrn *string `json:"agentGrn,omitempty"`
 }
+
+type _OrderDataCustomerInfo OrderDataCustomerInfo
 
 // NewOrderDataCustomerInfo instantiates a new OrderDataCustomerInfo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderDataCustomerInfo() *OrderDataCustomerInfo {
+func NewOrderDataCustomerInfo(firstname string, lastname string, email string) *OrderDataCustomerInfo {
 	this := OrderDataCustomerInfo{}
+	this.Firstname = firstname
+	this.Lastname = lastname
+	this.Email = email
 	return &this
 }
 
@@ -80,100 +91,76 @@ func (o *OrderDataCustomerInfo) SetGrn(v string) {
 	o.Grn = &v
 }
 
-// GetFirstname returns the Firstname field value if set, zero value otherwise.
+// GetFirstname returns the Firstname field value
 func (o *OrderDataCustomerInfo) GetFirstname() string {
-	if o == nil || IsNil(o.Firstname) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Firstname
+
+	return o.Firstname
 }
 
-// GetFirstnameOk returns a tuple with the Firstname field value if set, nil otherwise
+// GetFirstnameOk returns a tuple with the Firstname field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataCustomerInfo) GetFirstnameOk() (*string, bool) {
-	if o == nil || IsNil(o.Firstname) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Firstname, true
+	return &o.Firstname, true
 }
 
-// HasFirstname returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasFirstname() bool {
-	if o != nil && !IsNil(o.Firstname) {
-		return true
-	}
-
-	return false
-}
-
-// SetFirstname gets a reference to the given string and assigns it to the Firstname field.
+// SetFirstname sets field value
 func (o *OrderDataCustomerInfo) SetFirstname(v string) {
-	o.Firstname = &v
+	o.Firstname = v
 }
 
-// GetLastname returns the Lastname field value if set, zero value otherwise.
+// GetLastname returns the Lastname field value
 func (o *OrderDataCustomerInfo) GetLastname() string {
-	if o == nil || IsNil(o.Lastname) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Lastname
+
+	return o.Lastname
 }
 
-// GetLastnameOk returns a tuple with the Lastname field value if set, nil otherwise
+// GetLastnameOk returns a tuple with the Lastname field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataCustomerInfo) GetLastnameOk() (*string, bool) {
-	if o == nil || IsNil(o.Lastname) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Lastname, true
+	return &o.Lastname, true
 }
 
-// HasLastname returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasLastname() bool {
-	if o != nil && !IsNil(o.Lastname) {
-		return true
-	}
-
-	return false
-}
-
-// SetLastname gets a reference to the given string and assigns it to the Lastname field.
+// SetLastname sets field value
 func (o *OrderDataCustomerInfo) SetLastname(v string) {
-	o.Lastname = &v
+	o.Lastname = v
 }
 
-// GetEmail returns the Email field value if set, zero value otherwise.
+// GetEmail returns the Email field value
 func (o *OrderDataCustomerInfo) GetEmail() string {
-	if o == nil || IsNil(o.Email) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Email
+
+	return o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value if set, nil otherwise
+// GetEmailOk returns a tuple with the Email field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataCustomerInfo) GetEmailOk() (*string, bool) {
-	if o == nil || IsNil(o.Email) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Email, true
+	return &o.Email, true
 }
 
-// HasEmail returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasEmail() bool {
-	if o != nil && !IsNil(o.Email) {
-		return true
-	}
-
-	return false
-}
-
-// SetEmail gets a reference to the given string and assigns it to the Email field.
+// SetEmail sets field value
 func (o *OrderDataCustomerInfo) SetEmail(v string) {
-	o.Email = &v
+	o.Email = v
 }
 
 // GetPhone returns the Phone field value if set, zero value otherwise.
@@ -336,6 +323,134 @@ func (o *OrderDataCustomerInfo) SetTaxCode(v string) {
 	o.TaxCode = &v
 }
 
+// GetSdiCode returns the SdiCode field value if set, zero value otherwise.
+func (o *OrderDataCustomerInfo) GetSdiCode() string {
+	if o == nil || IsNil(o.SdiCode) {
+		var ret string
+		return ret
+	}
+	return *o.SdiCode
+}
+
+// GetSdiCodeOk returns a tuple with the SdiCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderDataCustomerInfo) GetSdiCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.SdiCode) {
+		return nil, false
+	}
+	return o.SdiCode, true
+}
+
+// HasSdiCode returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasSdiCode() bool {
+	if o != nil && !IsNil(o.SdiCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetSdiCode gets a reference to the given string and assigns it to the SdiCode field.
+func (o *OrderDataCustomerInfo) SetSdiCode(v string) {
+	o.SdiCode = &v
+}
+
+// GetFiscalCode returns the FiscalCode field value if set, zero value otherwise.
+func (o *OrderDataCustomerInfo) GetFiscalCode() string {
+	if o == nil || IsNil(o.FiscalCode) {
+		var ret string
+		return ret
+	}
+	return *o.FiscalCode
+}
+
+// GetFiscalCodeOk returns a tuple with the FiscalCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderDataCustomerInfo) GetFiscalCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.FiscalCode) {
+		return nil, false
+	}
+	return o.FiscalCode, true
+}
+
+// HasFiscalCode returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasFiscalCode() bool {
+	if o != nil && !IsNil(o.FiscalCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetFiscalCode gets a reference to the given string and assigns it to the FiscalCode field.
+func (o *OrderDataCustomerInfo) SetFiscalCode(v string) {
+	o.FiscalCode = &v
+}
+
+// GetCompanyName returns the CompanyName field value if set, zero value otherwise.
+func (o *OrderDataCustomerInfo) GetCompanyName() string {
+	if o == nil || IsNil(o.CompanyName) {
+		var ret string
+		return ret
+	}
+	return *o.CompanyName
+}
+
+// GetCompanyNameOk returns a tuple with the CompanyName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderDataCustomerInfo) GetCompanyNameOk() (*string, bool) {
+	if o == nil || IsNil(o.CompanyName) {
+		return nil, false
+	}
+	return o.CompanyName, true
+}
+
+// HasCompanyName returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasCompanyName() bool {
+	if o != nil && !IsNil(o.CompanyName) {
+		return true
+	}
+
+	return false
+}
+
+// SetCompanyName gets a reference to the given string and assigns it to the CompanyName field.
+func (o *OrderDataCustomerInfo) SetCompanyName(v string) {
+	o.CompanyName = &v
+}
+
+// GetAgentGrn returns the AgentGrn field value if set, zero value otherwise.
+func (o *OrderDataCustomerInfo) GetAgentGrn() string {
+	if o == nil || IsNil(o.AgentGrn) {
+		var ret string
+		return ret
+	}
+	return *o.AgentGrn
+}
+
+// GetAgentGrnOk returns a tuple with the AgentGrn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderDataCustomerInfo) GetAgentGrnOk() (*string, bool) {
+	if o == nil || IsNil(o.AgentGrn) {
+		return nil, false
+	}
+	return o.AgentGrn, true
+}
+
+// HasAgentGrn returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasAgentGrn() bool {
+	if o != nil && !IsNil(o.AgentGrn) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentGrn gets a reference to the given string and assigns it to the AgentGrn field.
+func (o *OrderDataCustomerInfo) SetAgentGrn(v string) {
+	o.AgentGrn = &v
+}
+
 func (o OrderDataCustomerInfo) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -349,15 +464,9 @@ func (o OrderDataCustomerInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Grn) {
 		toSerialize["grn"] = o.Grn
 	}
-	if !IsNil(o.Firstname) {
-		toSerialize["firstname"] = o.Firstname
-	}
-	if !IsNil(o.Lastname) {
-		toSerialize["lastname"] = o.Lastname
-	}
-	if !IsNil(o.Email) {
-		toSerialize["email"] = o.Email
-	}
+	toSerialize["firstname"] = o.Firstname
+	toSerialize["lastname"] = o.Lastname
+	toSerialize["email"] = o.Email
 	if !IsNil(o.Phone) {
 		toSerialize["phone"] = o.Phone
 	}
@@ -373,7 +482,58 @@ func (o OrderDataCustomerInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TaxCode) {
 		toSerialize["taxCode"] = o.TaxCode
 	}
+	if !IsNil(o.SdiCode) {
+		toSerialize["sdiCode"] = o.SdiCode
+	}
+	if !IsNil(o.FiscalCode) {
+		toSerialize["fiscalCode"] = o.FiscalCode
+	}
+	if !IsNil(o.CompanyName) {
+		toSerialize["companyName"] = o.CompanyName
+	}
+	if !IsNil(o.AgentGrn) {
+		toSerialize["agentGrn"] = o.AgentGrn
+	}
 	return toSerialize, nil
+}
+
+func (o *OrderDataCustomerInfo) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"firstname",
+		"lastname",
+		"email",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderDataCustomerInfo := _OrderDataCustomerInfo{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataCustomerInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDataCustomerInfo(varOrderDataCustomerInfo)
+
+	return err
 }
 
 type NullableOrderDataCustomerInfo struct {

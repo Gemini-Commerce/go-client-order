@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderCreateOrderRequest type satisfies the MappedNullable interface at compile time
@@ -20,36 +22,48 @@ var _ MappedNullable = &OrderCreateOrderRequest{}
 
 // OrderCreateOrderRequest struct for OrderCreateOrderRequest
 type OrderCreateOrderRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	Number *string `json:"number,omitempty"`
+	TenantId string `json:"tenantId"`
+	Number string `json:"number"`
 	Channel *string `json:"channel,omitempty"`
-	Market *string `json:"market,omitempty"`
-	Locale *string `json:"locale,omitempty"`
-	Items []OrderOrderDataItem `json:"items,omitempty"`
+	Market string `json:"market"`
+	Locale string `json:"locale"`
+	Items []OrderOrderDataItem `json:"items"`
 	PaymentsInfo []OrderDataPaymentInfo `json:"paymentsInfo,omitempty"`
 	ShipmentsInfo []OrderDataShipmentInfo `json:"shipmentsInfo,omitempty"`
 	Promotions []OrderDataPromotionInfo `json:"promotions,omitempty"`
 	Payments []CreateOrderRequestInitialPayment `json:"payments,omitempty"`
-	Currency *OrderCurrency `json:"currency,omitempty"`
-	Subtotals *map[string]OrderDataSubtotal `json:"subtotals,omitempty"`
-	Totals *map[string]OrderDataTotal `json:"totals,omitempty"`
-	VatIncluded *bool `json:"vatIncluded,omitempty"`
-	BillingAddress *OrderPostalAddress `json:"billingAddress,omitempty"`
-	ShippingAddress *OrderPostalAddress `json:"shippingAddress,omitempty"`
-	CustomerInfo *OrderDataCustomerInfo `json:"customerInfo,omitempty"`
+	Currency OrderCurrency `json:"currency"`
+	Subtotals map[string]OrderDataSubtotal `json:"subtotals"`
+	Totals map[string]OrderDataTotal `json:"totals"`
+	VatIncluded bool `json:"vatIncluded"`
+	BillingAddress OrderPostalAddress `json:"billingAddress"`
+	ShippingAddress OrderPostalAddress `json:"shippingAddress"`
+	CustomerInfo OrderDataCustomerInfo `json:"customerInfo"`
 	CartGrn *string `json:"cartGrn,omitempty"`
 	OnHold *bool `json:"onHold,omitempty"`
 	Notes *string `json:"notes,omitempty"`
 }
 
+type _OrderCreateOrderRequest OrderCreateOrderRequest
+
 // NewOrderCreateOrderRequest instantiates a new OrderCreateOrderRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderCreateOrderRequest() *OrderCreateOrderRequest {
+func NewOrderCreateOrderRequest(tenantId string, number string, market string, locale string, items []OrderOrderDataItem, currency OrderCurrency, subtotals map[string]OrderDataSubtotal, totals map[string]OrderDataTotal, vatIncluded bool, billingAddress OrderPostalAddress, shippingAddress OrderPostalAddress, customerInfo OrderDataCustomerInfo) *OrderCreateOrderRequest {
 	this := OrderCreateOrderRequest{}
-	var currency OrderCurrency = XXX
-	this.Currency = &currency
+	this.TenantId = tenantId
+	this.Number = number
+	this.Market = market
+	this.Locale = locale
+	this.Items = items
+	this.Currency = currency
+	this.Subtotals = subtotals
+	this.Totals = totals
+	this.VatIncluded = vatIncluded
+	this.BillingAddress = billingAddress
+	this.ShippingAddress = shippingAddress
+	this.CustomerInfo = customerInfo
 	return &this
 }
 
@@ -59,72 +73,56 @@ func NewOrderCreateOrderRequest() *OrderCreateOrderRequest {
 func NewOrderCreateOrderRequestWithDefaults() *OrderCreateOrderRequest {
 	this := OrderCreateOrderRequest{}
 	var currency OrderCurrency = XXX
-	this.Currency = &currency
+	this.Currency = currency
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderCreateOrderRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderCreateOrderRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetNumber returns the Number field value if set, zero value otherwise.
+// GetNumber returns the Number field value
 func (o *OrderCreateOrderRequest) GetNumber() string {
-	if o == nil || IsNil(o.Number) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Number
+
+	return o.Number
 }
 
-// GetNumberOk returns a tuple with the Number field value if set, nil otherwise
+// GetNumberOk returns a tuple with the Number field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetNumberOk() (*string, bool) {
-	if o == nil || IsNil(o.Number) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Number, true
+	return &o.Number, true
 }
 
-// HasNumber returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasNumber() bool {
-	if o != nil && !IsNil(o.Number) {
-		return true
-	}
-
-	return false
-}
-
-// SetNumber gets a reference to the given string and assigns it to the Number field.
+// SetNumber sets field value
 func (o *OrderCreateOrderRequest) SetNumber(v string) {
-	o.Number = &v
+	o.Number = v
 }
 
 // GetChannel returns the Channel field value if set, zero value otherwise.
@@ -159,98 +157,74 @@ func (o *OrderCreateOrderRequest) SetChannel(v string) {
 	o.Channel = &v
 }
 
-// GetMarket returns the Market field value if set, zero value otherwise.
+// GetMarket returns the Market field value
 func (o *OrderCreateOrderRequest) GetMarket() string {
-	if o == nil || IsNil(o.Market) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Market
+
+	return o.Market
 }
 
-// GetMarketOk returns a tuple with the Market field value if set, nil otherwise
+// GetMarketOk returns a tuple with the Market field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetMarketOk() (*string, bool) {
-	if o == nil || IsNil(o.Market) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Market, true
+	return &o.Market, true
 }
 
-// HasMarket returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasMarket() bool {
-	if o != nil && !IsNil(o.Market) {
-		return true
-	}
-
-	return false
-}
-
-// SetMarket gets a reference to the given string and assigns it to the Market field.
+// SetMarket sets field value
 func (o *OrderCreateOrderRequest) SetMarket(v string) {
-	o.Market = &v
+	o.Market = v
 }
 
-// GetLocale returns the Locale field value if set, zero value otherwise.
+// GetLocale returns the Locale field value
 func (o *OrderCreateOrderRequest) GetLocale() string {
-	if o == nil || IsNil(o.Locale) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Locale
+
+	return o.Locale
 }
 
-// GetLocaleOk returns a tuple with the Locale field value if set, nil otherwise
+// GetLocaleOk returns a tuple with the Locale field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetLocaleOk() (*string, bool) {
-	if o == nil || IsNil(o.Locale) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Locale, true
+	return &o.Locale, true
 }
 
-// HasLocale returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasLocale() bool {
-	if o != nil && !IsNil(o.Locale) {
-		return true
-	}
-
-	return false
-}
-
-// SetLocale gets a reference to the given string and assigns it to the Locale field.
+// SetLocale sets field value
 func (o *OrderCreateOrderRequest) SetLocale(v string) {
-	o.Locale = &v
+	o.Locale = v
 }
 
-// GetItems returns the Items field value if set, zero value otherwise.
+// GetItems returns the Items field value
 func (o *OrderCreateOrderRequest) GetItems() []OrderOrderDataItem {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		var ret []OrderOrderDataItem
 		return ret
 	}
+
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetItemsOk() ([]OrderOrderDataItem, bool) {
-	if o == nil || IsNil(o.Items) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasItems() bool {
-	if o != nil && !IsNil(o.Items) {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []OrderOrderDataItem and assigns it to the Items field.
+// SetItems sets field value
 func (o *OrderCreateOrderRequest) SetItems(v []OrderOrderDataItem) {
 	o.Items = v
 }
@@ -383,228 +357,172 @@ func (o *OrderCreateOrderRequest) SetPayments(v []CreateOrderRequestInitialPayme
 	o.Payments = v
 }
 
-// GetCurrency returns the Currency field value if set, zero value otherwise.
+// GetCurrency returns the Currency field value
 func (o *OrderCreateOrderRequest) GetCurrency() OrderCurrency {
-	if o == nil || IsNil(o.Currency) {
+	if o == nil {
 		var ret OrderCurrency
 		return ret
 	}
-	return *o.Currency
+
+	return o.Currency
 }
 
-// GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
+// GetCurrencyOk returns a tuple with the Currency field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetCurrencyOk() (*OrderCurrency, bool) {
-	if o == nil || IsNil(o.Currency) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Currency, true
+	return &o.Currency, true
 }
 
-// HasCurrency returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasCurrency() bool {
-	if o != nil && !IsNil(o.Currency) {
-		return true
-	}
-
-	return false
-}
-
-// SetCurrency gets a reference to the given OrderCurrency and assigns it to the Currency field.
+// SetCurrency sets field value
 func (o *OrderCreateOrderRequest) SetCurrency(v OrderCurrency) {
-	o.Currency = &v
+	o.Currency = v
 }
 
-// GetSubtotals returns the Subtotals field value if set, zero value otherwise.
+// GetSubtotals returns the Subtotals field value
 func (o *OrderCreateOrderRequest) GetSubtotals() map[string]OrderDataSubtotal {
-	if o == nil || IsNil(o.Subtotals) {
+	if o == nil {
 		var ret map[string]OrderDataSubtotal
 		return ret
 	}
-	return *o.Subtotals
+
+	return o.Subtotals
 }
 
-// GetSubtotalsOk returns a tuple with the Subtotals field value if set, nil otherwise
+// GetSubtotalsOk returns a tuple with the Subtotals field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetSubtotalsOk() (*map[string]OrderDataSubtotal, bool) {
-	if o == nil || IsNil(o.Subtotals) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Subtotals, true
+	return &o.Subtotals, true
 }
 
-// HasSubtotals returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasSubtotals() bool {
-	if o != nil && !IsNil(o.Subtotals) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubtotals gets a reference to the given map[string]OrderDataSubtotal and assigns it to the Subtotals field.
+// SetSubtotals sets field value
 func (o *OrderCreateOrderRequest) SetSubtotals(v map[string]OrderDataSubtotal) {
-	o.Subtotals = &v
+	o.Subtotals = v
 }
 
-// GetTotals returns the Totals field value if set, zero value otherwise.
+// GetTotals returns the Totals field value
 func (o *OrderCreateOrderRequest) GetTotals() map[string]OrderDataTotal {
-	if o == nil || IsNil(o.Totals) {
+	if o == nil {
 		var ret map[string]OrderDataTotal
 		return ret
 	}
-	return *o.Totals
+
+	return o.Totals
 }
 
-// GetTotalsOk returns a tuple with the Totals field value if set, nil otherwise
+// GetTotalsOk returns a tuple with the Totals field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetTotalsOk() (*map[string]OrderDataTotal, bool) {
-	if o == nil || IsNil(o.Totals) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Totals, true
+	return &o.Totals, true
 }
 
-// HasTotals returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasTotals() bool {
-	if o != nil && !IsNil(o.Totals) {
-		return true
-	}
-
-	return false
-}
-
-// SetTotals gets a reference to the given map[string]OrderDataTotal and assigns it to the Totals field.
+// SetTotals sets field value
 func (o *OrderCreateOrderRequest) SetTotals(v map[string]OrderDataTotal) {
-	o.Totals = &v
+	o.Totals = v
 }
 
-// GetVatIncluded returns the VatIncluded field value if set, zero value otherwise.
+// GetVatIncluded returns the VatIncluded field value
 func (o *OrderCreateOrderRequest) GetVatIncluded() bool {
-	if o == nil || IsNil(o.VatIncluded) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.VatIncluded
+
+	return o.VatIncluded
 }
 
-// GetVatIncludedOk returns a tuple with the VatIncluded field value if set, nil otherwise
+// GetVatIncludedOk returns a tuple with the VatIncluded field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetVatIncludedOk() (*bool, bool) {
-	if o == nil || IsNil(o.VatIncluded) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VatIncluded, true
+	return &o.VatIncluded, true
 }
 
-// HasVatIncluded returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasVatIncluded() bool {
-	if o != nil && !IsNil(o.VatIncluded) {
-		return true
-	}
-
-	return false
-}
-
-// SetVatIncluded gets a reference to the given bool and assigns it to the VatIncluded field.
+// SetVatIncluded sets field value
 func (o *OrderCreateOrderRequest) SetVatIncluded(v bool) {
-	o.VatIncluded = &v
+	o.VatIncluded = v
 }
 
-// GetBillingAddress returns the BillingAddress field value if set, zero value otherwise.
+// GetBillingAddress returns the BillingAddress field value
 func (o *OrderCreateOrderRequest) GetBillingAddress() OrderPostalAddress {
-	if o == nil || IsNil(o.BillingAddress) {
+	if o == nil {
 		var ret OrderPostalAddress
 		return ret
 	}
-	return *o.BillingAddress
+
+	return o.BillingAddress
 }
 
-// GetBillingAddressOk returns a tuple with the BillingAddress field value if set, nil otherwise
+// GetBillingAddressOk returns a tuple with the BillingAddress field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetBillingAddressOk() (*OrderPostalAddress, bool) {
-	if o == nil || IsNil(o.BillingAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BillingAddress, true
+	return &o.BillingAddress, true
 }
 
-// HasBillingAddress returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasBillingAddress() bool {
-	if o != nil && !IsNil(o.BillingAddress) {
-		return true
-	}
-
-	return false
-}
-
-// SetBillingAddress gets a reference to the given OrderPostalAddress and assigns it to the BillingAddress field.
+// SetBillingAddress sets field value
 func (o *OrderCreateOrderRequest) SetBillingAddress(v OrderPostalAddress) {
-	o.BillingAddress = &v
+	o.BillingAddress = v
 }
 
-// GetShippingAddress returns the ShippingAddress field value if set, zero value otherwise.
+// GetShippingAddress returns the ShippingAddress field value
 func (o *OrderCreateOrderRequest) GetShippingAddress() OrderPostalAddress {
-	if o == nil || IsNil(o.ShippingAddress) {
+	if o == nil {
 		var ret OrderPostalAddress
 		return ret
 	}
-	return *o.ShippingAddress
+
+	return o.ShippingAddress
 }
 
-// GetShippingAddressOk returns a tuple with the ShippingAddress field value if set, nil otherwise
+// GetShippingAddressOk returns a tuple with the ShippingAddress field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetShippingAddressOk() (*OrderPostalAddress, bool) {
-	if o == nil || IsNil(o.ShippingAddress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShippingAddress, true
+	return &o.ShippingAddress, true
 }
 
-// HasShippingAddress returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasShippingAddress() bool {
-	if o != nil && !IsNil(o.ShippingAddress) {
-		return true
-	}
-
-	return false
-}
-
-// SetShippingAddress gets a reference to the given OrderPostalAddress and assigns it to the ShippingAddress field.
+// SetShippingAddress sets field value
 func (o *OrderCreateOrderRequest) SetShippingAddress(v OrderPostalAddress) {
-	o.ShippingAddress = &v
+	o.ShippingAddress = v
 }
 
-// GetCustomerInfo returns the CustomerInfo field value if set, zero value otherwise.
+// GetCustomerInfo returns the CustomerInfo field value
 func (o *OrderCreateOrderRequest) GetCustomerInfo() OrderDataCustomerInfo {
-	if o == nil || IsNil(o.CustomerInfo) {
+	if o == nil {
 		var ret OrderDataCustomerInfo
 		return ret
 	}
-	return *o.CustomerInfo
+
+	return o.CustomerInfo
 }
 
-// GetCustomerInfoOk returns a tuple with the CustomerInfo field value if set, nil otherwise
+// GetCustomerInfoOk returns a tuple with the CustomerInfo field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateOrderRequest) GetCustomerInfoOk() (*OrderDataCustomerInfo, bool) {
-	if o == nil || IsNil(o.CustomerInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomerInfo, true
+	return &o.CustomerInfo, true
 }
 
-// HasCustomerInfo returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasCustomerInfo() bool {
-	if o != nil && !IsNil(o.CustomerInfo) {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomerInfo gets a reference to the given OrderDataCustomerInfo and assigns it to the CustomerInfo field.
+// SetCustomerInfo sets field value
 func (o *OrderCreateOrderRequest) SetCustomerInfo(v OrderDataCustomerInfo) {
-	o.CustomerInfo = &v
+	o.CustomerInfo = v
 }
 
 // GetCartGrn returns the CartGrn field value if set, zero value otherwise.
@@ -713,24 +631,14 @@ func (o OrderCreateOrderRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderCreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.Number) {
-		toSerialize["number"] = o.Number
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["number"] = o.Number
 	if !IsNil(o.Channel) {
 		toSerialize["channel"] = o.Channel
 	}
-	if !IsNil(o.Market) {
-		toSerialize["market"] = o.Market
-	}
-	if !IsNil(o.Locale) {
-		toSerialize["locale"] = o.Locale
-	}
-	if !IsNil(o.Items) {
-		toSerialize["items"] = o.Items
-	}
+	toSerialize["market"] = o.Market
+	toSerialize["locale"] = o.Locale
+	toSerialize["items"] = o.Items
 	if !IsNil(o.PaymentsInfo) {
 		toSerialize["paymentsInfo"] = o.PaymentsInfo
 	}
@@ -743,27 +651,13 @@ func (o OrderCreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Payments) {
 		toSerialize["payments"] = o.Payments
 	}
-	if !IsNil(o.Currency) {
-		toSerialize["currency"] = o.Currency
-	}
-	if !IsNil(o.Subtotals) {
-		toSerialize["subtotals"] = o.Subtotals
-	}
-	if !IsNil(o.Totals) {
-		toSerialize["totals"] = o.Totals
-	}
-	if !IsNil(o.VatIncluded) {
-		toSerialize["vatIncluded"] = o.VatIncluded
-	}
-	if !IsNil(o.BillingAddress) {
-		toSerialize["billingAddress"] = o.BillingAddress
-	}
-	if !IsNil(o.ShippingAddress) {
-		toSerialize["shippingAddress"] = o.ShippingAddress
-	}
-	if !IsNil(o.CustomerInfo) {
-		toSerialize["customerInfo"] = o.CustomerInfo
-	}
+	toSerialize["currency"] = o.Currency
+	toSerialize["subtotals"] = o.Subtotals
+	toSerialize["totals"] = o.Totals
+	toSerialize["vatIncluded"] = o.VatIncluded
+	toSerialize["billingAddress"] = o.BillingAddress
+	toSerialize["shippingAddress"] = o.ShippingAddress
+	toSerialize["customerInfo"] = o.CustomerInfo
 	if !IsNil(o.CartGrn) {
 		toSerialize["cartGrn"] = o.CartGrn
 	}
@@ -774,6 +668,54 @@ func (o OrderCreateOrderRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["notes"] = o.Notes
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderCreateOrderRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"number",
+		"market",
+		"locale",
+		"items",
+		"currency",
+		"subtotals",
+		"totals",
+		"vatIncluded",
+		"billingAddress",
+		"shippingAddress",
+		"customerInfo",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderCreateOrderRequest := _OrderCreateOrderRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderCreateOrderRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderCreateOrderRequest(varOrderCreateOrderRequest)
+
+	return err
 }
 
 type NullableOrderCreateOrderRequest struct {

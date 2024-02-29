@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ImportOrderRequestImportedPayment type satisfies the MappedNullable interface at compile time
@@ -20,18 +22,23 @@ var _ MappedNullable = &ImportOrderRequestImportedPayment{}
 
 // ImportOrderRequestImportedPayment struct for ImportOrderRequestImportedPayment
 type ImportOrderRequestImportedPayment struct {
-	Code *string `json:"code,omitempty"`
+	Code string `json:"code"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
-	Amounts []OrderPaymentAmount `json:"amounts,omitempty"`
+	Amounts []OrderPaymentAmount `json:"amounts"`
 	CcInfo *PaymentCcInfo `json:"ccInfo,omitempty"`
+	IsUpfront *bool `json:"isUpfront,omitempty"`
 }
+
+type _ImportOrderRequestImportedPayment ImportOrderRequestImportedPayment
 
 // NewImportOrderRequestImportedPayment instantiates a new ImportOrderRequestImportedPayment object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImportOrderRequestImportedPayment() *ImportOrderRequestImportedPayment {
+func NewImportOrderRequestImportedPayment(code string, amounts []OrderPaymentAmount) *ImportOrderRequestImportedPayment {
 	this := ImportOrderRequestImportedPayment{}
+	this.Code = code
+	this.Amounts = amounts
 	return &this
 }
 
@@ -43,36 +50,28 @@ func NewImportOrderRequestImportedPaymentWithDefaults() *ImportOrderRequestImpor
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *ImportOrderRequestImportedPayment) GetCode() string {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *ImportOrderRequestImportedPayment) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ImportOrderRequestImportedPayment) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given string and assigns it to the Code field.
+// SetCode sets field value
 func (o *ImportOrderRequestImportedPayment) SetCode(v string) {
-	o.Code = &v
+	o.Code = v
 }
 
 // GetAdditionalInfo returns the AdditionalInfo field value if set, zero value otherwise.
@@ -107,34 +106,26 @@ func (o *ImportOrderRequestImportedPayment) SetAdditionalInfo(v string) {
 	o.AdditionalInfo = &v
 }
 
-// GetAmounts returns the Amounts field value if set, zero value otherwise.
+// GetAmounts returns the Amounts field value
 func (o *ImportOrderRequestImportedPayment) GetAmounts() []OrderPaymentAmount {
-	if o == nil || IsNil(o.Amounts) {
+	if o == nil {
 		var ret []OrderPaymentAmount
 		return ret
 	}
+
 	return o.Amounts
 }
 
-// GetAmountsOk returns a tuple with the Amounts field value if set, nil otherwise
+// GetAmountsOk returns a tuple with the Amounts field value
 // and a boolean to check if the value has been set.
 func (o *ImportOrderRequestImportedPayment) GetAmountsOk() ([]OrderPaymentAmount, bool) {
-	if o == nil || IsNil(o.Amounts) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Amounts, true
 }
 
-// HasAmounts returns a boolean if a field has been set.
-func (o *ImportOrderRequestImportedPayment) HasAmounts() bool {
-	if o != nil && !IsNil(o.Amounts) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmounts gets a reference to the given []OrderPaymentAmount and assigns it to the Amounts field.
+// SetAmounts sets field value
 func (o *ImportOrderRequestImportedPayment) SetAmounts(v []OrderPaymentAmount) {
 	o.Amounts = v
 }
@@ -171,6 +162,38 @@ func (o *ImportOrderRequestImportedPayment) SetCcInfo(v PaymentCcInfo) {
 	o.CcInfo = &v
 }
 
+// GetIsUpfront returns the IsUpfront field value if set, zero value otherwise.
+func (o *ImportOrderRequestImportedPayment) GetIsUpfront() bool {
+	if o == nil || IsNil(o.IsUpfront) {
+		var ret bool
+		return ret
+	}
+	return *o.IsUpfront
+}
+
+// GetIsUpfrontOk returns a tuple with the IsUpfront field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImportOrderRequestImportedPayment) GetIsUpfrontOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsUpfront) {
+		return nil, false
+	}
+	return o.IsUpfront, true
+}
+
+// HasIsUpfront returns a boolean if a field has been set.
+func (o *ImportOrderRequestImportedPayment) HasIsUpfront() bool {
+	if o != nil && !IsNil(o.IsUpfront) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsUpfront gets a reference to the given bool and assigns it to the IsUpfront field.
+func (o *ImportOrderRequestImportedPayment) SetIsUpfront(v bool) {
+	o.IsUpfront = &v
+}
+
 func (o ImportOrderRequestImportedPayment) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -181,19 +204,56 @@ func (o ImportOrderRequestImportedPayment) MarshalJSON() ([]byte, error) {
 
 func (o ImportOrderRequestImportedPayment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
+	toSerialize["code"] = o.Code
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
-	if !IsNil(o.Amounts) {
-		toSerialize["amounts"] = o.Amounts
-	}
+	toSerialize["amounts"] = o.Amounts
 	if !IsNil(o.CcInfo) {
 		toSerialize["ccInfo"] = o.CcInfo
 	}
+	if !IsNil(o.IsUpfront) {
+		toSerialize["isUpfront"] = o.IsUpfront
+	}
 	return toSerialize, nil
+}
+
+func (o *ImportOrderRequestImportedPayment) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"code",
+		"amounts",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varImportOrderRequestImportedPayment := _ImportOrderRequestImportedPayment{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varImportOrderRequestImportedPayment)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ImportOrderRequestImportedPayment(varImportOrderRequestImportedPayment)
+
+	return err
 }
 
 type NullableImportOrderRequestImportedPayment struct {

@@ -16,7 +16,7 @@ import (
 	"fmt"
 )
 
-// OrderDataSubtotalCode the model 'OrderDataSubtotalCode'
+// OrderDataSubtotalCode  - ITEMS: gross discount items amount.  - ITEMS_DISCOUNTED: discounted items amount.  - DISCOUNT: discount amount. It is a NEGATIVE amount.
 type OrderDataSubtotalCode string
 
 // List of OrderDataSubtotalCode

@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderGetOrderByCartIdRequest type satisfies the MappedNullable interface at compile time
@@ -20,16 +22,20 @@ var _ MappedNullable = &OrderGetOrderByCartIdRequest{}
 
 // OrderGetOrderByCartIdRequest struct for OrderGetOrderByCartIdRequest
 type OrderGetOrderByCartIdRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	CartId *string `json:"cartId,omitempty"`
+	TenantId string `json:"tenantId"`
+	CartId string `json:"cartId"`
 }
+
+type _OrderGetOrderByCartIdRequest OrderGetOrderByCartIdRequest
 
 // NewOrderGetOrderByCartIdRequest instantiates a new OrderGetOrderByCartIdRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderGetOrderByCartIdRequest() *OrderGetOrderByCartIdRequest {
+func NewOrderGetOrderByCartIdRequest(tenantId string, cartId string) *OrderGetOrderByCartIdRequest {
 	this := OrderGetOrderByCartIdRequest{}
+	this.TenantId = tenantId
+	this.CartId = cartId
 	return &this
 }
 
@@ -41,68 +47,52 @@ func NewOrderGetOrderByCartIdRequestWithDefaults() *OrderGetOrderByCartIdRequest
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderGetOrderByCartIdRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderGetOrderByCartIdRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderGetOrderByCartIdRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderGetOrderByCartIdRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetCartId returns the CartId field value if set, zero value otherwise.
+// GetCartId returns the CartId field value
 func (o *OrderGetOrderByCartIdRequest) GetCartId() string {
-	if o == nil || IsNil(o.CartId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CartId
+
+	return o.CartId
 }
 
-// GetCartIdOk returns a tuple with the CartId field value if set, nil otherwise
+// GetCartIdOk returns a tuple with the CartId field value
 // and a boolean to check if the value has been set.
 func (o *OrderGetOrderByCartIdRequest) GetCartIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CartId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CartId, true
+	return &o.CartId, true
 }
 
-// HasCartId returns a boolean if a field has been set.
-func (o *OrderGetOrderByCartIdRequest) HasCartId() bool {
-	if o != nil && !IsNil(o.CartId) {
-		return true
-	}
-
-	return false
-}
-
-// SetCartId gets a reference to the given string and assigns it to the CartId field.
+// SetCartId sets field value
 func (o *OrderGetOrderByCartIdRequest) SetCartId(v string) {
-	o.CartId = &v
+	o.CartId = v
 }
 
 func (o OrderGetOrderByCartIdRequest) MarshalJSON() ([]byte, error) {
@@ -115,13 +105,47 @@ func (o OrderGetOrderByCartIdRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderGetOrderByCartIdRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.CartId) {
-		toSerialize["cartId"] = o.CartId
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["cartId"] = o.CartId
 	return toSerialize, nil
+}
+
+func (o *OrderGetOrderByCartIdRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"cartId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderGetOrderByCartIdRequest := _OrderGetOrderByCartIdRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderGetOrderByCartIdRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderGetOrderByCartIdRequest(varOrderGetOrderByCartIdRequest)
+
+	return err
 }
 
 type NullableOrderGetOrderByCartIdRequest struct {

@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderCancelOrderRequest type satisfies the MappedNullable interface at compile time
@@ -20,17 +22,21 @@ var _ MappedNullable = &OrderCancelOrderRequest{}
 
 // OrderCancelOrderRequest struct for OrderCancelOrderRequest
 type OrderCancelOrderRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	OrderId *string `json:"orderId,omitempty"`
+	TenantId string `json:"tenantId"`
+	OrderId string `json:"orderId"`
 	Reason *string `json:"reason,omitempty"`
 }
+
+type _OrderCancelOrderRequest OrderCancelOrderRequest
 
 // NewOrderCancelOrderRequest instantiates a new OrderCancelOrderRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderCancelOrderRequest() *OrderCancelOrderRequest {
+func NewOrderCancelOrderRequest(tenantId string, orderId string) *OrderCancelOrderRequest {
 	this := OrderCancelOrderRequest{}
+	this.TenantId = tenantId
+	this.OrderId = orderId
 	return &this
 }
 
@@ -42,68 +48,52 @@ func NewOrderCancelOrderRequestWithDefaults() *OrderCancelOrderRequest {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderCancelOrderRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCancelOrderRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderCancelOrderRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderCancelOrderRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
+// GetOrderId returns the OrderId field value
 func (o *OrderCancelOrderRequest) GetOrderId() string {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OrderId
+
+	return o.OrderId
 }
 
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// GetOrderIdOk returns a tuple with the OrderId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCancelOrderRequest) GetOrderIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OrderId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OrderId, true
+	return &o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *OrderCancelOrderRequest) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given string and assigns it to the OrderId field.
+// SetOrderId sets field value
 func (o *OrderCancelOrderRequest) SetOrderId(v string) {
-	o.OrderId = &v
+	o.OrderId = v
 }
 
 // GetReason returns the Reason field value if set, zero value otherwise.
@@ -148,16 +138,50 @@ func (o OrderCancelOrderRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderCancelOrderRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.OrderId) {
-		toSerialize["orderId"] = o.OrderId
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["orderId"] = o.OrderId
 	if !IsNil(o.Reason) {
 		toSerialize["reason"] = o.Reason
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderCancelOrderRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"orderId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderCancelOrderRequest := _OrderCancelOrderRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderCancelOrderRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderCancelOrderRequest(varOrderCancelOrderRequest)
+
+	return err
 }
 
 type NullableOrderCancelOrderRequest struct {

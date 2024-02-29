@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderDataTotal type satisfies the MappedNullable interface at compile time
@@ -20,18 +22,20 @@ var _ MappedNullable = &OrderDataTotal{}
 
 // OrderDataTotal struct for OrderDataTotal
 type OrderDataTotal struct {
-	Code *OrderDataTotalCode `json:"code,omitempty"`
-	Value *OrderMoney `json:"value,omitempty"`
+	Code OrderDataTotalCode `json:"code"`
+	Value OrderMoney `json:"value"`
 }
+
+type _OrderDataTotal OrderDataTotal
 
 // NewOrderDataTotal instantiates a new OrderDataTotal object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderDataTotal() *OrderDataTotal {
+func NewOrderDataTotal(code OrderDataTotalCode, value OrderMoney) *OrderDataTotal {
 	this := OrderDataTotal{}
-	var code OrderDataTotalCode = UNKNOWN
-	this.Code = &code
+	this.Code = code
+	this.Value = value
 	return &this
 }
 
@@ -41,72 +45,56 @@ func NewOrderDataTotal() *OrderDataTotal {
 func NewOrderDataTotalWithDefaults() *OrderDataTotal {
 	this := OrderDataTotal{}
 	var code OrderDataTotalCode = UNKNOWN
-	this.Code = &code
+	this.Code = code
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
+// GetCode returns the Code field value
 func (o *OrderDataTotal) GetCode() OrderDataTotalCode {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		var ret OrderDataTotalCode
 		return ret
 	}
-	return *o.Code
+
+	return o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataTotal) GetCodeOk() (*OrderDataTotalCode, bool) {
-	if o == nil || IsNil(o.Code) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Code, true
+	return &o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *OrderDataTotal) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given OrderDataTotalCode and assigns it to the Code field.
+// SetCode sets field value
 func (o *OrderDataTotal) SetCode(v OrderDataTotalCode) {
-	o.Code = &v
+	o.Code = v
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// GetValue returns the Value field value
 func (o *OrderDataTotal) GetValue() OrderMoney {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		var ret OrderMoney
 		return ret
 	}
-	return *o.Value
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *OrderDataTotal) GetValueOk() (*OrderMoney, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *OrderDataTotal) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given OrderMoney and assigns it to the Value field.
+// SetValue sets field value
 func (o *OrderDataTotal) SetValue(v OrderMoney) {
-	o.Value = &v
+	o.Value = v
 }
 
 func (o OrderDataTotal) MarshalJSON() ([]byte, error) {
@@ -119,13 +107,47 @@ func (o OrderDataTotal) MarshalJSON() ([]byte, error) {
 
 func (o OrderDataTotal) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
+	toSerialize["code"] = o.Code
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
+}
+
+func (o *OrderDataTotal) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"code",
+		"value",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderDataTotal := _OrderDataTotal{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataTotal)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDataTotal(varOrderDataTotal)
+
+	return err
 }
 
 type NullableOrderDataTotal struct {

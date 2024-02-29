@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderCreateRefundTransactionRequest type satisfies the MappedNullable interface at compile time
@@ -20,19 +22,23 @@ var _ MappedNullable = &OrderCreateRefundTransactionRequest{}
 
 // OrderCreateRefundTransactionRequest struct for OrderCreateRefundTransactionRequest
 type OrderCreateRefundTransactionRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	RefundId *string `json:"refundId,omitempty"`
+	TenantId string `json:"tenantId"`
+	RefundId string `json:"refundId"`
 	ParentTransactionId *string `json:"parentTransactionId,omitempty"`
 	Type *OrderTransactionType `json:"type,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 }
 
+type _OrderCreateRefundTransactionRequest OrderCreateRefundTransactionRequest
+
 // NewOrderCreateRefundTransactionRequest instantiates a new OrderCreateRefundTransactionRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderCreateRefundTransactionRequest() *OrderCreateRefundTransactionRequest {
+func NewOrderCreateRefundTransactionRequest(tenantId string, refundId string) *OrderCreateRefundTransactionRequest {
 	this := OrderCreateRefundTransactionRequest{}
+	this.TenantId = tenantId
+	this.RefundId = refundId
 	var type_ OrderTransactionType = UNKNOWN
 	this.Type = &type_
 	return &this
@@ -48,68 +54,52 @@ func NewOrderCreateRefundTransactionRequestWithDefaults() *OrderCreateRefundTran
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderCreateRefundTransactionRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateRefundTransactionRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderCreateRefundTransactionRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderCreateRefundTransactionRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetRefundId returns the RefundId field value if set, zero value otherwise.
+// GetRefundId returns the RefundId field value
 func (o *OrderCreateRefundTransactionRequest) GetRefundId() string {
-	if o == nil || IsNil(o.RefundId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RefundId
+
+	return o.RefundId
 }
 
-// GetRefundIdOk returns a tuple with the RefundId field value if set, nil otherwise
+// GetRefundIdOk returns a tuple with the RefundId field value
 // and a boolean to check if the value has been set.
 func (o *OrderCreateRefundTransactionRequest) GetRefundIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RefundId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RefundId, true
+	return &o.RefundId, true
 }
 
-// HasRefundId returns a boolean if a field has been set.
-func (o *OrderCreateRefundTransactionRequest) HasRefundId() bool {
-	if o != nil && !IsNil(o.RefundId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRefundId gets a reference to the given string and assigns it to the RefundId field.
+// SetRefundId sets field value
 func (o *OrderCreateRefundTransactionRequest) SetRefundId(v string) {
-	o.RefundId = &v
+	o.RefundId = v
 }
 
 // GetParentTransactionId returns the ParentTransactionId field value if set, zero value otherwise.
@@ -218,12 +208,8 @@ func (o OrderCreateRefundTransactionRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderCreateRefundTransactionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.RefundId) {
-		toSerialize["refundId"] = o.RefundId
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["refundId"] = o.RefundId
 	if !IsNil(o.ParentTransactionId) {
 		toSerialize["parentTransactionId"] = o.ParentTransactionId
 	}
@@ -234,6 +220,44 @@ func (o OrderCreateRefundTransactionRequest) ToMap() (map[string]interface{}, er
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderCreateRefundTransactionRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"refundId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderCreateRefundTransactionRequest := _OrderCreateRefundTransactionRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderCreateRefundTransactionRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderCreateRefundTransactionRequest(varOrderCreateRefundTransactionRequest)
+
+	return err
 }
 
 type NullableOrderCreateRefundTransactionRequest struct {

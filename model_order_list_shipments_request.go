@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderListShipmentsRequest type satisfies the MappedNullable interface at compile time
@@ -20,16 +22,19 @@ var _ MappedNullable = &OrderListShipmentsRequest{}
 
 // OrderListShipmentsRequest struct for OrderListShipmentsRequest
 type OrderListShipmentsRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId string `json:"tenantId"`
 	OrderId *string `json:"orderId,omitempty"`
 }
+
+type _OrderListShipmentsRequest OrderListShipmentsRequest
 
 // NewOrderListShipmentsRequest instantiates a new OrderListShipmentsRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderListShipmentsRequest() *OrderListShipmentsRequest {
+func NewOrderListShipmentsRequest(tenantId string) *OrderListShipmentsRequest {
 	this := OrderListShipmentsRequest{}
+	this.TenantId = tenantId
 	return &this
 }
 
@@ -41,36 +46,28 @@ func NewOrderListShipmentsRequestWithDefaults() *OrderListShipmentsRequest {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderListShipmentsRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderListShipmentsRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderListShipmentsRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderListShipmentsRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
 // GetOrderId returns the OrderId field value if set, zero value otherwise.
@@ -115,13 +112,48 @@ func (o OrderListShipmentsRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderListShipmentsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
+	toSerialize["tenantId"] = o.TenantId
 	if !IsNil(o.OrderId) {
 		toSerialize["orderId"] = o.OrderId
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderListShipmentsRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderListShipmentsRequest := _OrderListShipmentsRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderListShipmentsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderListShipmentsRequest(varOrderListShipmentsRequest)
+
+	return err
 }
 
 type NullableOrderListShipmentsRequest struct {

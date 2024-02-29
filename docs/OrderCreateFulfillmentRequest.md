@@ -6,9 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId**| **string** |   | [optional]
-**OrderId**| **string** |   | [optional]
-**Items**| [**[]OrderFulfillmentItem**](OrderFulfillmentItem.md) |   | [optional]
+**TenantId**| **string** |   |
+**OrderId**| **string** |   |
+**Items**| [**[]OrderFulfillmentItem**](OrderFulfillmentItem.md) |   |
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

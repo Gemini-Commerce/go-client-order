@@ -15,6 +15,7 @@ Install the following dependencies:
 
 ```sh
 go get github.com/stretchr/testify/assert
+go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -107,6 +108,8 @@ Class | Method | HTTP request | Description
 *OrderAPI* | [**ListOrdersByCustomer**](docs/OrderAPI.md#listordersbycustomer) | **Post** /order.Order/ListOrdersByCustomer | List Orders by Customer
 *OrderAPI* | [**ListOrdersByNumbers**](docs/OrderAPI.md#listordersbynumbers) | **Post** /order.Order/ListOrdersByNumbers | List Orders by Numbers
 *OrderAPI* | [**ListShipments**](docs/OrderAPI.md#listshipments) | **Post** /order.Order/ListShipments | List Shipments
+*OrderAPI* | [**OrderAddDocument**](docs/OrderAPI.md#orderadddocument) | **Post** /order.Order/AddDocument | Documents
+*OrderAPI* | [**OrderRemoveDocumentByCode**](docs/OrderAPI.md#orderremovedocumentbycode) | **Post** /order.Order/RemoveDocumentByCode | 
 *OrderAPI* | [**PrintOrdersLabels**](docs/OrderAPI.md#printorderslabels) | **Post** /order.Order/PrintOrdersLabels | Print Orders Labels
 *OrderAPI* | [**QuashFulfillment**](docs/OrderAPI.md#quashfulfillment) | **Post** /order.Order/QuashFulfillment | Quash Fulfillment
 *OrderAPI* | [**QuashShipment**](docs/OrderAPI.md#quashshipment) | **Post** /order.Order/QuashShipment | Quash Shipment
@@ -133,6 +136,9 @@ Class | Method | HTTP request | Description
  - [CreateOrderRequestInitialPayment](docs/CreateOrderRequestInitialPayment.md)
  - [ImportOrderRequestImportedPayment](docs/ImportOrderRequestImportedPayment.md)
  - [InitialPaymentInitialTransaction](docs/InitialPaymentInitialTransaction.md)
+ - [ItemProductConfigurationStep](docs/ItemProductConfigurationStep.md)
+ - [OptionImage](docs/OptionImage.md)
+ - [OrderAddDocumentRequest](docs/OrderAddDocumentRequest.md)
  - [OrderApproveOrderRequest](docs/OrderApproveOrderRequest.md)
  - [OrderAssignShipmentRequest](docs/OrderAssignShipmentRequest.md)
  - [OrderByDirection](docs/OrderByDirection.md)
@@ -152,6 +158,7 @@ Class | Method | HTTP request | Description
  - [OrderCreateShipmentRequest](docs/OrderCreateShipmentRequest.md)
  - [OrderCurrency](docs/OrderCurrency.md)
  - [OrderDataCustomerInfo](docs/OrderDataCustomerInfo.md)
+ - [OrderDataDocument](docs/OrderDataDocument.md)
  - [OrderDataHistory](docs/OrderDataHistory.md)
  - [OrderDataPaymentInfo](docs/OrderDataPaymentInfo.md)
  - [OrderDataPromotionInfo](docs/OrderDataPromotionInfo.md)
@@ -202,6 +209,7 @@ Class | Method | HTTP request | Description
  - [OrderRefundAmount](docs/OrderRefundAmount.md)
  - [OrderRefundAmountCode](docs/OrderRefundAmountCode.md)
  - [OrderRefundItem](docs/OrderRefundItem.md)
+ - [OrderRemoveDocumentByCodeRequest](docs/OrderRemoveDocumentByCodeRequest.md)
  - [OrderReportFulfillmentErrorRequest](docs/OrderReportFulfillmentErrorRequest.md)
  - [OrderReportFulfillmentNotResolvableRequest](docs/OrderReportFulfillmentNotResolvableRequest.md)
  - [OrderReportFulfillmentReadyRequest](docs/OrderReportFulfillmentReadyRequest.md)
@@ -226,6 +234,7 @@ Class | Method | HTTP request | Description
  - [OrderUpdatePaymentRequest](docs/OrderUpdatePaymentRequest.md)
  - [PaymentCcInfo](docs/PaymentCcInfo.md)
  - [PrintOrdersLabelsResponseFailedOrder](docs/PrintOrdersLabelsResponseFailedOrder.md)
+ - [ProductConfigurationStepOption](docs/ProductConfigurationStepOption.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [ProtobufNullValue](docs/ProtobufNullValue.md)
  - [RpcStatus](docs/RpcStatus.md)
@@ -235,7 +244,55 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-Endpoints do not require authorization.
+
+Authentication schemes defined for the API:
+### Authorization
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Authorization and passed in as the auth context for each request.
+
+Example
+
+```go
+auth := context.WithValue(
+		context.Background(),
+		order.ContextAPIKeys,
+		map[string]order.APIKey{
+			"Authorization": {Key: "API_KEY_STRING"},
+		},
+	)
+r, err := client.Service.Operation(auth, args)
+```
+
+### standardAuthorization
+
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: 
+- **Scopes**: N/A
+
+Example
+
+```go
+auth := context.WithValue(context.Background(), order.ContextAccessToken, "ACCESSTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+
+```go
+import "golang.org/x/oauth2"
+
+/* Perform OAuth2 round trip request and obtain a token */
+
+tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+auth := context.WithValue(oauth2.NoContext, order.ContextOAuth2, tokenSource)
+r, err := client.Service.Operation(auth, args)
+```
 
 
 ## Documentation for Utility Methods

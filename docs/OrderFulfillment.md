@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
-**UpdatedAt**| [**time.Time**](time.Time.md) |   | [optional]
+**CreatedAt**| [**time.Time**](time.Time.md) |   | [optional] [readonly]
+**UpdatedAt**| [**time.Time**](time.Time.md) |   | [optional] [readonly]
 **OrderId**| **string** |   | [optional]
 **Id**| **string** |   | [optional]
 **Status**| **string** |   | [optional]

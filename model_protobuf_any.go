@@ -21,8 +21,10 @@ var _ MappedNullable = &ProtobufAny{}
 // ProtobufAny struct for ProtobufAny
 type ProtobufAny struct {
 	Type *string `json:"@type,omitempty"`
-	Value *string `json:"value,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProtobufAny ProtobufAny
 
 // NewProtobufAny instantiates a new ProtobufAny object
 // This constructor will assign default values to properties that have it defined,
@@ -73,38 +75,6 @@ func (o *ProtobufAny) SetType(v string) {
 	o.Type = &v
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
-func (o *ProtobufAny) GetValue() string {
-	if o == nil || IsNil(o.Value) {
-		var ret string
-		return ret
-	}
-	return *o.Value
-}
-
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProtobufAny) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value) {
-		return nil, false
-	}
-	return o.Value, true
-}
-
-// HasValue returns a boolean if a field has been set.
-func (o *ProtobufAny) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given string and assigns it to the Value field.
-func (o *ProtobufAny) SetValue(v string) {
-	o.Value = &v
-}
-
 func (o ProtobufAny) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -118,10 +88,33 @@ func (o ProtobufAny) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Type) {
 		toSerialize["@type"] = o.Type
 	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
 	}
+
 	return toSerialize, nil
+}
+
+func (o *ProtobufAny) UnmarshalJSON(data []byte) (err error) {
+	varProtobufAny := _ProtobufAny{}
+
+	err = json.Unmarshal(data, &varProtobufAny)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProtobufAny(varProtobufAny)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "@type")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableProtobufAny struct {

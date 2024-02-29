@@ -6,23 +6,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId**| **string** |   | [optional]
+**TenantId**| **string** |   |
 **CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
-**Number**| **string** |   | [optional]
+**Number**| **string** |   |
 **Channel**| **string** |   | [optional]
-**Market**| **string** |   | [optional]
-**Locale**| **string** |   | [optional]
-**CustomerInfo**| [**OrderDataCustomerInfo**](OrderDataCustomerInfo.md) |   | [optional]
-**ShippingAddress**| [**OrderPostalAddress**](OrderPostalAddress.md) |   | [optional]
-**BillingAddress**| [**OrderPostalAddress**](OrderPostalAddress.md) |   | [optional]
-**Payments**| [**[]ImportOrderRequestImportedPayment**](ImportOrderRequestImportedPayment.md) |   | [optional]
-**PaymentsInfo**| [**[]OrderDataPaymentInfo**](OrderDataPaymentInfo.md) |   | [optional]
-**ShipmentsInfo**| [**[]OrderDataShipmentInfo**](OrderDataShipmentInfo.md) |   | [optional]
-**Items**| [**[]OrderOrderDataItem**](OrderOrderDataItem.md) |   | [optional]
-**Subtotals**| [**map[string]OrderDataSubtotal**](OrderDataSubtotal.md) |   | [optional]
-**Totals**| [**map[string]OrderDataTotal**](OrderDataTotal.md) |   | [optional]
-**Status**| **string** |   | [optional]
-**Currency**| [**OrderCurrency**](OrderCurrency.md) |  for more information please, see Model/OrderCurrency.php  | [optional] [default to XXX]
+**Market**| **string** |   |
+**Locale**| **string** |   |
+**CustomerInfo**| [**OrderDataCustomerInfo**](OrderDataCustomerInfo.md) |   |
+**ShippingAddress**| [**OrderPostalAddress**](OrderPostalAddress.md) |   |
+**BillingAddress**| [**OrderPostalAddress**](OrderPostalAddress.md) |   |
+**Payments**| [**[]ImportOrderRequestImportedPayment**](ImportOrderRequestImportedPayment.md) |   |
+**PaymentsInfo**| [**[]OrderDataPaymentInfo**](OrderDataPaymentInfo.md) |   |
+**ShipmentsInfo**| [**[]OrderDataShipmentInfo**](OrderDataShipmentInfo.md) |   |
+**Items**| [**[]OrderOrderDataItem**](OrderOrderDataItem.md) |   |
+**Subtotals**| [**map[string]OrderDataSubtotal**](OrderDataSubtotal.md) |   |
+**Totals**| [**map[string]OrderDataTotal**](OrderDataTotal.md) |   |
+**Status**| **string** |   |
+**Currency**| [**OrderCurrency**](OrderCurrency.md) |  for more information please, see Model/OrderCurrency.php  | [default to XXX]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

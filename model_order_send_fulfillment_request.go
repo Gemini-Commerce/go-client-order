@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderSendFulfillmentRequest type satisfies the MappedNullable interface at compile time
@@ -20,16 +22,20 @@ var _ MappedNullable = &OrderSendFulfillmentRequest{}
 
 // OrderSendFulfillmentRequest struct for OrderSendFulfillmentRequest
 type OrderSendFulfillmentRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	FulfillmentId *string `json:"fulfillmentId,omitempty"`
+	TenantId string `json:"tenantId"`
+	FulfillmentId string `json:"fulfillmentId"`
 }
+
+type _OrderSendFulfillmentRequest OrderSendFulfillmentRequest
 
 // NewOrderSendFulfillmentRequest instantiates a new OrderSendFulfillmentRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderSendFulfillmentRequest() *OrderSendFulfillmentRequest {
+func NewOrderSendFulfillmentRequest(tenantId string, fulfillmentId string) *OrderSendFulfillmentRequest {
 	this := OrderSendFulfillmentRequest{}
+	this.TenantId = tenantId
+	this.FulfillmentId = fulfillmentId
 	return &this
 }
 
@@ -41,68 +47,52 @@ func NewOrderSendFulfillmentRequestWithDefaults() *OrderSendFulfillmentRequest {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderSendFulfillmentRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderSendFulfillmentRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderSendFulfillmentRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderSendFulfillmentRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
-// GetFulfillmentId returns the FulfillmentId field value if set, zero value otherwise.
+// GetFulfillmentId returns the FulfillmentId field value
 func (o *OrderSendFulfillmentRequest) GetFulfillmentId() string {
-	if o == nil || IsNil(o.FulfillmentId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FulfillmentId
+
+	return o.FulfillmentId
 }
 
-// GetFulfillmentIdOk returns a tuple with the FulfillmentId field value if set, nil otherwise
+// GetFulfillmentIdOk returns a tuple with the FulfillmentId field value
 // and a boolean to check if the value has been set.
 func (o *OrderSendFulfillmentRequest) GetFulfillmentIdOk() (*string, bool) {
-	if o == nil || IsNil(o.FulfillmentId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FulfillmentId, true
+	return &o.FulfillmentId, true
 }
 
-// HasFulfillmentId returns a boolean if a field has been set.
-func (o *OrderSendFulfillmentRequest) HasFulfillmentId() bool {
-	if o != nil && !IsNil(o.FulfillmentId) {
-		return true
-	}
-
-	return false
-}
-
-// SetFulfillmentId gets a reference to the given string and assigns it to the FulfillmentId field.
+// SetFulfillmentId sets field value
 func (o *OrderSendFulfillmentRequest) SetFulfillmentId(v string) {
-	o.FulfillmentId = &v
+	o.FulfillmentId = v
 }
 
 func (o OrderSendFulfillmentRequest) MarshalJSON() ([]byte, error) {
@@ -115,13 +105,47 @@ func (o OrderSendFulfillmentRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderSendFulfillmentRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
-	if !IsNil(o.FulfillmentId) {
-		toSerialize["fulfillmentId"] = o.FulfillmentId
-	}
+	toSerialize["tenantId"] = o.TenantId
+	toSerialize["fulfillmentId"] = o.FulfillmentId
 	return toSerialize, nil
+}
+
+func (o *OrderSendFulfillmentRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+		"fulfillmentId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderSendFulfillmentRequest := _OrderSendFulfillmentRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderSendFulfillmentRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderSendFulfillmentRequest(varOrderSendFulfillmentRequest)
+
+	return err
 }
 
 type NullableOrderSendFulfillmentRequest struct {

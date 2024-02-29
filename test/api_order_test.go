@@ -382,6 +382,30 @@ func Test_order_OrderAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test OrderAPIService OrderAddDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OrderAPI.OrderAddDocument(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrderAPIService OrderRemoveDocumentByCode", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.OrderAPI.OrderRemoveDocumentByCode(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OrderAPIService PrintOrdersLabels", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

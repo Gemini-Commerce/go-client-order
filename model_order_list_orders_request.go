@@ -13,6 +13,8 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the OrderListOrdersRequest type satisfies the MappedNullable interface at compile time
@@ -20,7 +22,7 @@ var _ MappedNullable = &OrderListOrdersRequest{}
 
 // OrderListOrdersRequest struct for OrderListOrdersRequest
 type OrderListOrdersRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
+	TenantId string `json:"tenantId"`
 	// The maximum number of orders to return. The service may return fewer than this value. If unspecified, at most 10 orders will be returned. The maximum value is 100; values above 100 will be coerced to 100.
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// A page token, received from a previous `ListOrders` call. Provide this to retrieve the subsequent page.   When paginating, all other parameters provided to `ListOrders` must match the call that provided the page token.
@@ -29,12 +31,15 @@ type OrderListOrdersRequest struct {
 	StatusFilter *OrderStatusFilter `json:"statusFilter,omitempty"`
 }
 
+type _OrderListOrdersRequest OrderListOrdersRequest
+
 // NewOrderListOrdersRequest instantiates a new OrderListOrdersRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrderListOrdersRequest() *OrderListOrdersRequest {
+func NewOrderListOrdersRequest(tenantId string) *OrderListOrdersRequest {
 	this := OrderListOrdersRequest{}
+	this.TenantId = tenantId
 	return &this
 }
 
@@ -46,36 +51,28 @@ func NewOrderListOrdersRequestWithDefaults() *OrderListOrdersRequest {
 	return &this
 }
 
-// GetTenantId returns the TenantId field value if set, zero value otherwise.
+// GetTenantId returns the TenantId field value
 func (o *OrderListOrdersRequest) GetTenantId() string {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TenantId
+
+	return o.TenantId
 }
 
-// GetTenantIdOk returns a tuple with the TenantId field value if set, nil otherwise
+// GetTenantIdOk returns a tuple with the TenantId field value
 // and a boolean to check if the value has been set.
 func (o *OrderListOrdersRequest) GetTenantIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TenantId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TenantId, true
+	return &o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderListOrdersRequest) HasTenantId() bool {
-	if o != nil && !IsNil(o.TenantId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTenantId gets a reference to the given string and assigns it to the TenantId field.
+// SetTenantId sets field value
 func (o *OrderListOrdersRequest) SetTenantId(v string) {
-	o.TenantId = &v
+	o.TenantId = v
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
@@ -216,9 +213,7 @@ func (o OrderListOrdersRequest) MarshalJSON() ([]byte, error) {
 
 func (o OrderListOrdersRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TenantId) {
-		toSerialize["tenantId"] = o.TenantId
-	}
+	toSerialize["tenantId"] = o.TenantId
 	if !IsNil(o.PageSize) {
 		toSerialize["pageSize"] = o.PageSize
 	}
@@ -232,6 +227,43 @@ func (o OrderListOrdersRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["statusFilter"] = o.StatusFilter
 	}
 	return toSerialize, nil
+}
+
+func (o *OrderListOrdersRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tenantId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varOrderListOrdersRequest := _OrderListOrdersRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderListOrdersRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderListOrdersRequest(varOrderListOrdersRequest)
+
+	return err
 }
 
 type NullableOrderListOrdersRequest struct {
