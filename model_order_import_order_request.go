@@ -46,7 +46,7 @@ type OrderImportOrderRequest struct {
 // will change when the set of required properties is changed
 func NewOrderImportOrderRequest() *OrderImportOrderRequest {
 	this := OrderImportOrderRequest{}
-	var currency OrderCurrency = ORDERCURRENCY_XXX
+	var currency OrderCurrency = XXX
 	this.Currency = &currency
 	return &this
 }
@@ -56,7 +56,7 @@ func NewOrderImportOrderRequest() *OrderImportOrderRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderImportOrderRequestWithDefaults() *OrderImportOrderRequest {
 	this := OrderImportOrderRequest{}
-	var currency OrderCurrency = ORDERCURRENCY_XXX
+	var currency OrderCurrency = XXX
 	this.Currency = &currency
 	return &this
 }

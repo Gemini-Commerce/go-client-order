@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Subtotals**| [**map[string]OrderDataSubtotal**](OrderDataSubtotal.md) |   | [optional]
 **Totals**| [**map[string]OrderDataTotal**](OrderDataTotal.md) |   | [optional]
 **Status**| **string** |   | [optional]
-**Currency**| [**OrderCurrency**](OrderCurrency.md) |  for more information please, see Model/OrderCurrency.php  | [optional] [default to ORDERCURRENCY_XXX]
+**Currency**| [**OrderCurrency**](OrderCurrency.md) |  for more information please, see Model/OrderCurrency.php  | [optional] [default to XXX]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

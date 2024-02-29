@@ -33,7 +33,7 @@ type OrderCreateRefundTransactionRequest struct {
 // will change when the set of required properties is changed
 func NewOrderCreateRefundTransactionRequest() *OrderCreateRefundTransactionRequest {
 	this := OrderCreateRefundTransactionRequest{}
-	var type_ OrderTransactionType = ORDERTRANSACTIONTYPE_UNKNOWN
+	var type_ OrderTransactionType = UNKNOWN
 	this.Type = &type_
 	return &this
 }
@@ -43,7 +43,7 @@ func NewOrderCreateRefundTransactionRequest() *OrderCreateRefundTransactionReque
 // but it doesn't guarantee that properties required by API are set
 func NewOrderCreateRefundTransactionRequestWithDefaults() *OrderCreateRefundTransactionRequest {
 	this := OrderCreateRefundTransactionRequest{}
-	var type_ OrderTransactionType = ORDERTRANSACTIONTYPE_UNKNOWN
+	var type_ OrderTransactionType = UNKNOWN
 	this.Type = &type_
 	return &this
 }

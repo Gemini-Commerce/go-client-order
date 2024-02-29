@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 **PaymentId**| **string** |   | [optional]
 **Id**| **string** |   | [optional]
-**Type**| [**OrderTransactionType**](OrderTransactionType.md) |  for more information please, see Model/OrderTransactionType.php  | [optional] [default to ORDERTRANSACTIONTYPE_UNKNOWN]
+**Type**| [**OrderTransactionType**](OrderTransactionType.md) |  for more information please, see Model/OrderTransactionType.php  | [optional] [default to UNKNOWN]
 **AdditionalInfo**| **string** |   | [optional]
 **ChildTransactions**| [**[]OrderTransaction**](OrderTransaction.md) |   | [optional]
 

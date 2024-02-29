@@ -30,7 +30,7 @@ type OrderRefundAmount struct {
 // will change when the set of required properties is changed
 func NewOrderRefundAmount() *OrderRefundAmount {
 	this := OrderRefundAmount{}
-	var code OrderRefundAmountCode = ORDERREFUNDAMOUNTCODE_UNKNOWN
+	var code OrderRefundAmountCode = UNKNOWN
 	this.Code = &code
 	return &this
 }
@@ -40,7 +40,7 @@ func NewOrderRefundAmount() *OrderRefundAmount {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderRefundAmountWithDefaults() *OrderRefundAmount {
 	this := OrderRefundAmount{}
-	var code OrderRefundAmountCode = ORDERREFUNDAMOUNTCODE_UNKNOWN
+	var code OrderRefundAmountCode = UNKNOWN
 	this.Code = &code
 	return &this
 }

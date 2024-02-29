@@ -35,7 +35,7 @@ type OrderTransaction struct {
 // will change when the set of required properties is changed
 func NewOrderTransaction() *OrderTransaction {
 	this := OrderTransaction{}
-	var type_ OrderTransactionType = ORDERTRANSACTIONTYPE_UNKNOWN
+	var type_ OrderTransactionType = UNKNOWN
 	this.Type = &type_
 	return &this
 }
@@ -45,7 +45,7 @@ func NewOrderTransaction() *OrderTransaction {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderTransactionWithDefaults() *OrderTransaction {
 	this := OrderTransaction{}
-	var type_ OrderTransactionType = ORDERTRANSACTIONTYPE_UNKNOWN
+	var type_ OrderTransactionType = UNKNOWN
 	this.Type = &type_
 	return &this
 }

@@ -30,7 +30,7 @@ type InitialPaymentInitialTransaction struct {
 // will change when the set of required properties is changed
 func NewInitialPaymentInitialTransaction() *InitialPaymentInitialTransaction {
 	this := InitialPaymentInitialTransaction{}
-	var type_ OrderTransactionType = ORDERTRANSACTIONTYPE_UNKNOWN
+	var type_ OrderTransactionType = UNKNOWN
 	this.Type = &type_
 	return &this
 }
@@ -40,7 +40,7 @@ func NewInitialPaymentInitialTransaction() *InitialPaymentInitialTransaction {
 // but it doesn't guarantee that properties required by API are set
 func NewInitialPaymentInitialTransactionWithDefaults() *InitialPaymentInitialTransaction {
 	this := InitialPaymentInitialTransaction{}
-	var type_ OrderTransactionType = ORDERTRANSACTIONTYPE_UNKNOWN
+	var type_ OrderTransactionType = UNKNOWN
 	this.Type = &type_
 	return &this
 }

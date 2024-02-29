@@ -48,7 +48,7 @@ type OrderCreateOrderRequest struct {
 // will change when the set of required properties is changed
 func NewOrderCreateOrderRequest() *OrderCreateOrderRequest {
 	this := OrderCreateOrderRequest{}
-	var currency OrderCurrency = ORDERCURRENCY_XXX
+	var currency OrderCurrency = XXX
 	this.Currency = &currency
 	return &this
 }
@@ -58,7 +58,7 @@ func NewOrderCreateOrderRequest() *OrderCreateOrderRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderCreateOrderRequestWithDefaults() *OrderCreateOrderRequest {
 	this := OrderCreateOrderRequest{}
-	var currency OrderCurrency = ORDERCURRENCY_XXX
+	var currency OrderCurrency = XXX
 	this.Currency = &currency
 	return &this
 }

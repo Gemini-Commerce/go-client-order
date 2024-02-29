@@ -30,7 +30,7 @@ type OrderDataSubtotal struct {
 // will change when the set of required properties is changed
 func NewOrderDataSubtotal() *OrderDataSubtotal {
 	this := OrderDataSubtotal{}
-	var code OrderDataSubtotalCode = ORDERDATASUBTOTALCODE_UNKNOWN
+	var code OrderDataSubtotalCode = UNKNOWN
 	this.Code = &code
 	return &this
 }
@@ -40,7 +40,7 @@ func NewOrderDataSubtotal() *OrderDataSubtotal {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderDataSubtotalWithDefaults() *OrderDataSubtotal {
 	this := OrderDataSubtotal{}
-	var code OrderDataSubtotalCode = ORDERDATASUBTOTALCODE_UNKNOWN
+	var code OrderDataSubtotalCode = UNKNOWN
 	this.Code = &code
 	return &this
 }

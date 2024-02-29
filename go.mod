@@ -1,4 +1,4 @@
-module github.com/gemini-commerce/go-client-order
+module github.com/Gemini-Commerce/go-client-order
 
 go 1.18
 

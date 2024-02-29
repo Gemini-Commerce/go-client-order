@@ -30,7 +30,7 @@ type OrderStatusFilter struct {
 // will change when the set of required properties is changed
 func NewOrderStatusFilter() *OrderStatusFilter {
 	this := OrderStatusFilter{}
-	var condition OrderStatusFilterCondition = ORDERSTATUSFILTERCONDITION_IN
+	var condition OrderStatusFilterCondition = IN
 	this.Condition = &condition
 	return &this
 }
@@ -40,7 +40,7 @@ func NewOrderStatusFilter() *OrderStatusFilter {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderStatusFilterWithDefaults() *OrderStatusFilter {
 	this := OrderStatusFilter{}
-	var condition OrderStatusFilterCondition = ORDERSTATUSFILTERCONDITION_IN
+	var condition OrderStatusFilterCondition = IN
 	this.Condition = &condition
 	return &this
 }

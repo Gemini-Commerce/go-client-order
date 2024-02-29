@@ -1,4 +1,4 @@
-# \OrderAPI
+# GeminiCommerce\Order\OrderAPI
 
 All URIs are relative to *https://dom.api.gogemini.io*
 
@@ -71,7 +71,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -135,7 +135,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -199,7 +199,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -263,7 +263,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -327,7 +327,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -391,7 +391,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -455,7 +455,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -519,7 +519,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -583,7 +583,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -647,7 +647,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -711,7 +711,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -775,7 +775,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -839,7 +839,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -903,7 +903,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -967,7 +967,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1031,7 +1031,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1095,7 +1095,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1159,7 +1159,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1223,7 +1223,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1287,7 +1287,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1351,7 +1351,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1415,7 +1415,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1479,7 +1479,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1543,7 +1543,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1607,7 +1607,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1671,7 +1671,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1735,7 +1735,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1799,7 +1799,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1863,7 +1863,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1927,7 +1927,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -1991,7 +1991,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2055,7 +2055,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2119,7 +2119,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2183,7 +2183,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2247,7 +2247,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2311,7 +2311,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2375,7 +2375,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2439,7 +2439,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2503,7 +2503,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2567,7 +2567,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2631,7 +2631,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2695,7 +2695,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2759,7 +2759,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2823,7 +2823,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2887,7 +2887,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -2951,7 +2951,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -3015,7 +3015,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -3079,7 +3079,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {
@@ -3143,7 +3143,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/gemini-commerce/go-client-order"
+	openapiclient "github.com/Gemini-Commerce/go-client-order"
 )
 
 func main() {

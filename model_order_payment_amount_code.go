@@ -21,12 +21,12 @@ type OrderPaymentAmountCode string
 
 // List of orderPaymentAmountCode
 const (
-	ORDERPAYMENTAMOUNTCODE_UNKNOWN OrderPaymentAmountCode = "UNKNOWN"
-	ORDERPAYMENTAMOUNTCODE_CANCELED OrderPaymentAmountCode = "CANCELED"
-	ORDERPAYMENTAMOUNTCODE_ORDERED OrderPaymentAmountCode = "ORDERED"
-	ORDERPAYMENTAMOUNTCODE_PAID OrderPaymentAmountCode = "PAID"
-	ORDERPAYMENTAMOUNTCODE_REFUNDED OrderPaymentAmountCode = "REFUNDED"
-	ORDERPAYMENTAMOUNTCODE_AUTHORIZED OrderPaymentAmountCode = "AUTHORIZED"
+	UNKNOWN OrderPaymentAmountCode = "UNKNOWN"
+	CANCELED OrderPaymentAmountCode = "CANCELED"
+	ORDERED OrderPaymentAmountCode = "ORDERED"
+	PAID OrderPaymentAmountCode = "PAID"
+	REFUNDED OrderPaymentAmountCode = "REFUNDED"
+	AUTHORIZED OrderPaymentAmountCode = "AUTHORIZED"
 )
 
 // All allowed values of OrderPaymentAmountCode enum

@@ -62,7 +62,7 @@ type OrderOrderData struct {
 // will change when the set of required properties is changed
 func NewOrderOrderData() *OrderOrderData {
 	this := OrderOrderData{}
-	var currency OrderCurrency = ORDERCURRENCY_XXX
+	var currency OrderCurrency = XXX
 	this.Currency = &currency
 	return &this
 }
@@ -72,7 +72,7 @@ func NewOrderOrderData() *OrderOrderData {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderOrderDataWithDefaults() *OrderOrderData {
 	this := OrderOrderData{}
-	var currency OrderCurrency = ORDERCURRENCY_XXX
+	var currency OrderCurrency = XXX
 	this.Currency = &currency
 	return &this
 }

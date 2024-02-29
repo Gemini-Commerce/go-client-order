@@ -21,9 +21,9 @@ type OrderByDirection string
 
 // List of OrderByDirection
 const (
-	ORDERBYDIRECTION_DEFAULT OrderByDirection = "DEFAULT"
-	ORDERBYDIRECTION_ASC OrderByDirection = "ASC"
-	ORDERBYDIRECTION_DESC OrderByDirection = "DESC"
+	DEFAULT OrderByDirection = "DEFAULT"
+	ASC OrderByDirection = "ASC"
+	DESC OrderByDirection = "DESC"
 )
 
 // All allowed values of OrderByDirection enum

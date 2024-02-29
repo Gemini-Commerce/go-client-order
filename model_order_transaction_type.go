@@ -21,15 +21,15 @@ type OrderTransactionType string
 
 // List of orderTransactionType
 const (
-	ORDERTRANSACTIONTYPE_UNKNOWN OrderTransactionType = "UNKNOWN"
-	ORDERTRANSACTIONTYPE_AUTHORIZATION OrderTransactionType = "AUTHORIZATION"
-	ORDERTRANSACTIONTYPE_CAPTURE OrderTransactionType = "CAPTURE"
-	ORDERTRANSACTIONTYPE_SALE OrderTransactionType = "SALE"
-	ORDERTRANSACTIONTYPE_REFUND OrderTransactionType = "REFUND"
-	ORDERTRANSACTIONTYPE_VOID OrderTransactionType = "VOID"
-	ORDERTRANSACTIONTYPE_FAILED OrderTransactionType = "FAILED"
-	ORDERTRANSACTIONTYPE_PENDING OrderTransactionType = "PENDING"
-	ORDERTRANSACTIONTYPE_FRAUD OrderTransactionType = "FRAUD"
+	UNKNOWN OrderTransactionType = "UNKNOWN"
+	AUTHORIZATION OrderTransactionType = "AUTHORIZATION"
+	CAPTURE OrderTransactionType = "CAPTURE"
+	SALE OrderTransactionType = "SALE"
+	REFUND OrderTransactionType = "REFUND"
+	VOID OrderTransactionType = "VOID"
+	FAILED OrderTransactionType = "FAILED"
+	PENDING OrderTransactionType = "PENDING"
+	FRAUD OrderTransactionType = "FRAUD"
 )
 
 // All allowed values of OrderTransactionType enum

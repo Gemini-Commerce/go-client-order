@@ -30,7 +30,7 @@ type OrderDataTotal struct {
 // will change when the set of required properties is changed
 func NewOrderDataTotal() *OrderDataTotal {
 	this := OrderDataTotal{}
-	var code OrderDataTotalCode = ORDERDATATOTALCODE_UNKNOWN
+	var code OrderDataTotalCode = UNKNOWN
 	this.Code = &code
 	return &this
 }
@@ -40,7 +40,7 @@ func NewOrderDataTotal() *OrderDataTotal {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderDataTotalWithDefaults() *OrderDataTotal {
 	this := OrderDataTotal{}
-	var code OrderDataTotalCode = ORDERDATATOTALCODE_UNKNOWN
+	var code OrderDataTotalCode = UNKNOWN
 	this.Code = &code
 	return &this
 }

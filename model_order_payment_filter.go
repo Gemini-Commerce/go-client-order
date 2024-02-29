@@ -30,7 +30,7 @@ type OrderPaymentFilter struct {
 // will change when the set of required properties is changed
 func NewOrderPaymentFilter() *OrderPaymentFilter {
 	this := OrderPaymentFilter{}
-	var condition OrderPaymentFilterCondition = ORDERPAYMENTFILTERCONDITION_IN
+	var condition OrderPaymentFilterCondition = IN
 	this.Condition = &condition
 	return &this
 }
@@ -40,7 +40,7 @@ func NewOrderPaymentFilter() *OrderPaymentFilter {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderPaymentFilterWithDefaults() *OrderPaymentFilter {
 	this := OrderPaymentFilter{}
-	var condition OrderPaymentFilterCondition = ORDERPAYMENTFILTERCONDITION_IN
+	var condition OrderPaymentFilterCondition = IN
 	this.Condition = &condition
 	return &this
 }

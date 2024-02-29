@@ -21,8 +21,8 @@ type OrderStatusFilterCondition string
 
 // List of orderStatusFilterCondition
 const (
-	ORDERSTATUSFILTERCONDITION_IN OrderStatusFilterCondition = "IN"
-	ORDERSTATUSFILTERCONDITION_NOT_IN OrderStatusFilterCondition = "NOT_IN"
+	IN OrderStatusFilterCondition = "IN"
+	NOT_IN OrderStatusFilterCondition = "NOT_IN"
 )
 
 // All allowed values of OrderStatusFilterCondition enum

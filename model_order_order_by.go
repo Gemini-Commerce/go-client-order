@@ -30,7 +30,7 @@ type OrderOrderBy struct {
 // will change when the set of required properties is changed
 func NewOrderOrderBy() *OrderOrderBy {
 	this := OrderOrderBy{}
-	var direction OrderByDirection = ORDERBYDIRECTION_DEFAULT
+	var direction OrderByDirection = DEFAULT
 	this.Direction = &direction
 	return &this
 }
@@ -40,7 +40,7 @@ func NewOrderOrderBy() *OrderOrderBy {
 // but it doesn't guarantee that properties required by API are set
 func NewOrderOrderByWithDefaults() *OrderOrderBy {
 	this := OrderOrderBy{}
-	var direction OrderByDirection = ORDERBYDIRECTION_DEFAULT
+	var direction OrderByDirection = DEFAULT
 	this.Direction = &direction
 	return &this
 }

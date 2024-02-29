@@ -21,8 +21,8 @@ type OrderPaymentFilterCondition string
 
 // List of orderPaymentFilterCondition
 const (
-	ORDERPAYMENTFILTERCONDITION_IN OrderPaymentFilterCondition = "IN"
-	ORDERPAYMENTFILTERCONDITION_NOT_IN OrderPaymentFilterCondition = "NOT_IN"
+	IN OrderPaymentFilterCondition = "IN"
+	NOT_IN OrderPaymentFilterCondition = "NOT_IN"
 )
 
 // All allowed values of OrderPaymentFilterCondition enum
