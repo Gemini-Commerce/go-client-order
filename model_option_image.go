@@ -59,8 +59,8 @@ func (o *OptionImage) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// HasGrn returns a boolean if a field has been set.
-func (o *OptionImage) HasGrn() bool {
+// IsSetGrn returns a boolean if a field has been set.
+func (o *OptionImage) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -91,8 +91,8 @@ func (o *OptionImage) GetUrlOk() (*string, bool) {
 	return o.Url, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *OptionImage) HasUrl() bool {
+// IsSetUrl returns a boolean if a field has been set.
+func (o *OptionImage) IsSetUrl() bool {
 	if o != nil && !IsNil(o.Url) {
 		return true
 	}

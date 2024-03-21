@@ -116,8 +116,8 @@ func (o *OrderCalculateRefundRequest) GetItemsOk() ([]OrderRefundItem, bool) {
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *OrderCalculateRefundRequest) HasItems() bool {
+// IsSetItems returns a boolean if a field has been set.
+func (o *OrderCalculateRefundRequest) IsSetItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -148,8 +148,8 @@ func (o *OrderCalculateRefundRequest) GetShippingOk() (*bool, bool) {
 	return o.Shipping, true
 }
 
-// HasShipping returns a boolean if a field has been set.
-func (o *OrderCalculateRefundRequest) HasShipping() bool {
+// IsSetShipping returns a boolean if a field has been set.
+func (o *OrderCalculateRefundRequest) IsSetShipping() bool {
 	if o != nil && !IsNil(o.Shipping) {
 		return true
 	}

@@ -60,8 +60,8 @@ func (o *PrintOrdersLabelsResponseFailedOrder) GetOrderNumberOk() (*string, bool
 	return o.OrderNumber, true
 }
 
-// HasOrderNumber returns a boolean if a field has been set.
-func (o *PrintOrdersLabelsResponseFailedOrder) HasOrderNumber() bool {
+// IsSetOrderNumber returns a boolean if a field has been set.
+func (o *PrintOrdersLabelsResponseFailedOrder) IsSetOrderNumber() bool {
 	if o != nil && !IsNil(o.OrderNumber) {
 		return true
 	}
@@ -92,8 +92,8 @@ func (o *PrintOrdersLabelsResponseFailedOrder) GetErrorMessageOk() (*string, boo
 	return o.ErrorMessage, true
 }
 
-// HasErrorMessage returns a boolean if a field has been set.
-func (o *PrintOrdersLabelsResponseFailedOrder) HasErrorMessage() bool {
+// IsSetErrorMessage returns a boolean if a field has been set.
+func (o *PrintOrdersLabelsResponseFailedOrder) IsSetErrorMessage() bool {
 	if o != nil && !IsNil(o.ErrorMessage) {
 		return true
 	}
@@ -124,8 +124,8 @@ func (o *PrintOrdersLabelsResponseFailedOrder) GetErrorCodeOk() (*string, bool) 
 	return o.ErrorCode, true
 }
 
-// HasErrorCode returns a boolean if a field has been set.
-func (o *PrintOrdersLabelsResponseFailedOrder) HasErrorCode() bool {
+// IsSetErrorCode returns a boolean if a field has been set.
+func (o *PrintOrdersLabelsResponseFailedOrder) IsSetErrorCode() bool {
 	if o != nil && !IsNil(o.ErrorCode) {
 		return true
 	}

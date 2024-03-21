@@ -142,8 +142,8 @@ func (o *OrderAddDocumentRequest) GetLabelOk() (*string, bool) {
 	return o.Label, true
 }
 
-// HasLabel returns a boolean if a field has been set.
-func (o *OrderAddDocumentRequest) HasLabel() bool {
+// IsSetLabel returns a boolean if a field has been set.
+func (o *OrderAddDocumentRequest) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -174,8 +174,8 @@ func (o *OrderAddDocumentRequest) GetAssetGrnOk() (*string, bool) {
 	return o.AssetGrn, true
 }
 
-// HasAssetGrn returns a boolean if a field has been set.
-func (o *OrderAddDocumentRequest) HasAssetGrn() bool {
+// IsSetAssetGrn returns a boolean if a field has been set.
+func (o *OrderAddDocumentRequest) IsSetAssetGrn() bool {
 	if o != nil && !IsNil(o.AssetGrn) {
 		return true
 	}
@@ -206,8 +206,8 @@ func (o *OrderAddDocumentRequest) GetUrlOk() (*string, bool) {
 	return o.Url, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *OrderAddDocumentRequest) HasUrl() bool {
+// IsSetUrl returns a boolean if a field has been set.
+func (o *OrderAddDocumentRequest) IsSetUrl() bool {
 	if o != nil && !IsNil(o.Url) {
 		return true
 	}

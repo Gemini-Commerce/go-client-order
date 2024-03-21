@@ -143,8 +143,8 @@ func (o *OrderCreateOrderRequest) GetChannelOk() (*string, bool) {
 	return o.Channel, true
 }
 
-// HasChannel returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasChannel() bool {
+// IsSetChannel returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetChannel() bool {
 	if o != nil && !IsNil(o.Channel) {
 		return true
 	}
@@ -247,8 +247,8 @@ func (o *OrderCreateOrderRequest) GetPaymentsInfoOk() ([]OrderDataPaymentInfo, b
 	return o.PaymentsInfo, true
 }
 
-// HasPaymentsInfo returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasPaymentsInfo() bool {
+// IsSetPaymentsInfo returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetPaymentsInfo() bool {
 	if o != nil && !IsNil(o.PaymentsInfo) {
 		return true
 	}
@@ -279,8 +279,8 @@ func (o *OrderCreateOrderRequest) GetShipmentsInfoOk() ([]OrderDataShipmentInfo,
 	return o.ShipmentsInfo, true
 }
 
-// HasShipmentsInfo returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasShipmentsInfo() bool {
+// IsSetShipmentsInfo returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetShipmentsInfo() bool {
 	if o != nil && !IsNil(o.ShipmentsInfo) {
 		return true
 	}
@@ -311,8 +311,8 @@ func (o *OrderCreateOrderRequest) GetPromotionsOk() ([]OrderDataPromotionInfo, b
 	return o.Promotions, true
 }
 
-// HasPromotions returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasPromotions() bool {
+// IsSetPromotions returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetPromotions() bool {
 	if o != nil && !IsNil(o.Promotions) {
 		return true
 	}
@@ -343,8 +343,8 @@ func (o *OrderCreateOrderRequest) GetPaymentsOk() ([]CreateOrderRequestInitialPa
 	return o.Payments, true
 }
 
-// HasPayments returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasPayments() bool {
+// IsSetPayments returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetPayments() bool {
 	if o != nil && !IsNil(o.Payments) {
 		return true
 	}
@@ -543,8 +543,8 @@ func (o *OrderCreateOrderRequest) GetCartGrnOk() (*string, bool) {
 	return o.CartGrn, true
 }
 
-// HasCartGrn returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasCartGrn() bool {
+// IsSetCartGrn returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetCartGrn() bool {
 	if o != nil && !IsNil(o.CartGrn) {
 		return true
 	}
@@ -575,8 +575,8 @@ func (o *OrderCreateOrderRequest) GetOnHoldOk() (*bool, bool) {
 	return o.OnHold, true
 }
 
-// HasOnHold returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasOnHold() bool {
+// IsSetOnHold returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetOnHold() bool {
 	if o != nil && !IsNil(o.OnHold) {
 		return true
 	}
@@ -607,8 +607,8 @@ func (o *OrderCreateOrderRequest) GetNotesOk() (*string, bool) {
 	return o.Notes, true
 }
 
-// HasNotes returns a boolean if a field has been set.
-func (o *OrderCreateOrderRequest) HasNotes() bool {
+// IsSetNotes returns a boolean if a field has been set.
+func (o *OrderCreateOrderRequest) IsSetNotes() bool {
 	if o != nil && !IsNil(o.Notes) {
 		return true
 	}

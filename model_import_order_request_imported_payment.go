@@ -92,8 +92,8 @@ func (o *ImportOrderRequestImportedPayment) GetAdditionalInfoOk() (*string, bool
 	return o.AdditionalInfo, true
 }
 
-// HasAdditionalInfo returns a boolean if a field has been set.
-func (o *ImportOrderRequestImportedPayment) HasAdditionalInfo() bool {
+// IsSetAdditionalInfo returns a boolean if a field has been set.
+func (o *ImportOrderRequestImportedPayment) IsSetAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -148,8 +148,8 @@ func (o *ImportOrderRequestImportedPayment) GetCcInfoOk() (*PaymentCcInfo, bool)
 	return o.CcInfo, true
 }
 
-// HasCcInfo returns a boolean if a field has been set.
-func (o *ImportOrderRequestImportedPayment) HasCcInfo() bool {
+// IsSetCcInfo returns a boolean if a field has been set.
+func (o *ImportOrderRequestImportedPayment) IsSetCcInfo() bool {
 	if o != nil && !IsNil(o.CcInfo) {
 		return true
 	}
@@ -180,8 +180,8 @@ func (o *ImportOrderRequestImportedPayment) GetIsUpfrontOk() (*bool, bool) {
 	return o.IsUpfront, true
 }
 
-// HasIsUpfront returns a boolean if a field has been set.
-func (o *ImportOrderRequestImportedPayment) HasIsUpfront() bool {
+// IsSetIsUpfront returns a boolean if a field has been set.
+func (o *ImportOrderRequestImportedPayment) IsSetIsUpfront() bool {
 	if o != nil && !IsNil(o.IsUpfront) {
 		return true
 	}
