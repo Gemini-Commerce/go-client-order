@@ -3262,6 +3262,8 @@ components:
           type: string
         currency:
           $ref: '#/components/schemas/orderCurrency'
+        vatIncluded:
+          type: boolean
       required:
       - billingAddress
       - currency

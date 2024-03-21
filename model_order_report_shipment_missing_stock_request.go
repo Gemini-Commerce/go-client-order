@@ -114,8 +114,8 @@ func (o *OrderReportShipmentMissingStockRequest) GetReasonOk() (*string, bool) {
 	return o.Reason, true
 }
 
-// IsSetReason returns a boolean if a field has been set.
-func (o *OrderReportShipmentMissingStockRequest) IsSetReason() bool {
+// HasReason returns a boolean if a field has been set.
+func (o *OrderReportShipmentMissingStockRequest) HasReason() bool {
 	if o != nil && !IsNil(o.Reason) {
 		return true
 	}

@@ -20,12 +20,627 @@ import (
 )
 
 
+type OrderAPI interface {
+
+	/*
+	ApproveOrder Approve Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIApproveOrderRequest
+	*/
+	ApproveOrder(ctx context.Context) OrderAPIApproveOrderRequest
+
+	// ApproveOrderExecute executes the request
+	//  @return map[string]interface{}
+	ApproveOrderExecute(r OrderAPIApproveOrderRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	AssignShipment Assign Shipment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIAssignShipmentRequest
+	*/
+	AssignShipment(ctx context.Context) OrderAPIAssignShipmentRequest
+
+	// AssignShipmentExecute executes the request
+	//  @return map[string]interface{}
+	AssignShipmentExecute(r OrderAPIAssignShipmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	CalculateRefund Calculate Refund
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICalculateRefundRequest
+	*/
+	CalculateRefund(ctx context.Context) OrderAPICalculateRefundRequest
+
+	// CalculateRefundExecute executes the request
+	//  @return OrderCalculateRefundResponse
+	CalculateRefundExecute(r OrderAPICalculateRefundRequest) (*OrderCalculateRefundResponse, *http.Response, error)
+
+	/*
+	CancelFulfillment Cancel Fulfillment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICancelFulfillmentRequest
+	*/
+	CancelFulfillment(ctx context.Context) OrderAPICancelFulfillmentRequest
+
+	// CancelFulfillmentExecute executes the request
+	//  @return map[string]interface{}
+	CancelFulfillmentExecute(r OrderAPICancelFulfillmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	CancelOrder Cancel Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICancelOrderRequest
+	*/
+	CancelOrder(ctx context.Context) OrderAPICancelOrderRequest
+
+	// CancelOrderExecute executes the request
+	//  @return map[string]interface{}
+	CancelOrderExecute(r OrderAPICancelOrderRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	CancelShipment Cancel Shipment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICancelShipmentRequest
+	*/
+	CancelShipment(ctx context.Context) OrderAPICancelShipmentRequest
+
+	// CancelShipmentExecute executes the request
+	//  @return map[string]interface{}
+	CancelShipmentExecute(r OrderAPICancelShipmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	CompleteShipmentPacking Complete Shipment Packing
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICompleteShipmentPackingRequest
+	*/
+	CompleteShipmentPacking(ctx context.Context) OrderAPICompleteShipmentPackingRequest
+
+	// CompleteShipmentPackingExecute executes the request
+	//  @return map[string]interface{}
+	CompleteShipmentPackingExecute(r OrderAPICompleteShipmentPackingRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	CreateFulfillment Create Fulfillment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreateFulfillmentRequest
+	*/
+	CreateFulfillment(ctx context.Context) OrderAPICreateFulfillmentRequest
+
+	// CreateFulfillmentExecute executes the request
+	//  @return OrderFulfillment
+	CreateFulfillmentExecute(r OrderAPICreateFulfillmentRequest) (*OrderFulfillment, *http.Response, error)
+
+	/*
+	CreateOrder Create Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreateOrderRequest
+	*/
+	CreateOrder(ctx context.Context) OrderAPICreateOrderRequest
+
+	// CreateOrderExecute executes the request
+	//  @return OrderOrderData
+	CreateOrderExecute(r OrderAPICreateOrderRequest) (*OrderOrderData, *http.Response, error)
+
+	/*
+	CreateOrderHistory Create Order History
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreateOrderHistoryRequest
+	*/
+	CreateOrderHistory(ctx context.Context) OrderAPICreateOrderHistoryRequest
+
+	// CreateOrderHistoryExecute executes the request
+	//  @return OrderDataHistory
+	CreateOrderHistoryExecute(r OrderAPICreateOrderHistoryRequest) (*OrderDataHistory, *http.Response, error)
+
+	/*
+	CreatePayment Create Payment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreatePaymentRequest
+	*/
+	CreatePayment(ctx context.Context) OrderAPICreatePaymentRequest
+
+	// CreatePaymentExecute executes the request
+	//  @return OrderPayment
+	CreatePaymentExecute(r OrderAPICreatePaymentRequest) (*OrderPayment, *http.Response, error)
+
+	/*
+	CreatePaymentTransaction Create Payment Transaction
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreatePaymentTransactionRequest
+	*/
+	CreatePaymentTransaction(ctx context.Context) OrderAPICreatePaymentTransactionRequest
+
+	// CreatePaymentTransactionExecute executes the request
+	//  @return OrderTransaction
+	CreatePaymentTransactionExecute(r OrderAPICreatePaymentTransactionRequest) (*OrderTransaction, *http.Response, error)
+
+	/*
+	CreateRefund Create Refund
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreateRefundRequest
+	*/
+	CreateRefund(ctx context.Context) OrderAPICreateRefundRequest
+
+	// CreateRefundExecute executes the request
+	//  @return OrderRefund
+	CreateRefundExecute(r OrderAPICreateRefundRequest) (*OrderRefund, *http.Response, error)
+
+	/*
+	CreateRefundTransaction Create Refund Transaction
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreateRefundTransactionRequest
+	*/
+	CreateRefundTransaction(ctx context.Context) OrderAPICreateRefundTransactionRequest
+
+	// CreateRefundTransactionExecute executes the request
+	//  @return OrderTransaction
+	CreateRefundTransactionExecute(r OrderAPICreateRefundTransactionRequest) (*OrderTransaction, *http.Response, error)
+
+	/*
+	CreateShipment Create Shipment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPICreateShipmentRequest
+	*/
+	CreateShipment(ctx context.Context) OrderAPICreateShipmentRequest
+
+	// CreateShipmentExecute executes the request
+	//  @return OrderShipment
+	CreateShipmentExecute(r OrderAPICreateShipmentRequest) (*OrderShipment, *http.Response, error)
+
+	/*
+	DeleteOrder Delete Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIDeleteOrderRequest
+	*/
+	DeleteOrder(ctx context.Context) OrderAPIDeleteOrderRequest
+
+	// DeleteOrderExecute executes the request
+	//  @return map[string]interface{}
+	DeleteOrderExecute(r OrderAPIDeleteOrderRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	GetFulfillment Get Fulfillment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIGetFulfillmentRequest
+	*/
+	GetFulfillment(ctx context.Context) OrderAPIGetFulfillmentRequest
+
+	// GetFulfillmentExecute executes the request
+	//  @return OrderFulfillment
+	GetFulfillmentExecute(r OrderAPIGetFulfillmentRequest) (*OrderFulfillment, *http.Response, error)
+
+	/*
+	GetOrder Get Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIGetOrderRequest
+	*/
+	GetOrder(ctx context.Context) OrderAPIGetOrderRequest
+
+	// GetOrderExecute executes the request
+	//  @return OrderOrderData
+	GetOrderExecute(r OrderAPIGetOrderRequest) (*OrderOrderData, *http.Response, error)
+
+	/*
+	GetOrderByCartId Get Order by Cart ID
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIGetOrderByCartIdRequest
+	*/
+	GetOrderByCartId(ctx context.Context) OrderAPIGetOrderByCartIdRequest
+
+	// GetOrderByCartIdExecute executes the request
+	//  @return OrderOrderData
+	GetOrderByCartIdExecute(r OrderAPIGetOrderByCartIdRequest) (*OrderOrderData, *http.Response, error)
+
+	/*
+	GetOrderByOrderNumber Get Order by Order Number
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIGetOrderByOrderNumberRequest
+	*/
+	GetOrderByOrderNumber(ctx context.Context) OrderAPIGetOrderByOrderNumberRequest
+
+	// GetOrderByOrderNumberExecute executes the request
+	//  @return OrderOrderData
+	GetOrderByOrderNumberExecute(r OrderAPIGetOrderByOrderNumberRequest) (*OrderOrderData, *http.Response, error)
+
+	/*
+	GetPayment Get Payment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIGetPaymentRequest
+	*/
+	GetPayment(ctx context.Context) OrderAPIGetPaymentRequest
+
+	// GetPaymentExecute executes the request
+	//  @return OrderPayment
+	GetPaymentExecute(r OrderAPIGetPaymentRequest) (*OrderPayment, *http.Response, error)
+
+	/*
+	GetShipment Get Shipment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIGetShipmentRequest
+	*/
+	GetShipment(ctx context.Context) OrderAPIGetShipmentRequest
+
+	// GetShipmentExecute executes the request
+	//  @return OrderShipment
+	GetShipmentExecute(r OrderAPIGetShipmentRequest) (*OrderShipment, *http.Response, error)
+
+	/*
+	GetTransaction Get Transaction
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIGetTransactionRequest
+	*/
+	GetTransaction(ctx context.Context) OrderAPIGetTransactionRequest
+
+	// GetTransactionExecute executes the request
+	//  @return OrderTransaction
+	GetTransactionExecute(r OrderAPIGetTransactionRequest) (*OrderTransaction, *http.Response, error)
+
+	/*
+	HoldOrder Hold Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIHoldOrderRequest
+	*/
+	HoldOrder(ctx context.Context) OrderAPIHoldOrderRequest
+
+	// HoldOrderExecute executes the request
+	//  @return map[string]interface{}
+	HoldOrderExecute(r OrderAPIHoldOrderRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ImportOrder Import Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIImportOrderRequest
+	*/
+	ImportOrder(ctx context.Context) OrderAPIImportOrderRequest
+
+	// ImportOrderExecute executes the request
+	//  @return OrderOrderData
+	ImportOrderExecute(r OrderAPIImportOrderRequest) (*OrderOrderData, *http.Response, error)
+
+	/*
+	ListFulfillments List Fulfillments
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIListFulfillmentsRequest
+	*/
+	ListFulfillments(ctx context.Context) OrderAPIListFulfillmentsRequest
+
+	// ListFulfillmentsExecute executes the request
+	//  @return OrderListFulfillmentsResponse
+	ListFulfillmentsExecute(r OrderAPIListFulfillmentsRequest) (*OrderListFulfillmentsResponse, *http.Response, error)
+
+	/*
+	ListOrders List Orders
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIListOrdersRequest
+	*/
+	ListOrders(ctx context.Context) OrderAPIListOrdersRequest
+
+	// ListOrdersExecute executes the request
+	//  @return OrderListOrdersResponse
+	ListOrdersExecute(r OrderAPIListOrdersRequest) (*OrderListOrdersResponse, *http.Response, error)
+
+	/*
+	ListOrdersByCustomer List Orders by Customer
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIListOrdersByCustomerRequest
+	*/
+	ListOrdersByCustomer(ctx context.Context) OrderAPIListOrdersByCustomerRequest
+
+	// ListOrdersByCustomerExecute executes the request
+	//  @return OrderListOrdersByCustomerResponse
+	ListOrdersByCustomerExecute(r OrderAPIListOrdersByCustomerRequest) (*OrderListOrdersByCustomerResponse, *http.Response, error)
+
+	/*
+	ListOrdersByNumbers List Orders by Numbers
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIListOrdersByNumbersRequest
+	*/
+	ListOrdersByNumbers(ctx context.Context) OrderAPIListOrdersByNumbersRequest
+
+	// ListOrdersByNumbersExecute executes the request
+	//  @return OrderListOrdersByNumbersResponse
+	ListOrdersByNumbersExecute(r OrderAPIListOrdersByNumbersRequest) (*OrderListOrdersByNumbersResponse, *http.Response, error)
+
+	/*
+	ListShipments List Shipments
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIListShipmentsRequest
+	*/
+	ListShipments(ctx context.Context) OrderAPIListShipmentsRequest
+
+	// ListShipmentsExecute executes the request
+	//  @return OrderListShipmentsResponse
+	ListShipmentsExecute(r OrderAPIListShipmentsRequest) (*OrderListShipmentsResponse, *http.Response, error)
+
+	/*
+	OrderAddDocument Documents
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIOrderAddDocumentRequest
+	*/
+	OrderAddDocument(ctx context.Context) OrderAPIOrderAddDocumentRequest
+
+	// OrderAddDocumentExecute executes the request
+	//  @return map[string]interface{}
+	OrderAddDocumentExecute(r OrderAPIOrderAddDocumentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	OrderRemoveDocumentByCode Method for OrderRemoveDocumentByCode
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIOrderRemoveDocumentByCodeRequest
+	*/
+	OrderRemoveDocumentByCode(ctx context.Context) OrderAPIOrderRemoveDocumentByCodeRequest
+
+	// OrderRemoveDocumentByCodeExecute executes the request
+	//  @return map[string]interface{}
+	OrderRemoveDocumentByCodeExecute(r OrderAPIOrderRemoveDocumentByCodeRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	PrintOrdersLabels Print Orders Labels
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIPrintOrdersLabelsRequest
+	*/
+	PrintOrdersLabels(ctx context.Context) OrderAPIPrintOrdersLabelsRequest
+
+	// PrintOrdersLabelsExecute executes the request
+	//  @return OrderPrintOrdersLabelsResponse
+	PrintOrdersLabelsExecute(r OrderAPIPrintOrdersLabelsRequest) (*OrderPrintOrdersLabelsResponse, *http.Response, error)
+
+	/*
+	QuashFulfillment Quash Fulfillment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIQuashFulfillmentRequest
+	*/
+	QuashFulfillment(ctx context.Context) OrderAPIQuashFulfillmentRequest
+
+	// QuashFulfillmentExecute executes the request
+	//  @return map[string]interface{}
+	QuashFulfillmentExecute(r OrderAPIQuashFulfillmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	QuashShipment Quash Shipment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIQuashShipmentRequest
+	*/
+	QuashShipment(ctx context.Context) OrderAPIQuashShipmentRequest
+
+	// QuashShipmentExecute executes the request
+	//  @return map[string]interface{}
+	QuashShipmentExecute(r OrderAPIQuashShipmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ReceiveFulfillment Receive Fulfillment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIReceiveFulfillmentRequest
+	*/
+	ReceiveFulfillment(ctx context.Context) OrderAPIReceiveFulfillmentRequest
+
+	// ReceiveFulfillmentExecute executes the request
+	//  @return map[string]interface{}
+	ReceiveFulfillmentExecute(r OrderAPIReceiveFulfillmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ReportFulfillmentError Report Fulfillment Error
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIReportFulfillmentErrorRequest
+	*/
+	ReportFulfillmentError(ctx context.Context) OrderAPIReportFulfillmentErrorRequest
+
+	// ReportFulfillmentErrorExecute executes the request
+	//  @return map[string]interface{}
+	ReportFulfillmentErrorExecute(r OrderAPIReportFulfillmentErrorRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ReportFulfillmentNotResolvable Report Fulfillment Not Resolvable
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIReportFulfillmentNotResolvableRequest
+	*/
+	ReportFulfillmentNotResolvable(ctx context.Context) OrderAPIReportFulfillmentNotResolvableRequest
+
+	// ReportFulfillmentNotResolvableExecute executes the request
+	//  @return map[string]interface{}
+	ReportFulfillmentNotResolvableExecute(r OrderAPIReportFulfillmentNotResolvableRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ReportFulfillmentReady Report Fulfillment Ready
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIReportFulfillmentReadyRequest
+	*/
+	ReportFulfillmentReady(ctx context.Context) OrderAPIReportFulfillmentReadyRequest
+
+	// ReportFulfillmentReadyExecute executes the request
+	//  @return map[string]interface{}
+	ReportFulfillmentReadyExecute(r OrderAPIReportFulfillmentReadyRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ReportShipmentDelivery Report Shipment Delivery
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIReportShipmentDeliveryRequest
+	*/
+	ReportShipmentDelivery(ctx context.Context) OrderAPIReportShipmentDeliveryRequest
+
+	// ReportShipmentDeliveryExecute executes the request
+	//  @return map[string]interface{}
+	ReportShipmentDeliveryExecute(r OrderAPIReportShipmentDeliveryRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ReportShipmentMissingStock Report Shipment Missing Stock
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIReportShipmentMissingStockRequest
+	*/
+	ReportShipmentMissingStock(ctx context.Context) OrderAPIReportShipmentMissingStockRequest
+
+	// ReportShipmentMissingStockExecute executes the request
+	//  @return map[string]interface{}
+	ReportShipmentMissingStockExecute(r OrderAPIReportShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	ResolveShipmentMissingStock Resolve Shipment Missing Stock
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIResolveShipmentMissingStockRequest
+	*/
+	ResolveShipmentMissingStock(ctx context.Context) OrderAPIResolveShipmentMissingStockRequest
+
+	// ResolveShipmentMissingStockExecute executes the request
+	//  @return map[string]interface{}
+	ResolveShipmentMissingStockExecute(r OrderAPIResolveShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	RetryFulfillment Retry Fulfillment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIRetryFulfillmentRequest
+	*/
+	RetryFulfillment(ctx context.Context) OrderAPIRetryFulfillmentRequest
+
+	// RetryFulfillmentExecute executes the request
+	//  @return map[string]interface{}
+	RetryFulfillmentExecute(r OrderAPIRetryFulfillmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	SearchOrders Search Orders
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPISearchOrdersRequest
+	*/
+	SearchOrders(ctx context.Context) OrderAPISearchOrdersRequest
+
+	// SearchOrdersExecute executes the request
+	//  @return OrderSearchOrdersResponse
+	SearchOrdersExecute(r OrderAPISearchOrdersRequest) (*OrderSearchOrdersResponse, *http.Response, error)
+
+	/*
+	SendFulfillment Send Fulfillment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPISendFulfillmentRequest
+	*/
+	SendFulfillment(ctx context.Context) OrderAPISendFulfillmentRequest
+
+	// SendFulfillmentExecute executes the request
+	//  @return map[string]interface{}
+	SendFulfillmentExecute(r OrderAPISendFulfillmentRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	SendOrderNotification Send Order Notification
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPISendOrderNotificationRequest
+	*/
+	SendOrderNotification(ctx context.Context) OrderAPISendOrderNotificationRequest
+
+	// SendOrderNotificationExecute executes the request
+	//  @return map[string]interface{}
+	SendOrderNotificationExecute(r OrderAPISendOrderNotificationRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	StartFulfillmentProcessing Start Fulfillment Processing
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIStartFulfillmentProcessingRequest
+	*/
+	StartFulfillmentProcessing(ctx context.Context) OrderAPIStartFulfillmentProcessingRequest
+
+	// StartFulfillmentProcessingExecute executes the request
+	//  @return map[string]interface{}
+	StartFulfillmentProcessingExecute(r OrderAPIStartFulfillmentProcessingRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	StartShipmentProcessing Start Shipment Processing
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIStartShipmentProcessingRequest
+	*/
+	StartShipmentProcessing(ctx context.Context) OrderAPIStartShipmentProcessingRequest
+
+	// StartShipmentProcessingExecute executes the request
+	//  @return map[string]interface{}
+	StartShipmentProcessingExecute(r OrderAPIStartShipmentProcessingRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	UnholdOrder Unhold Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIUnholdOrderRequest
+	*/
+	UnholdOrder(ctx context.Context) OrderAPIUnholdOrderRequest
+
+	// UnholdOrderExecute executes the request
+	//  @return map[string]interface{}
+	UnholdOrderExecute(r OrderAPIUnholdOrderRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+	UpdateOrder Update Order
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIUpdateOrderRequest
+	*/
+	UpdateOrder(ctx context.Context) OrderAPIUpdateOrderRequest
+
+	// UpdateOrderExecute executes the request
+	//  @return OrderOrderData
+	UpdateOrderExecute(r OrderAPIUpdateOrderRequest) (*OrderOrderData, *http.Response, error)
+
+	/*
+	UpdatePayment Update Payment
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrderAPIUpdatePaymentRequest
+	*/
+	UpdatePayment(ctx context.Context) OrderAPIUpdatePaymentRequest
+
+	// UpdatePaymentExecute executes the request
+	//  @return OrderPayment
+	UpdatePaymentExecute(r OrderAPIUpdatePaymentRequest) (*OrderPayment, *http.Response, error)
+}
+
 // OrderAPIService OrderAPI service
 type OrderAPIService service
 
 type OrderAPIApproveOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderApproveOrderRequest
 }
 
@@ -177,7 +792,7 @@ func (a *OrderAPIService) ApproveOrderExecute(r OrderAPIApproveOrderRequest) (ma
 
 type OrderAPIAssignShipmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderAssignShipmentRequest
 }
 
@@ -329,7 +944,7 @@ func (a *OrderAPIService) AssignShipmentExecute(r OrderAPIAssignShipmentRequest)
 
 type OrderAPICalculateRefundRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCalculateRefundRequest
 }
 
@@ -481,7 +1096,7 @@ func (a *OrderAPIService) CalculateRefundExecute(r OrderAPICalculateRefundReques
 
 type OrderAPICancelFulfillmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCancelFulfillmentRequest
 }
 
@@ -633,7 +1248,7 @@ func (a *OrderAPIService) CancelFulfillmentExecute(r OrderAPICancelFulfillmentRe
 
 type OrderAPICancelOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCancelOrderRequest
 }
 
@@ -785,7 +1400,7 @@ func (a *OrderAPIService) CancelOrderExecute(r OrderAPICancelOrderRequest) (map[
 
 type OrderAPICancelShipmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCancelShipmentRequest
 }
 
@@ -937,7 +1552,7 @@ func (a *OrderAPIService) CancelShipmentExecute(r OrderAPICancelShipmentRequest)
 
 type OrderAPICompleteShipmentPackingRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCompleteShipmentPackingRequest
 }
 
@@ -1089,7 +1704,7 @@ func (a *OrderAPIService) CompleteShipmentPackingExecute(r OrderAPICompleteShipm
 
 type OrderAPICreateFulfillmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreateFulfillmentRequest
 }
 
@@ -1241,7 +1856,7 @@ func (a *OrderAPIService) CreateFulfillmentExecute(r OrderAPICreateFulfillmentRe
 
 type OrderAPICreateOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreateOrderRequest
 }
 
@@ -1393,7 +2008,7 @@ func (a *OrderAPIService) CreateOrderExecute(r OrderAPICreateOrderRequest) (*Ord
 
 type OrderAPICreateOrderHistoryRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreateHistoryRequest
 }
 
@@ -1545,7 +2160,7 @@ func (a *OrderAPIService) CreateOrderHistoryExecute(r OrderAPICreateOrderHistory
 
 type OrderAPICreatePaymentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreatePaymentRequest
 }
 
@@ -1697,7 +2312,7 @@ func (a *OrderAPIService) CreatePaymentExecute(r OrderAPICreatePaymentRequest) (
 
 type OrderAPICreatePaymentTransactionRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreatePaymentTransactionRequest
 }
 
@@ -1849,7 +2464,7 @@ func (a *OrderAPIService) CreatePaymentTransactionExecute(r OrderAPICreatePaymen
 
 type OrderAPICreateRefundRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreateRefundRequest
 }
 
@@ -2001,7 +2616,7 @@ func (a *OrderAPIService) CreateRefundExecute(r OrderAPICreateRefundRequest) (*O
 
 type OrderAPICreateRefundTransactionRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreateRefundTransactionRequest
 }
 
@@ -2153,7 +2768,7 @@ func (a *OrderAPIService) CreateRefundTransactionExecute(r OrderAPICreateRefundT
 
 type OrderAPICreateShipmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderCreateShipmentRequest
 }
 
@@ -2305,7 +2920,7 @@ func (a *OrderAPIService) CreateShipmentExecute(r OrderAPICreateShipmentRequest)
 
 type OrderAPIDeleteOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderDeleteOrderRequest
 }
 
@@ -2457,7 +3072,7 @@ func (a *OrderAPIService) DeleteOrderExecute(r OrderAPIDeleteOrderRequest) (map[
 
 type OrderAPIGetFulfillmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderGetFulfillmentRequest
 }
 
@@ -2609,7 +3224,7 @@ func (a *OrderAPIService) GetFulfillmentExecute(r OrderAPIGetFulfillmentRequest)
 
 type OrderAPIGetOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderGetOrderRequest
 }
 
@@ -2761,7 +3376,7 @@ func (a *OrderAPIService) GetOrderExecute(r OrderAPIGetOrderRequest) (*OrderOrde
 
 type OrderAPIGetOrderByCartIdRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderGetOrderByCartIdRequest
 }
 
@@ -2913,7 +3528,7 @@ func (a *OrderAPIService) GetOrderByCartIdExecute(r OrderAPIGetOrderByCartIdRequ
 
 type OrderAPIGetOrderByOrderNumberRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderGetOrderByOrderNumberRequest
 }
 
@@ -3065,7 +3680,7 @@ func (a *OrderAPIService) GetOrderByOrderNumberExecute(r OrderAPIGetOrderByOrder
 
 type OrderAPIGetPaymentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderGetPaymentRequest
 }
 
@@ -3217,7 +3832,7 @@ func (a *OrderAPIService) GetPaymentExecute(r OrderAPIGetPaymentRequest) (*Order
 
 type OrderAPIGetShipmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderGetShipmentRequest
 }
 
@@ -3369,7 +3984,7 @@ func (a *OrderAPIService) GetShipmentExecute(r OrderAPIGetShipmentRequest) (*Ord
 
 type OrderAPIGetTransactionRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderGetTransactionRequest
 }
 
@@ -3521,7 +4136,7 @@ func (a *OrderAPIService) GetTransactionExecute(r OrderAPIGetTransactionRequest)
 
 type OrderAPIHoldOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderHoldOrderRequest
 }
 
@@ -3673,7 +4288,7 @@ func (a *OrderAPIService) HoldOrderExecute(r OrderAPIHoldOrderRequest) (map[stri
 
 type OrderAPIImportOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderImportOrderRequest
 }
 
@@ -3825,7 +4440,7 @@ func (a *OrderAPIService) ImportOrderExecute(r OrderAPIImportOrderRequest) (*Ord
 
 type OrderAPIListFulfillmentsRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderListFulfillmentsRequest
 }
 
@@ -3977,7 +4592,7 @@ func (a *OrderAPIService) ListFulfillmentsExecute(r OrderAPIListFulfillmentsRequ
 
 type OrderAPIListOrdersRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderListOrdersRequest
 }
 
@@ -4129,7 +4744,7 @@ func (a *OrderAPIService) ListOrdersExecute(r OrderAPIListOrdersRequest) (*Order
 
 type OrderAPIListOrdersByCustomerRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderListOrdersByCustomerRequest
 }
 
@@ -4281,7 +4896,7 @@ func (a *OrderAPIService) ListOrdersByCustomerExecute(r OrderAPIListOrdersByCust
 
 type OrderAPIListOrdersByNumbersRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderListOrdersByNumbersRequest
 }
 
@@ -4433,7 +5048,7 @@ func (a *OrderAPIService) ListOrdersByNumbersExecute(r OrderAPIListOrdersByNumbe
 
 type OrderAPIListShipmentsRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderListShipmentsRequest
 }
 
@@ -4585,7 +5200,7 @@ func (a *OrderAPIService) ListShipmentsExecute(r OrderAPIListShipmentsRequest) (
 
 type OrderAPIOrderAddDocumentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderAddDocumentRequest
 }
 
@@ -4715,7 +5330,7 @@ func (a *OrderAPIService) OrderAddDocumentExecute(r OrderAPIOrderAddDocumentRequ
 
 type OrderAPIOrderRemoveDocumentByCodeRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderRemoveDocumentByCodeRequest
 }
 
@@ -4845,7 +5460,7 @@ func (a *OrderAPIService) OrderRemoveDocumentByCodeExecute(r OrderAPIOrderRemove
 
 type OrderAPIPrintOrdersLabelsRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderPrintOrdersLabelsRequest
 }
 
@@ -4997,7 +5612,7 @@ func (a *OrderAPIService) PrintOrdersLabelsExecute(r OrderAPIPrintOrdersLabelsRe
 
 type OrderAPIQuashFulfillmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderQuashFulfillmentRequest
 }
 
@@ -5149,7 +5764,7 @@ func (a *OrderAPIService) QuashFulfillmentExecute(r OrderAPIQuashFulfillmentRequ
 
 type OrderAPIQuashShipmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderQuashShipmentRequest
 }
 
@@ -5301,7 +5916,7 @@ func (a *OrderAPIService) QuashShipmentExecute(r OrderAPIQuashShipmentRequest) (
 
 type OrderAPIReceiveFulfillmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderReceiveFulfillmentRequest
 }
 
@@ -5453,7 +6068,7 @@ func (a *OrderAPIService) ReceiveFulfillmentExecute(r OrderAPIReceiveFulfillment
 
 type OrderAPIReportFulfillmentErrorRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderReportFulfillmentErrorRequest
 }
 
@@ -5605,7 +6220,7 @@ func (a *OrderAPIService) ReportFulfillmentErrorExecute(r OrderAPIReportFulfillm
 
 type OrderAPIReportFulfillmentNotResolvableRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderReportFulfillmentNotResolvableRequest
 }
 
@@ -5757,7 +6372,7 @@ func (a *OrderAPIService) ReportFulfillmentNotResolvableExecute(r OrderAPIReport
 
 type OrderAPIReportFulfillmentReadyRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderReportFulfillmentReadyRequest
 }
 
@@ -5909,7 +6524,7 @@ func (a *OrderAPIService) ReportFulfillmentReadyExecute(r OrderAPIReportFulfillm
 
 type OrderAPIReportShipmentDeliveryRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderReportShipmentDeliveryRequest
 }
 
@@ -6061,7 +6676,7 @@ func (a *OrderAPIService) ReportShipmentDeliveryExecute(r OrderAPIReportShipment
 
 type OrderAPIReportShipmentMissingStockRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderReportShipmentMissingStockRequest
 }
 
@@ -6213,7 +6828,7 @@ func (a *OrderAPIService) ReportShipmentMissingStockExecute(r OrderAPIReportShip
 
 type OrderAPIResolveShipmentMissingStockRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderResolveShipmentMissingStockRequest
 }
 
@@ -6365,7 +6980,7 @@ func (a *OrderAPIService) ResolveShipmentMissingStockExecute(r OrderAPIResolveSh
 
 type OrderAPIRetryFulfillmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderRetryFulfillmentRequest
 }
 
@@ -6517,7 +7132,7 @@ func (a *OrderAPIService) RetryFulfillmentExecute(r OrderAPIRetryFulfillmentRequ
 
 type OrderAPISearchOrdersRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderSearchOrdersRequest
 }
 
@@ -6669,7 +7284,7 @@ func (a *OrderAPIService) SearchOrdersExecute(r OrderAPISearchOrdersRequest) (*O
 
 type OrderAPISendFulfillmentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderSendFulfillmentRequest
 }
 
@@ -6821,7 +7436,7 @@ func (a *OrderAPIService) SendFulfillmentExecute(r OrderAPISendFulfillmentReques
 
 type OrderAPISendOrderNotificationRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderSendOrderNotificationRequest
 }
 
@@ -6973,7 +7588,7 @@ func (a *OrderAPIService) SendOrderNotificationExecute(r OrderAPISendOrderNotifi
 
 type OrderAPIStartFulfillmentProcessingRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderStartFulfillmentProcessingRequest
 }
 
@@ -7125,7 +7740,7 @@ func (a *OrderAPIService) StartFulfillmentProcessingExecute(r OrderAPIStartFulfi
 
 type OrderAPIStartShipmentProcessingRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderStartShipmentProcessingRequest
 }
 
@@ -7277,7 +7892,7 @@ func (a *OrderAPIService) StartShipmentProcessingExecute(r OrderAPIStartShipment
 
 type OrderAPIUnholdOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderUnholdOrderRequest
 }
 
@@ -7429,7 +8044,7 @@ func (a *OrderAPIService) UnholdOrderExecute(r OrderAPIUnholdOrderRequest) (map[
 
 type OrderAPIUpdateOrderRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderUpdateOrderRequest
 }
 
@@ -7581,7 +8196,7 @@ func (a *OrderAPIService) UpdateOrderExecute(r OrderAPIUpdateOrderRequest) (*Ord
 
 type OrderAPIUpdatePaymentRequest struct {
 	ctx context.Context
-	ApiService *OrderAPIService
+	ApiService OrderAPI
 	body *OrderUpdatePaymentRequest
 }
 

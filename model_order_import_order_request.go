@@ -40,6 +40,7 @@ type OrderImportOrderRequest struct {
 	Totals map[string]OrderDataTotal `json:"totals"`
 	Status string `json:"status"`
 	Currency OrderCurrency `json:"currency"`
+	VatIncluded *bool `json:"vatIncluded,omitempty"`
 }
 
 type _OrderImportOrderRequest OrderImportOrderRequest
@@ -120,8 +121,8 @@ func (o *OrderImportOrderRequest) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// IsSetCreatedAt returns a boolean if a field has been set.
-func (o *OrderImportOrderRequest) IsSetCreatedAt() bool {
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *OrderImportOrderRequest) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -176,8 +177,8 @@ func (o *OrderImportOrderRequest) GetChannelOk() (*string, bool) {
 	return o.Channel, true
 }
 
-// IsSetChannel returns a boolean if a field has been set.
-func (o *OrderImportOrderRequest) IsSetChannel() bool {
+// HasChannel returns a boolean if a field has been set.
+func (o *OrderImportOrderRequest) HasChannel() bool {
 	if o != nil && !IsNil(o.Channel) {
 		return true
 	}
@@ -502,6 +503,38 @@ func (o *OrderImportOrderRequest) SetCurrency(v OrderCurrency) {
 	o.Currency = v
 }
 
+// GetVatIncluded returns the VatIncluded field value if set, zero value otherwise.
+func (o *OrderImportOrderRequest) GetVatIncluded() bool {
+	if o == nil || IsNil(o.VatIncluded) {
+		var ret bool
+		return ret
+	}
+	return *o.VatIncluded
+}
+
+// GetVatIncludedOk returns a tuple with the VatIncluded field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderImportOrderRequest) GetVatIncludedOk() (*bool, bool) {
+	if o == nil || IsNil(o.VatIncluded) {
+		return nil, false
+	}
+	return o.VatIncluded, true
+}
+
+// HasVatIncluded returns a boolean if a field has been set.
+func (o *OrderImportOrderRequest) HasVatIncluded() bool {
+	if o != nil && !IsNil(o.VatIncluded) {
+		return true
+	}
+
+	return false
+}
+
+// SetVatIncluded gets a reference to the given bool and assigns it to the VatIncluded field.
+func (o *OrderImportOrderRequest) SetVatIncluded(v bool) {
+	o.VatIncluded = &v
+}
+
 func (o OrderImportOrderRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -533,6 +566,9 @@ func (o OrderImportOrderRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["totals"] = o.Totals
 	toSerialize["status"] = o.Status
 	toSerialize["currency"] = o.Currency
+	if !IsNil(o.VatIncluded) {
+		toSerialize["vatIncluded"] = o.VatIncluded
+	}
 	return toSerialize, nil
 }
 
