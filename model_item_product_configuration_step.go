@@ -62,8 +62,8 @@ func (o *ItemProductConfigurationStep) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// IsSetId returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetId() bool {
+// HasId returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ItemProductConfigurationStep) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// IsSetGrn returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetGrn() bool {
+// HasGrn returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) HasGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -126,8 +126,8 @@ func (o *ItemProductConfigurationStep) GetLabelOk() (*string, bool) {
 	return o.Label, true
 }
 
-// IsSetLabel returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetLabel() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -158,8 +158,8 @@ func (o *ItemProductConfigurationStep) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// IsSetDescription returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetDescription() bool {
+// HasDescription returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) HasDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -190,8 +190,8 @@ func (o *ItemProductConfigurationStep) GetOptionsOk() ([]ProductConfigurationSte
 	return o.Options, true
 }
 
-// IsSetOptions returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetOptions() bool {
+// HasOptions returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) HasOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}

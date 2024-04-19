@@ -9911,6 +9911,12 @@ components:
           $ref: '#/components/schemas/orderPaymentFilter'
         agentGrn:
           type: string
+        updatedFrom:
+          format: date-time
+          type: string
+        updatedTo:
+          format: date-time
+          type: string
       required:
       - tenantId
       type: object

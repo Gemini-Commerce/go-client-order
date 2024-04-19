@@ -61,8 +61,8 @@ func (o *ProtobufAny) GetTypeOk() (*string, bool) {
 	return o.Type, true
 }
 
-// IsSetType returns a boolean if a field has been set.
-func (o *ProtobufAny) IsSetType() bool {
+// HasType returns a boolean if a field has been set.
+func (o *ProtobufAny) HasType() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}
