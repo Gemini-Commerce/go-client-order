@@ -35,8 +35,6 @@ type OrderSearchOrdersRequest struct {
 	ToDate *time.Time `json:"toDate,omitempty"`
 	PaymentFilter *OrderPaymentFilter `json:"paymentFilter,omitempty"`
 	AgentGrn *string `json:"agentGrn,omitempty"`
-	UpdatedFrom *time.Time `json:"updatedFrom,omitempty"`
-	UpdatedTo *time.Time `json:"updatedTo,omitempty"`
 }
 
 type _OrderSearchOrdersRequest OrderSearchOrdersRequest
@@ -101,8 +99,8 @@ func (o *OrderSearchOrdersRequest) GetSearchQueryOk() (*string, bool) {
 	return o.SearchQuery, true
 }
 
-// HasSearchQuery returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasSearchQuery() bool {
+// IsSetSearchQuery returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetSearchQuery() bool {
 	if o != nil && !IsNil(o.SearchQuery) {
 		return true
 	}
@@ -133,8 +131,8 @@ func (o *OrderSearchOrdersRequest) GetPageSizeOk() (*int64, bool) {
 	return o.PageSize, true
 }
 
-// HasPageSize returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasPageSize() bool {
+// IsSetPageSize returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetPageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -165,8 +163,8 @@ func (o *OrderSearchOrdersRequest) GetPageTokenOk() (*string, bool) {
 	return o.PageToken, true
 }
 
-// HasPageToken returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasPageToken() bool {
+// IsSetPageToken returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -197,8 +195,8 @@ func (o *OrderSearchOrdersRequest) GetOrderByOk() ([]OrderOrderBy, bool) {
 	return o.OrderBy, true
 }
 
-// HasOrderBy returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasOrderBy() bool {
+// IsSetOrderBy returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetOrderBy() bool {
 	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}
@@ -229,8 +227,8 @@ func (o *OrderSearchOrdersRequest) GetStatusFilterOk() (*OrderStatusFilter, bool
 	return o.StatusFilter, true
 }
 
-// HasStatusFilter returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasStatusFilter() bool {
+// IsSetStatusFilter returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetStatusFilter() bool {
 	if o != nil && !IsNil(o.StatusFilter) {
 		return true
 	}
@@ -261,8 +259,8 @@ func (o *OrderSearchOrdersRequest) GetFromDateOk() (*time.Time, bool) {
 	return o.FromDate, true
 }
 
-// HasFromDate returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasFromDate() bool {
+// IsSetFromDate returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetFromDate() bool {
 	if o != nil && !IsNil(o.FromDate) {
 		return true
 	}
@@ -293,8 +291,8 @@ func (o *OrderSearchOrdersRequest) GetToDateOk() (*time.Time, bool) {
 	return o.ToDate, true
 }
 
-// HasToDate returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasToDate() bool {
+// IsSetToDate returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetToDate() bool {
 	if o != nil && !IsNil(o.ToDate) {
 		return true
 	}
@@ -325,8 +323,8 @@ func (o *OrderSearchOrdersRequest) GetPaymentFilterOk() (*OrderPaymentFilter, bo
 	return o.PaymentFilter, true
 }
 
-// HasPaymentFilter returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasPaymentFilter() bool {
+// IsSetPaymentFilter returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetPaymentFilter() bool {
 	if o != nil && !IsNil(o.PaymentFilter) {
 		return true
 	}
@@ -357,8 +355,8 @@ func (o *OrderSearchOrdersRequest) GetAgentGrnOk() (*string, bool) {
 	return o.AgentGrn, true
 }
 
-// HasAgentGrn returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasAgentGrn() bool {
+// IsSetAgentGrn returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetAgentGrn() bool {
 	if o != nil && !IsNil(o.AgentGrn) {
 		return true
 	}
@@ -369,70 +367,6 @@ func (o *OrderSearchOrdersRequest) HasAgentGrn() bool {
 // SetAgentGrn gets a reference to the given string and assigns it to the AgentGrn field.
 func (o *OrderSearchOrdersRequest) SetAgentGrn(v string) {
 	o.AgentGrn = &v
-}
-
-// GetUpdatedFrom returns the UpdatedFrom field value if set, zero value otherwise.
-func (o *OrderSearchOrdersRequest) GetUpdatedFrom() time.Time {
-	if o == nil || IsNil(o.UpdatedFrom) {
-		var ret time.Time
-		return ret
-	}
-	return *o.UpdatedFrom
-}
-
-// GetUpdatedFromOk returns a tuple with the UpdatedFrom field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OrderSearchOrdersRequest) GetUpdatedFromOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.UpdatedFrom) {
-		return nil, false
-	}
-	return o.UpdatedFrom, true
-}
-
-// HasUpdatedFrom returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasUpdatedFrom() bool {
-	if o != nil && !IsNil(o.UpdatedFrom) {
-		return true
-	}
-
-	return false
-}
-
-// SetUpdatedFrom gets a reference to the given time.Time and assigns it to the UpdatedFrom field.
-func (o *OrderSearchOrdersRequest) SetUpdatedFrom(v time.Time) {
-	o.UpdatedFrom = &v
-}
-
-// GetUpdatedTo returns the UpdatedTo field value if set, zero value otherwise.
-func (o *OrderSearchOrdersRequest) GetUpdatedTo() time.Time {
-	if o == nil || IsNil(o.UpdatedTo) {
-		var ret time.Time
-		return ret
-	}
-	return *o.UpdatedTo
-}
-
-// GetUpdatedToOk returns a tuple with the UpdatedTo field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OrderSearchOrdersRequest) GetUpdatedToOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.UpdatedTo) {
-		return nil, false
-	}
-	return o.UpdatedTo, true
-}
-
-// HasUpdatedTo returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) HasUpdatedTo() bool {
-	if o != nil && !IsNil(o.UpdatedTo) {
-		return true
-	}
-
-	return false
-}
-
-// SetUpdatedTo gets a reference to the given time.Time and assigns it to the UpdatedTo field.
-func (o *OrderSearchOrdersRequest) SetUpdatedTo(v time.Time) {
-	o.UpdatedTo = &v
 }
 
 func (o OrderSearchOrdersRequest) MarshalJSON() ([]byte, error) {
@@ -472,12 +406,6 @@ func (o OrderSearchOrdersRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AgentGrn) {
 		toSerialize["agentGrn"] = o.AgentGrn
-	}
-	if !IsNil(o.UpdatedFrom) {
-		toSerialize["updatedFrom"] = o.UpdatedFrom
-	}
-	if !IsNil(o.UpdatedTo) {
-		toSerialize["updatedTo"] = o.UpdatedTo
 	}
 	return toSerialize, nil
 }

@@ -59,8 +59,8 @@ func (o *OrderRefundItem) GetOrderItemIdOk() (*string, bool) {
 	return o.OrderItemId, true
 }
 
-// HasOrderItemId returns a boolean if a field has been set.
-func (o *OrderRefundItem) HasOrderItemId() bool {
+// IsSetOrderItemId returns a boolean if a field has been set.
+func (o *OrderRefundItem) IsSetOrderItemId() bool {
 	if o != nil && !IsNil(o.OrderItemId) {
 		return true
 	}
@@ -91,8 +91,8 @@ func (o *OrderRefundItem) GetQtyOk() (*int64, bool) {
 	return o.Qty, true
 }
 
-// HasQty returns a boolean if a field has been set.
-func (o *OrderRefundItem) HasQty() bool {
+// IsSetQty returns a boolean if a field has been set.
+func (o *OrderRefundItem) IsSetQty() bool {
 	if o != nil && !IsNil(o.Qty) {
 		return true
 	}

@@ -93,8 +93,8 @@ func (o *OrderListOrdersRequest) GetPageSizeOk() (*int64, bool) {
 	return o.PageSize, true
 }
 
-// HasPageSize returns a boolean if a field has been set.
-func (o *OrderListOrdersRequest) HasPageSize() bool {
+// IsSetPageSize returns a boolean if a field has been set.
+func (o *OrderListOrdersRequest) IsSetPageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -125,8 +125,8 @@ func (o *OrderListOrdersRequest) GetPageTokenOk() (*string, bool) {
 	return o.PageToken, true
 }
 
-// HasPageToken returns a boolean if a field has been set.
-func (o *OrderListOrdersRequest) HasPageToken() bool {
+// IsSetPageToken returns a boolean if a field has been set.
+func (o *OrderListOrdersRequest) IsSetPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -157,8 +157,8 @@ func (o *OrderListOrdersRequest) GetOrderByOk() ([]OrderOrderBy, bool) {
 	return o.OrderBy, true
 }
 
-// HasOrderBy returns a boolean if a field has been set.
-func (o *OrderListOrdersRequest) HasOrderBy() bool {
+// IsSetOrderBy returns a boolean if a field has been set.
+func (o *OrderListOrdersRequest) IsSetOrderBy() bool {
 	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}
@@ -189,8 +189,8 @@ func (o *OrderListOrdersRequest) GetStatusFilterOk() (*OrderStatusFilter, bool) 
 	return o.StatusFilter, true
 }
 
-// HasStatusFilter returns a boolean if a field has been set.
-func (o *OrderListOrdersRequest) HasStatusFilter() bool {
+// IsSetStatusFilter returns a boolean if a field has been set.
+func (o *OrderListOrdersRequest) IsSetStatusFilter() bool {
 	if o != nil && !IsNil(o.StatusFilter) {
 		return true
 	}

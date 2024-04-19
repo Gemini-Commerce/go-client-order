@@ -60,8 +60,8 @@ func (o *OrderListOrdersByNumbersResponse) GetOrdersOk() ([]OrderOrderData, bool
 	return o.Orders, true
 }
 
-// HasOrders returns a boolean if a field has been set.
-func (o *OrderListOrdersByNumbersResponse) HasOrders() bool {
+// IsSetOrders returns a boolean if a field has been set.
+func (o *OrderListOrdersByNumbersResponse) IsSetOrders() bool {
 	if o != nil && !IsNil(o.Orders) {
 		return true
 	}
@@ -92,8 +92,8 @@ func (o *OrderListOrdersByNumbersResponse) GetNextPageTokenOk() (*string, bool) 
 	return o.NextPageToken, true
 }
 
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *OrderListOrdersByNumbersResponse) HasNextPageToken() bool {
+// IsSetNextPageToken returns a boolean if a field has been set.
+func (o *OrderListOrdersByNumbersResponse) IsSetNextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}
