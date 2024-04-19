@@ -35,6 +35,8 @@ type OrderSearchOrdersRequest struct {
 	ToDate *time.Time `json:"toDate,omitempty"`
 	PaymentFilter *OrderPaymentFilter `json:"paymentFilter,omitempty"`
 	AgentGrn *string `json:"agentGrn,omitempty"`
+	UpdatedFrom *time.Time `json:"updatedFrom,omitempty"`
+	UpdatedTo *time.Time `json:"updatedTo,omitempty"`
 }
 
 type _OrderSearchOrdersRequest OrderSearchOrdersRequest
@@ -369,6 +371,70 @@ func (o *OrderSearchOrdersRequest) SetAgentGrn(v string) {
 	o.AgentGrn = &v
 }
 
+// GetUpdatedFrom returns the UpdatedFrom field value if set, zero value otherwise.
+func (o *OrderSearchOrdersRequest) GetUpdatedFrom() time.Time {
+	if o == nil || IsNil(o.UpdatedFrom) {
+		var ret time.Time
+		return ret
+	}
+	return *o.UpdatedFrom
+}
+
+// GetUpdatedFromOk returns a tuple with the UpdatedFrom field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderSearchOrdersRequest) GetUpdatedFromOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.UpdatedFrom) {
+		return nil, false
+	}
+	return o.UpdatedFrom, true
+}
+
+// IsSetUpdatedFrom returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetUpdatedFrom() bool {
+	if o != nil && !IsNil(o.UpdatedFrom) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedFrom gets a reference to the given time.Time and assigns it to the UpdatedFrom field.
+func (o *OrderSearchOrdersRequest) SetUpdatedFrom(v time.Time) {
+	o.UpdatedFrom = &v
+}
+
+// GetUpdatedTo returns the UpdatedTo field value if set, zero value otherwise.
+func (o *OrderSearchOrdersRequest) GetUpdatedTo() time.Time {
+	if o == nil || IsNil(o.UpdatedTo) {
+		var ret time.Time
+		return ret
+	}
+	return *o.UpdatedTo
+}
+
+// GetUpdatedToOk returns a tuple with the UpdatedTo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderSearchOrdersRequest) GetUpdatedToOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.UpdatedTo) {
+		return nil, false
+	}
+	return o.UpdatedTo, true
+}
+
+// IsSetUpdatedTo returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetUpdatedTo() bool {
+	if o != nil && !IsNil(o.UpdatedTo) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedTo gets a reference to the given time.Time and assigns it to the UpdatedTo field.
+func (o *OrderSearchOrdersRequest) SetUpdatedTo(v time.Time) {
+	o.UpdatedTo = &v
+}
+
 func (o OrderSearchOrdersRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -406,6 +472,12 @@ func (o OrderSearchOrdersRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AgentGrn) {
 		toSerialize["agentGrn"] = o.AgentGrn
+	}
+	if !IsNil(o.UpdatedFrom) {
+		toSerialize["updatedFrom"] = o.UpdatedFrom
+	}
+	if !IsNil(o.UpdatedTo) {
+		toSerialize["updatedTo"] = o.UpdatedTo
 	}
 	return toSerialize, nil
 }
