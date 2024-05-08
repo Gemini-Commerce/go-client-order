@@ -9911,10 +9911,10 @@ components:
           $ref: '#/components/schemas/orderPaymentFilter'
         agentGrn:
           type: string
-        updatedFrom:
+        updatedAtFrom:
           format: date-time
           type: string
-        updatedTo:
+        updatedAtTo:
           format: date-time
           type: string
       required:

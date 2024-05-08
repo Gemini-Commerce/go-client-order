@@ -58,8 +58,8 @@ func (o *OrderLocalizedText) GetValueOk() (*map[string]string, bool) {
 	return o.Value, true
 }
 
-// IsSetValue returns a boolean if a field has been set.
-func (o *OrderLocalizedText) IsSetValue() bool {
+// HasValue returns a boolean if a field has been set.
+func (o *OrderLocalizedText) HasValue() bool {
 	if o != nil && !IsNil(o.Value) {
 		return true
 	}

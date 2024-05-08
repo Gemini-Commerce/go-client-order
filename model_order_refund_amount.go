@@ -63,8 +63,8 @@ func (o *OrderRefundAmount) GetCodeOk() (*OrderRefundAmountCode, bool) {
 	return o.Code, true
 }
 
-// IsSetCode returns a boolean if a field has been set.
-func (o *OrderRefundAmount) IsSetCode() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *OrderRefundAmount) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *OrderRefundAmount) GetValueOk() (*OrderMoney, bool) {
 	return o.Value, true
 }
 
-// IsSetValue returns a boolean if a field has been set.
-func (o *OrderRefundAmount) IsSetValue() bool {
+// HasValue returns a boolean if a field has been set.
+func (o *OrderRefundAmount) HasValue() bool {
 	if o != nil && !IsNil(o.Value) {
 		return true
 	}
