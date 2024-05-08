@@ -60,8 +60,8 @@ func (o *UpdateOrderRequestPayload) GetBillingAddressOk() (*OrderPostalAddress, 
 	return o.BillingAddress, true
 }
 
-// HasBillingAddress returns a boolean if a field has been set.
-func (o *UpdateOrderRequestPayload) HasBillingAddress() bool {
+// IsSetBillingAddress returns a boolean if a field has been set.
+func (o *UpdateOrderRequestPayload) IsSetBillingAddress() bool {
 	if o != nil && !IsNil(o.BillingAddress) {
 		return true
 	}
@@ -92,8 +92,8 @@ func (o *UpdateOrderRequestPayload) GetShippingAddressOk() (*OrderPostalAddress,
 	return o.ShippingAddress, true
 }
 
-// HasShippingAddress returns a boolean if a field has been set.
-func (o *UpdateOrderRequestPayload) HasShippingAddress() bool {
+// IsSetShippingAddress returns a boolean if a field has been set.
+func (o *UpdateOrderRequestPayload) IsSetShippingAddress() bool {
 	if o != nil && !IsNil(o.ShippingAddress) {
 		return true
 	}
@@ -124,8 +124,8 @@ func (o *UpdateOrderRequestPayload) GetAdditionalInfoOk() (map[string]interface{
 	return o.AdditionalInfo, true
 }
 
-// HasAdditionalInfo returns a boolean if a field has been set.
-func (o *UpdateOrderRequestPayload) HasAdditionalInfo() bool {
+// IsSetAdditionalInfo returns a boolean if a field has been set.
+func (o *UpdateOrderRequestPayload) IsSetAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

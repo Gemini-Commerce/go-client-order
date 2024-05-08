@@ -115,8 +115,8 @@ func (o *OrderUpdateOrderRequest) GetPayloadOk() (*UpdateOrderRequestPayload, bo
 	return o.Payload, true
 }
 
-// HasPayload returns a boolean if a field has been set.
-func (o *OrderUpdateOrderRequest) HasPayload() bool {
+// IsSetPayload returns a boolean if a field has been set.
+func (o *OrderUpdateOrderRequest) IsSetPayload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -147,8 +147,8 @@ func (o *OrderUpdateOrderRequest) GetFieldMaskOk() (*string, bool) {
 	return o.FieldMask, true
 }
 
-// HasFieldMask returns a boolean if a field has been set.
-func (o *OrderUpdateOrderRequest) HasFieldMask() bool {
+// IsSetFieldMask returns a boolean if a field has been set.
+func (o *OrderUpdateOrderRequest) IsSetFieldMask() bool {
 	if o != nil && !IsNil(o.FieldMask) {
 		return true
 	}

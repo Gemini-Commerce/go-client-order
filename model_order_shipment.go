@@ -69,8 +69,8 @@ func (o *OrderShipment) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *OrderShipment) HasCreatedAt() bool {
+// IsSetCreatedAt returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -101,8 +101,8 @@ func (o *OrderShipment) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// HasUpdatedAt returns a boolean if a field has been set.
-func (o *OrderShipment) HasUpdatedAt() bool {
+// IsSetUpdatedAt returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -133,8 +133,8 @@ func (o *OrderShipment) GetOrderIdOk() (*string, bool) {
 	return o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *OrderShipment) HasOrderId() bool {
+// IsSetOrderId returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetOrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
@@ -165,8 +165,8 @@ func (o *OrderShipment) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *OrderShipment) HasId() bool {
+// IsSetId returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -197,8 +197,8 @@ func (o *OrderShipment) GetStatusOk() (*string, bool) {
 	return o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *OrderShipment) HasStatus() bool {
+// IsSetStatus returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}
@@ -229,8 +229,8 @@ func (o *OrderShipment) GetItemsOk() ([]OrderShipmentItem, bool) {
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *OrderShipment) HasItems() bool {
+// IsSetItems returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -261,8 +261,8 @@ func (o *OrderShipment) GetAddressOk() (*OrderPostalAddress, bool) {
 	return o.Address, true
 }
 
-// HasAddress returns a boolean if a field has been set.
-func (o *OrderShipment) HasAddress() bool {
+// IsSetAddress returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetAddress() bool {
 	if o != nil && !IsNil(o.Address) {
 		return true
 	}
@@ -293,8 +293,8 @@ func (o *OrderShipment) GetFromAddressOk() (*OrderPostalAddress, bool) {
 	return o.FromAddress, true
 }
 
-// HasFromAddress returns a boolean if a field has been set.
-func (o *OrderShipment) HasFromAddress() bool {
+// IsSetFromAddress returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetFromAddress() bool {
 	if o != nil && !IsNil(o.FromAddress) {
 		return true
 	}
@@ -325,8 +325,8 @@ func (o *OrderShipment) GetReturnAddressOk() (*OrderPostalAddress, bool) {
 	return o.ReturnAddress, true
 }
 
-// HasReturnAddress returns a boolean if a field has been set.
-func (o *OrderShipment) HasReturnAddress() bool {
+// IsSetReturnAddress returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetReturnAddress() bool {
 	if o != nil && !IsNil(o.ReturnAddress) {
 		return true
 	}
@@ -357,8 +357,8 @@ func (o *OrderShipment) GetTrackingOk() ([]ShipmentTracking, bool) {
 	return o.Tracking, true
 }
 
-// HasTracking returns a boolean if a field has been set.
-func (o *OrderShipment) HasTracking() bool {
+// IsSetTracking returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetTracking() bool {
 	if o != nil && !IsNil(o.Tracking) {
 		return true
 	}
@@ -389,8 +389,8 @@ func (o *OrderShipment) GetReturnTrackingOk() ([]ShipmentTracking, bool) {
 	return o.ReturnTracking, true
 }
 
-// HasReturnTracking returns a boolean if a field has been set.
-func (o *OrderShipment) HasReturnTracking() bool {
+// IsSetReturnTracking returns a boolean if a field has been set.
+func (o *OrderShipment) IsSetReturnTracking() bool {
 	if o != nil && !IsNil(o.ReturnTracking) {
 		return true
 	}

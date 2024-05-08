@@ -64,8 +64,8 @@ func (o *OrderFulfillment) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasCreatedAt() bool {
+// IsSetCreatedAt returns a boolean if a field has been set.
+func (o *OrderFulfillment) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -96,8 +96,8 @@ func (o *OrderFulfillment) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// HasUpdatedAt returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasUpdatedAt() bool {
+// IsSetUpdatedAt returns a boolean if a field has been set.
+func (o *OrderFulfillment) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -128,8 +128,8 @@ func (o *OrderFulfillment) GetOrderIdOk() (*string, bool) {
 	return o.OrderId, true
 }
 
-// HasOrderId returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasOrderId() bool {
+// IsSetOrderId returns a boolean if a field has been set.
+func (o *OrderFulfillment) IsSetOrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
@@ -160,8 +160,8 @@ func (o *OrderFulfillment) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasId() bool {
+// IsSetId returns a boolean if a field has been set.
+func (o *OrderFulfillment) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -192,8 +192,8 @@ func (o *OrderFulfillment) GetStatusOk() (*string, bool) {
 	return o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasStatus() bool {
+// IsSetStatus returns a boolean if a field has been set.
+func (o *OrderFulfillment) IsSetStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}
@@ -224,8 +224,8 @@ func (o *OrderFulfillment) GetItemsOk() ([]OrderFulfillmentItem, bool) {
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasItems() bool {
+// IsSetItems returns a boolean if a field has been set.
+func (o *OrderFulfillment) IsSetItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
