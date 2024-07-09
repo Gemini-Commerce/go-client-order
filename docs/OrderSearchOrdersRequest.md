@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **AgentGrn**| **string** |   | [optional]
 **UpdatedAtFrom**| [**time.Time**](time.Time.md) |   | [optional]
 **UpdatedAtTo**| [**time.Time**](time.Time.md) |   | [optional]
+**OnHold**| **bool** |   | [optional]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

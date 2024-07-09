@@ -37,6 +37,7 @@ type OrderSearchOrdersRequest struct {
 	AgentGrn *string `json:"agentGrn,omitempty"`
 	UpdatedAtFrom *time.Time `json:"updatedAtFrom,omitempty"`
 	UpdatedAtTo *time.Time `json:"updatedAtTo,omitempty"`
+	OnHold *bool `json:"onHold,omitempty"`
 }
 
 type _OrderSearchOrdersRequest OrderSearchOrdersRequest
@@ -435,6 +436,38 @@ func (o *OrderSearchOrdersRequest) SetUpdatedAtTo(v time.Time) {
 	o.UpdatedAtTo = &v
 }
 
+// GetOnHold returns the OnHold field value if set, zero value otherwise.
+func (o *OrderSearchOrdersRequest) GetOnHold() bool {
+	if o == nil || IsNil(o.OnHold) {
+		var ret bool
+		return ret
+	}
+	return *o.OnHold
+}
+
+// GetOnHoldOk returns a tuple with the OnHold field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderSearchOrdersRequest) GetOnHoldOk() (*bool, bool) {
+	if o == nil || IsNil(o.OnHold) {
+		return nil, false
+	}
+	return o.OnHold, true
+}
+
+// IsSetOnHold returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) IsSetOnHold() bool {
+	if o != nil && !IsNil(o.OnHold) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnHold gets a reference to the given bool and assigns it to the OnHold field.
+func (o *OrderSearchOrdersRequest) SetOnHold(v bool) {
+	o.OnHold = &v
+}
+
 func (o OrderSearchOrdersRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -478,6 +511,9 @@ func (o OrderSearchOrdersRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UpdatedAtTo) {
 		toSerialize["updatedAtTo"] = o.UpdatedAtTo
+	}
+	if !IsNil(o.OnHold) {
+		toSerialize["onHold"] = o.OnHold
 	}
 	return toSerialize, nil
 }
