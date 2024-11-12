@@ -120,8 +120,8 @@ func (o *OrderCreateRefundTransactionRequest) GetParentTransactionIdOk() (*strin
 	return o.ParentTransactionId, true
 }
 
-// IsSetParentTransactionId returns a boolean if a field has been set.
-func (o *OrderCreateRefundTransactionRequest) IsSetParentTransactionId() bool {
+// HasParentTransactionId returns a boolean if a field has been set.
+func (o *OrderCreateRefundTransactionRequest) HasParentTransactionId() bool {
 	if o != nil && !IsNil(o.ParentTransactionId) {
 		return true
 	}
@@ -152,8 +152,8 @@ func (o *OrderCreateRefundTransactionRequest) GetTypeOk() (*OrderTransactionType
 	return o.Type, true
 }
 
-// IsSetType returns a boolean if a field has been set.
-func (o *OrderCreateRefundTransactionRequest) IsSetType() bool {
+// HasType returns a boolean if a field has been set.
+func (o *OrderCreateRefundTransactionRequest) HasType() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}
@@ -184,8 +184,8 @@ func (o *OrderCreateRefundTransactionRequest) GetAdditionalInfoOk() (*string, bo
 	return o.AdditionalInfo, true
 }
 
-// IsSetAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderCreateRefundTransactionRequest) IsSetAdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *OrderCreateRefundTransactionRequest) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

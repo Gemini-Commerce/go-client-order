@@ -133,6 +133,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [BehaviorOptionsInventory](docs/BehaviorOptionsInventory.md)
+ - [BehaviorOptionsInventoryAction](docs/BehaviorOptionsInventoryAction.md)
+ - [BehaviorOptionsPaymentAction](docs/BehaviorOptionsPaymentAction.md)
+ - [CancelOrderRequestBehaviorOptions](docs/CancelOrderRequestBehaviorOptions.md)
+ - [CancelOrderRequestBehaviorOptionsPayment](docs/CancelOrderRequestBehaviorOptionsPayment.md)
  - [CreateOrderRequestInitialPayment](docs/CreateOrderRequestInitialPayment.md)
  - [ImportOrderRequestImportedPayment](docs/ImportOrderRequestImportedPayment.md)
  - [InitialPaymentInitialTransaction](docs/InitialPaymentInitialTransaction.md)

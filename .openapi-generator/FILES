@@ -5,6 +5,11 @@ api/openapi.yaml
 api_order.go
 client.go
 configuration.go
+docs/BehaviorOptionsInventory.md
+docs/BehaviorOptionsInventoryAction.md
+docs/BehaviorOptionsPaymentAction.md
+docs/CancelOrderRequestBehaviorOptions.md
+docs/CancelOrderRequestBehaviorOptionsPayment.md
 docs/CreateOrderRequestInitialPayment.md
 docs/ImportOrderRequestImportedPayment.md
 docs/InitialPaymentInitialTransaction.md
@@ -116,6 +121,11 @@ docs/UpdateOrderRequestPayload.md
 git_push.sh
 go.mod
 go.sum
+model_behavior_options_inventory.go
+model_behavior_options_inventory_action.go
+model_behavior_options_payment_action.go
+model_cancel_order_request_behavior_options.go
+model_cancel_order_request_behavior_options_payment.go
 model_create_order_request_initial_payment.go
 model_import_order_request_imported_payment.go
 model_initial_payment_initial_transaction.go

@@ -16,6 +16,7 @@ VOID|&quot;VOID&quot;
 FAILED|&quot;FAILED&quot;
 PENDING|&quot;PENDING&quot;
 FRAUD|&quot;FRAUD&quot;
+NOOP|&quot;NOOP&quot;
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
 

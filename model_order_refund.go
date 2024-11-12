@@ -66,8 +66,8 @@ func (o *OrderRefund) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// IsSetCreatedAt returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetCreatedAt() bool {
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *OrderRefund) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -98,8 +98,8 @@ func (o *OrderRefund) GetPaymentIdOk() (*string, bool) {
 	return o.PaymentId, true
 }
 
-// IsSetPaymentId returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetPaymentId() bool {
+// HasPaymentId returns a boolean if a field has been set.
+func (o *OrderRefund) HasPaymentId() bool {
 	if o != nil && !IsNil(o.PaymentId) {
 		return true
 	}
@@ -130,8 +130,8 @@ func (o *OrderRefund) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// IsSetId returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetId() bool {
+// HasId returns a boolean if a field has been set.
+func (o *OrderRefund) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -162,8 +162,8 @@ func (o *OrderRefund) GetItemsOk() ([]OrderRefundItem, bool) {
 	return o.Items, true
 }
 
-// IsSetItems returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetItems() bool {
+// HasItems returns a boolean if a field has been set.
+func (o *OrderRefund) HasItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -194,8 +194,8 @@ func (o *OrderRefund) GetAmountsOk() ([]OrderRefundAmount, bool) {
 	return o.Amounts, true
 }
 
-// IsSetAmounts returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetAmounts() bool {
+// HasAmounts returns a boolean if a field has been set.
+func (o *OrderRefund) HasAmounts() bool {
 	if o != nil && !IsNil(o.Amounts) {
 		return true
 	}
@@ -226,8 +226,8 @@ func (o *OrderRefund) GetNoteOk() (*string, bool) {
 	return o.Note, true
 }
 
-// IsSetNote returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetNote() bool {
+// HasNote returns a boolean if a field has been set.
+func (o *OrderRefund) HasNote() bool {
 	if o != nil && !IsNil(o.Note) {
 		return true
 	}
@@ -258,8 +258,8 @@ func (o *OrderRefund) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// IsSetAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetAdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *OrderRefund) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -290,8 +290,8 @@ func (o *OrderRefund) GetTransactionIdsOk() ([]string, bool) {
 	return o.TransactionIds, true
 }
 
-// IsSetTransactionIds returns a boolean if a field has been set.
-func (o *OrderRefund) IsSetTransactionIds() bool {
+// HasTransactionIds returns a boolean if a field has been set.
+func (o *OrderRefund) HasTransactionIds() bool {
 	if o != nil && !IsNil(o.TransactionIds) {
 		return true
 	}

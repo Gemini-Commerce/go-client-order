@@ -25,6 +25,7 @@ type OrderCancelOrderRequest struct {
 	TenantId string `json:"tenantId"`
 	OrderId string `json:"orderId"`
 	Reason *string `json:"reason,omitempty"`
+	Options *CancelOrderRequestBehaviorOptions `json:"options,omitempty"`
 }
 
 type _OrderCancelOrderRequest OrderCancelOrderRequest
@@ -114,8 +115,8 @@ func (o *OrderCancelOrderRequest) GetReasonOk() (*string, bool) {
 	return o.Reason, true
 }
 
-// IsSetReason returns a boolean if a field has been set.
-func (o *OrderCancelOrderRequest) IsSetReason() bool {
+// HasReason returns a boolean if a field has been set.
+func (o *OrderCancelOrderRequest) HasReason() bool {
 	if o != nil && !IsNil(o.Reason) {
 		return true
 	}
@@ -126,6 +127,38 @@ func (o *OrderCancelOrderRequest) IsSetReason() bool {
 // SetReason gets a reference to the given string and assigns it to the Reason field.
 func (o *OrderCancelOrderRequest) SetReason(v string) {
 	o.Reason = &v
+}
+
+// GetOptions returns the Options field value if set, zero value otherwise.
+func (o *OrderCancelOrderRequest) GetOptions() CancelOrderRequestBehaviorOptions {
+	if o == nil || IsNil(o.Options) {
+		var ret CancelOrderRequestBehaviorOptions
+		return ret
+	}
+	return *o.Options
+}
+
+// GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrderCancelOrderRequest) GetOptionsOk() (*CancelOrderRequestBehaviorOptions, bool) {
+	if o == nil || IsNil(o.Options) {
+		return nil, false
+	}
+	return o.Options, true
+}
+
+// HasOptions returns a boolean if a field has been set.
+func (o *OrderCancelOrderRequest) HasOptions() bool {
+	if o != nil && !IsNil(o.Options) {
+		return true
+	}
+
+	return false
+}
+
+// SetOptions gets a reference to the given CancelOrderRequestBehaviorOptions and assigns it to the Options field.
+func (o *OrderCancelOrderRequest) SetOptions(v CancelOrderRequestBehaviorOptions) {
+	o.Options = &v
 }
 
 func (o OrderCancelOrderRequest) MarshalJSON() ([]byte, error) {
@@ -142,6 +175,9 @@ func (o OrderCancelOrderRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["orderId"] = o.OrderId
 	if !IsNil(o.Reason) {
 		toSerialize["reason"] = o.Reason
+	}
+	if !IsNil(o.Options) {
+		toSerialize["options"] = o.Options
 	}
 	return toSerialize, nil
 }

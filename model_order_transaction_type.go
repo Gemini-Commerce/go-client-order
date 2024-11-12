@@ -30,6 +30,7 @@ const (
 	ORDERTRANSACTIONTYPE_FAILED OrderTransactionType = "FAILED"
 	ORDERTRANSACTIONTYPE_PENDING OrderTransactionType = "PENDING"
 	ORDERTRANSACTIONTYPE_FRAUD OrderTransactionType = "FRAUD"
+	ORDERTRANSACTIONTYPE_NOOP OrderTransactionType = "NOOP"
 )
 
 // All allowed values of OrderTransactionType enum
@@ -43,6 +44,7 @@ var AllowedOrderTransactionTypeEnumValues = []OrderTransactionType{
 	"FAILED",
 	"PENDING",
 	"FRAUD",
+	"NOOP",
 }
 
 func (v *OrderTransactionType) UnmarshalJSON(src []byte) error {

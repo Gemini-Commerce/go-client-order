@@ -63,8 +63,8 @@ func (o *OrderStatusFilter) GetStatusesOk() ([]string, bool) {
 	return o.Statuses, true
 }
 
-// IsSetStatuses returns a boolean if a field has been set.
-func (o *OrderStatusFilter) IsSetStatuses() bool {
+// HasStatuses returns a boolean if a field has been set.
+func (o *OrderStatusFilter) HasStatuses() bool {
 	if o != nil && !IsNil(o.Statuses) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *OrderStatusFilter) GetConditionOk() (*OrderStatusFilterCondition, bool)
 	return o.Condition, true
 }
 
-// IsSetCondition returns a boolean if a field has been set.
-func (o *OrderStatusFilter) IsSetCondition() bool {
+// HasCondition returns a boolean if a field has been set.
+func (o *OrderStatusFilter) HasCondition() bool {
 	if o != nil && !IsNil(o.Condition) {
 		return true
 	}

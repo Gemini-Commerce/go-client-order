@@ -75,8 +75,8 @@ func (o *OrderDataPromotionInfo) GetPromotionGrnOk() (*string, bool) {
 	return o.PromotionGrn, true
 }
 
-// IsSetPromotionGrn returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetPromotionGrn() bool {
+// HasPromotionGrn returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasPromotionGrn() bool {
 	if o != nil && !IsNil(o.PromotionGrn) {
 		return true
 	}
@@ -131,8 +131,8 @@ func (o *OrderDataPromotionInfo) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// IsSetAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetAdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -187,8 +187,8 @@ func (o *OrderDataPromotionInfo) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// IsSetDescription returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetDescription() bool {
+// HasDescription returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -243,8 +243,8 @@ func (o *OrderDataPromotionInfo) GetCouponCodeOk() (*string, bool) {
 	return o.CouponCode, true
 }
 
-// IsSetCouponCode returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetCouponCode() bool {
+// HasCouponCode returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasCouponCode() bool {
 	if o != nil && !IsNil(o.CouponCode) {
 		return true
 	}
@@ -275,8 +275,8 @@ func (o *OrderDataPromotionInfo) GetVatAmountOk() (*OrderMoney, bool) {
 	return o.VatAmount, true
 }
 
-// IsSetVatAmount returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetVatAmount() bool {
+// HasVatAmount returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasVatAmount() bool {
 	if o != nil && !IsNil(o.VatAmount) {
 		return true
 	}
@@ -307,8 +307,8 @@ func (o *OrderDataPromotionInfo) GetVatPercentageOk() (*float32, bool) {
 	return o.VatPercentage, true
 }
 
-// IsSetVatPercentage returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetVatPercentage() bool {
+// HasVatPercentage returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasVatPercentage() bool {
 	if o != nil && !IsNil(o.VatPercentage) {
 		return true
 	}
@@ -339,8 +339,8 @@ func (o *OrderDataPromotionInfo) GetVatInaccurateOk() (*bool, bool) {
 	return o.VatInaccurate, true
 }
 
-// IsSetVatInaccurate returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetVatInaccurate() bool {
+// HasVatInaccurate returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasVatInaccurate() bool {
 	if o != nil && !IsNil(o.VatInaccurate) {
 		return true
 	}
@@ -371,8 +371,8 @@ func (o *OrderDataPromotionInfo) GetVatCalculatedOk() (*bool, bool) {
 	return o.VatCalculated, true
 }
 
-// IsSetVatCalculated returns a boolean if a field has been set.
-func (o *OrderDataPromotionInfo) IsSetVatCalculated() bool {
+// HasVatCalculated returns a boolean if a field has been set.
+func (o *OrderDataPromotionInfo) HasVatCalculated() bool {
 	if o != nil && !IsNil(o.VatCalculated) {
 		return true
 	}

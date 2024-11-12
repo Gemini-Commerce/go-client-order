@@ -1982,6 +1982,35 @@ paths:
       x-codegen-request-body-name: body
 components:
   schemas:
+    BehaviorOptionsInventory:
+      properties:
+        action:
+          $ref: '#/components/schemas/BehaviorOptionsInventoryAction'
+      type: object
+    BehaviorOptionsInventoryAction:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - DO_NOT_HANDLE
+      type: string
+    BehaviorOptionsPaymentAction:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - DO_NOT_HANDLE
+      type: string
+    CancelOrderRequestBehaviorOptions:
+      properties:
+        inventory:
+          $ref: '#/components/schemas/BehaviorOptionsInventory'
+        payment:
+          $ref: '#/components/schemas/CancelOrderRequestBehaviorOptionsPayment'
+      type: object
+    CancelOrderRequestBehaviorOptionsPayment:
+      properties:
+        action:
+          $ref: '#/components/schemas/BehaviorOptionsPaymentAction'
+      type: object
     CreateOrderRequestInitialPayment:
       properties:
         code:
@@ -2177,7 +2206,7 @@ components:
           micros: 6
           units: units
         code: code
-        vatPercentage: 9.301444
+        vatPercentage: 3.6160767
         fee:
           micros: 6
           units: units
@@ -2228,7 +2257,7 @@ components:
         amount:
           micros: 6
           units: units
-        vatPercentage: 2.027123
+        vatPercentage: 4.145608
         additionalInfo: additionalInfo
         name: name
         description: description
@@ -2295,7 +2324,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 7
+          revision: 9
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -2308,7 +2337,7 @@ components:
           - addressLines
           - addressLines
         reference: reference
-        vatPercentage: 3.6160767
+        vatPercentage: 2.027123
         additionalInfo: additionalInfo
         fromAddress:
           postalCode: postalCode
@@ -2316,7 +2345,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 7
+          revision: 9
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -2424,7 +2453,7 @@ components:
     PaymentCcInfo:
       example:
         owner: owner
-        expMonth: 5
+        expMonth: 2
         last4: last4
         expYear: expYear
         approval: approval
@@ -2632,6 +2661,8 @@ components:
           type: string
         reason:
           type: string
+        options:
+          $ref: '#/components/schemas/CancelOrderRequestBehaviorOptions'
       required:
       - orderId
       - tenantId
@@ -3389,7 +3420,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -3428,7 +3459,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -3500,7 +3531,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -3520,7 +3551,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -3558,7 +3589,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3571,7 +3602,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -3579,7 +3610,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3612,7 +3643,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3625,7 +3656,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -3633,7 +3664,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3669,7 +3700,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3688,7 +3719,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3704,10 +3735,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -3738,7 +3769,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3757,7 +3788,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3776,7 +3807,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3792,10 +3823,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -3826,7 +3857,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -3843,7 +3874,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -3858,7 +3889,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -3879,7 +3910,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -3897,7 +3928,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -3933,7 +3964,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -3995,6 +4026,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -4004,7 +4036,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -4039,7 +4071,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -4101,6 +4133,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -4110,7 +4143,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -4158,7 +4191,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -4197,7 +4230,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -4269,7 +4302,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -4289,7 +4322,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -4327,7 +4360,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4340,7 +4373,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -4348,7 +4381,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4381,7 +4414,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4394,7 +4427,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -4402,7 +4435,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4438,7 +4471,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4457,7 +4490,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4473,10 +4506,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -4507,7 +4540,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4526,7 +4559,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4545,7 +4578,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4561,10 +4594,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -4595,7 +4628,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -4612,7 +4645,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -4627,7 +4660,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -4648,7 +4681,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -4666,7 +4699,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -4702,7 +4735,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -4764,6 +4797,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -4773,7 +4807,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -4808,7 +4842,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -4870,6 +4904,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -4879,7 +4914,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -4971,7 +5006,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -5010,7 +5045,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -5082,7 +5117,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -5102,7 +5137,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -5140,7 +5175,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5153,7 +5188,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5161,7 +5196,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5194,7 +5229,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5207,7 +5242,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5215,7 +5250,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5251,7 +5286,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5270,7 +5305,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5286,10 +5321,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -5320,7 +5355,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5339,7 +5374,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5358,7 +5393,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5374,10 +5409,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -5408,7 +5443,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5425,7 +5460,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -5440,7 +5475,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -5461,7 +5496,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -5479,7 +5514,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -5515,7 +5550,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -5577,6 +5612,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -5586,7 +5622,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -5621,7 +5657,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -5683,6 +5719,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -5692,7 +5729,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -5740,7 +5777,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -5779,7 +5816,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -5851,7 +5888,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -5871,7 +5908,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -5909,7 +5946,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5922,7 +5959,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5930,7 +5967,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5963,7 +6000,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -5976,7 +6013,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -5984,7 +6021,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6020,7 +6057,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6039,7 +6076,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6055,10 +6092,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6089,7 +6126,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6108,7 +6145,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6127,7 +6164,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6143,10 +6180,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6177,7 +6214,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6194,7 +6231,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -6209,7 +6246,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -6230,7 +6267,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -6248,7 +6285,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -6284,7 +6321,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -6346,6 +6383,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -6355,7 +6393,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -6390,7 +6428,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -6452,6 +6490,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -6461,7 +6500,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -6554,7 +6593,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -6593,7 +6632,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -6665,7 +6704,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -6685,7 +6724,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -6723,7 +6762,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6736,7 +6775,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -6744,7 +6783,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6777,7 +6816,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6790,7 +6829,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -6798,7 +6837,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6834,7 +6873,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6853,7 +6892,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6869,10 +6908,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6903,7 +6942,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6922,7 +6961,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6941,7 +6980,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -6957,10 +6996,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -6991,7 +7030,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7008,7 +7047,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -7023,7 +7062,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -7044,7 +7083,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7062,7 +7101,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7098,7 +7137,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -7160,6 +7199,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -7169,7 +7209,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -7204,7 +7244,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -7266,6 +7306,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -7275,7 +7316,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -7323,7 +7364,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -7362,7 +7403,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -7434,7 +7475,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -7454,7 +7495,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -7492,7 +7533,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7505,7 +7546,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -7513,7 +7554,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7546,7 +7587,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7559,7 +7600,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -7567,7 +7608,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7603,7 +7644,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7622,7 +7663,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7638,10 +7679,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -7672,7 +7713,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7691,7 +7732,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7710,7 +7751,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7726,10 +7767,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -7760,7 +7801,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -7777,7 +7818,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -7792,7 +7833,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -7813,7 +7854,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7831,7 +7872,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -7867,7 +7908,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -7929,6 +7970,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -7938,7 +7980,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -7973,7 +8015,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -8035,6 +8077,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -8044,7 +8087,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -8087,7 +8130,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8106,7 +8149,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8122,10 +8165,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -8156,7 +8199,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8175,7 +8218,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8194,7 +8237,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8210,10 +8253,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -8244,7 +8287,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8338,7 +8381,7 @@ components:
           id: id
           ccInfo:
             owner: owner
-            expMonth: 5
+            expMonth: 2
             last4: last4
             expYear: expYear
             approval: approval
@@ -8377,7 +8420,7 @@ components:
           id: id
           ccInfo:
             owner: owner
-            expMonth: 5
+            expMonth: 2
             last4: last4
             expYear: expYear
             approval: approval
@@ -8449,7 +8492,7 @@ components:
             micros: 6
             units: units
           code: code
-          vatPercentage: 9.301444
+          vatPercentage: 3.6160767
           fee:
             micros: 6
             units: units
@@ -8469,7 +8512,7 @@ components:
             micros: 6
             units: units
           code: code
-          vatPercentage: 9.301444
+          vatPercentage: 3.6160767
           fee:
             micros: 6
             units: units
@@ -8507,7 +8550,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8520,7 +8563,7 @@ components:
             - addressLines
             - addressLines
           reference: reference
-          vatPercentage: 3.6160767
+          vatPercentage: 2.027123
           additionalInfo: additionalInfo
           fromAddress:
             postalCode: postalCode
@@ -8528,7 +8571,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8561,7 +8604,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8574,7 +8617,7 @@ components:
             - addressLines
             - addressLines
           reference: reference
-          vatPercentage: 3.6160767
+          vatPercentage: 2.027123
           additionalInfo: additionalInfo
           fromAddress:
             postalCode: postalCode
@@ -8582,7 +8625,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8618,7 +8661,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8637,7 +8680,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8653,10 +8696,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -8687,7 +8730,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8706,7 +8749,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8725,7 +8768,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8741,10 +8784,10 @@ components:
           items:
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           - rowWeight: rowWeight
             orderItemId: orderItemId
-            qty: 2
+            qty: 7
           tracking:
           - number: number
             carrierTitle: carrierTitle
@@ -8775,7 +8818,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -8792,7 +8835,7 @@ components:
         - amount:
             micros: 6
             units: units
-          vatPercentage: 2.027123
+          vatPercentage: 4.145608
           additionalInfo: additionalInfo
           name: name
           description: description
@@ -8807,7 +8850,7 @@ components:
         - amount:
             micros: 6
             units: units
-          vatPercentage: 2.027123
+          vatPercentage: 4.145608
           additionalInfo: additionalInfo
           name: name
           description: description
@@ -8828,7 +8871,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 7
+          revision: 9
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -8846,7 +8889,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 7
+          revision: 9
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -8882,7 +8925,7 @@ components:
           unitListPrice:
             micros: 6
             units: units
-          vatPercentage: 1.4658129
+          vatPercentage: 5.962134
           rowCustomPrice:
             micros: 6
             units: units
@@ -8944,6 +8987,7 @@ components:
           id: id
           productOptions: productOptions
           productIsVirtual: true
+          freeQty: 6
           productImg: productImg
           productData: productData
           unitBasePrice:
@@ -8953,7 +8997,7 @@ components:
             micros: 6
             units: units
           productCode: productCode
-          qtyCommitted: 6
+          qtyCommitted: 1
           qtyOrdered: 0
           unitSalePrice:
             micros: 6
@@ -8988,7 +9032,7 @@ components:
           unitListPrice:
             micros: 6
             units: units
-          vatPercentage: 1.4658129
+          vatPercentage: 5.962134
           rowCustomPrice:
             micros: 6
             units: units
@@ -9050,6 +9094,7 @@ components:
           id: id
           productOptions: productOptions
           productIsVirtual: true
+          freeQty: 6
           productImg: productImg
           productData: productData
           unitBasePrice:
@@ -9059,7 +9104,7 @@ components:
             micros: 6
             units: units
           productCode: productCode
-          qtyCommitted: 6
+          qtyCommitted: 1
           qtyOrdered: 0
           unitSalePrice:
             micros: 6
@@ -9205,7 +9250,7 @@ components:
         unitListPrice:
           micros: 6
           units: units
-        vatPercentage: 1.4658129
+        vatPercentage: 5.962134
         rowCustomPrice:
           micros: 6
           units: units
@@ -9267,6 +9312,7 @@ components:
         id: id
         productOptions: productOptions
         productIsVirtual: true
+        freeQty: 6
         productImg: productImg
         productData: productData
         unitBasePrice:
@@ -9276,7 +9322,7 @@ components:
           micros: 6
           units: units
         productCode: productCode
-        qtyCommitted: 6
+        qtyCommitted: 1
         qtyOrdered: 0
         unitSalePrice:
           micros: 6
@@ -9295,6 +9341,10 @@ components:
           type: string
         qtyOrdered:
           format: int64
+          type: integer
+        freeQty:
+          format: int64
+          title: free qty for the product. It is not included in the qty_ordered
           type: integer
         qtyCommitted:
           format: int64
@@ -9377,7 +9427,7 @@ components:
         id: id
         ccInfo:
           owner: owner
-          expMonth: 5
+          expMonth: 2
           last4: last4
           expYear: expYear
           approval: approval
@@ -9487,7 +9537,7 @@ components:
         sublocality: sublocality
         languageCode: languageCode
         administrativeArea: administrativeArea
-        revision: 7
+        revision: 9
         regionCode: regionCode
         phoneNumber: phoneNumber
         sortingCode: sortingCode
@@ -9961,7 +10011,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -10000,7 +10050,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -10072,7 +10122,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -10092,7 +10142,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -10130,7 +10180,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10143,7 +10193,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -10151,7 +10201,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10184,7 +10234,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10197,7 +10247,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -10205,7 +10255,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10241,7 +10291,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10260,7 +10310,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10276,10 +10326,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -10310,7 +10360,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10329,7 +10379,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10348,7 +10398,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10364,10 +10414,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -10398,7 +10448,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10415,7 +10465,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -10430,7 +10480,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -10451,7 +10501,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -10469,7 +10519,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -10505,7 +10555,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -10567,6 +10617,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -10576,7 +10627,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -10611,7 +10662,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -10673,6 +10724,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -10682,7 +10734,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -10730,7 +10782,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -10769,7 +10821,7 @@ components:
             id: id
             ccInfo:
               owner: owner
-              expMonth: 5
+              expMonth: 2
               last4: last4
               expYear: expYear
               approval: approval
@@ -10841,7 +10893,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -10861,7 +10913,7 @@ components:
               micros: 6
               units: units
             code: code
-            vatPercentage: 9.301444
+            vatPercentage: 3.6160767
             fee:
               micros: 6
               units: units
@@ -10899,7 +10951,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10912,7 +10964,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -10920,7 +10972,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10953,7 +11005,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -10966,7 +11018,7 @@ components:
               - addressLines
               - addressLines
             reference: reference
-            vatPercentage: 3.6160767
+            vatPercentage: 2.027123
             additionalInfo: additionalInfo
             fromAddress:
               postalCode: postalCode
@@ -10974,7 +11026,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -11010,7 +11062,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -11029,7 +11081,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -11045,10 +11097,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -11079,7 +11131,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -11098,7 +11150,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -11117,7 +11169,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -11133,10 +11185,10 @@ components:
             items:
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             - rowWeight: rowWeight
               orderItemId: orderItemId
-              qty: 2
+              qty: 7
             tracking:
             - number: number
               carrierTitle: carrierTitle
@@ -11167,7 +11219,7 @@ components:
               sublocality: sublocality
               languageCode: languageCode
               administrativeArea: administrativeArea
-              revision: 7
+              revision: 9
               regionCode: regionCode
               phoneNumber: phoneNumber
               sortingCode: sortingCode
@@ -11184,7 +11236,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -11199,7 +11251,7 @@ components:
           - amount:
               micros: 6
               units: units
-            vatPercentage: 2.027123
+            vatPercentage: 4.145608
             additionalInfo: additionalInfo
             name: name
             description: description
@@ -11220,7 +11272,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -11238,7 +11290,7 @@ components:
             sublocality: sublocality
             languageCode: languageCode
             administrativeArea: administrativeArea
-            revision: 7
+            revision: 9
             regionCode: regionCode
             phoneNumber: phoneNumber
             sortingCode: sortingCode
@@ -11274,7 +11326,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -11336,6 +11388,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -11345,7 +11398,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -11380,7 +11433,7 @@ components:
             unitListPrice:
               micros: 6
               units: units
-            vatPercentage: 1.4658129
+            vatPercentage: 5.962134
             rowCustomPrice:
               micros: 6
               units: units
@@ -11442,6 +11495,7 @@ components:
             id: id
             productOptions: productOptions
             productIsVirtual: true
+            freeQty: 6
             productImg: productImg
             productData: productData
             unitBasePrice:
@@ -11451,7 +11505,7 @@ components:
               micros: 6
               units: units
             productCode: productCode
-            qtyCommitted: 6
+            qtyCommitted: 1
             qtyOrdered: 0
             unitSalePrice:
               micros: 6
@@ -11506,7 +11560,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 7
+          revision: 9
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -11525,7 +11579,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 7
+          revision: 9
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -11541,10 +11595,10 @@ components:
         items:
         - rowWeight: rowWeight
           orderItemId: orderItemId
-          qty: 2
+          qty: 7
         - rowWeight: rowWeight
           orderItemId: orderItemId
-          qty: 2
+          qty: 7
         tracking:
         - number: number
           carrierTitle: carrierTitle
@@ -11575,7 +11629,7 @@ components:
           sublocality: sublocality
           languageCode: languageCode
           administrativeArea: administrativeArea
-          revision: 7
+          revision: 9
           regionCode: regionCode
           phoneNumber: phoneNumber
           sortingCode: sortingCode
@@ -11626,7 +11680,7 @@ components:
       example:
         rowWeight: rowWeight
         orderItemId: orderItemId
-        qty: 2
+        qty: 7
       properties:
         orderItemId:
           type: string
@@ -11716,10 +11770,12 @@ components:
       - FAILED
       - PENDING
       - FRAUD
+      - NOOP
       title: |-
         - SALE: authorize and capture
          - PENDING: pending for payment provider
          - FRAUD: fraud for payment provider
+         - NOOP: no operation
       type: string
     orderUnholdOrderRequest:
       properties:

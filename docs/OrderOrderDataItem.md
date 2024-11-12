@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Id**| **string** |   | [optional]
 **ProductGrn**| **string** |   | [optional]
 **QtyOrdered**| **int64** |   | [optional]
+**FreeQty**| **int64** |   | [optional]
 **QtyCommitted**| **int64** |   | [optional]
 **UnitSalePrice**| [**OrderMoney**](OrderMoney.md) |   | [optional]
 **UnitListPrice**| [**OrderMoney**](OrderMoney.md) |   | [optional]
