@@ -59,8 +59,8 @@ func (o *OrderSendOrderNotificationRequest) GetTenantIdOk() (*string, bool) {
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *OrderSendOrderNotificationRequest) HasTenantId() bool {
+// IsSetTenantId returns a boolean if a field has been set.
+func (o *OrderSendOrderNotificationRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -91,8 +91,8 @@ func (o *OrderSendOrderNotificationRequest) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *OrderSendOrderNotificationRequest) HasId() bool {
+// IsSetId returns a boolean if a field has been set.
+func (o *OrderSendOrderNotificationRequest) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}

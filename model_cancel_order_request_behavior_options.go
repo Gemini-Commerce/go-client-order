@@ -59,8 +59,8 @@ func (o *CancelOrderRequestBehaviorOptions) GetInventoryOk() (*BehaviorOptionsIn
 	return o.Inventory, true
 }
 
-// HasInventory returns a boolean if a field has been set.
-func (o *CancelOrderRequestBehaviorOptions) HasInventory() bool {
+// IsSetInventory returns a boolean if a field has been set.
+func (o *CancelOrderRequestBehaviorOptions) IsSetInventory() bool {
 	if o != nil && !IsNil(o.Inventory) {
 		return true
 	}
@@ -91,8 +91,8 @@ func (o *CancelOrderRequestBehaviorOptions) GetPaymentOk() (*CancelOrderRequestB
 	return o.Payment, true
 }
 
-// HasPayment returns a boolean if a field has been set.
-func (o *CancelOrderRequestBehaviorOptions) HasPayment() bool {
+// IsSetPayment returns a boolean if a field has been set.
+func (o *CancelOrderRequestBehaviorOptions) IsSetPayment() bool {
 	if o != nil && !IsNil(o.Payment) {
 		return true
 	}

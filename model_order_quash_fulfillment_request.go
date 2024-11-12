@@ -114,8 +114,8 @@ func (o *OrderQuashFulfillmentRequest) GetReasonOk() (*string, bool) {
 	return o.Reason, true
 }
 
-// HasReason returns a boolean if a field has been set.
-func (o *OrderQuashFulfillmentRequest) HasReason() bool {
+// IsSetReason returns a boolean if a field has been set.
+func (o *OrderQuashFulfillmentRequest) IsSetReason() bool {
 	if o != nil && !IsNil(o.Reason) {
 		return true
 	}

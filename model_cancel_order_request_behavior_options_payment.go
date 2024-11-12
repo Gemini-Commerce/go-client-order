@@ -62,8 +62,8 @@ func (o *CancelOrderRequestBehaviorOptionsPayment) GetActionOk() (*BehaviorOptio
 	return o.Action, true
 }
 
-// HasAction returns a boolean if a field has been set.
-func (o *CancelOrderRequestBehaviorOptionsPayment) HasAction() bool {
+// IsSetAction returns a boolean if a field has been set.
+func (o *CancelOrderRequestBehaviorOptionsPayment) IsSetAction() bool {
 	if o != nil && !IsNil(o.Action) {
 		return true
 	}
