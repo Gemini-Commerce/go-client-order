@@ -2399,7 +2399,7 @@ components:
       type: object
     OrderDataSubtotal:
       example:
-        code: null
+        code: UNKNOWN
         value:
           micros: 6
           units: units
@@ -2429,7 +2429,7 @@ components:
       type: string
     OrderDataTotal:
       example:
-        code: null
+        code: UNKNOWN
         value:
           micros: 6
           units: units
@@ -2619,11 +2619,11 @@ components:
         createRefundRequest:
           note: note
           amounts:
-          - code: null
+          - code: UNKNOWN
             value:
               micros: 6
               units: units
-          - code: null
+          - code: UNKNOWN
             value:
               micros: 6
               units: units
@@ -2831,11 +2831,11 @@ components:
       example:
         note: note
         amounts:
-        - code: null
+        - code: UNKNOWN
           value:
             micros: 6
             units: units
-        - code: null
+        - code: UNKNOWN
           value:
             micros: 6
             units: units
@@ -3407,11 +3407,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -3435,7 +3435,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -3443,14 +3443,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -3474,7 +3474,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -3482,7 +3482,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -3524,7 +3524,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -3679,7 +3679,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -3688,7 +3688,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -4178,11 +4178,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -4206,7 +4206,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -4214,14 +4214,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -4245,7 +4245,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -4253,7 +4253,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -4295,7 +4295,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -4450,7 +4450,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -4459,7 +4459,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -4993,11 +4993,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -5021,7 +5021,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -5029,14 +5029,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -5060,7 +5060,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -5068,7 +5068,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -5110,7 +5110,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -5265,7 +5265,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -5274,7 +5274,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -5764,11 +5764,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -5792,7 +5792,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -5800,14 +5800,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -5831,7 +5831,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -5839,7 +5839,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -5881,7 +5881,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -6036,7 +6036,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -6045,7 +6045,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -6580,11 +6580,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -6608,7 +6608,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -6616,14 +6616,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -6647,7 +6647,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -6655,7 +6655,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -6697,7 +6697,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -6852,7 +6852,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -6861,7 +6861,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -7351,11 +7351,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -7379,7 +7379,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -7387,14 +7387,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -7418,7 +7418,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -7426,7 +7426,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -7468,7 +7468,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -7623,7 +7623,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -7632,7 +7632,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -8368,11 +8368,11 @@ components:
         payments:
         - code: code
           amounts:
-          - code: null
+          - code: UNKNOWN
             value:
               micros: 6
               units: units
-          - code: null
+          - code: UNKNOWN
             value:
               micros: 6
               units: units
@@ -8396,7 +8396,7 @@ components:
             - null
             additionalInfo: additionalInfo
             id: id
-            type: null
+            type: UNKNOWN
           - createdAt: 2000-01-23T04:56:07.000+00:00
             paymentId: paymentId
             childTransactions:
@@ -8404,14 +8404,14 @@ components:
             - null
             additionalInfo: additionalInfo
             id: id
-            type: null
+            type: UNKNOWN
         - code: code
           amounts:
-          - code: null
+          - code: UNKNOWN
             value:
               micros: 6
               units: units
-          - code: null
+          - code: UNKNOWN
             value:
               micros: 6
               units: units
@@ -8435,7 +8435,7 @@ components:
             - null
             additionalInfo: additionalInfo
             id: id
-            type: null
+            type: UNKNOWN
           - createdAt: 2000-01-23T04:56:07.000+00:00
             paymentId: paymentId
             childTransactions:
@@ -8443,7 +8443,7 @@ components:
             - null
             additionalInfo: additionalInfo
             id: id
-            type: null
+            type: UNKNOWN
         channel: channel
         customerInfo:
           grn: grn
@@ -8485,7 +8485,7 @@ components:
           status: status
         isDeleted: true
         additionalInfo: "{}"
-        currency: null
+        currency: XXX
         id: id
         paymentsInfo:
         - amount:
@@ -8640,7 +8640,7 @@ components:
           vatInaccurate: true
         subtotals:
           key:
-            code: null
+            code: UNKNOWN
             value:
               micros: 6
               units: units
@@ -8649,7 +8649,7 @@ components:
         cartGrn: cartGrn
         totals:
           key:
-            code: null
+            code: UNKNOWN
             value:
               micros: 6
               units: units
@@ -9414,11 +9414,11 @@ components:
       example:
         code: code
         amounts:
-        - code: null
+        - code: UNKNOWN
           value:
             micros: 6
             units: units
-        - code: null
+        - code: UNKNOWN
           value:
             micros: 6
             units: units
@@ -9442,7 +9442,7 @@ components:
           - null
           additionalInfo: additionalInfo
           id: id
-          type: null
+          type: UNKNOWN
         - createdAt: 2000-01-23T04:56:07.000+00:00
           paymentId: paymentId
           childTransactions:
@@ -9450,7 +9450,7 @@ components:
           - null
           additionalInfo: additionalInfo
           id: id
-          type: null
+          type: UNKNOWN
       properties:
         orderId:
           title: order id
@@ -9476,7 +9476,7 @@ components:
       type: object
     orderPaymentAmount:
       example:
-        code: null
+        code: UNKNOWN
         value:
           micros: 6
           units: units
@@ -9742,11 +9742,11 @@ components:
         - transactionIds
         - transactionIds
         amounts:
-        - code: null
+        - code: UNKNOWN
           value:
             micros: 6
             units: units
-        - code: null
+        - code: UNKNOWN
           value:
             micros: 6
             units: units
@@ -9788,7 +9788,7 @@ components:
       type: object
     orderRefundAmount:
       example:
-        code: null
+        code: UNKNOWN
         value:
           micros: 6
           units: units
@@ -9998,11 +9998,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -10026,7 +10026,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -10034,14 +10034,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -10065,7 +10065,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -10073,7 +10073,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -10115,7 +10115,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -10270,7 +10270,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -10279,7 +10279,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -10769,11 +10769,11 @@ components:
           payments:
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -10797,7 +10797,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -10805,14 +10805,14 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           - code: code
             amounts:
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
-            - code: null
+            - code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -10836,7 +10836,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
             - createdAt: 2000-01-23T04:56:07.000+00:00
               paymentId: paymentId
               childTransactions:
@@ -10844,7 +10844,7 @@ components:
               - null
               additionalInfo: additionalInfo
               id: id
-              type: null
+              type: UNKNOWN
           channel: channel
           customerInfo:
             grn: grn
@@ -10886,7 +10886,7 @@ components:
             status: status
           isDeleted: true
           additionalInfo: "{}"
-          currency: null
+          currency: XXX
           id: id
           paymentsInfo:
           - amount:
@@ -11041,7 +11041,7 @@ components:
             vatInaccurate: true
           subtotals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -11050,7 +11050,7 @@ components:
           cartGrn: cartGrn
           totals:
             key:
-              code: null
+              code: UNKNOWN
               value:
                 micros: 6
                 units: units
@@ -11738,7 +11738,7 @@ components:
         - null
         additionalInfo: additionalInfo
         id: id
-        type: null
+        type: UNKNOWN
       properties:
         createdAt:
           format: date-time
@@ -11818,6 +11818,8 @@ components:
     protobufAny:
       additionalProperties:
         type: object
+      example:
+        '@type': '@type'
       properties:
         '@type':
           type: string
@@ -11835,6 +11837,12 @@ components:
       - NULL_VALUE
       type: string
     rpcStatus:
+      example:
+        code: 0
+        details:
+        - '@type': '@type'
+        - '@type': '@type'
+        message: message
       properties:
         code:
           format: int32

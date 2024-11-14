@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code**| [**OrderPaymentAmountCode**](OrderPaymentAmountCode.md) |  for more information please, see Model/OrderPaymentAmountCode.php  | [optional] [default to ORDERPAYMENTAMOUNTCODE_UNKNOWN]
+**Code**| [**OrderPaymentAmountCode**](OrderPaymentAmountCode.md) |  for more information please, see Model/OrderPaymentAmountCode.php  | [optional] [default to UNKNOWN]
 **Value**| [**OrderMoney**](OrderMoney.md) |   | [optional]
 
 

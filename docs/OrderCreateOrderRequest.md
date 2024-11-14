@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ShipmentsInfo**| [**[]OrderDataShipmentInfo**](OrderDataShipmentInfo.md) |   | [optional]
 **Promotions**| [**[]OrderDataPromotionInfo**](OrderDataPromotionInfo.md) |   | [optional]
 **Payments**| [**[]CreateOrderRequestInitialPayment**](CreateOrderRequestInitialPayment.md) |   | [optional]
-**Currency**| [**OrderCurrency**](OrderCurrency.md) |  for more information please, see Model/OrderCurrency.php  | [default to ORDERCURRENCY_XXX]
+**Currency**| [**OrderCurrency**](OrderCurrency.md) |  for more information please, see Model/OrderCurrency.php  | [default to XXX]
 **Subtotals**| [**map[string]OrderDataSubtotal**](OrderDataSubtotal.md) |   |
 **Totals**| [**map[string]OrderDataTotal**](OrderDataTotal.md) |   |
 **VatIncluded**| **bool** |   |

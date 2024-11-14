@@ -1,4 +1,4 @@
-# GeminiCommerce\Order\OrderAPI
+# \OrderAPI
 
 All URIs are relative to *https://dom.api.gogemini.io*
 
