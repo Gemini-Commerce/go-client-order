@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &InitialPaymentInitialTransaction{}
 type InitialPaymentInitialTransaction struct {
 	Type OrderTransactionType `json:"type"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _InitialPaymentInitialTransaction InitialPaymentInitialTransaction
@@ -118,6 +118,11 @@ func (o InitialPaymentInitialTransaction) ToMap() (map[string]interface{}, error
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -145,9 +150,7 @@ func (o *InitialPaymentInitialTransaction) UnmarshalJSON(data []byte) (err error
 
 	varInitialPaymentInitialTransaction := _InitialPaymentInitialTransaction{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varInitialPaymentInitialTransaction)
+	err = json.Unmarshal(data, &varInitialPaymentInitialTransaction)
 
 	if err != nil {
 		return err
@@ -155,9 +158,35 @@ func (o *InitialPaymentInitialTransaction) UnmarshalJSON(data []byte) (err error
 
 	*o = InitialPaymentInitialTransaction(varInitialPaymentInitialTransaction)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "additionalInfo")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *InitialPaymentInitialTransaction) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *InitialPaymentInitialTransaction) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableInitialPaymentInitialTransaction struct {
 	value *InitialPaymentInitialTransaction
 	isSet bool

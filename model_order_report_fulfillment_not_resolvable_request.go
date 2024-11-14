@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &OrderReportFulfillmentNotResolvableRequest{}
 type OrderReportFulfillmentNotResolvableRequest struct {
 	TenantId string `json:"tenantId"`
 	FulfillmentId string `json:"fulfillmentId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderReportFulfillmentNotResolvableRequest OrderReportFulfillmentNotResolvableRequest
@@ -107,6 +107,11 @@ func (o OrderReportFulfillmentNotResolvableRequest) ToMap() (map[string]interfac
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["fulfillmentId"] = o.FulfillmentId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,9 +140,7 @@ func (o *OrderReportFulfillmentNotResolvableRequest) UnmarshalJSON(data []byte) 
 
 	varOrderReportFulfillmentNotResolvableRequest := _OrderReportFulfillmentNotResolvableRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderReportFulfillmentNotResolvableRequest)
+	err = json.Unmarshal(data, &varOrderReportFulfillmentNotResolvableRequest)
 
 	if err != nil {
 		return err
@@ -145,9 +148,35 @@ func (o *OrderReportFulfillmentNotResolvableRequest) UnmarshalJSON(data []byte) 
 
 	*o = OrderReportFulfillmentNotResolvableRequest(varOrderReportFulfillmentNotResolvableRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "fulfillmentId")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderReportFulfillmentNotResolvableRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderReportFulfillmentNotResolvableRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderReportFulfillmentNotResolvableRequest struct {
 	value *OrderReportFulfillmentNotResolvableRequest
 	isSet bool

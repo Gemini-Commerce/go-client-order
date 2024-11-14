@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &OrderPrintOrdersLabelsRequest{}
 type OrderPrintOrdersLabelsRequest struct {
 	TenantId string `json:"tenantId"`
 	OrderNumbers []string `json:"orderNumbers"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderPrintOrdersLabelsRequest OrderPrintOrdersLabelsRequest
@@ -107,6 +107,11 @@ func (o OrderPrintOrdersLabelsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["orderNumbers"] = o.OrderNumbers
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,9 +140,7 @@ func (o *OrderPrintOrdersLabelsRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderPrintOrdersLabelsRequest := _OrderPrintOrdersLabelsRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderPrintOrdersLabelsRequest)
+	err = json.Unmarshal(data, &varOrderPrintOrdersLabelsRequest)
 
 	if err != nil {
 		return err
@@ -145,9 +148,35 @@ func (o *OrderPrintOrdersLabelsRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderPrintOrdersLabelsRequest(varOrderPrintOrdersLabelsRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "orderNumbers")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderPrintOrdersLabelsRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderPrintOrdersLabelsRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderPrintOrdersLabelsRequest struct {
 	value *OrderPrintOrdersLabelsRequest
 	isSet bool

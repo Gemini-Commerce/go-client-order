@@ -25,7 +25,10 @@ type ShipmentTracking struct {
 	Url *string `json:"url,omitempty"`
 	Number *string `json:"number,omitempty"`
 	LabelUrl *string `json:"labelUrl,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ShipmentTracking ShipmentTracking
 
 // NewShipmentTracking instantiates a new ShipmentTracking object
 // This constructor will assign default values to properties that have it defined,
@@ -229,9 +232,57 @@ func (o ShipmentTracking) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.LabelUrl) {
 		toSerialize["labelUrl"] = o.LabelUrl
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ShipmentTracking) UnmarshalJSON(data []byte) (err error) {
+	varShipmentTracking := _ShipmentTracking{}
+
+	err = json.Unmarshal(data, &varShipmentTracking)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ShipmentTracking(varShipmentTracking)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "carrierCode")
+		delete(additionalProperties, "carrierTitle")
+		delete(additionalProperties, "url")
+		delete(additionalProperties, "number")
+		delete(additionalProperties, "labelUrl")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ShipmentTracking) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ShipmentTracking) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableShipmentTracking struct {
 	value *ShipmentTracking
 	isSet bool

@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type OrderUpdatePaymentRequest struct {
 	TenantId string `json:"tenantId"`
 	PaymentId string `json:"paymentId"`
 	CcInfo *PaymentCcInfo `json:"ccInfo,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderUpdatePaymentRequest OrderUpdatePaymentRequest
@@ -143,6 +143,11 @@ func (o OrderUpdatePaymentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CcInfo) {
 		toSerialize["ccInfo"] = o.CcInfo
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -171,9 +176,7 @@ func (o *OrderUpdatePaymentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderUpdatePaymentRequest := _OrderUpdatePaymentRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderUpdatePaymentRequest)
+	err = json.Unmarshal(data, &varOrderUpdatePaymentRequest)
 
 	if err != nil {
 		return err
@@ -181,9 +184,36 @@ func (o *OrderUpdatePaymentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderUpdatePaymentRequest(varOrderUpdatePaymentRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "paymentId")
+		delete(additionalProperties, "ccInfo")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderUpdatePaymentRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderUpdatePaymentRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderUpdatePaymentRequest struct {
 	value *OrderUpdatePaymentRequest
 	isSet bool

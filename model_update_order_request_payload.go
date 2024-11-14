@@ -23,7 +23,10 @@ type UpdateOrderRequestPayload struct {
 	BillingAddress *OrderPostalAddress `json:"billingAddress,omitempty"`
 	ShippingAddress *OrderPostalAddress `json:"shippingAddress,omitempty"`
 	AdditionalInfo map[string]interface{} `json:"additionalInfo,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _UpdateOrderRequestPayload UpdateOrderRequestPayload
 
 // NewUpdateOrderRequestPayload instantiates a new UpdateOrderRequestPayload object
 // This constructor will assign default values to properties that have it defined,
@@ -157,9 +160,55 @@ func (o UpdateOrderRequestPayload) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *UpdateOrderRequestPayload) UnmarshalJSON(data []byte) (err error) {
+	varUpdateOrderRequestPayload := _UpdateOrderRequestPayload{}
+
+	err = json.Unmarshal(data, &varUpdateOrderRequestPayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UpdateOrderRequestPayload(varUpdateOrderRequestPayload)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "billingAddress")
+		delete(additionalProperties, "shippingAddress")
+		delete(additionalProperties, "additionalInfo")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *UpdateOrderRequestPayload) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *UpdateOrderRequestPayload) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableUpdateOrderRequestPayload struct {
 	value *UpdateOrderRequestPayload
 	isSet bool

@@ -22,7 +22,10 @@ var _ MappedNullable = &OptionImage{}
 type OptionImage struct {
 	Grn *string `json:"grn,omitempty"`
 	Url *string `json:"url,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OptionImage OptionImage
 
 // NewOptionImage instantiates a new OptionImage object
 // This constructor will assign default values to properties that have it defined,
@@ -121,9 +124,54 @@ func (o OptionImage) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OptionImage) UnmarshalJSON(data []byte) (err error) {
+	varOptionImage := _OptionImage{}
+
+	err = json.Unmarshal(data, &varOptionImage)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OptionImage(varOptionImage)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "grn")
+		delete(additionalProperties, "url")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OptionImage) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OptionImage) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOptionImage struct {
 	value *OptionImage
 	isSet bool

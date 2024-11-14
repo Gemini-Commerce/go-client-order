@@ -21,7 +21,10 @@ var _ MappedNullable = &OrderListFulfillmentsResponse{}
 // OrderListFulfillmentsResponse struct for OrderListFulfillmentsResponse
 type OrderListFulfillmentsResponse struct {
 	Fulfillments []OrderFulfillment `json:"fulfillments,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OrderListFulfillmentsResponse OrderListFulfillmentsResponse
 
 // NewOrderListFulfillmentsResponse instantiates a new OrderListFulfillmentsResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -85,9 +88,53 @@ func (o OrderListFulfillmentsResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Fulfillments) {
 		toSerialize["fulfillments"] = o.Fulfillments
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OrderListFulfillmentsResponse) UnmarshalJSON(data []byte) (err error) {
+	varOrderListFulfillmentsResponse := _OrderListFulfillmentsResponse{}
+
+	err = json.Unmarshal(data, &varOrderListFulfillmentsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderListFulfillmentsResponse(varOrderListFulfillmentsResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "fulfillments")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OrderListFulfillmentsResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderListFulfillmentsResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderListFulfillmentsResponse struct {
 	value *OrderListFulfillmentsResponse
 	isSet bool

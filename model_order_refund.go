@@ -29,7 +29,10 @@ type OrderRefund struct {
 	Note *string `json:"note,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 	TransactionIds []string `json:"transactionIds,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OrderRefund OrderRefund
 
 // NewOrderRefund instantiates a new OrderRefund object
 // This constructor will assign default values to properties that have it defined,
@@ -338,9 +341,60 @@ func (o OrderRefund) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TransactionIds) {
 		toSerialize["transactionIds"] = o.TransactionIds
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OrderRefund) UnmarshalJSON(data []byte) (err error) {
+	varOrderRefund := _OrderRefund{}
+
+	err = json.Unmarshal(data, &varOrderRefund)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderRefund(varOrderRefund)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "paymentId")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "items")
+		delete(additionalProperties, "amounts")
+		delete(additionalProperties, "note")
+		delete(additionalProperties, "additionalInfo")
+		delete(additionalProperties, "transactionIds")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OrderRefund) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderRefund) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderRefund struct {
 	value *OrderRefund
 	isSet bool

@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &OrderGetOrderByOrderNumberRequest{}
 type OrderGetOrderByOrderNumberRequest struct {
 	TenantId string `json:"tenantId"`
 	OrderNumber string `json:"orderNumber"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderGetOrderByOrderNumberRequest OrderGetOrderByOrderNumberRequest
@@ -107,6 +107,11 @@ func (o OrderGetOrderByOrderNumberRequest) ToMap() (map[string]interface{}, erro
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["orderNumber"] = o.OrderNumber
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,9 +140,7 @@ func (o *OrderGetOrderByOrderNumberRequest) UnmarshalJSON(data []byte) (err erro
 
 	varOrderGetOrderByOrderNumberRequest := _OrderGetOrderByOrderNumberRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderGetOrderByOrderNumberRequest)
+	err = json.Unmarshal(data, &varOrderGetOrderByOrderNumberRequest)
 
 	if err != nil {
 		return err
@@ -145,9 +148,35 @@ func (o *OrderGetOrderByOrderNumberRequest) UnmarshalJSON(data []byte) (err erro
 
 	*o = OrderGetOrderByOrderNumberRequest(varOrderGetOrderByOrderNumberRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "orderNumber")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderGetOrderByOrderNumberRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderGetOrderByOrderNumberRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderGetOrderByOrderNumberRequest struct {
 	value *OrderGetOrderByOrderNumberRequest
 	isSet bool

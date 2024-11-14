@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -42,6 +41,7 @@ type OrderCreateOrderRequest struct {
 	CartGrn *string `json:"cartGrn,omitempty"`
 	OnHold *bool `json:"onHold,omitempty"`
 	Notes *string `json:"notes,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderCreateOrderRequest OrderCreateOrderRequest
@@ -667,6 +667,11 @@ func (o OrderCreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Notes) {
 		toSerialize["notes"] = o.Notes
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -705,9 +710,7 @@ func (o *OrderCreateOrderRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderCreateOrderRequest := _OrderCreateOrderRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderCreateOrderRequest)
+	err = json.Unmarshal(data, &varOrderCreateOrderRequest)
 
 	if err != nil {
 		return err
@@ -715,9 +718,53 @@ func (o *OrderCreateOrderRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderCreateOrderRequest(varOrderCreateOrderRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "number")
+		delete(additionalProperties, "channel")
+		delete(additionalProperties, "market")
+		delete(additionalProperties, "locale")
+		delete(additionalProperties, "items")
+		delete(additionalProperties, "paymentsInfo")
+		delete(additionalProperties, "shipmentsInfo")
+		delete(additionalProperties, "promotions")
+		delete(additionalProperties, "payments")
+		delete(additionalProperties, "currency")
+		delete(additionalProperties, "subtotals")
+		delete(additionalProperties, "totals")
+		delete(additionalProperties, "vatIncluded")
+		delete(additionalProperties, "billingAddress")
+		delete(additionalProperties, "shippingAddress")
+		delete(additionalProperties, "customerInfo")
+		delete(additionalProperties, "cartGrn")
+		delete(additionalProperties, "onHold")
+		delete(additionalProperties, "notes")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderCreateOrderRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderCreateOrderRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderCreateOrderRequest struct {
 	value *OrderCreateOrderRequest
 	isSet bool

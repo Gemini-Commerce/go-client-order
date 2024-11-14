@@ -29,7 +29,10 @@ type PaymentCcInfo struct {
 	AvsStatus *string `json:"avsStatus,omitempty"`
 	// card type MasterCard, Visa..
 	Type *string `json:"type,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PaymentCcInfo PaymentCcInfo
 
 // NewPaymentCcInfo instantiates a new PaymentCcInfo object
 // This constructor will assign default values to properties that have it defined,
@@ -338,9 +341,60 @@ func (o PaymentCcInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *PaymentCcInfo) UnmarshalJSON(data []byte) (err error) {
+	varPaymentCcInfo := _PaymentCcInfo{}
+
+	err = json.Unmarshal(data, &varPaymentCcInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PaymentCcInfo(varPaymentCcInfo)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "approval")
+		delete(additionalProperties, "expMonth")
+		delete(additionalProperties, "expYear")
+		delete(additionalProperties, "last4")
+		delete(additionalProperties, "numberEnc")
+		delete(additionalProperties, "owner")
+		delete(additionalProperties, "avsStatus")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *PaymentCcInfo) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *PaymentCcInfo) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullablePaymentCcInfo struct {
 	value *PaymentCcInfo
 	isSet bool

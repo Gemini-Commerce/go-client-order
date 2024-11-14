@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -26,6 +25,7 @@ type OrderCreatePaymentTransactionRequest struct {
 	PaymentId string `json:"paymentId"`
 	Type OrderTransactionType `json:"type"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderCreatePaymentTransactionRequest OrderCreatePaymentTransactionRequest
@@ -172,6 +172,11 @@ func (o OrderCreatePaymentTransactionRequest) ToMap() (map[string]interface{}, e
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -201,9 +206,7 @@ func (o *OrderCreatePaymentTransactionRequest) UnmarshalJSON(data []byte) (err e
 
 	varOrderCreatePaymentTransactionRequest := _OrderCreatePaymentTransactionRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderCreatePaymentTransactionRequest)
+	err = json.Unmarshal(data, &varOrderCreatePaymentTransactionRequest)
 
 	if err != nil {
 		return err
@@ -211,9 +214,37 @@ func (o *OrderCreatePaymentTransactionRequest) UnmarshalJSON(data []byte) (err e
 
 	*o = OrderCreatePaymentTransactionRequest(varOrderCreatePaymentTransactionRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "paymentId")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "additionalInfo")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderCreatePaymentTransactionRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderCreatePaymentTransactionRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderCreatePaymentTransactionRequest struct {
 	value *OrderCreatePaymentTransactionRequest
 	isSet bool

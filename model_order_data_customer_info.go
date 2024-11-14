@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -35,6 +34,7 @@ type OrderDataCustomerInfo struct {
 	FiscalCode *string `json:"fiscalCode,omitempty"`
 	CompanyName *string `json:"companyName,omitempty"`
 	AgentGrn *string `json:"agentGrn,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderDataCustomerInfo OrderDataCustomerInfo
@@ -494,6 +494,11 @@ func (o OrderDataCustomerInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AgentGrn) {
 		toSerialize["agentGrn"] = o.AgentGrn
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -523,9 +528,7 @@ func (o *OrderDataCustomerInfo) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderDataCustomerInfo := _OrderDataCustomerInfo{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderDataCustomerInfo)
+	err = json.Unmarshal(data, &varOrderDataCustomerInfo)
 
 	if err != nil {
 		return err
@@ -533,9 +536,46 @@ func (o *OrderDataCustomerInfo) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderDataCustomerInfo(varOrderDataCustomerInfo)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "grn")
+		delete(additionalProperties, "firstname")
+		delete(additionalProperties, "lastname")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "phone")
+		delete(additionalProperties, "segment")
+		delete(additionalProperties, "data")
+		delete(additionalProperties, "certifiedEmail")
+		delete(additionalProperties, "taxCode")
+		delete(additionalProperties, "sdiCode")
+		delete(additionalProperties, "fiscalCode")
+		delete(additionalProperties, "companyName")
+		delete(additionalProperties, "agentGrn")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderDataCustomerInfo) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderDataCustomerInfo) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderDataCustomerInfo struct {
 	value *OrderDataCustomerInfo
 	isSet bool

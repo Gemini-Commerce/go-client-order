@@ -14,7 +14,6 @@ package order
 import (
 	"encoding/json"
 	"time"
-	"bytes"
 	"fmt"
 )
 
@@ -38,6 +37,7 @@ type OrderSearchOrdersRequest struct {
 	UpdatedAtFrom *time.Time `json:"updatedAtFrom,omitempty"`
 	UpdatedAtTo *time.Time `json:"updatedAtTo,omitempty"`
 	OnHold *bool `json:"onHold,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderSearchOrdersRequest OrderSearchOrdersRequest
@@ -515,6 +515,11 @@ func (o OrderSearchOrdersRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OnHold) {
 		toSerialize["onHold"] = o.OnHold
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -542,9 +547,7 @@ func (o *OrderSearchOrdersRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderSearchOrdersRequest := _OrderSearchOrdersRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderSearchOrdersRequest)
+	err = json.Unmarshal(data, &varOrderSearchOrdersRequest)
 
 	if err != nil {
 		return err
@@ -552,9 +555,46 @@ func (o *OrderSearchOrdersRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderSearchOrdersRequest(varOrderSearchOrdersRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "searchQuery")
+		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "pageToken")
+		delete(additionalProperties, "orderBy")
+		delete(additionalProperties, "statusFilter")
+		delete(additionalProperties, "fromDate")
+		delete(additionalProperties, "toDate")
+		delete(additionalProperties, "paymentFilter")
+		delete(additionalProperties, "agentGrn")
+		delete(additionalProperties, "updatedAtFrom")
+		delete(additionalProperties, "updatedAtTo")
+		delete(additionalProperties, "onHold")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderSearchOrdersRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderSearchOrdersRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderSearchOrdersRequest struct {
 	value *OrderSearchOrdersRequest
 	isSet bool

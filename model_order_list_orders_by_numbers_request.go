@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -28,6 +27,7 @@ type OrderListOrdersByNumbersRequest struct {
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// A page token, received from a previous `ListOrders` call. Provide this to retrieve the subsequent page.   When paginating, all other parameters provided to `ListOrders` must match the call that provided the page token.
 	PageToken *string `json:"pageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderListOrdersByNumbersRequest OrderListOrdersByNumbersRequest
@@ -181,6 +181,11 @@ func (o OrderListOrdersByNumbersRequest) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.PageToken) {
 		toSerialize["pageToken"] = o.PageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -209,9 +214,7 @@ func (o *OrderListOrdersByNumbersRequest) UnmarshalJSON(data []byte) (err error)
 
 	varOrderListOrdersByNumbersRequest := _OrderListOrdersByNumbersRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderListOrdersByNumbersRequest)
+	err = json.Unmarshal(data, &varOrderListOrdersByNumbersRequest)
 
 	if err != nil {
 		return err
@@ -219,9 +222,37 @@ func (o *OrderListOrdersByNumbersRequest) UnmarshalJSON(data []byte) (err error)
 
 	*o = OrderListOrdersByNumbersRequest(varOrderListOrdersByNumbersRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "numbers")
+		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "pageToken")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderListOrdersByNumbersRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderListOrdersByNumbersRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderListOrdersByNumbersRequest struct {
 	value *OrderListOrdersByNumbersRequest
 	isSet bool
