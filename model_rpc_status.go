@@ -23,7 +23,10 @@ type RpcStatus struct {
 	Code *int32 `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
 	Details []ProtobufAny `json:"details,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _RpcStatus RpcStatus
 
 // NewRpcStatus instantiates a new RpcStatus object
 // This constructor will assign default values to properties that have it defined,
@@ -157,9 +160,55 @@ func (o RpcStatus) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Details) {
 		toSerialize["details"] = o.Details
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *RpcStatus) UnmarshalJSON(data []byte) (err error) {
+	varRpcStatus := _RpcStatus{}
+
+	err = json.Unmarshal(data, &varRpcStatus)
+
+	if err != nil {
+		return err
+	}
+
+	*o = RpcStatus(varRpcStatus)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "details")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *RpcStatus) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *RpcStatus) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableRpcStatus struct {
 	value *RpcStatus
 	isSet bool

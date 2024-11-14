@@ -21,7 +21,10 @@ var _ MappedNullable = &OrderListShipmentsResponse{}
 // OrderListShipmentsResponse struct for OrderListShipmentsResponse
 type OrderListShipmentsResponse struct {
 	Shipments []OrderShipment `json:"shipments,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OrderListShipmentsResponse OrderListShipmentsResponse
 
 // NewOrderListShipmentsResponse instantiates a new OrderListShipmentsResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -85,9 +88,53 @@ func (o OrderListShipmentsResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Shipments) {
 		toSerialize["shipments"] = o.Shipments
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OrderListShipmentsResponse) UnmarshalJSON(data []byte) (err error) {
+	varOrderListShipmentsResponse := _OrderListShipmentsResponse{}
+
+	err = json.Unmarshal(data, &varOrderListShipmentsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderListShipmentsResponse(varOrderListShipmentsResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "shipments")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OrderListShipmentsResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderListShipmentsResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderListShipmentsResponse struct {
 	value *OrderListShipmentsResponse
 	isSet bool

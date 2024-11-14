@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type OrderCreateRefundTransactionRequest struct {
 	ParentTransactionId *string `json:"parentTransactionId,omitempty"`
 	Type *OrderTransactionType `json:"type,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderCreateRefundTransactionRequest OrderCreateRefundTransactionRequest
@@ -219,6 +219,11 @@ func (o OrderCreateRefundTransactionRequest) ToMap() (map[string]interface{}, er
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -247,9 +252,7 @@ func (o *OrderCreateRefundTransactionRequest) UnmarshalJSON(data []byte) (err er
 
 	varOrderCreateRefundTransactionRequest := _OrderCreateRefundTransactionRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderCreateRefundTransactionRequest)
+	err = json.Unmarshal(data, &varOrderCreateRefundTransactionRequest)
 
 	if err != nil {
 		return err
@@ -257,9 +260,38 @@ func (o *OrderCreateRefundTransactionRequest) UnmarshalJSON(data []byte) (err er
 
 	*o = OrderCreateRefundTransactionRequest(varOrderCreateRefundTransactionRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "refundId")
+		delete(additionalProperties, "parentTransactionId")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "additionalInfo")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderCreateRefundTransactionRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderCreateRefundTransactionRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderCreateRefundTransactionRequest struct {
 	value *OrderCreateRefundTransactionRequest
 	isSet bool

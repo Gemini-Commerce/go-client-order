@@ -22,7 +22,10 @@ var _ MappedNullable = &OrderOrderBy{}
 type OrderOrderBy struct {
 	Field *string `json:"field,omitempty"`
 	Direction *OrderByDirection `json:"direction,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OrderOrderBy OrderOrderBy
 
 // NewOrderOrderBy instantiates a new OrderOrderBy object
 // This constructor will assign default values to properties that have it defined,
@@ -125,9 +128,54 @@ func (o OrderOrderBy) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Direction) {
 		toSerialize["direction"] = o.Direction
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OrderOrderBy) UnmarshalJSON(data []byte) (err error) {
+	varOrderOrderBy := _OrderOrderBy{}
+
+	err = json.Unmarshal(data, &varOrderOrderBy)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderOrderBy(varOrderOrderBy)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "field")
+		delete(additionalProperties, "direction")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OrderOrderBy) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderOrderBy) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderOrderBy struct {
 	value *OrderOrderBy
 	isSet bool

@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type OrderCancelShipmentRequest struct {
 	TenantId string `json:"tenantId"`
 	ShipmentId string `json:"shipmentId"`
 	Reason *string `json:"reason,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderCancelShipmentRequest OrderCancelShipmentRequest
@@ -143,6 +143,11 @@ func (o OrderCancelShipmentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Reason) {
 		toSerialize["reason"] = o.Reason
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -171,9 +176,7 @@ func (o *OrderCancelShipmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderCancelShipmentRequest := _OrderCancelShipmentRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderCancelShipmentRequest)
+	err = json.Unmarshal(data, &varOrderCancelShipmentRequest)
 
 	if err != nil {
 		return err
@@ -181,9 +184,36 @@ func (o *OrderCancelShipmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderCancelShipmentRequest(varOrderCancelShipmentRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "shipmentId")
+		delete(additionalProperties, "reason")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderCancelShipmentRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderCancelShipmentRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderCancelShipmentRequest struct {
 	value *OrderCancelShipmentRequest
 	isSet bool

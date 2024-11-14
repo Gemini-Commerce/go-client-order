@@ -22,7 +22,10 @@ var _ MappedNullable = &OrderSendOrderNotificationRequest{}
 type OrderSendOrderNotificationRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	Id *string `json:"id,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OrderSendOrderNotificationRequest OrderSendOrderNotificationRequest
 
 // NewOrderSendOrderNotificationRequest instantiates a new OrderSendOrderNotificationRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -121,9 +124,54 @@ func (o OrderSendOrderNotificationRequest) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OrderSendOrderNotificationRequest) UnmarshalJSON(data []byte) (err error) {
+	varOrderSendOrderNotificationRequest := _OrderSendOrderNotificationRequest{}
+
+	err = json.Unmarshal(data, &varOrderSendOrderNotificationRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderSendOrderNotificationRequest(varOrderSendOrderNotificationRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "id")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OrderSendOrderNotificationRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderSendOrderNotificationRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderSendOrderNotificationRequest struct {
 	value *OrderSendOrderNotificationRequest
 	isSet bool

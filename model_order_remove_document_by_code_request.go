@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type OrderRemoveDocumentByCodeRequest struct {
 	TenantId string `json:"tenantId"`
 	OrderId string `json:"orderId"`
 	Code string `json:"code"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderRemoveDocumentByCodeRequest OrderRemoveDocumentByCodeRequest
@@ -134,6 +134,11 @@ func (o OrderRemoveDocumentByCodeRequest) ToMap() (map[string]interface{}, error
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["orderId"] = o.OrderId
 	toSerialize["code"] = o.Code
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -163,9 +168,7 @@ func (o *OrderRemoveDocumentByCodeRequest) UnmarshalJSON(data []byte) (err error
 
 	varOrderRemoveDocumentByCodeRequest := _OrderRemoveDocumentByCodeRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderRemoveDocumentByCodeRequest)
+	err = json.Unmarshal(data, &varOrderRemoveDocumentByCodeRequest)
 
 	if err != nil {
 		return err
@@ -173,9 +176,36 @@ func (o *OrderRemoveDocumentByCodeRequest) UnmarshalJSON(data []byte) (err error
 
 	*o = OrderRemoveDocumentByCodeRequest(varOrderRemoveDocumentByCodeRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "orderId")
+		delete(additionalProperties, "code")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderRemoveDocumentByCodeRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderRemoveDocumentByCodeRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderRemoveDocumentByCodeRequest struct {
 	value *OrderRemoveDocumentByCodeRequest
 	isSet bool

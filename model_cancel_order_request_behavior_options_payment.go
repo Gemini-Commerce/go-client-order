@@ -21,7 +21,10 @@ var _ MappedNullable = &CancelOrderRequestBehaviorOptionsPayment{}
 // CancelOrderRequestBehaviorOptionsPayment struct for CancelOrderRequestBehaviorOptionsPayment
 type CancelOrderRequestBehaviorOptionsPayment struct {
 	Action *BehaviorOptionsPaymentAction `json:"action,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _CancelOrderRequestBehaviorOptionsPayment CancelOrderRequestBehaviorOptionsPayment
 
 // NewCancelOrderRequestBehaviorOptionsPayment instantiates a new CancelOrderRequestBehaviorOptionsPayment object
 // This constructor will assign default values to properties that have it defined,
@@ -89,9 +92,53 @@ func (o CancelOrderRequestBehaviorOptionsPayment) ToMap() (map[string]interface{
 	if !IsNil(o.Action) {
 		toSerialize["action"] = o.Action
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *CancelOrderRequestBehaviorOptionsPayment) UnmarshalJSON(data []byte) (err error) {
+	varCancelOrderRequestBehaviorOptionsPayment := _CancelOrderRequestBehaviorOptionsPayment{}
+
+	err = json.Unmarshal(data, &varCancelOrderRequestBehaviorOptionsPayment)
+
+	if err != nil {
+		return err
+	}
+
+	*o = CancelOrderRequestBehaviorOptionsPayment(varCancelOrderRequestBehaviorOptionsPayment)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "action")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *CancelOrderRequestBehaviorOptionsPayment) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *CancelOrderRequestBehaviorOptionsPayment) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableCancelOrderRequestBehaviorOptionsPayment struct {
 	value *CancelOrderRequestBehaviorOptionsPayment
 	isSet bool

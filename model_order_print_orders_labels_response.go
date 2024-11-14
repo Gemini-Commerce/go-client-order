@@ -22,7 +22,10 @@ var _ MappedNullable = &OrderPrintOrdersLabelsResponse{}
 type OrderPrintOrdersLabelsResponse struct {
 	DownloadUrl *string `json:"downloadUrl,omitempty"`
 	FailedOrders []PrintOrdersLabelsResponseFailedOrder `json:"failedOrders,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OrderPrintOrdersLabelsResponse OrderPrintOrdersLabelsResponse
 
 // NewOrderPrintOrdersLabelsResponse instantiates a new OrderPrintOrdersLabelsResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -121,9 +124,54 @@ func (o OrderPrintOrdersLabelsResponse) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.FailedOrders) {
 		toSerialize["failedOrders"] = o.FailedOrders
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OrderPrintOrdersLabelsResponse) UnmarshalJSON(data []byte) (err error) {
+	varOrderPrintOrdersLabelsResponse := _OrderPrintOrdersLabelsResponse{}
+
+	err = json.Unmarshal(data, &varOrderPrintOrdersLabelsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderPrintOrdersLabelsResponse(varOrderPrintOrdersLabelsResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "downloadUrl")
+		delete(additionalProperties, "failedOrders")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OrderPrintOrdersLabelsResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderPrintOrdersLabelsResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderPrintOrdersLabelsResponse struct {
 	value *OrderPrintOrdersLabelsResponse
 	isSet bool

@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,6 +26,7 @@ type ImportOrderRequestImportedPayment struct {
 	Amounts []OrderPaymentAmount `json:"amounts"`
 	CcInfo *PaymentCcInfo `json:"ccInfo,omitempty"`
 	IsUpfront *bool `json:"isUpfront,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ImportOrderRequestImportedPayment ImportOrderRequestImportedPayment
@@ -215,6 +215,11 @@ func (o ImportOrderRequestImportedPayment) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.IsUpfront) {
 		toSerialize["isUpfront"] = o.IsUpfront
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -243,9 +248,7 @@ func (o *ImportOrderRequestImportedPayment) UnmarshalJSON(data []byte) (err erro
 
 	varImportOrderRequestImportedPayment := _ImportOrderRequestImportedPayment{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varImportOrderRequestImportedPayment)
+	err = json.Unmarshal(data, &varImportOrderRequestImportedPayment)
 
 	if err != nil {
 		return err
@@ -253,9 +256,38 @@ func (o *ImportOrderRequestImportedPayment) UnmarshalJSON(data []byte) (err erro
 
 	*o = ImportOrderRequestImportedPayment(varImportOrderRequestImportedPayment)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "additionalInfo")
+		delete(additionalProperties, "amounts")
+		delete(additionalProperties, "ccInfo")
+		delete(additionalProperties, "isUpfront")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *ImportOrderRequestImportedPayment) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ImportOrderRequestImportedPayment) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableImportOrderRequestImportedPayment struct {
 	value *ImportOrderRequestImportedPayment
 	isSet bool

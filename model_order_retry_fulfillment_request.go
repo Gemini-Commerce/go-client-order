@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ var _ MappedNullable = &OrderRetryFulfillmentRequest{}
 type OrderRetryFulfillmentRequest struct {
 	TenantId string `json:"tenantId"`
 	FulfillmentId string `json:"fulfillmentId"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderRetryFulfillmentRequest OrderRetryFulfillmentRequest
@@ -107,6 +107,11 @@ func (o OrderRetryFulfillmentRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["fulfillmentId"] = o.FulfillmentId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -135,9 +140,7 @@ func (o *OrderRetryFulfillmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderRetryFulfillmentRequest := _OrderRetryFulfillmentRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderRetryFulfillmentRequest)
+	err = json.Unmarshal(data, &varOrderRetryFulfillmentRequest)
 
 	if err != nil {
 		return err
@@ -145,9 +148,35 @@ func (o *OrderRetryFulfillmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderRetryFulfillmentRequest(varOrderRetryFulfillmentRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "fulfillmentId")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderRetryFulfillmentRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderRetryFulfillmentRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderRetryFulfillmentRequest struct {
 	value *OrderRetryFulfillmentRequest
 	isSet bool

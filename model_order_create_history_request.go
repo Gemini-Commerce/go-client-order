@@ -13,7 +13,6 @@ package order
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type OrderCreateHistoryRequest struct {
 	TenantId string `json:"tenantId"`
 	OrderId string `json:"orderId"`
 	Comment *string `json:"comment,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _OrderCreateHistoryRequest OrderCreateHistoryRequest
@@ -143,6 +143,11 @@ func (o OrderCreateHistoryRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -171,9 +176,7 @@ func (o *OrderCreateHistoryRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderCreateHistoryRequest := _OrderCreateHistoryRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varOrderCreateHistoryRequest)
+	err = json.Unmarshal(data, &varOrderCreateHistoryRequest)
 
 	if err != nil {
 		return err
@@ -181,9 +184,36 @@ func (o *OrderCreateHistoryRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderCreateHistoryRequest(varOrderCreateHistoryRequest)
 
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "orderId")
+		delete(additionalProperties, "comment")
+		o.AdditionalProperties = additionalProperties
+	}
+
 	return err
 }
 
+// GetValue returns the value of well-known types
+func (o *OrderCreateHistoryRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderCreateHistoryRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderCreateHistoryRequest struct {
 	value *OrderCreateHistoryRequest
 	isSet bool

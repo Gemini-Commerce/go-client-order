@@ -24,7 +24,10 @@ type OrderDataHistory struct {
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Comment *string `json:"comment,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _OrderDataHistory OrderDataHistory
 
 // NewOrderDataHistory instantiates a new OrderDataHistory object
 // This constructor will assign default values to properties that have it defined,
@@ -158,9 +161,55 @@ func (o OrderDataHistory) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *OrderDataHistory) UnmarshalJSON(data []byte) (err error) {
+	varOrderDataHistory := _OrderDataHistory{}
+
+	err = json.Unmarshal(data, &varOrderDataHistory)
+
+	if err != nil {
+		return err
+	}
+
+	*o = OrderDataHistory(varOrderDataHistory)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "comment")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *OrderDataHistory) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *OrderDataHistory) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableOrderDataHistory struct {
 	value *OrderDataHistory
 	isSet bool
