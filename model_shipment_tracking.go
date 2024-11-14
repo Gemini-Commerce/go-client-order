@@ -65,8 +65,8 @@ func (o *ShipmentTracking) GetCarrierCodeOk() (*string, bool) {
 	return o.CarrierCode, true
 }
 
-// IsSetCarrierCode returns a boolean if a field has been set.
-func (o *ShipmentTracking) IsSetCarrierCode() bool {
+// &#39;Has&#39;CarrierCode returns a boolean if a field has been set.
+func (o *ShipmentTracking) &#39;Has&#39;CarrierCode() bool {
 	if o != nil && !IsNil(o.CarrierCode) {
 		return true
 	}
@@ -97,8 +97,8 @@ func (o *ShipmentTracking) GetCarrierTitleOk() (*string, bool) {
 	return o.CarrierTitle, true
 }
 
-// IsSetCarrierTitle returns a boolean if a field has been set.
-func (o *ShipmentTracking) IsSetCarrierTitle() bool {
+// &#39;Has&#39;CarrierTitle returns a boolean if a field has been set.
+func (o *ShipmentTracking) &#39;Has&#39;CarrierTitle() bool {
 	if o != nil && !IsNil(o.CarrierTitle) {
 		return true
 	}
@@ -129,8 +129,8 @@ func (o *ShipmentTracking) GetUrlOk() (*string, bool) {
 	return o.Url, true
 }
 
-// IsSetUrl returns a boolean if a field has been set.
-func (o *ShipmentTracking) IsSetUrl() bool {
+// &#39;Has&#39;Url returns a boolean if a field has been set.
+func (o *ShipmentTracking) &#39;Has&#39;Url() bool {
 	if o != nil && !IsNil(o.Url) {
 		return true
 	}
@@ -161,8 +161,8 @@ func (o *ShipmentTracking) GetNumberOk() (*string, bool) {
 	return o.Number, true
 }
 
-// IsSetNumber returns a boolean if a field has been set.
-func (o *ShipmentTracking) IsSetNumber() bool {
+// &#39;Has&#39;Number returns a boolean if a field has been set.
+func (o *ShipmentTracking) &#39;Has&#39;Number() bool {
 	if o != nil && !IsNil(o.Number) {
 		return true
 	}
@@ -193,8 +193,8 @@ func (o *ShipmentTracking) GetLabelUrlOk() (*string, bool) {
 	return o.LabelUrl, true
 }
 
-// IsSetLabelUrl returns a boolean if a field has been set.
-func (o *ShipmentTracking) IsSetLabelUrl() bool {
+// &#39;Has&#39;LabelUrl returns a boolean if a field has been set.
+func (o *ShipmentTracking) &#39;Has&#39;LabelUrl() bool {
 	if o != nil && !IsNil(o.LabelUrl) {
 		return true
 	}

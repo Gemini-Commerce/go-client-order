@@ -92,8 +92,8 @@ func (o *CreateOrderRequestInitialPayment) GetAdditionalInfoOk() (*string, bool)
 	return o.AdditionalInfo, true
 }
 
-// IsSetAdditionalInfo returns a boolean if a field has been set.
-func (o *CreateOrderRequestInitialPayment) IsSetAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *CreateOrderRequestInitialPayment) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -148,8 +148,8 @@ func (o *CreateOrderRequestInitialPayment) GetCcInfoOk() (*PaymentCcInfo, bool) 
 	return o.CcInfo, true
 }
 
-// IsSetCcInfo returns a boolean if a field has been set.
-func (o *CreateOrderRequestInitialPayment) IsSetCcInfo() bool {
+// &#39;Has&#39;CcInfo returns a boolean if a field has been set.
+func (o *CreateOrderRequestInitialPayment) &#39;Has&#39;CcInfo() bool {
 	if o != nil && !IsNil(o.CcInfo) {
 		return true
 	}
@@ -180,8 +180,8 @@ func (o *CreateOrderRequestInitialPayment) GetTransactionOk() (*InitialPaymentIn
 	return o.Transaction, true
 }
 
-// IsSetTransaction returns a boolean if a field has been set.
-func (o *CreateOrderRequestInitialPayment) IsSetTransaction() bool {
+// &#39;Has&#39;Transaction returns a boolean if a field has been set.
+func (o *CreateOrderRequestInitialPayment) &#39;Has&#39;Transaction() bool {
 	if o != nil && !IsNil(o.Transaction) {
 		return true
 	}

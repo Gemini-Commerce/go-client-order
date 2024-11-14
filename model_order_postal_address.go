@@ -86,8 +86,8 @@ func (o *OrderPostalAddress) GetRevisionOk() (*int32, bool) {
 	return o.Revision, true
 }
 
-// IsSetRevision returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetRevision() bool {
+// &#39;Has&#39;Revision returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;Revision() bool {
 	if o != nil && !IsNil(o.Revision) {
 		return true
 	}
@@ -118,8 +118,8 @@ func (o *OrderPostalAddress) GetRegionCodeOk() (*string, bool) {
 	return o.RegionCode, true
 }
 
-// IsSetRegionCode returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetRegionCode() bool {
+// &#39;Has&#39;RegionCode returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;RegionCode() bool {
 	if o != nil && !IsNil(o.RegionCode) {
 		return true
 	}
@@ -150,8 +150,8 @@ func (o *OrderPostalAddress) GetLanguageCodeOk() (*string, bool) {
 	return o.LanguageCode, true
 }
 
-// IsSetLanguageCode returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetLanguageCode() bool {
+// &#39;Has&#39;LanguageCode returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;LanguageCode() bool {
 	if o != nil && !IsNil(o.LanguageCode) {
 		return true
 	}
@@ -182,8 +182,8 @@ func (o *OrderPostalAddress) GetPostalCodeOk() (*string, bool) {
 	return o.PostalCode, true
 }
 
-// IsSetPostalCode returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetPostalCode() bool {
+// &#39;Has&#39;PostalCode returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;PostalCode() bool {
 	if o != nil && !IsNil(o.PostalCode) {
 		return true
 	}
@@ -214,8 +214,8 @@ func (o *OrderPostalAddress) GetSortingCodeOk() (*string, bool) {
 	return o.SortingCode, true
 }
 
-// IsSetSortingCode returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetSortingCode() bool {
+// &#39;Has&#39;SortingCode returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;SortingCode() bool {
 	if o != nil && !IsNil(o.SortingCode) {
 		return true
 	}
@@ -246,8 +246,8 @@ func (o *OrderPostalAddress) GetAdministrativeAreaOk() (*string, bool) {
 	return o.AdministrativeArea, true
 }
 
-// IsSetAdministrativeArea returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetAdministrativeArea() bool {
+// &#39;Has&#39;AdministrativeArea returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;AdministrativeArea() bool {
 	if o != nil && !IsNil(o.AdministrativeArea) {
 		return true
 	}
@@ -278,8 +278,8 @@ func (o *OrderPostalAddress) GetLocalityOk() (*string, bool) {
 	return o.Locality, true
 }
 
-// IsSetLocality returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetLocality() bool {
+// &#39;Has&#39;Locality returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;Locality() bool {
 	if o != nil && !IsNil(o.Locality) {
 		return true
 	}
@@ -310,8 +310,8 @@ func (o *OrderPostalAddress) GetSublocalityOk() (*string, bool) {
 	return o.Sublocality, true
 }
 
-// IsSetSublocality returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetSublocality() bool {
+// &#39;Has&#39;Sublocality returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;Sublocality() bool {
 	if o != nil && !IsNil(o.Sublocality) {
 		return true
 	}
@@ -342,8 +342,8 @@ func (o *OrderPostalAddress) GetAddressLinesOk() ([]string, bool) {
 	return o.AddressLines, true
 }
 
-// IsSetAddressLines returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetAddressLines() bool {
+// &#39;Has&#39;AddressLines returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;AddressLines() bool {
 	if o != nil && !IsNil(o.AddressLines) {
 		return true
 	}
@@ -374,8 +374,8 @@ func (o *OrderPostalAddress) GetRecipientsOk() ([]string, bool) {
 	return o.Recipients, true
 }
 
-// IsSetRecipients returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetRecipients() bool {
+// &#39;Has&#39;Recipients returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;Recipients() bool {
 	if o != nil && !IsNil(o.Recipients) {
 		return true
 	}
@@ -406,8 +406,8 @@ func (o *OrderPostalAddress) GetOrganizationOk() (*string, bool) {
 	return o.Organization, true
 }
 
-// IsSetOrganization returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetOrganization() bool {
+// &#39;Has&#39;Organization returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;Organization() bool {
 	if o != nil && !IsNil(o.Organization) {
 		return true
 	}
@@ -438,8 +438,8 @@ func (o *OrderPostalAddress) GetPhoneNumberOk() (*string, bool) {
 	return o.PhoneNumber, true
 }
 
-// IsSetPhoneNumber returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetPhoneNumber() bool {
+// &#39;Has&#39;PhoneNumber returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;PhoneNumber() bool {
 	if o != nil && !IsNil(o.PhoneNumber) {
 		return true
 	}
@@ -470,8 +470,8 @@ func (o *OrderPostalAddress) GetAdditionalInfoOk() (map[string]interface{}, bool
 	return o.AdditionalInfo, true
 }
 
-// IsSetAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderPostalAddress) IsSetAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *OrderPostalAddress) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

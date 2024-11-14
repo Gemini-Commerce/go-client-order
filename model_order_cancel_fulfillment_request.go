@@ -114,8 +114,8 @@ func (o *OrderCancelFulfillmentRequest) GetReasonOk() (*string, bool) {
 	return o.Reason, true
 }
 
-// IsSetReason returns a boolean if a field has been set.
-func (o *OrderCancelFulfillmentRequest) IsSetReason() bool {
+// &#39;Has&#39;Reason returns a boolean if a field has been set.
+func (o *OrderCancelFulfillmentRequest) &#39;Has&#39;Reason() bool {
 	if o != nil && !IsNil(o.Reason) {
 		return true
 	}

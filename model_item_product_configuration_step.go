@@ -65,8 +65,8 @@ func (o *ItemProductConfigurationStep) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// IsSetId returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -97,8 +97,8 @@ func (o *ItemProductConfigurationStep) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// IsSetGrn returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetGrn() bool {
+// &#39;Has&#39;Grn returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) &#39;Has&#39;Grn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -129,8 +129,8 @@ func (o *ItemProductConfigurationStep) GetLabelOk() (*string, bool) {
 	return o.Label, true
 }
 
-// IsSetLabel returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetLabel() bool {
+// &#39;Has&#39;Label returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) &#39;Has&#39;Label() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -161,8 +161,8 @@ func (o *ItemProductConfigurationStep) GetDescriptionOk() (*string, bool) {
 	return o.Description, true
 }
 
-// IsSetDescription returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetDescription() bool {
+// &#39;Has&#39;Description returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) &#39;Has&#39;Description() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -193,8 +193,8 @@ func (o *ItemProductConfigurationStep) GetOptionsOk() ([]ProductConfigurationSte
 	return o.Options, true
 }
 
-// IsSetOptions returns a boolean if a field has been set.
-func (o *ItemProductConfigurationStep) IsSetOptions() bool {
+// &#39;Has&#39;Options returns a boolean if a field has been set.
+func (o *ItemProductConfigurationStep) &#39;Has&#39;Options() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}

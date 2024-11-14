@@ -121,8 +121,8 @@ func (o *OrderImportOrderRequest) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// IsSetCreatedAt returns a boolean if a field has been set.
-func (o *OrderImportOrderRequest) IsSetCreatedAt() bool {
+// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
+func (o *OrderImportOrderRequest) &#39;Has&#39;CreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -177,8 +177,8 @@ func (o *OrderImportOrderRequest) GetChannelOk() (*string, bool) {
 	return o.Channel, true
 }
 
-// IsSetChannel returns a boolean if a field has been set.
-func (o *OrderImportOrderRequest) IsSetChannel() bool {
+// &#39;Has&#39;Channel returns a boolean if a field has been set.
+func (o *OrderImportOrderRequest) &#39;Has&#39;Channel() bool {
 	if o != nil && !IsNil(o.Channel) {
 		return true
 	}
@@ -521,8 +521,8 @@ func (o *OrderImportOrderRequest) GetVatIncludedOk() (*bool, bool) {
 	return o.VatIncluded, true
 }
 
-// IsSetVatIncluded returns a boolean if a field has been set.
-func (o *OrderImportOrderRequest) IsSetVatIncluded() bool {
+// &#39;Has&#39;VatIncluded returns a boolean if a field has been set.
+func (o *OrderImportOrderRequest) &#39;Has&#39;VatIncluded() bool {
 	if o != nil && !IsNil(o.VatIncluded) {
 		return true
 	}

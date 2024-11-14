@@ -68,8 +68,8 @@ func (o *OrderPayment) GetOrderIdOk() (*string, bool) {
 	return o.OrderId, true
 }
 
-// IsSetOrderId returns a boolean if a field has been set.
-func (o *OrderPayment) IsSetOrderId() bool {
+// &#39;Has&#39;OrderId returns a boolean if a field has been set.
+func (o *OrderPayment) &#39;Has&#39;OrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
@@ -100,8 +100,8 @@ func (o *OrderPayment) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// IsSetId returns a boolean if a field has been set.
-func (o *OrderPayment) IsSetId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *OrderPayment) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -132,8 +132,8 @@ func (o *OrderPayment) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// IsSetCode returns a boolean if a field has been set.
-func (o *OrderPayment) IsSetCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *OrderPayment) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -164,8 +164,8 @@ func (o *OrderPayment) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// IsSetAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderPayment) IsSetAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *OrderPayment) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -196,8 +196,8 @@ func (o *OrderPayment) GetAmountsOk() ([]OrderPaymentAmount, bool) {
 	return o.Amounts, true
 }
 
-// IsSetAmounts returns a boolean if a field has been set.
-func (o *OrderPayment) IsSetAmounts() bool {
+// &#39;Has&#39;Amounts returns a boolean if a field has been set.
+func (o *OrderPayment) &#39;Has&#39;Amounts() bool {
 	if o != nil && !IsNil(o.Amounts) {
 		return true
 	}
@@ -228,8 +228,8 @@ func (o *OrderPayment) GetCcInfoOk() (*PaymentCcInfo, bool) {
 	return o.CcInfo, true
 }
 
-// IsSetCcInfo returns a boolean if a field has been set.
-func (o *OrderPayment) IsSetCcInfo() bool {
+// &#39;Has&#39;CcInfo returns a boolean if a field has been set.
+func (o *OrderPayment) &#39;Has&#39;CcInfo() bool {
 	if o != nil && !IsNil(o.CcInfo) {
 		return true
 	}
@@ -260,8 +260,8 @@ func (o *OrderPayment) GetTransactionsOk() ([]OrderTransaction, bool) {
 	return o.Transactions, true
 }
 
-// IsSetTransactions returns a boolean if a field has been set.
-func (o *OrderPayment) IsSetTransactions() bool {
+// &#39;Has&#39;Transactions returns a boolean if a field has been set.
+func (o *OrderPayment) &#39;Has&#39;Transactions() bool {
 	if o != nil && !IsNil(o.Transactions) {
 		return true
 	}

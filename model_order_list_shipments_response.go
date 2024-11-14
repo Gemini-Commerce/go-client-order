@@ -61,8 +61,8 @@ func (o *OrderListShipmentsResponse) GetShipmentsOk() ([]OrderShipment, bool) {
 	return o.Shipments, true
 }
 
-// IsSetShipments returns a boolean if a field has been set.
-func (o *OrderListShipmentsResponse) IsSetShipments() bool {
+// &#39;Has&#39;Shipments returns a boolean if a field has been set.
+func (o *OrderListShipmentsResponse) &#39;Has&#39;Shipments() bool {
 	if o != nil && !IsNil(o.Shipments) {
 		return true
 	}

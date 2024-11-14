@@ -102,8 +102,8 @@ func (o *OrderSearchOrdersRequest) GetSearchQueryOk() (*string, bool) {
 	return o.SearchQuery, true
 }
 
-// IsSetSearchQuery returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetSearchQuery() bool {
+// &#39;Has&#39;SearchQuery returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;SearchQuery() bool {
 	if o != nil && !IsNil(o.SearchQuery) {
 		return true
 	}
@@ -134,8 +134,8 @@ func (o *OrderSearchOrdersRequest) GetPageSizeOk() (*int64, bool) {
 	return o.PageSize, true
 }
 
-// IsSetPageSize returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetPageSize() bool {
+// &#39;Has&#39;PageSize returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;PageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -166,8 +166,8 @@ func (o *OrderSearchOrdersRequest) GetPageTokenOk() (*string, bool) {
 	return o.PageToken, true
 }
 
-// IsSetPageToken returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetPageToken() bool {
+// &#39;Has&#39;PageToken returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;PageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -198,8 +198,8 @@ func (o *OrderSearchOrdersRequest) GetOrderByOk() ([]OrderOrderBy, bool) {
 	return o.OrderBy, true
 }
 
-// IsSetOrderBy returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetOrderBy() bool {
+// &#39;Has&#39;OrderBy returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;OrderBy() bool {
 	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}
@@ -230,8 +230,8 @@ func (o *OrderSearchOrdersRequest) GetStatusFilterOk() (*OrderStatusFilter, bool
 	return o.StatusFilter, true
 }
 
-// IsSetStatusFilter returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetStatusFilter() bool {
+// &#39;Has&#39;StatusFilter returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;StatusFilter() bool {
 	if o != nil && !IsNil(o.StatusFilter) {
 		return true
 	}
@@ -262,8 +262,8 @@ func (o *OrderSearchOrdersRequest) GetFromDateOk() (*time.Time, bool) {
 	return o.FromDate, true
 }
 
-// IsSetFromDate returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetFromDate() bool {
+// &#39;Has&#39;FromDate returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;FromDate() bool {
 	if o != nil && !IsNil(o.FromDate) {
 		return true
 	}
@@ -294,8 +294,8 @@ func (o *OrderSearchOrdersRequest) GetToDateOk() (*time.Time, bool) {
 	return o.ToDate, true
 }
 
-// IsSetToDate returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetToDate() bool {
+// &#39;Has&#39;ToDate returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;ToDate() bool {
 	if o != nil && !IsNil(o.ToDate) {
 		return true
 	}
@@ -326,8 +326,8 @@ func (o *OrderSearchOrdersRequest) GetPaymentFilterOk() (*OrderPaymentFilter, bo
 	return o.PaymentFilter, true
 }
 
-// IsSetPaymentFilter returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetPaymentFilter() bool {
+// &#39;Has&#39;PaymentFilter returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;PaymentFilter() bool {
 	if o != nil && !IsNil(o.PaymentFilter) {
 		return true
 	}
@@ -358,8 +358,8 @@ func (o *OrderSearchOrdersRequest) GetAgentGrnOk() (*string, bool) {
 	return o.AgentGrn, true
 }
 
-// IsSetAgentGrn returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetAgentGrn() bool {
+// &#39;Has&#39;AgentGrn returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;AgentGrn() bool {
 	if o != nil && !IsNil(o.AgentGrn) {
 		return true
 	}
@@ -390,8 +390,8 @@ func (o *OrderSearchOrdersRequest) GetUpdatedAtFromOk() (*time.Time, bool) {
 	return o.UpdatedAtFrom, true
 }
 
-// IsSetUpdatedAtFrom returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetUpdatedAtFrom() bool {
+// &#39;Has&#39;UpdatedAtFrom returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;UpdatedAtFrom() bool {
 	if o != nil && !IsNil(o.UpdatedAtFrom) {
 		return true
 	}
@@ -422,8 +422,8 @@ func (o *OrderSearchOrdersRequest) GetUpdatedAtToOk() (*time.Time, bool) {
 	return o.UpdatedAtTo, true
 }
 
-// IsSetUpdatedAtTo returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetUpdatedAtTo() bool {
+// &#39;Has&#39;UpdatedAtTo returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;UpdatedAtTo() bool {
 	if o != nil && !IsNil(o.UpdatedAtTo) {
 		return true
 	}
@@ -454,8 +454,8 @@ func (o *OrderSearchOrdersRequest) GetOnHoldOk() (*bool, bool) {
 	return o.OnHold, true
 }
 
-// IsSetOnHold returns a boolean if a field has been set.
-func (o *OrderSearchOrdersRequest) IsSetOnHold() bool {
+// &#39;Has&#39;OnHold returns a boolean if a field has been set.
+func (o *OrderSearchOrdersRequest) &#39;Has&#39;OnHold() bool {
 	if o != nil && !IsNil(o.OnHold) {
 		return true
 	}

@@ -63,8 +63,8 @@ func (o *RpcStatus) GetCodeOk() (*int32, bool) {
 	return o.Code, true
 }
 
-// IsSetCode returns a boolean if a field has been set.
-func (o *RpcStatus) IsSetCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *RpcStatus) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *RpcStatus) GetMessageOk() (*string, bool) {
 	return o.Message, true
 }
 
-// IsSetMessage returns a boolean if a field has been set.
-func (o *RpcStatus) IsSetMessage() bool {
+// &#39;Has&#39;Message returns a boolean if a field has been set.
+func (o *RpcStatus) &#39;Has&#39;Message() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *RpcStatus) GetDetailsOk() ([]ProtobufAny, bool) {
 	return o.Details, true
 }
 
-// IsSetDetails returns a boolean if a field has been set.
-func (o *RpcStatus) IsSetDetails() bool {
+// &#39;Has&#39;Details returns a boolean if a field has been set.
+func (o *RpcStatus) &#39;Has&#39;Details() bool {
 	if o != nil && !IsNil(o.Details) {
 		return true
 	}

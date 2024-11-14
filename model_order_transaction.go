@@ -71,8 +71,8 @@ func (o *OrderTransaction) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// IsSetCreatedAt returns a boolean if a field has been set.
-func (o *OrderTransaction) IsSetCreatedAt() bool {
+// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
+func (o *OrderTransaction) &#39;Has&#39;CreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -103,8 +103,8 @@ func (o *OrderTransaction) GetPaymentIdOk() (*string, bool) {
 	return o.PaymentId, true
 }
 
-// IsSetPaymentId returns a boolean if a field has been set.
-func (o *OrderTransaction) IsSetPaymentId() bool {
+// &#39;Has&#39;PaymentId returns a boolean if a field has been set.
+func (o *OrderTransaction) &#39;Has&#39;PaymentId() bool {
 	if o != nil && !IsNil(o.PaymentId) {
 		return true
 	}
@@ -135,8 +135,8 @@ func (o *OrderTransaction) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// IsSetId returns a boolean if a field has been set.
-func (o *OrderTransaction) IsSetId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *OrderTransaction) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -167,8 +167,8 @@ func (o *OrderTransaction) GetTypeOk() (*OrderTransactionType, bool) {
 	return o.Type, true
 }
 
-// IsSetType returns a boolean if a field has been set.
-func (o *OrderTransaction) IsSetType() bool {
+// &#39;Has&#39;Type returns a boolean if a field has been set.
+func (o *OrderTransaction) &#39;Has&#39;Type() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}
@@ -199,8 +199,8 @@ func (o *OrderTransaction) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// IsSetAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderTransaction) IsSetAdditionalInfo() bool {
+// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
+func (o *OrderTransaction) &#39;Has&#39;AdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -231,8 +231,8 @@ func (o *OrderTransaction) GetChildTransactionsOk() ([]OrderTransaction, bool) {
 	return o.ChildTransactions, true
 }
 
-// IsSetChildTransactions returns a boolean if a field has been set.
-func (o *OrderTransaction) IsSetChildTransactions() bool {
+// &#39;Has&#39;ChildTransactions returns a boolean if a field has been set.
+func (o *OrderTransaction) &#39;Has&#39;ChildTransactions() bool {
 	if o != nil && !IsNil(o.ChildTransactions) {
 		return true
 	}
