@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code**| [**OrderRefundAmountCode**](OrderRefundAmountCode.md) |  for more information please, see Model/OrderRefundAmountCode.php  | [optional] [default to UNKNOWN]
+**Code**| [**OrderRefundAmountCode**](OrderRefundAmountCode.md) |  for more information please, see Model/OrderRefundAmountCode.php  | [optional] [default to ORDERREFUNDAMOUNTCODE_UNKNOWN]
 **Value**| [**OrderMoney**](OrderMoney.md) |   | [optional]
 
 
