@@ -51,7 +51,7 @@ type APIClient struct {
 
 	// API Services
 
-	OrderAPI OrderAPI
+	OrderAPI *OrderAPIService
 }
 
 type service struct {

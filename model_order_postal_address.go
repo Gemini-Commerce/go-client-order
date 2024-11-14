@@ -46,10 +46,7 @@ type OrderPostalAddress struct {
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// Optional.
 	AdditionalInfo map[string]interface{} `json:"additionalInfo,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderPostalAddress OrderPostalAddress
 
 // NewOrderPostalAddress instantiates a new OrderPostalAddress object
 // This constructor will assign default values to properties that have it defined,
@@ -533,65 +530,9 @@ func (o OrderPostalAddress) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdditionalInfo) {
 		toSerialize["additionalInfo"] = o.AdditionalInfo
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderPostalAddress) UnmarshalJSON(data []byte) (err error) {
-	varOrderPostalAddress := _OrderPostalAddress{}
-
-	err = json.Unmarshal(data, &varOrderPostalAddress)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderPostalAddress(varOrderPostalAddress)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "revision")
-		delete(additionalProperties, "regionCode")
-		delete(additionalProperties, "languageCode")
-		delete(additionalProperties, "postalCode")
-		delete(additionalProperties, "sortingCode")
-		delete(additionalProperties, "administrativeArea")
-		delete(additionalProperties, "locality")
-		delete(additionalProperties, "sublocality")
-		delete(additionalProperties, "addressLines")
-		delete(additionalProperties, "recipients")
-		delete(additionalProperties, "organization")
-		delete(additionalProperties, "phoneNumber")
-		delete(additionalProperties, "additionalInfo")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderPostalAddress) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderPostalAddress) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderPostalAddress struct {
 	value *OrderPostalAddress
 	isSet bool

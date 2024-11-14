@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -23,7 +24,6 @@ var _ MappedNullable = &OrderReportFulfillmentErrorRequest{}
 type OrderReportFulfillmentErrorRequest struct {
 	TenantId string `json:"tenantId"`
 	FulfillmentId string `json:"fulfillmentId"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderReportFulfillmentErrorRequest OrderReportFulfillmentErrorRequest
@@ -107,11 +107,6 @@ func (o OrderReportFulfillmentErrorRequest) ToMap() (map[string]interface{}, err
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["fulfillmentId"] = o.FulfillmentId
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -140,7 +135,9 @@ func (o *OrderReportFulfillmentErrorRequest) UnmarshalJSON(data []byte) (err err
 
 	varOrderReportFulfillmentErrorRequest := _OrderReportFulfillmentErrorRequest{}
 
-	err = json.Unmarshal(data, &varOrderReportFulfillmentErrorRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderReportFulfillmentErrorRequest)
 
 	if err != nil {
 		return err
@@ -148,35 +145,9 @@ func (o *OrderReportFulfillmentErrorRequest) UnmarshalJSON(data []byte) (err err
 
 	*o = OrderReportFulfillmentErrorRequest(varOrderReportFulfillmentErrorRequest)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "tenantId")
-		delete(additionalProperties, "fulfillmentId")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderReportFulfillmentErrorRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderReportFulfillmentErrorRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderReportFulfillmentErrorRequest struct {
 	value *OrderReportFulfillmentErrorRequest
 	isSet bool

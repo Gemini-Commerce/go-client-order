@@ -20,636 +20,21 @@ import (
 )
 
 
-type OrderAPI interface {
-
-	/*
-	ApproveOrder Approve Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIApproveOrderRequest
-	*/
-	ApproveOrder(ctx context.Context) OrderAPIApproveOrderRequest
-
-	// ApproveOrderExecute executes the request
-	//  @return map[string]interface{}
-	ApproveOrderExecute(r OrderAPIApproveOrderRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	AssignShipment Assign Shipment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIAssignShipmentRequest
-	*/
-	AssignShipment(ctx context.Context) OrderAPIAssignShipmentRequest
-
-	// AssignShipmentExecute executes the request
-	//  @return map[string]interface{}
-	AssignShipmentExecute(r OrderAPIAssignShipmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	CalculateRefund Calculate Refund
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICalculateRefundRequest
-	*/
-	CalculateRefund(ctx context.Context) OrderAPICalculateRefundRequest
-
-	// CalculateRefundExecute executes the request
-	//  @return OrderCalculateRefundResponse
-	CalculateRefundExecute(r OrderAPICalculateRefundRequest) (*OrderCalculateRefundResponse, *http.Response, error)
-
-	/*
-	CancelFulfillment Cancel Fulfillment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICancelFulfillmentRequest
-	*/
-	CancelFulfillment(ctx context.Context) OrderAPICancelFulfillmentRequest
-
-	// CancelFulfillmentExecute executes the request
-	//  @return map[string]interface{}
-	CancelFulfillmentExecute(r OrderAPICancelFulfillmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	CancelOrder Cancel Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICancelOrderRequest
-	*/
-	CancelOrder(ctx context.Context) OrderAPICancelOrderRequest
-
-	// CancelOrderExecute executes the request
-	//  @return map[string]interface{}
-	CancelOrderExecute(r OrderAPICancelOrderRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	CancelShipment Cancel Shipment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICancelShipmentRequest
-	*/
-	CancelShipment(ctx context.Context) OrderAPICancelShipmentRequest
-
-	// CancelShipmentExecute executes the request
-	//  @return map[string]interface{}
-	CancelShipmentExecute(r OrderAPICancelShipmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	CompleteShipmentPacking Complete Shipment Packing
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICompleteShipmentPackingRequest
-	*/
-	CompleteShipmentPacking(ctx context.Context) OrderAPICompleteShipmentPackingRequest
-
-	// CompleteShipmentPackingExecute executes the request
-	//  @return map[string]interface{}
-	CompleteShipmentPackingExecute(r OrderAPICompleteShipmentPackingRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	CreateFulfillment Create Fulfillment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreateFulfillmentRequest
-	*/
-	CreateFulfillment(ctx context.Context) OrderAPICreateFulfillmentRequest
-
-	// CreateFulfillmentExecute executes the request
-	//  @return OrderFulfillment
-	CreateFulfillmentExecute(r OrderAPICreateFulfillmentRequest) (*OrderFulfillment, *http.Response, error)
-
-	/*
-	CreateOrder Create Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreateOrderRequest
-	*/
-	CreateOrder(ctx context.Context) OrderAPICreateOrderRequest
-
-	// CreateOrderExecute executes the request
-	//  @return OrderOrderData
-	CreateOrderExecute(r OrderAPICreateOrderRequest) (*OrderOrderData, *http.Response, error)
-
-	/*
-	CreateOrderHistory Create Order History
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreateOrderHistoryRequest
-	*/
-	CreateOrderHistory(ctx context.Context) OrderAPICreateOrderHistoryRequest
-
-	// CreateOrderHistoryExecute executes the request
-	//  @return OrderDataHistory
-	CreateOrderHistoryExecute(r OrderAPICreateOrderHistoryRequest) (*OrderDataHistory, *http.Response, error)
-
-	/*
-	CreatePayment Create Payment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreatePaymentRequest
-	*/
-	CreatePayment(ctx context.Context) OrderAPICreatePaymentRequest
-
-	// CreatePaymentExecute executes the request
-	//  @return OrderPayment
-	CreatePaymentExecute(r OrderAPICreatePaymentRequest) (*OrderPayment, *http.Response, error)
-
-	/*
-	CreatePaymentTransaction Create Payment Transaction
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreatePaymentTransactionRequest
-	*/
-	CreatePaymentTransaction(ctx context.Context) OrderAPICreatePaymentTransactionRequest
-
-	// CreatePaymentTransactionExecute executes the request
-	//  @return OrderTransaction
-	CreatePaymentTransactionExecute(r OrderAPICreatePaymentTransactionRequest) (*OrderTransaction, *http.Response, error)
-
-	/*
-	CreateRefund Create Refund
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreateRefundRequest
-	*/
-	CreateRefund(ctx context.Context) OrderAPICreateRefundRequest
-
-	// CreateRefundExecute executes the request
-	//  @return OrderRefund
-	CreateRefundExecute(r OrderAPICreateRefundRequest) (*OrderRefund, *http.Response, error)
-
-	/*
-	CreateRefundTransaction Create Refund Transaction
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreateRefundTransactionRequest
-	*/
-	CreateRefundTransaction(ctx context.Context) OrderAPICreateRefundTransactionRequest
-
-	// CreateRefundTransactionExecute executes the request
-	//  @return OrderTransaction
-	CreateRefundTransactionExecute(r OrderAPICreateRefundTransactionRequest) (*OrderTransaction, *http.Response, error)
-
-	/*
-	CreateShipment Create Shipment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPICreateShipmentRequest
-	*/
-	CreateShipment(ctx context.Context) OrderAPICreateShipmentRequest
-
-	// CreateShipmentExecute executes the request
-	//  @return OrderShipment
-	CreateShipmentExecute(r OrderAPICreateShipmentRequest) (*OrderShipment, *http.Response, error)
-
-	/*
-	DeleteOrder Delete Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIDeleteOrderRequest
-	*/
-	DeleteOrder(ctx context.Context) OrderAPIDeleteOrderRequest
-
-	// DeleteOrderExecute executes the request
-	//  @return map[string]interface{}
-	DeleteOrderExecute(r OrderAPIDeleteOrderRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	GetFulfillment Get Fulfillment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIGetFulfillmentRequest
-	*/
-	GetFulfillment(ctx context.Context) OrderAPIGetFulfillmentRequest
-
-	// GetFulfillmentExecute executes the request
-	//  @return OrderFulfillment
-	GetFulfillmentExecute(r OrderAPIGetFulfillmentRequest) (*OrderFulfillment, *http.Response, error)
-
-	/*
-	GetOrder Get Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIGetOrderRequest
-	*/
-	GetOrder(ctx context.Context) OrderAPIGetOrderRequest
-
-	// GetOrderExecute executes the request
-	//  @return OrderOrderData
-	GetOrderExecute(r OrderAPIGetOrderRequest) (*OrderOrderData, *http.Response, error)
-
-	/*
-	GetOrderByCartId Get Order by Cart ID
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIGetOrderByCartIdRequest
-	*/
-	GetOrderByCartId(ctx context.Context) OrderAPIGetOrderByCartIdRequest
-
-	// GetOrderByCartIdExecute executes the request
-	//  @return OrderOrderData
-	GetOrderByCartIdExecute(r OrderAPIGetOrderByCartIdRequest) (*OrderOrderData, *http.Response, error)
-
-	/*
-	GetOrderByOrderNumber Get Order by Order Number
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIGetOrderByOrderNumberRequest
-	*/
-	GetOrderByOrderNumber(ctx context.Context) OrderAPIGetOrderByOrderNumberRequest
-
-	// GetOrderByOrderNumberExecute executes the request
-	//  @return OrderOrderData
-	GetOrderByOrderNumberExecute(r OrderAPIGetOrderByOrderNumberRequest) (*OrderOrderData, *http.Response, error)
-
-	/*
-	GetPayment Get Payment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIGetPaymentRequest
-	*/
-	GetPayment(ctx context.Context) OrderAPIGetPaymentRequest
-
-	// GetPaymentExecute executes the request
-	//  @return OrderPayment
-	GetPaymentExecute(r OrderAPIGetPaymentRequest) (*OrderPayment, *http.Response, error)
-
-	/*
-	GetShipment Get Shipment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIGetShipmentRequest
-	*/
-	GetShipment(ctx context.Context) OrderAPIGetShipmentRequest
-
-	// GetShipmentExecute executes the request
-	//  @return OrderShipment
-	GetShipmentExecute(r OrderAPIGetShipmentRequest) (*OrderShipment, *http.Response, error)
-
-	/*
-	GetTransaction Get Transaction
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIGetTransactionRequest
-	*/
-	GetTransaction(ctx context.Context) OrderAPIGetTransactionRequest
-
-	// GetTransactionExecute executes the request
-	//  @return OrderTransaction
-	GetTransactionExecute(r OrderAPIGetTransactionRequest) (*OrderTransaction, *http.Response, error)
-
-	/*
-	HoldOrder Hold Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIHoldOrderRequest
-	*/
-	HoldOrder(ctx context.Context) OrderAPIHoldOrderRequest
-
-	// HoldOrderExecute executes the request
-	//  @return map[string]interface{}
-	HoldOrderExecute(r OrderAPIHoldOrderRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ImportOrder Import Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIImportOrderRequest
-	*/
-	ImportOrder(ctx context.Context) OrderAPIImportOrderRequest
-
-	// ImportOrderExecute executes the request
-	//  @return OrderOrderData
-	ImportOrderExecute(r OrderAPIImportOrderRequest) (*OrderOrderData, *http.Response, error)
-
-	/*
-	ListFulfillments List Fulfillments
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIListFulfillmentsRequest
-	*/
-	ListFulfillments(ctx context.Context) OrderAPIListFulfillmentsRequest
-
-	// ListFulfillmentsExecute executes the request
-	//  @return OrderListFulfillmentsResponse
-	ListFulfillmentsExecute(r OrderAPIListFulfillmentsRequest) (*OrderListFulfillmentsResponse, *http.Response, error)
-
-	/*
-	ListOrders List Orders
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIListOrdersRequest
-	*/
-	ListOrders(ctx context.Context) OrderAPIListOrdersRequest
-
-	// ListOrdersExecute executes the request
-	//  @return OrderListOrdersResponse
-	ListOrdersExecute(r OrderAPIListOrdersRequest) (*OrderListOrdersResponse, *http.Response, error)
-
-	/*
-	ListOrdersByCustomer List Orders by Customer
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIListOrdersByCustomerRequest
-	*/
-	ListOrdersByCustomer(ctx context.Context) OrderAPIListOrdersByCustomerRequest
-
-	// ListOrdersByCustomerExecute executes the request
-	//  @return OrderListOrdersByCustomerResponse
-	ListOrdersByCustomerExecute(r OrderAPIListOrdersByCustomerRequest) (*OrderListOrdersByCustomerResponse, *http.Response, error)
-
-	/*
-	ListOrdersByNumbers List Orders by Numbers
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIListOrdersByNumbersRequest
-	*/
-	ListOrdersByNumbers(ctx context.Context) OrderAPIListOrdersByNumbersRequest
-
-	// ListOrdersByNumbersExecute executes the request
-	//  @return OrderListOrdersByNumbersResponse
-	ListOrdersByNumbersExecute(r OrderAPIListOrdersByNumbersRequest) (*OrderListOrdersByNumbersResponse, *http.Response, error)
-
-	/*
-	ListShipments List Shipments
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIListShipmentsRequest
-	*/
-	ListShipments(ctx context.Context) OrderAPIListShipmentsRequest
-
-	// ListShipmentsExecute executes the request
-	//  @return OrderListShipmentsResponse
-	ListShipmentsExecute(r OrderAPIListShipmentsRequest) (*OrderListShipmentsResponse, *http.Response, error)
-
-	/*
-	OrderAddDocument Documents
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIOrderAddDocumentRequest
-	*/
-	OrderAddDocument(ctx context.Context) OrderAPIOrderAddDocumentRequest
-
-	// OrderAddDocumentExecute executes the request
-	//  @return map[string]interface{}
-	OrderAddDocumentExecute(r OrderAPIOrderAddDocumentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	OrderRemoveDocumentByCode Method for OrderRemoveDocumentByCode
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIOrderRemoveDocumentByCodeRequest
-	*/
-	OrderRemoveDocumentByCode(ctx context.Context) OrderAPIOrderRemoveDocumentByCodeRequest
-
-	// OrderRemoveDocumentByCodeExecute executes the request
-	//  @return map[string]interface{}
-	OrderRemoveDocumentByCodeExecute(r OrderAPIOrderRemoveDocumentByCodeRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	PrintOrdersLabels Print Orders Labels
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIPrintOrdersLabelsRequest
-	*/
-	PrintOrdersLabels(ctx context.Context) OrderAPIPrintOrdersLabelsRequest
-
-	// PrintOrdersLabelsExecute executes the request
-	//  @return OrderPrintOrdersLabelsResponse
-	PrintOrdersLabelsExecute(r OrderAPIPrintOrdersLabelsRequest) (*OrderPrintOrdersLabelsResponse, *http.Response, error)
-
-	/*
-	QuashFulfillment Quash Fulfillment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIQuashFulfillmentRequest
-	*/
-	QuashFulfillment(ctx context.Context) OrderAPIQuashFulfillmentRequest
-
-	// QuashFulfillmentExecute executes the request
-	//  @return map[string]interface{}
-	QuashFulfillmentExecute(r OrderAPIQuashFulfillmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	QuashShipment Quash Shipment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIQuashShipmentRequest
-	*/
-	QuashShipment(ctx context.Context) OrderAPIQuashShipmentRequest
-
-	// QuashShipmentExecute executes the request
-	//  @return map[string]interface{}
-	QuashShipmentExecute(r OrderAPIQuashShipmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ReceiveFulfillment Receive Fulfillment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIReceiveFulfillmentRequest
-	*/
-	ReceiveFulfillment(ctx context.Context) OrderAPIReceiveFulfillmentRequest
-
-	// ReceiveFulfillmentExecute executes the request
-	//  @return map[string]interface{}
-	ReceiveFulfillmentExecute(r OrderAPIReceiveFulfillmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ReportFulfillmentError Report Fulfillment Error
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIReportFulfillmentErrorRequest
-	*/
-	ReportFulfillmentError(ctx context.Context) OrderAPIReportFulfillmentErrorRequest
-
-	// ReportFulfillmentErrorExecute executes the request
-	//  @return map[string]interface{}
-	ReportFulfillmentErrorExecute(r OrderAPIReportFulfillmentErrorRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ReportFulfillmentNotResolvable Report Fulfillment Not Resolvable
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIReportFulfillmentNotResolvableRequest
-	*/
-	ReportFulfillmentNotResolvable(ctx context.Context) OrderAPIReportFulfillmentNotResolvableRequest
-
-	// ReportFulfillmentNotResolvableExecute executes the request
-	//  @return map[string]interface{}
-	ReportFulfillmentNotResolvableExecute(r OrderAPIReportFulfillmentNotResolvableRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ReportFulfillmentReady Report Fulfillment Ready
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIReportFulfillmentReadyRequest
-	*/
-	ReportFulfillmentReady(ctx context.Context) OrderAPIReportFulfillmentReadyRequest
-
-	// ReportFulfillmentReadyExecute executes the request
-	//  @return map[string]interface{}
-	ReportFulfillmentReadyExecute(r OrderAPIReportFulfillmentReadyRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ReportShipmentDelivery Report Shipment Delivery
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIReportShipmentDeliveryRequest
-	*/
-	ReportShipmentDelivery(ctx context.Context) OrderAPIReportShipmentDeliveryRequest
-
-	// ReportShipmentDeliveryExecute executes the request
-	//  @return map[string]interface{}
-	ReportShipmentDeliveryExecute(r OrderAPIReportShipmentDeliveryRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ReportShipmentMissingStock Report Shipment Missing Stock
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIReportShipmentMissingStockRequest
-	*/
-	ReportShipmentMissingStock(ctx context.Context) OrderAPIReportShipmentMissingStockRequest
-
-	// ReportShipmentMissingStockExecute executes the request
-	//  @return map[string]interface{}
-	ReportShipmentMissingStockExecute(r OrderAPIReportShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	ResolveShipmentMissingStock Resolve Shipment Missing Stock
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIResolveShipmentMissingStockRequest
-	*/
-	ResolveShipmentMissingStock(ctx context.Context) OrderAPIResolveShipmentMissingStockRequest
-
-	// ResolveShipmentMissingStockExecute executes the request
-	//  @return map[string]interface{}
-	ResolveShipmentMissingStockExecute(r OrderAPIResolveShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	RetryFulfillment Retry Fulfillment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIRetryFulfillmentRequest
-	*/
-	RetryFulfillment(ctx context.Context) OrderAPIRetryFulfillmentRequest
-
-	// RetryFulfillmentExecute executes the request
-	//  @return map[string]interface{}
-	RetryFulfillmentExecute(r OrderAPIRetryFulfillmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	SearchOrders Search Orders
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPISearchOrdersRequest
-	*/
-	SearchOrders(ctx context.Context) OrderAPISearchOrdersRequest
-
-	// SearchOrdersExecute executes the request
-	//  @return OrderSearchOrdersResponse
-	SearchOrdersExecute(r OrderAPISearchOrdersRequest) (*OrderSearchOrdersResponse, *http.Response, error)
-
-	/*
-	SendFulfillment Send Fulfillment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPISendFulfillmentRequest
-	*/
-	SendFulfillment(ctx context.Context) OrderAPISendFulfillmentRequest
-
-	// SendFulfillmentExecute executes the request
-	//  @return map[string]interface{}
-	SendFulfillmentExecute(r OrderAPISendFulfillmentRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	SendOrderNotification Send Order Notification
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPISendOrderNotificationRequest
-	*/
-	SendOrderNotification(ctx context.Context) OrderAPISendOrderNotificationRequest
-
-	// SendOrderNotificationExecute executes the request
-	//  @return map[string]interface{}
-	SendOrderNotificationExecute(r OrderAPISendOrderNotificationRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	StartFulfillmentProcessing Start Fulfillment Processing
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIStartFulfillmentProcessingRequest
-	*/
-	StartFulfillmentProcessing(ctx context.Context) OrderAPIStartFulfillmentProcessingRequest
-
-	// StartFulfillmentProcessingExecute executes the request
-	//  @return map[string]interface{}
-	StartFulfillmentProcessingExecute(r OrderAPIStartFulfillmentProcessingRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	StartShipmentProcessing Start Shipment Processing
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIStartShipmentProcessingRequest
-	*/
-	StartShipmentProcessing(ctx context.Context) OrderAPIStartShipmentProcessingRequest
-
-	// StartShipmentProcessingExecute executes the request
-	//  @return map[string]interface{}
-	StartShipmentProcessingExecute(r OrderAPIStartShipmentProcessingRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	UnholdOrder Unhold Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIUnholdOrderRequest
-	*/
-	UnholdOrder(ctx context.Context) OrderAPIUnholdOrderRequest
-
-	// UnholdOrderExecute executes the request
-	//  @return map[string]interface{}
-	UnholdOrderExecute(r OrderAPIUnholdOrderRequest) (map[string]interface{}, *http.Response, error)
-
-	/*
-	UpdateOrder Update Order
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIUpdateOrderRequest
-	*/
-	UpdateOrder(ctx context.Context) OrderAPIUpdateOrderRequest
-
-	// UpdateOrderExecute executes the request
-	//  @return OrderOrderData
-	UpdateOrderExecute(r OrderAPIUpdateOrderRequest) (*OrderOrderData, *http.Response, error)
-
-	/*
-	UpdatePayment Update Payment
-
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return OrderAPIUpdatePaymentRequest
-	*/
-	UpdatePayment(ctx context.Context) OrderAPIUpdatePaymentRequest
-
-	// UpdatePaymentExecute executes the request
-	//  @return OrderPayment
-	UpdatePaymentExecute(r OrderAPIUpdatePaymentRequest) (*OrderPayment, *http.Response, error)
-}
-
 // OrderAPIService OrderAPI service
 type OrderAPIService service
 
-type OrderAPIApproveOrderRequest struct {
+type ApiApproveOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderApproveOrderRequest
 }
 
-func (r OrderAPIApproveOrderRequest) Body(body OrderApproveOrderRequest) OrderAPIApproveOrderRequest {
+func (r ApiApproveOrderRequest) Body(body OrderApproveOrderRequest) ApiApproveOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIApproveOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiApproveOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ApproveOrderExecute(r)
 }
 
@@ -657,10 +42,10 @@ func (r OrderAPIApproveOrderRequest) Execute() (map[string]interface{}, *http.Re
 ApproveOrder Approve Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIApproveOrderRequest
+ @return ApiApproveOrderRequest
 */
-func (a *OrderAPIService) ApproveOrder(ctx context.Context) OrderAPIApproveOrderRequest {
-	return OrderAPIApproveOrderRequest{
+func (a *OrderAPIService) ApproveOrder(ctx context.Context) ApiApproveOrderRequest {
+	return ApiApproveOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -668,7 +53,7 @@ func (a *OrderAPIService) ApproveOrder(ctx context.Context) OrderAPIApproveOrder
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ApproveOrderExecute(r OrderAPIApproveOrderRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ApproveOrderExecute(r ApiApproveOrderRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -790,18 +175,18 @@ func (a *OrderAPIService) ApproveOrderExecute(r OrderAPIApproveOrderRequest) (ma
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIAssignShipmentRequest struct {
+type ApiAssignShipmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderAssignShipmentRequest
 }
 
-func (r OrderAPIAssignShipmentRequest) Body(body OrderAssignShipmentRequest) OrderAPIAssignShipmentRequest {
+func (r ApiAssignShipmentRequest) Body(body OrderAssignShipmentRequest) ApiAssignShipmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIAssignShipmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiAssignShipmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.AssignShipmentExecute(r)
 }
 
@@ -809,10 +194,10 @@ func (r OrderAPIAssignShipmentRequest) Execute() (map[string]interface{}, *http.
 AssignShipment Assign Shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIAssignShipmentRequest
+ @return ApiAssignShipmentRequest
 */
-func (a *OrderAPIService) AssignShipment(ctx context.Context) OrderAPIAssignShipmentRequest {
-	return OrderAPIAssignShipmentRequest{
+func (a *OrderAPIService) AssignShipment(ctx context.Context) ApiAssignShipmentRequest {
+	return ApiAssignShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -820,7 +205,7 @@ func (a *OrderAPIService) AssignShipment(ctx context.Context) OrderAPIAssignShip
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) AssignShipmentExecute(r OrderAPIAssignShipmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) AssignShipmentExecute(r ApiAssignShipmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -942,18 +327,18 @@ func (a *OrderAPIService) AssignShipmentExecute(r OrderAPIAssignShipmentRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICalculateRefundRequest struct {
+type ApiCalculateRefundRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCalculateRefundRequest
 }
 
-func (r OrderAPICalculateRefundRequest) Body(body OrderCalculateRefundRequest) OrderAPICalculateRefundRequest {
+func (r ApiCalculateRefundRequest) Body(body OrderCalculateRefundRequest) ApiCalculateRefundRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICalculateRefundRequest) Execute() (*OrderCalculateRefundResponse, *http.Response, error) {
+func (r ApiCalculateRefundRequest) Execute() (*OrderCalculateRefundResponse, *http.Response, error) {
 	return r.ApiService.CalculateRefundExecute(r)
 }
 
@@ -961,10 +346,10 @@ func (r OrderAPICalculateRefundRequest) Execute() (*OrderCalculateRefundResponse
 CalculateRefund Calculate Refund
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICalculateRefundRequest
+ @return ApiCalculateRefundRequest
 */
-func (a *OrderAPIService) CalculateRefund(ctx context.Context) OrderAPICalculateRefundRequest {
-	return OrderAPICalculateRefundRequest{
+func (a *OrderAPIService) CalculateRefund(ctx context.Context) ApiCalculateRefundRequest {
+	return ApiCalculateRefundRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -972,7 +357,7 @@ func (a *OrderAPIService) CalculateRefund(ctx context.Context) OrderAPICalculate
 
 // Execute executes the request
 //  @return OrderCalculateRefundResponse
-func (a *OrderAPIService) CalculateRefundExecute(r OrderAPICalculateRefundRequest) (*OrderCalculateRefundResponse, *http.Response, error) {
+func (a *OrderAPIService) CalculateRefundExecute(r ApiCalculateRefundRequest) (*OrderCalculateRefundResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1094,18 +479,18 @@ func (a *OrderAPIService) CalculateRefundExecute(r OrderAPICalculateRefundReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICancelFulfillmentRequest struct {
+type ApiCancelFulfillmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCancelFulfillmentRequest
 }
 
-func (r OrderAPICancelFulfillmentRequest) Body(body OrderCancelFulfillmentRequest) OrderAPICancelFulfillmentRequest {
+func (r ApiCancelFulfillmentRequest) Body(body OrderCancelFulfillmentRequest) ApiCancelFulfillmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICancelFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiCancelFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.CancelFulfillmentExecute(r)
 }
 
@@ -1113,10 +498,10 @@ func (r OrderAPICancelFulfillmentRequest) Execute() (map[string]interface{}, *ht
 CancelFulfillment Cancel Fulfillment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICancelFulfillmentRequest
+ @return ApiCancelFulfillmentRequest
 */
-func (a *OrderAPIService) CancelFulfillment(ctx context.Context) OrderAPICancelFulfillmentRequest {
-	return OrderAPICancelFulfillmentRequest{
+func (a *OrderAPIService) CancelFulfillment(ctx context.Context) ApiCancelFulfillmentRequest {
+	return ApiCancelFulfillmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1124,7 +509,7 @@ func (a *OrderAPIService) CancelFulfillment(ctx context.Context) OrderAPICancelF
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) CancelFulfillmentExecute(r OrderAPICancelFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) CancelFulfillmentExecute(r ApiCancelFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1246,18 +631,18 @@ func (a *OrderAPIService) CancelFulfillmentExecute(r OrderAPICancelFulfillmentRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICancelOrderRequest struct {
+type ApiCancelOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCancelOrderRequest
 }
 
-func (r OrderAPICancelOrderRequest) Body(body OrderCancelOrderRequest) OrderAPICancelOrderRequest {
+func (r ApiCancelOrderRequest) Body(body OrderCancelOrderRequest) ApiCancelOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICancelOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiCancelOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.CancelOrderExecute(r)
 }
 
@@ -1265,10 +650,10 @@ func (r OrderAPICancelOrderRequest) Execute() (map[string]interface{}, *http.Res
 CancelOrder Cancel Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICancelOrderRequest
+ @return ApiCancelOrderRequest
 */
-func (a *OrderAPIService) CancelOrder(ctx context.Context) OrderAPICancelOrderRequest {
-	return OrderAPICancelOrderRequest{
+func (a *OrderAPIService) CancelOrder(ctx context.Context) ApiCancelOrderRequest {
+	return ApiCancelOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1276,7 +661,7 @@ func (a *OrderAPIService) CancelOrder(ctx context.Context) OrderAPICancelOrderRe
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) CancelOrderExecute(r OrderAPICancelOrderRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) CancelOrderExecute(r ApiCancelOrderRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1398,18 +783,18 @@ func (a *OrderAPIService) CancelOrderExecute(r OrderAPICancelOrderRequest) (map[
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICancelShipmentRequest struct {
+type ApiCancelShipmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCancelShipmentRequest
 }
 
-func (r OrderAPICancelShipmentRequest) Body(body OrderCancelShipmentRequest) OrderAPICancelShipmentRequest {
+func (r ApiCancelShipmentRequest) Body(body OrderCancelShipmentRequest) ApiCancelShipmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICancelShipmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiCancelShipmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.CancelShipmentExecute(r)
 }
 
@@ -1417,10 +802,10 @@ func (r OrderAPICancelShipmentRequest) Execute() (map[string]interface{}, *http.
 CancelShipment Cancel Shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICancelShipmentRequest
+ @return ApiCancelShipmentRequest
 */
-func (a *OrderAPIService) CancelShipment(ctx context.Context) OrderAPICancelShipmentRequest {
-	return OrderAPICancelShipmentRequest{
+func (a *OrderAPIService) CancelShipment(ctx context.Context) ApiCancelShipmentRequest {
+	return ApiCancelShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1428,7 +813,7 @@ func (a *OrderAPIService) CancelShipment(ctx context.Context) OrderAPICancelShip
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) CancelShipmentExecute(r OrderAPICancelShipmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) CancelShipmentExecute(r ApiCancelShipmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1550,18 +935,18 @@ func (a *OrderAPIService) CancelShipmentExecute(r OrderAPICancelShipmentRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICompleteShipmentPackingRequest struct {
+type ApiCompleteShipmentPackingRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCompleteShipmentPackingRequest
 }
 
-func (r OrderAPICompleteShipmentPackingRequest) Body(body OrderCompleteShipmentPackingRequest) OrderAPICompleteShipmentPackingRequest {
+func (r ApiCompleteShipmentPackingRequest) Body(body OrderCompleteShipmentPackingRequest) ApiCompleteShipmentPackingRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICompleteShipmentPackingRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiCompleteShipmentPackingRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.CompleteShipmentPackingExecute(r)
 }
 
@@ -1569,10 +954,10 @@ func (r OrderAPICompleteShipmentPackingRequest) Execute() (map[string]interface{
 CompleteShipmentPacking Complete Shipment Packing
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICompleteShipmentPackingRequest
+ @return ApiCompleteShipmentPackingRequest
 */
-func (a *OrderAPIService) CompleteShipmentPacking(ctx context.Context) OrderAPICompleteShipmentPackingRequest {
-	return OrderAPICompleteShipmentPackingRequest{
+func (a *OrderAPIService) CompleteShipmentPacking(ctx context.Context) ApiCompleteShipmentPackingRequest {
+	return ApiCompleteShipmentPackingRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1580,7 +965,7 @@ func (a *OrderAPIService) CompleteShipmentPacking(ctx context.Context) OrderAPIC
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) CompleteShipmentPackingExecute(r OrderAPICompleteShipmentPackingRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) CompleteShipmentPackingExecute(r ApiCompleteShipmentPackingRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1702,18 +1087,18 @@ func (a *OrderAPIService) CompleteShipmentPackingExecute(r OrderAPICompleteShipm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreateFulfillmentRequest struct {
+type ApiCreateFulfillmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreateFulfillmentRequest
 }
 
-func (r OrderAPICreateFulfillmentRequest) Body(body OrderCreateFulfillmentRequest) OrderAPICreateFulfillmentRequest {
+func (r ApiCreateFulfillmentRequest) Body(body OrderCreateFulfillmentRequest) ApiCreateFulfillmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreateFulfillmentRequest) Execute() (*OrderFulfillment, *http.Response, error) {
+func (r ApiCreateFulfillmentRequest) Execute() (*OrderFulfillment, *http.Response, error) {
 	return r.ApiService.CreateFulfillmentExecute(r)
 }
 
@@ -1721,10 +1106,10 @@ func (r OrderAPICreateFulfillmentRequest) Execute() (*OrderFulfillment, *http.Re
 CreateFulfillment Create Fulfillment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreateFulfillmentRequest
+ @return ApiCreateFulfillmentRequest
 */
-func (a *OrderAPIService) CreateFulfillment(ctx context.Context) OrderAPICreateFulfillmentRequest {
-	return OrderAPICreateFulfillmentRequest{
+func (a *OrderAPIService) CreateFulfillment(ctx context.Context) ApiCreateFulfillmentRequest {
+	return ApiCreateFulfillmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1732,7 +1117,7 @@ func (a *OrderAPIService) CreateFulfillment(ctx context.Context) OrderAPICreateF
 
 // Execute executes the request
 //  @return OrderFulfillment
-func (a *OrderAPIService) CreateFulfillmentExecute(r OrderAPICreateFulfillmentRequest) (*OrderFulfillment, *http.Response, error) {
+func (a *OrderAPIService) CreateFulfillmentExecute(r ApiCreateFulfillmentRequest) (*OrderFulfillment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1854,18 +1239,18 @@ func (a *OrderAPIService) CreateFulfillmentExecute(r OrderAPICreateFulfillmentRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreateOrderRequest struct {
+type ApiCreateOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreateOrderRequest
 }
 
-func (r OrderAPICreateOrderRequest) Body(body OrderCreateOrderRequest) OrderAPICreateOrderRequest {
+func (r ApiCreateOrderRequest) Body(body OrderCreateOrderRequest) ApiCreateOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreateOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
+func (r ApiCreateOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
 	return r.ApiService.CreateOrderExecute(r)
 }
 
@@ -1873,10 +1258,10 @@ func (r OrderAPICreateOrderRequest) Execute() (*OrderOrderData, *http.Response, 
 CreateOrder Create Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreateOrderRequest
+ @return ApiCreateOrderRequest
 */
-func (a *OrderAPIService) CreateOrder(ctx context.Context) OrderAPICreateOrderRequest {
-	return OrderAPICreateOrderRequest{
+func (a *OrderAPIService) CreateOrder(ctx context.Context) ApiCreateOrderRequest {
+	return ApiCreateOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1884,7 +1269,7 @@ func (a *OrderAPIService) CreateOrder(ctx context.Context) OrderAPICreateOrderRe
 
 // Execute executes the request
 //  @return OrderOrderData
-func (a *OrderAPIService) CreateOrderExecute(r OrderAPICreateOrderRequest) (*OrderOrderData, *http.Response, error) {
+func (a *OrderAPIService) CreateOrderExecute(r ApiCreateOrderRequest) (*OrderOrderData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2006,18 +1391,18 @@ func (a *OrderAPIService) CreateOrderExecute(r OrderAPICreateOrderRequest) (*Ord
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreateOrderHistoryRequest struct {
+type ApiCreateOrderHistoryRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreateHistoryRequest
 }
 
-func (r OrderAPICreateOrderHistoryRequest) Body(body OrderCreateHistoryRequest) OrderAPICreateOrderHistoryRequest {
+func (r ApiCreateOrderHistoryRequest) Body(body OrderCreateHistoryRequest) ApiCreateOrderHistoryRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreateOrderHistoryRequest) Execute() (*OrderDataHistory, *http.Response, error) {
+func (r ApiCreateOrderHistoryRequest) Execute() (*OrderDataHistory, *http.Response, error) {
 	return r.ApiService.CreateOrderHistoryExecute(r)
 }
 
@@ -2025,10 +1410,10 @@ func (r OrderAPICreateOrderHistoryRequest) Execute() (*OrderDataHistory, *http.R
 CreateOrderHistory Create Order History
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreateOrderHistoryRequest
+ @return ApiCreateOrderHistoryRequest
 */
-func (a *OrderAPIService) CreateOrderHistory(ctx context.Context) OrderAPICreateOrderHistoryRequest {
-	return OrderAPICreateOrderHistoryRequest{
+func (a *OrderAPIService) CreateOrderHistory(ctx context.Context) ApiCreateOrderHistoryRequest {
+	return ApiCreateOrderHistoryRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2036,7 +1421,7 @@ func (a *OrderAPIService) CreateOrderHistory(ctx context.Context) OrderAPICreate
 
 // Execute executes the request
 //  @return OrderDataHistory
-func (a *OrderAPIService) CreateOrderHistoryExecute(r OrderAPICreateOrderHistoryRequest) (*OrderDataHistory, *http.Response, error) {
+func (a *OrderAPIService) CreateOrderHistoryExecute(r ApiCreateOrderHistoryRequest) (*OrderDataHistory, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2158,18 +1543,18 @@ func (a *OrderAPIService) CreateOrderHistoryExecute(r OrderAPICreateOrderHistory
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreatePaymentRequest struct {
+type ApiCreatePaymentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreatePaymentRequest
 }
 
-func (r OrderAPICreatePaymentRequest) Body(body OrderCreatePaymentRequest) OrderAPICreatePaymentRequest {
+func (r ApiCreatePaymentRequest) Body(body OrderCreatePaymentRequest) ApiCreatePaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreatePaymentRequest) Execute() (*OrderPayment, *http.Response, error) {
+func (r ApiCreatePaymentRequest) Execute() (*OrderPayment, *http.Response, error) {
 	return r.ApiService.CreatePaymentExecute(r)
 }
 
@@ -2177,10 +1562,10 @@ func (r OrderAPICreatePaymentRequest) Execute() (*OrderPayment, *http.Response, 
 CreatePayment Create Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreatePaymentRequest
+ @return ApiCreatePaymentRequest
 */
-func (a *OrderAPIService) CreatePayment(ctx context.Context) OrderAPICreatePaymentRequest {
-	return OrderAPICreatePaymentRequest{
+func (a *OrderAPIService) CreatePayment(ctx context.Context) ApiCreatePaymentRequest {
+	return ApiCreatePaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2188,7 +1573,7 @@ func (a *OrderAPIService) CreatePayment(ctx context.Context) OrderAPICreatePayme
 
 // Execute executes the request
 //  @return OrderPayment
-func (a *OrderAPIService) CreatePaymentExecute(r OrderAPICreatePaymentRequest) (*OrderPayment, *http.Response, error) {
+func (a *OrderAPIService) CreatePaymentExecute(r ApiCreatePaymentRequest) (*OrderPayment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2310,18 +1695,18 @@ func (a *OrderAPIService) CreatePaymentExecute(r OrderAPICreatePaymentRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreatePaymentTransactionRequest struct {
+type ApiCreatePaymentTransactionRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreatePaymentTransactionRequest
 }
 
-func (r OrderAPICreatePaymentTransactionRequest) Body(body OrderCreatePaymentTransactionRequest) OrderAPICreatePaymentTransactionRequest {
+func (r ApiCreatePaymentTransactionRequest) Body(body OrderCreatePaymentTransactionRequest) ApiCreatePaymentTransactionRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreatePaymentTransactionRequest) Execute() (*OrderTransaction, *http.Response, error) {
+func (r ApiCreatePaymentTransactionRequest) Execute() (*OrderTransaction, *http.Response, error) {
 	return r.ApiService.CreatePaymentTransactionExecute(r)
 }
 
@@ -2329,10 +1714,10 @@ func (r OrderAPICreatePaymentTransactionRequest) Execute() (*OrderTransaction, *
 CreatePaymentTransaction Create Payment Transaction
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreatePaymentTransactionRequest
+ @return ApiCreatePaymentTransactionRequest
 */
-func (a *OrderAPIService) CreatePaymentTransaction(ctx context.Context) OrderAPICreatePaymentTransactionRequest {
-	return OrderAPICreatePaymentTransactionRequest{
+func (a *OrderAPIService) CreatePaymentTransaction(ctx context.Context) ApiCreatePaymentTransactionRequest {
+	return ApiCreatePaymentTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2340,7 +1725,7 @@ func (a *OrderAPIService) CreatePaymentTransaction(ctx context.Context) OrderAPI
 
 // Execute executes the request
 //  @return OrderTransaction
-func (a *OrderAPIService) CreatePaymentTransactionExecute(r OrderAPICreatePaymentTransactionRequest) (*OrderTransaction, *http.Response, error) {
+func (a *OrderAPIService) CreatePaymentTransactionExecute(r ApiCreatePaymentTransactionRequest) (*OrderTransaction, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2462,18 +1847,18 @@ func (a *OrderAPIService) CreatePaymentTransactionExecute(r OrderAPICreatePaymen
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreateRefundRequest struct {
+type ApiCreateRefundRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreateRefundRequest
 }
 
-func (r OrderAPICreateRefundRequest) Body(body OrderCreateRefundRequest) OrderAPICreateRefundRequest {
+func (r ApiCreateRefundRequest) Body(body OrderCreateRefundRequest) ApiCreateRefundRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreateRefundRequest) Execute() (*OrderRefund, *http.Response, error) {
+func (r ApiCreateRefundRequest) Execute() (*OrderRefund, *http.Response, error) {
 	return r.ApiService.CreateRefundExecute(r)
 }
 
@@ -2481,10 +1866,10 @@ func (r OrderAPICreateRefundRequest) Execute() (*OrderRefund, *http.Response, er
 CreateRefund Create Refund
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreateRefundRequest
+ @return ApiCreateRefundRequest
 */
-func (a *OrderAPIService) CreateRefund(ctx context.Context) OrderAPICreateRefundRequest {
-	return OrderAPICreateRefundRequest{
+func (a *OrderAPIService) CreateRefund(ctx context.Context) ApiCreateRefundRequest {
+	return ApiCreateRefundRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2492,7 +1877,7 @@ func (a *OrderAPIService) CreateRefund(ctx context.Context) OrderAPICreateRefund
 
 // Execute executes the request
 //  @return OrderRefund
-func (a *OrderAPIService) CreateRefundExecute(r OrderAPICreateRefundRequest) (*OrderRefund, *http.Response, error) {
+func (a *OrderAPIService) CreateRefundExecute(r ApiCreateRefundRequest) (*OrderRefund, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2614,18 +1999,18 @@ func (a *OrderAPIService) CreateRefundExecute(r OrderAPICreateRefundRequest) (*O
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreateRefundTransactionRequest struct {
+type ApiCreateRefundTransactionRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreateRefundTransactionRequest
 }
 
-func (r OrderAPICreateRefundTransactionRequest) Body(body OrderCreateRefundTransactionRequest) OrderAPICreateRefundTransactionRequest {
+func (r ApiCreateRefundTransactionRequest) Body(body OrderCreateRefundTransactionRequest) ApiCreateRefundTransactionRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreateRefundTransactionRequest) Execute() (*OrderTransaction, *http.Response, error) {
+func (r ApiCreateRefundTransactionRequest) Execute() (*OrderTransaction, *http.Response, error) {
 	return r.ApiService.CreateRefundTransactionExecute(r)
 }
 
@@ -2633,10 +2018,10 @@ func (r OrderAPICreateRefundTransactionRequest) Execute() (*OrderTransaction, *h
 CreateRefundTransaction Create Refund Transaction
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreateRefundTransactionRequest
+ @return ApiCreateRefundTransactionRequest
 */
-func (a *OrderAPIService) CreateRefundTransaction(ctx context.Context) OrderAPICreateRefundTransactionRequest {
-	return OrderAPICreateRefundTransactionRequest{
+func (a *OrderAPIService) CreateRefundTransaction(ctx context.Context) ApiCreateRefundTransactionRequest {
+	return ApiCreateRefundTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2644,7 +2029,7 @@ func (a *OrderAPIService) CreateRefundTransaction(ctx context.Context) OrderAPIC
 
 // Execute executes the request
 //  @return OrderTransaction
-func (a *OrderAPIService) CreateRefundTransactionExecute(r OrderAPICreateRefundTransactionRequest) (*OrderTransaction, *http.Response, error) {
+func (a *OrderAPIService) CreateRefundTransactionExecute(r ApiCreateRefundTransactionRequest) (*OrderTransaction, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2766,18 +2151,18 @@ func (a *OrderAPIService) CreateRefundTransactionExecute(r OrderAPICreateRefundT
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPICreateShipmentRequest struct {
+type ApiCreateShipmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderCreateShipmentRequest
 }
 
-func (r OrderAPICreateShipmentRequest) Body(body OrderCreateShipmentRequest) OrderAPICreateShipmentRequest {
+func (r ApiCreateShipmentRequest) Body(body OrderCreateShipmentRequest) ApiCreateShipmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPICreateShipmentRequest) Execute() (*OrderShipment, *http.Response, error) {
+func (r ApiCreateShipmentRequest) Execute() (*OrderShipment, *http.Response, error) {
 	return r.ApiService.CreateShipmentExecute(r)
 }
 
@@ -2785,10 +2170,10 @@ func (r OrderAPICreateShipmentRequest) Execute() (*OrderShipment, *http.Response
 CreateShipment Create Shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPICreateShipmentRequest
+ @return ApiCreateShipmentRequest
 */
-func (a *OrderAPIService) CreateShipment(ctx context.Context) OrderAPICreateShipmentRequest {
-	return OrderAPICreateShipmentRequest{
+func (a *OrderAPIService) CreateShipment(ctx context.Context) ApiCreateShipmentRequest {
+	return ApiCreateShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2796,7 +2181,7 @@ func (a *OrderAPIService) CreateShipment(ctx context.Context) OrderAPICreateShip
 
 // Execute executes the request
 //  @return OrderShipment
-func (a *OrderAPIService) CreateShipmentExecute(r OrderAPICreateShipmentRequest) (*OrderShipment, *http.Response, error) {
+func (a *OrderAPIService) CreateShipmentExecute(r ApiCreateShipmentRequest) (*OrderShipment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2918,18 +2303,18 @@ func (a *OrderAPIService) CreateShipmentExecute(r OrderAPICreateShipmentRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIDeleteOrderRequest struct {
+type ApiDeleteOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderDeleteOrderRequest
 }
 
-func (r OrderAPIDeleteOrderRequest) Body(body OrderDeleteOrderRequest) OrderAPIDeleteOrderRequest {
+func (r ApiDeleteOrderRequest) Body(body OrderDeleteOrderRequest) ApiDeleteOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIDeleteOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiDeleteOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.DeleteOrderExecute(r)
 }
 
@@ -2937,10 +2322,10 @@ func (r OrderAPIDeleteOrderRequest) Execute() (map[string]interface{}, *http.Res
 DeleteOrder Delete Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIDeleteOrderRequest
+ @return ApiDeleteOrderRequest
 */
-func (a *OrderAPIService) DeleteOrder(ctx context.Context) OrderAPIDeleteOrderRequest {
-	return OrderAPIDeleteOrderRequest{
+func (a *OrderAPIService) DeleteOrder(ctx context.Context) ApiDeleteOrderRequest {
+	return ApiDeleteOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2948,7 +2333,7 @@ func (a *OrderAPIService) DeleteOrder(ctx context.Context) OrderAPIDeleteOrderRe
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) DeleteOrderExecute(r OrderAPIDeleteOrderRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) DeleteOrderExecute(r ApiDeleteOrderRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3070,18 +2455,18 @@ func (a *OrderAPIService) DeleteOrderExecute(r OrderAPIDeleteOrderRequest) (map[
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIGetFulfillmentRequest struct {
+type ApiGetFulfillmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderGetFulfillmentRequest
 }
 
-func (r OrderAPIGetFulfillmentRequest) Body(body OrderGetFulfillmentRequest) OrderAPIGetFulfillmentRequest {
+func (r ApiGetFulfillmentRequest) Body(body OrderGetFulfillmentRequest) ApiGetFulfillmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIGetFulfillmentRequest) Execute() (*OrderFulfillment, *http.Response, error) {
+func (r ApiGetFulfillmentRequest) Execute() (*OrderFulfillment, *http.Response, error) {
 	return r.ApiService.GetFulfillmentExecute(r)
 }
 
@@ -3089,10 +2474,10 @@ func (r OrderAPIGetFulfillmentRequest) Execute() (*OrderFulfillment, *http.Respo
 GetFulfillment Get Fulfillment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIGetFulfillmentRequest
+ @return ApiGetFulfillmentRequest
 */
-func (a *OrderAPIService) GetFulfillment(ctx context.Context) OrderAPIGetFulfillmentRequest {
-	return OrderAPIGetFulfillmentRequest{
+func (a *OrderAPIService) GetFulfillment(ctx context.Context) ApiGetFulfillmentRequest {
+	return ApiGetFulfillmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3100,7 +2485,7 @@ func (a *OrderAPIService) GetFulfillment(ctx context.Context) OrderAPIGetFulfill
 
 // Execute executes the request
 //  @return OrderFulfillment
-func (a *OrderAPIService) GetFulfillmentExecute(r OrderAPIGetFulfillmentRequest) (*OrderFulfillment, *http.Response, error) {
+func (a *OrderAPIService) GetFulfillmentExecute(r ApiGetFulfillmentRequest) (*OrderFulfillment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3222,18 +2607,18 @@ func (a *OrderAPIService) GetFulfillmentExecute(r OrderAPIGetFulfillmentRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIGetOrderRequest struct {
+type ApiGetOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderGetOrderRequest
 }
 
-func (r OrderAPIGetOrderRequest) Body(body OrderGetOrderRequest) OrderAPIGetOrderRequest {
+func (r ApiGetOrderRequest) Body(body OrderGetOrderRequest) ApiGetOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIGetOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
+func (r ApiGetOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
 	return r.ApiService.GetOrderExecute(r)
 }
 
@@ -3241,10 +2626,10 @@ func (r OrderAPIGetOrderRequest) Execute() (*OrderOrderData, *http.Response, err
 GetOrder Get Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIGetOrderRequest
+ @return ApiGetOrderRequest
 */
-func (a *OrderAPIService) GetOrder(ctx context.Context) OrderAPIGetOrderRequest {
-	return OrderAPIGetOrderRequest{
+func (a *OrderAPIService) GetOrder(ctx context.Context) ApiGetOrderRequest {
+	return ApiGetOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3252,7 +2637,7 @@ func (a *OrderAPIService) GetOrder(ctx context.Context) OrderAPIGetOrderRequest 
 
 // Execute executes the request
 //  @return OrderOrderData
-func (a *OrderAPIService) GetOrderExecute(r OrderAPIGetOrderRequest) (*OrderOrderData, *http.Response, error) {
+func (a *OrderAPIService) GetOrderExecute(r ApiGetOrderRequest) (*OrderOrderData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3374,18 +2759,18 @@ func (a *OrderAPIService) GetOrderExecute(r OrderAPIGetOrderRequest) (*OrderOrde
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIGetOrderByCartIdRequest struct {
+type ApiGetOrderByCartIdRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderGetOrderByCartIdRequest
 }
 
-func (r OrderAPIGetOrderByCartIdRequest) Body(body OrderGetOrderByCartIdRequest) OrderAPIGetOrderByCartIdRequest {
+func (r ApiGetOrderByCartIdRequest) Body(body OrderGetOrderByCartIdRequest) ApiGetOrderByCartIdRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIGetOrderByCartIdRequest) Execute() (*OrderOrderData, *http.Response, error) {
+func (r ApiGetOrderByCartIdRequest) Execute() (*OrderOrderData, *http.Response, error) {
 	return r.ApiService.GetOrderByCartIdExecute(r)
 }
 
@@ -3393,10 +2778,10 @@ func (r OrderAPIGetOrderByCartIdRequest) Execute() (*OrderOrderData, *http.Respo
 GetOrderByCartId Get Order by Cart ID
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIGetOrderByCartIdRequest
+ @return ApiGetOrderByCartIdRequest
 */
-func (a *OrderAPIService) GetOrderByCartId(ctx context.Context) OrderAPIGetOrderByCartIdRequest {
-	return OrderAPIGetOrderByCartIdRequest{
+func (a *OrderAPIService) GetOrderByCartId(ctx context.Context) ApiGetOrderByCartIdRequest {
+	return ApiGetOrderByCartIdRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3404,7 +2789,7 @@ func (a *OrderAPIService) GetOrderByCartId(ctx context.Context) OrderAPIGetOrder
 
 // Execute executes the request
 //  @return OrderOrderData
-func (a *OrderAPIService) GetOrderByCartIdExecute(r OrderAPIGetOrderByCartIdRequest) (*OrderOrderData, *http.Response, error) {
+func (a *OrderAPIService) GetOrderByCartIdExecute(r ApiGetOrderByCartIdRequest) (*OrderOrderData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3526,18 +2911,18 @@ func (a *OrderAPIService) GetOrderByCartIdExecute(r OrderAPIGetOrderByCartIdRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIGetOrderByOrderNumberRequest struct {
+type ApiGetOrderByOrderNumberRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderGetOrderByOrderNumberRequest
 }
 
-func (r OrderAPIGetOrderByOrderNumberRequest) Body(body OrderGetOrderByOrderNumberRequest) OrderAPIGetOrderByOrderNumberRequest {
+func (r ApiGetOrderByOrderNumberRequest) Body(body OrderGetOrderByOrderNumberRequest) ApiGetOrderByOrderNumberRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIGetOrderByOrderNumberRequest) Execute() (*OrderOrderData, *http.Response, error) {
+func (r ApiGetOrderByOrderNumberRequest) Execute() (*OrderOrderData, *http.Response, error) {
 	return r.ApiService.GetOrderByOrderNumberExecute(r)
 }
 
@@ -3545,10 +2930,10 @@ func (r OrderAPIGetOrderByOrderNumberRequest) Execute() (*OrderOrderData, *http.
 GetOrderByOrderNumber Get Order by Order Number
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIGetOrderByOrderNumberRequest
+ @return ApiGetOrderByOrderNumberRequest
 */
-func (a *OrderAPIService) GetOrderByOrderNumber(ctx context.Context) OrderAPIGetOrderByOrderNumberRequest {
-	return OrderAPIGetOrderByOrderNumberRequest{
+func (a *OrderAPIService) GetOrderByOrderNumber(ctx context.Context) ApiGetOrderByOrderNumberRequest {
+	return ApiGetOrderByOrderNumberRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3556,7 +2941,7 @@ func (a *OrderAPIService) GetOrderByOrderNumber(ctx context.Context) OrderAPIGet
 
 // Execute executes the request
 //  @return OrderOrderData
-func (a *OrderAPIService) GetOrderByOrderNumberExecute(r OrderAPIGetOrderByOrderNumberRequest) (*OrderOrderData, *http.Response, error) {
+func (a *OrderAPIService) GetOrderByOrderNumberExecute(r ApiGetOrderByOrderNumberRequest) (*OrderOrderData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3678,18 +3063,18 @@ func (a *OrderAPIService) GetOrderByOrderNumberExecute(r OrderAPIGetOrderByOrder
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIGetPaymentRequest struct {
+type ApiGetPaymentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderGetPaymentRequest
 }
 
-func (r OrderAPIGetPaymentRequest) Body(body OrderGetPaymentRequest) OrderAPIGetPaymentRequest {
+func (r ApiGetPaymentRequest) Body(body OrderGetPaymentRequest) ApiGetPaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIGetPaymentRequest) Execute() (*OrderPayment, *http.Response, error) {
+func (r ApiGetPaymentRequest) Execute() (*OrderPayment, *http.Response, error) {
 	return r.ApiService.GetPaymentExecute(r)
 }
 
@@ -3697,10 +3082,10 @@ func (r OrderAPIGetPaymentRequest) Execute() (*OrderPayment, *http.Response, err
 GetPayment Get Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIGetPaymentRequest
+ @return ApiGetPaymentRequest
 */
-func (a *OrderAPIService) GetPayment(ctx context.Context) OrderAPIGetPaymentRequest {
-	return OrderAPIGetPaymentRequest{
+func (a *OrderAPIService) GetPayment(ctx context.Context) ApiGetPaymentRequest {
+	return ApiGetPaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3708,7 +3093,7 @@ func (a *OrderAPIService) GetPayment(ctx context.Context) OrderAPIGetPaymentRequ
 
 // Execute executes the request
 //  @return OrderPayment
-func (a *OrderAPIService) GetPaymentExecute(r OrderAPIGetPaymentRequest) (*OrderPayment, *http.Response, error) {
+func (a *OrderAPIService) GetPaymentExecute(r ApiGetPaymentRequest) (*OrderPayment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3830,18 +3215,18 @@ func (a *OrderAPIService) GetPaymentExecute(r OrderAPIGetPaymentRequest) (*Order
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIGetShipmentRequest struct {
+type ApiGetShipmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderGetShipmentRequest
 }
 
-func (r OrderAPIGetShipmentRequest) Body(body OrderGetShipmentRequest) OrderAPIGetShipmentRequest {
+func (r ApiGetShipmentRequest) Body(body OrderGetShipmentRequest) ApiGetShipmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIGetShipmentRequest) Execute() (*OrderShipment, *http.Response, error) {
+func (r ApiGetShipmentRequest) Execute() (*OrderShipment, *http.Response, error) {
 	return r.ApiService.GetShipmentExecute(r)
 }
 
@@ -3849,10 +3234,10 @@ func (r OrderAPIGetShipmentRequest) Execute() (*OrderShipment, *http.Response, e
 GetShipment Get Shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIGetShipmentRequest
+ @return ApiGetShipmentRequest
 */
-func (a *OrderAPIService) GetShipment(ctx context.Context) OrderAPIGetShipmentRequest {
-	return OrderAPIGetShipmentRequest{
+func (a *OrderAPIService) GetShipment(ctx context.Context) ApiGetShipmentRequest {
+	return ApiGetShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -3860,7 +3245,7 @@ func (a *OrderAPIService) GetShipment(ctx context.Context) OrderAPIGetShipmentRe
 
 // Execute executes the request
 //  @return OrderShipment
-func (a *OrderAPIService) GetShipmentExecute(r OrderAPIGetShipmentRequest) (*OrderShipment, *http.Response, error) {
+func (a *OrderAPIService) GetShipmentExecute(r ApiGetShipmentRequest) (*OrderShipment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3982,18 +3367,18 @@ func (a *OrderAPIService) GetShipmentExecute(r OrderAPIGetShipmentRequest) (*Ord
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIGetTransactionRequest struct {
+type ApiGetTransactionRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderGetTransactionRequest
 }
 
-func (r OrderAPIGetTransactionRequest) Body(body OrderGetTransactionRequest) OrderAPIGetTransactionRequest {
+func (r ApiGetTransactionRequest) Body(body OrderGetTransactionRequest) ApiGetTransactionRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIGetTransactionRequest) Execute() (*OrderTransaction, *http.Response, error) {
+func (r ApiGetTransactionRequest) Execute() (*OrderTransaction, *http.Response, error) {
 	return r.ApiService.GetTransactionExecute(r)
 }
 
@@ -4001,10 +3386,10 @@ func (r OrderAPIGetTransactionRequest) Execute() (*OrderTransaction, *http.Respo
 GetTransaction Get Transaction
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIGetTransactionRequest
+ @return ApiGetTransactionRequest
 */
-func (a *OrderAPIService) GetTransaction(ctx context.Context) OrderAPIGetTransactionRequest {
-	return OrderAPIGetTransactionRequest{
+func (a *OrderAPIService) GetTransaction(ctx context.Context) ApiGetTransactionRequest {
+	return ApiGetTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4012,7 +3397,7 @@ func (a *OrderAPIService) GetTransaction(ctx context.Context) OrderAPIGetTransac
 
 // Execute executes the request
 //  @return OrderTransaction
-func (a *OrderAPIService) GetTransactionExecute(r OrderAPIGetTransactionRequest) (*OrderTransaction, *http.Response, error) {
+func (a *OrderAPIService) GetTransactionExecute(r ApiGetTransactionRequest) (*OrderTransaction, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4134,18 +3519,18 @@ func (a *OrderAPIService) GetTransactionExecute(r OrderAPIGetTransactionRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIHoldOrderRequest struct {
+type ApiHoldOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderHoldOrderRequest
 }
 
-func (r OrderAPIHoldOrderRequest) Body(body OrderHoldOrderRequest) OrderAPIHoldOrderRequest {
+func (r ApiHoldOrderRequest) Body(body OrderHoldOrderRequest) ApiHoldOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIHoldOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiHoldOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.HoldOrderExecute(r)
 }
 
@@ -4153,10 +3538,10 @@ func (r OrderAPIHoldOrderRequest) Execute() (map[string]interface{}, *http.Respo
 HoldOrder Hold Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIHoldOrderRequest
+ @return ApiHoldOrderRequest
 */
-func (a *OrderAPIService) HoldOrder(ctx context.Context) OrderAPIHoldOrderRequest {
-	return OrderAPIHoldOrderRequest{
+func (a *OrderAPIService) HoldOrder(ctx context.Context) ApiHoldOrderRequest {
+	return ApiHoldOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4164,7 +3549,7 @@ func (a *OrderAPIService) HoldOrder(ctx context.Context) OrderAPIHoldOrderReques
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) HoldOrderExecute(r OrderAPIHoldOrderRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) HoldOrderExecute(r ApiHoldOrderRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4286,18 +3671,18 @@ func (a *OrderAPIService) HoldOrderExecute(r OrderAPIHoldOrderRequest) (map[stri
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIImportOrderRequest struct {
+type ApiImportOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderImportOrderRequest
 }
 
-func (r OrderAPIImportOrderRequest) Body(body OrderImportOrderRequest) OrderAPIImportOrderRequest {
+func (r ApiImportOrderRequest) Body(body OrderImportOrderRequest) ApiImportOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIImportOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
+func (r ApiImportOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
 	return r.ApiService.ImportOrderExecute(r)
 }
 
@@ -4305,10 +3690,10 @@ func (r OrderAPIImportOrderRequest) Execute() (*OrderOrderData, *http.Response, 
 ImportOrder Import Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIImportOrderRequest
+ @return ApiImportOrderRequest
 */
-func (a *OrderAPIService) ImportOrder(ctx context.Context) OrderAPIImportOrderRequest {
-	return OrderAPIImportOrderRequest{
+func (a *OrderAPIService) ImportOrder(ctx context.Context) ApiImportOrderRequest {
+	return ApiImportOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4316,7 +3701,7 @@ func (a *OrderAPIService) ImportOrder(ctx context.Context) OrderAPIImportOrderRe
 
 // Execute executes the request
 //  @return OrderOrderData
-func (a *OrderAPIService) ImportOrderExecute(r OrderAPIImportOrderRequest) (*OrderOrderData, *http.Response, error) {
+func (a *OrderAPIService) ImportOrderExecute(r ApiImportOrderRequest) (*OrderOrderData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4438,18 +3823,18 @@ func (a *OrderAPIService) ImportOrderExecute(r OrderAPIImportOrderRequest) (*Ord
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIListFulfillmentsRequest struct {
+type ApiListFulfillmentsRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderListFulfillmentsRequest
 }
 
-func (r OrderAPIListFulfillmentsRequest) Body(body OrderListFulfillmentsRequest) OrderAPIListFulfillmentsRequest {
+func (r ApiListFulfillmentsRequest) Body(body OrderListFulfillmentsRequest) ApiListFulfillmentsRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIListFulfillmentsRequest) Execute() (*OrderListFulfillmentsResponse, *http.Response, error) {
+func (r ApiListFulfillmentsRequest) Execute() (*OrderListFulfillmentsResponse, *http.Response, error) {
 	return r.ApiService.ListFulfillmentsExecute(r)
 }
 
@@ -4457,10 +3842,10 @@ func (r OrderAPIListFulfillmentsRequest) Execute() (*OrderListFulfillmentsRespon
 ListFulfillments List Fulfillments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIListFulfillmentsRequest
+ @return ApiListFulfillmentsRequest
 */
-func (a *OrderAPIService) ListFulfillments(ctx context.Context) OrderAPIListFulfillmentsRequest {
-	return OrderAPIListFulfillmentsRequest{
+func (a *OrderAPIService) ListFulfillments(ctx context.Context) ApiListFulfillmentsRequest {
+	return ApiListFulfillmentsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4468,7 +3853,7 @@ func (a *OrderAPIService) ListFulfillments(ctx context.Context) OrderAPIListFulf
 
 // Execute executes the request
 //  @return OrderListFulfillmentsResponse
-func (a *OrderAPIService) ListFulfillmentsExecute(r OrderAPIListFulfillmentsRequest) (*OrderListFulfillmentsResponse, *http.Response, error) {
+func (a *OrderAPIService) ListFulfillmentsExecute(r ApiListFulfillmentsRequest) (*OrderListFulfillmentsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4590,18 +3975,18 @@ func (a *OrderAPIService) ListFulfillmentsExecute(r OrderAPIListFulfillmentsRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIListOrdersRequest struct {
+type ApiListOrdersRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderListOrdersRequest
 }
 
-func (r OrderAPIListOrdersRequest) Body(body OrderListOrdersRequest) OrderAPIListOrdersRequest {
+func (r ApiListOrdersRequest) Body(body OrderListOrdersRequest) ApiListOrdersRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIListOrdersRequest) Execute() (*OrderListOrdersResponse, *http.Response, error) {
+func (r ApiListOrdersRequest) Execute() (*OrderListOrdersResponse, *http.Response, error) {
 	return r.ApiService.ListOrdersExecute(r)
 }
 
@@ -4609,10 +3994,10 @@ func (r OrderAPIListOrdersRequest) Execute() (*OrderListOrdersResponse, *http.Re
 ListOrders List Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIListOrdersRequest
+ @return ApiListOrdersRequest
 */
-func (a *OrderAPIService) ListOrders(ctx context.Context) OrderAPIListOrdersRequest {
-	return OrderAPIListOrdersRequest{
+func (a *OrderAPIService) ListOrders(ctx context.Context) ApiListOrdersRequest {
+	return ApiListOrdersRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4620,7 +4005,7 @@ func (a *OrderAPIService) ListOrders(ctx context.Context) OrderAPIListOrdersRequ
 
 // Execute executes the request
 //  @return OrderListOrdersResponse
-func (a *OrderAPIService) ListOrdersExecute(r OrderAPIListOrdersRequest) (*OrderListOrdersResponse, *http.Response, error) {
+func (a *OrderAPIService) ListOrdersExecute(r ApiListOrdersRequest) (*OrderListOrdersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4742,18 +4127,18 @@ func (a *OrderAPIService) ListOrdersExecute(r OrderAPIListOrdersRequest) (*Order
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIListOrdersByCustomerRequest struct {
+type ApiListOrdersByCustomerRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderListOrdersByCustomerRequest
 }
 
-func (r OrderAPIListOrdersByCustomerRequest) Body(body OrderListOrdersByCustomerRequest) OrderAPIListOrdersByCustomerRequest {
+func (r ApiListOrdersByCustomerRequest) Body(body OrderListOrdersByCustomerRequest) ApiListOrdersByCustomerRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIListOrdersByCustomerRequest) Execute() (*OrderListOrdersByCustomerResponse, *http.Response, error) {
+func (r ApiListOrdersByCustomerRequest) Execute() (*OrderListOrdersByCustomerResponse, *http.Response, error) {
 	return r.ApiService.ListOrdersByCustomerExecute(r)
 }
 
@@ -4761,10 +4146,10 @@ func (r OrderAPIListOrdersByCustomerRequest) Execute() (*OrderListOrdersByCustom
 ListOrdersByCustomer List Orders by Customer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIListOrdersByCustomerRequest
+ @return ApiListOrdersByCustomerRequest
 */
-func (a *OrderAPIService) ListOrdersByCustomer(ctx context.Context) OrderAPIListOrdersByCustomerRequest {
-	return OrderAPIListOrdersByCustomerRequest{
+func (a *OrderAPIService) ListOrdersByCustomer(ctx context.Context) ApiListOrdersByCustomerRequest {
+	return ApiListOrdersByCustomerRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4772,7 +4157,7 @@ func (a *OrderAPIService) ListOrdersByCustomer(ctx context.Context) OrderAPIList
 
 // Execute executes the request
 //  @return OrderListOrdersByCustomerResponse
-func (a *OrderAPIService) ListOrdersByCustomerExecute(r OrderAPIListOrdersByCustomerRequest) (*OrderListOrdersByCustomerResponse, *http.Response, error) {
+func (a *OrderAPIService) ListOrdersByCustomerExecute(r ApiListOrdersByCustomerRequest) (*OrderListOrdersByCustomerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4894,18 +4279,18 @@ func (a *OrderAPIService) ListOrdersByCustomerExecute(r OrderAPIListOrdersByCust
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIListOrdersByNumbersRequest struct {
+type ApiListOrdersByNumbersRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderListOrdersByNumbersRequest
 }
 
-func (r OrderAPIListOrdersByNumbersRequest) Body(body OrderListOrdersByNumbersRequest) OrderAPIListOrdersByNumbersRequest {
+func (r ApiListOrdersByNumbersRequest) Body(body OrderListOrdersByNumbersRequest) ApiListOrdersByNumbersRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIListOrdersByNumbersRequest) Execute() (*OrderListOrdersByNumbersResponse, *http.Response, error) {
+func (r ApiListOrdersByNumbersRequest) Execute() (*OrderListOrdersByNumbersResponse, *http.Response, error) {
 	return r.ApiService.ListOrdersByNumbersExecute(r)
 }
 
@@ -4913,10 +4298,10 @@ func (r OrderAPIListOrdersByNumbersRequest) Execute() (*OrderListOrdersByNumbers
 ListOrdersByNumbers List Orders by Numbers
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIListOrdersByNumbersRequest
+ @return ApiListOrdersByNumbersRequest
 */
-func (a *OrderAPIService) ListOrdersByNumbers(ctx context.Context) OrderAPIListOrdersByNumbersRequest {
-	return OrderAPIListOrdersByNumbersRequest{
+func (a *OrderAPIService) ListOrdersByNumbers(ctx context.Context) ApiListOrdersByNumbersRequest {
+	return ApiListOrdersByNumbersRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4924,7 +4309,7 @@ func (a *OrderAPIService) ListOrdersByNumbers(ctx context.Context) OrderAPIListO
 
 // Execute executes the request
 //  @return OrderListOrdersByNumbersResponse
-func (a *OrderAPIService) ListOrdersByNumbersExecute(r OrderAPIListOrdersByNumbersRequest) (*OrderListOrdersByNumbersResponse, *http.Response, error) {
+func (a *OrderAPIService) ListOrdersByNumbersExecute(r ApiListOrdersByNumbersRequest) (*OrderListOrdersByNumbersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5046,18 +4431,18 @@ func (a *OrderAPIService) ListOrdersByNumbersExecute(r OrderAPIListOrdersByNumbe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIListShipmentsRequest struct {
+type ApiListShipmentsRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderListShipmentsRequest
 }
 
-func (r OrderAPIListShipmentsRequest) Body(body OrderListShipmentsRequest) OrderAPIListShipmentsRequest {
+func (r ApiListShipmentsRequest) Body(body OrderListShipmentsRequest) ApiListShipmentsRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIListShipmentsRequest) Execute() (*OrderListShipmentsResponse, *http.Response, error) {
+func (r ApiListShipmentsRequest) Execute() (*OrderListShipmentsResponse, *http.Response, error) {
 	return r.ApiService.ListShipmentsExecute(r)
 }
 
@@ -5065,10 +4450,10 @@ func (r OrderAPIListShipmentsRequest) Execute() (*OrderListShipmentsResponse, *h
 ListShipments List Shipments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIListShipmentsRequest
+ @return ApiListShipmentsRequest
 */
-func (a *OrderAPIService) ListShipments(ctx context.Context) OrderAPIListShipmentsRequest {
-	return OrderAPIListShipmentsRequest{
+func (a *OrderAPIService) ListShipments(ctx context.Context) ApiListShipmentsRequest {
+	return ApiListShipmentsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5076,7 +4461,7 @@ func (a *OrderAPIService) ListShipments(ctx context.Context) OrderAPIListShipmen
 
 // Execute executes the request
 //  @return OrderListShipmentsResponse
-func (a *OrderAPIService) ListShipmentsExecute(r OrderAPIListShipmentsRequest) (*OrderListShipmentsResponse, *http.Response, error) {
+func (a *OrderAPIService) ListShipmentsExecute(r ApiListShipmentsRequest) (*OrderListShipmentsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5198,18 +4583,18 @@ func (a *OrderAPIService) ListShipmentsExecute(r OrderAPIListShipmentsRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIOrderAddDocumentRequest struct {
+type ApiOrderAddDocumentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderAddDocumentRequest
 }
 
-func (r OrderAPIOrderAddDocumentRequest) Body(body OrderAddDocumentRequest) OrderAPIOrderAddDocumentRequest {
+func (r ApiOrderAddDocumentRequest) Body(body OrderAddDocumentRequest) ApiOrderAddDocumentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIOrderAddDocumentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiOrderAddDocumentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.OrderAddDocumentExecute(r)
 }
 
@@ -5217,10 +4602,10 @@ func (r OrderAPIOrderAddDocumentRequest) Execute() (map[string]interface{}, *htt
 OrderAddDocument Documents
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIOrderAddDocumentRequest
+ @return ApiOrderAddDocumentRequest
 */
-func (a *OrderAPIService) OrderAddDocument(ctx context.Context) OrderAPIOrderAddDocumentRequest {
-	return OrderAPIOrderAddDocumentRequest{
+func (a *OrderAPIService) OrderAddDocument(ctx context.Context) ApiOrderAddDocumentRequest {
+	return ApiOrderAddDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5228,7 +4613,7 @@ func (a *OrderAPIService) OrderAddDocument(ctx context.Context) OrderAPIOrderAdd
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) OrderAddDocumentExecute(r OrderAPIOrderAddDocumentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) OrderAddDocumentExecute(r ApiOrderAddDocumentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5328,18 +4713,18 @@ func (a *OrderAPIService) OrderAddDocumentExecute(r OrderAPIOrderAddDocumentRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIOrderRemoveDocumentByCodeRequest struct {
+type ApiOrderRemoveDocumentByCodeRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderRemoveDocumentByCodeRequest
 }
 
-func (r OrderAPIOrderRemoveDocumentByCodeRequest) Body(body OrderRemoveDocumentByCodeRequest) OrderAPIOrderRemoveDocumentByCodeRequest {
+func (r ApiOrderRemoveDocumentByCodeRequest) Body(body OrderRemoveDocumentByCodeRequest) ApiOrderRemoveDocumentByCodeRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIOrderRemoveDocumentByCodeRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiOrderRemoveDocumentByCodeRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.OrderRemoveDocumentByCodeExecute(r)
 }
 
@@ -5347,10 +4732,10 @@ func (r OrderAPIOrderRemoveDocumentByCodeRequest) Execute() (map[string]interfac
 OrderRemoveDocumentByCode Method for OrderRemoveDocumentByCode
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIOrderRemoveDocumentByCodeRequest
+ @return ApiOrderRemoveDocumentByCodeRequest
 */
-func (a *OrderAPIService) OrderRemoveDocumentByCode(ctx context.Context) OrderAPIOrderRemoveDocumentByCodeRequest {
-	return OrderAPIOrderRemoveDocumentByCodeRequest{
+func (a *OrderAPIService) OrderRemoveDocumentByCode(ctx context.Context) ApiOrderRemoveDocumentByCodeRequest {
+	return ApiOrderRemoveDocumentByCodeRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5358,7 +4743,7 @@ func (a *OrderAPIService) OrderRemoveDocumentByCode(ctx context.Context) OrderAP
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) OrderRemoveDocumentByCodeExecute(r OrderAPIOrderRemoveDocumentByCodeRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) OrderRemoveDocumentByCodeExecute(r ApiOrderRemoveDocumentByCodeRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5458,18 +4843,18 @@ func (a *OrderAPIService) OrderRemoveDocumentByCodeExecute(r OrderAPIOrderRemove
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIPrintOrdersLabelsRequest struct {
+type ApiPrintOrdersLabelsRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderPrintOrdersLabelsRequest
 }
 
-func (r OrderAPIPrintOrdersLabelsRequest) Body(body OrderPrintOrdersLabelsRequest) OrderAPIPrintOrdersLabelsRequest {
+func (r ApiPrintOrdersLabelsRequest) Body(body OrderPrintOrdersLabelsRequest) ApiPrintOrdersLabelsRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIPrintOrdersLabelsRequest) Execute() (*OrderPrintOrdersLabelsResponse, *http.Response, error) {
+func (r ApiPrintOrdersLabelsRequest) Execute() (*OrderPrintOrdersLabelsResponse, *http.Response, error) {
 	return r.ApiService.PrintOrdersLabelsExecute(r)
 }
 
@@ -5477,10 +4862,10 @@ func (r OrderAPIPrintOrdersLabelsRequest) Execute() (*OrderPrintOrdersLabelsResp
 PrintOrdersLabels Print Orders Labels
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIPrintOrdersLabelsRequest
+ @return ApiPrintOrdersLabelsRequest
 */
-func (a *OrderAPIService) PrintOrdersLabels(ctx context.Context) OrderAPIPrintOrdersLabelsRequest {
-	return OrderAPIPrintOrdersLabelsRequest{
+func (a *OrderAPIService) PrintOrdersLabels(ctx context.Context) ApiPrintOrdersLabelsRequest {
+	return ApiPrintOrdersLabelsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5488,7 +4873,7 @@ func (a *OrderAPIService) PrintOrdersLabels(ctx context.Context) OrderAPIPrintOr
 
 // Execute executes the request
 //  @return OrderPrintOrdersLabelsResponse
-func (a *OrderAPIService) PrintOrdersLabelsExecute(r OrderAPIPrintOrdersLabelsRequest) (*OrderPrintOrdersLabelsResponse, *http.Response, error) {
+func (a *OrderAPIService) PrintOrdersLabelsExecute(r ApiPrintOrdersLabelsRequest) (*OrderPrintOrdersLabelsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5610,18 +4995,18 @@ func (a *OrderAPIService) PrintOrdersLabelsExecute(r OrderAPIPrintOrdersLabelsRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIQuashFulfillmentRequest struct {
+type ApiQuashFulfillmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderQuashFulfillmentRequest
 }
 
-func (r OrderAPIQuashFulfillmentRequest) Body(body OrderQuashFulfillmentRequest) OrderAPIQuashFulfillmentRequest {
+func (r ApiQuashFulfillmentRequest) Body(body OrderQuashFulfillmentRequest) ApiQuashFulfillmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIQuashFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiQuashFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.QuashFulfillmentExecute(r)
 }
 
@@ -5629,10 +5014,10 @@ func (r OrderAPIQuashFulfillmentRequest) Execute() (map[string]interface{}, *htt
 QuashFulfillment Quash Fulfillment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIQuashFulfillmentRequest
+ @return ApiQuashFulfillmentRequest
 */
-func (a *OrderAPIService) QuashFulfillment(ctx context.Context) OrderAPIQuashFulfillmentRequest {
-	return OrderAPIQuashFulfillmentRequest{
+func (a *OrderAPIService) QuashFulfillment(ctx context.Context) ApiQuashFulfillmentRequest {
+	return ApiQuashFulfillmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5640,7 +5025,7 @@ func (a *OrderAPIService) QuashFulfillment(ctx context.Context) OrderAPIQuashFul
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) QuashFulfillmentExecute(r OrderAPIQuashFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) QuashFulfillmentExecute(r ApiQuashFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5762,18 +5147,18 @@ func (a *OrderAPIService) QuashFulfillmentExecute(r OrderAPIQuashFulfillmentRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIQuashShipmentRequest struct {
+type ApiQuashShipmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderQuashShipmentRequest
 }
 
-func (r OrderAPIQuashShipmentRequest) Body(body OrderQuashShipmentRequest) OrderAPIQuashShipmentRequest {
+func (r ApiQuashShipmentRequest) Body(body OrderQuashShipmentRequest) ApiQuashShipmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIQuashShipmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiQuashShipmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.QuashShipmentExecute(r)
 }
 
@@ -5781,10 +5166,10 @@ func (r OrderAPIQuashShipmentRequest) Execute() (map[string]interface{}, *http.R
 QuashShipment Quash Shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIQuashShipmentRequest
+ @return ApiQuashShipmentRequest
 */
-func (a *OrderAPIService) QuashShipment(ctx context.Context) OrderAPIQuashShipmentRequest {
-	return OrderAPIQuashShipmentRequest{
+func (a *OrderAPIService) QuashShipment(ctx context.Context) ApiQuashShipmentRequest {
+	return ApiQuashShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5792,7 +5177,7 @@ func (a *OrderAPIService) QuashShipment(ctx context.Context) OrderAPIQuashShipme
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) QuashShipmentExecute(r OrderAPIQuashShipmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) QuashShipmentExecute(r ApiQuashShipmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5914,18 +5299,18 @@ func (a *OrderAPIService) QuashShipmentExecute(r OrderAPIQuashShipmentRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIReceiveFulfillmentRequest struct {
+type ApiReceiveFulfillmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderReceiveFulfillmentRequest
 }
 
-func (r OrderAPIReceiveFulfillmentRequest) Body(body OrderReceiveFulfillmentRequest) OrderAPIReceiveFulfillmentRequest {
+func (r ApiReceiveFulfillmentRequest) Body(body OrderReceiveFulfillmentRequest) ApiReceiveFulfillmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIReceiveFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiReceiveFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ReceiveFulfillmentExecute(r)
 }
 
@@ -5933,10 +5318,10 @@ func (r OrderAPIReceiveFulfillmentRequest) Execute() (map[string]interface{}, *h
 ReceiveFulfillment Receive Fulfillment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIReceiveFulfillmentRequest
+ @return ApiReceiveFulfillmentRequest
 */
-func (a *OrderAPIService) ReceiveFulfillment(ctx context.Context) OrderAPIReceiveFulfillmentRequest {
-	return OrderAPIReceiveFulfillmentRequest{
+func (a *OrderAPIService) ReceiveFulfillment(ctx context.Context) ApiReceiveFulfillmentRequest {
+	return ApiReceiveFulfillmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -5944,7 +5329,7 @@ func (a *OrderAPIService) ReceiveFulfillment(ctx context.Context) OrderAPIReceiv
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ReceiveFulfillmentExecute(r OrderAPIReceiveFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ReceiveFulfillmentExecute(r ApiReceiveFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -6066,18 +5451,18 @@ func (a *OrderAPIService) ReceiveFulfillmentExecute(r OrderAPIReceiveFulfillment
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIReportFulfillmentErrorRequest struct {
+type ApiReportFulfillmentErrorRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderReportFulfillmentErrorRequest
 }
 
-func (r OrderAPIReportFulfillmentErrorRequest) Body(body OrderReportFulfillmentErrorRequest) OrderAPIReportFulfillmentErrorRequest {
+func (r ApiReportFulfillmentErrorRequest) Body(body OrderReportFulfillmentErrorRequest) ApiReportFulfillmentErrorRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIReportFulfillmentErrorRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiReportFulfillmentErrorRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ReportFulfillmentErrorExecute(r)
 }
 
@@ -6085,10 +5470,10 @@ func (r OrderAPIReportFulfillmentErrorRequest) Execute() (map[string]interface{}
 ReportFulfillmentError Report Fulfillment Error
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIReportFulfillmentErrorRequest
+ @return ApiReportFulfillmentErrorRequest
 */
-func (a *OrderAPIService) ReportFulfillmentError(ctx context.Context) OrderAPIReportFulfillmentErrorRequest {
-	return OrderAPIReportFulfillmentErrorRequest{
+func (a *OrderAPIService) ReportFulfillmentError(ctx context.Context) ApiReportFulfillmentErrorRequest {
+	return ApiReportFulfillmentErrorRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6096,7 +5481,7 @@ func (a *OrderAPIService) ReportFulfillmentError(ctx context.Context) OrderAPIRe
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ReportFulfillmentErrorExecute(r OrderAPIReportFulfillmentErrorRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ReportFulfillmentErrorExecute(r ApiReportFulfillmentErrorRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -6218,18 +5603,18 @@ func (a *OrderAPIService) ReportFulfillmentErrorExecute(r OrderAPIReportFulfillm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIReportFulfillmentNotResolvableRequest struct {
+type ApiReportFulfillmentNotResolvableRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderReportFulfillmentNotResolvableRequest
 }
 
-func (r OrderAPIReportFulfillmentNotResolvableRequest) Body(body OrderReportFulfillmentNotResolvableRequest) OrderAPIReportFulfillmentNotResolvableRequest {
+func (r ApiReportFulfillmentNotResolvableRequest) Body(body OrderReportFulfillmentNotResolvableRequest) ApiReportFulfillmentNotResolvableRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIReportFulfillmentNotResolvableRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiReportFulfillmentNotResolvableRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ReportFulfillmentNotResolvableExecute(r)
 }
 
@@ -6237,10 +5622,10 @@ func (r OrderAPIReportFulfillmentNotResolvableRequest) Execute() (map[string]int
 ReportFulfillmentNotResolvable Report Fulfillment Not Resolvable
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIReportFulfillmentNotResolvableRequest
+ @return ApiReportFulfillmentNotResolvableRequest
 */
-func (a *OrderAPIService) ReportFulfillmentNotResolvable(ctx context.Context) OrderAPIReportFulfillmentNotResolvableRequest {
-	return OrderAPIReportFulfillmentNotResolvableRequest{
+func (a *OrderAPIService) ReportFulfillmentNotResolvable(ctx context.Context) ApiReportFulfillmentNotResolvableRequest {
+	return ApiReportFulfillmentNotResolvableRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6248,7 +5633,7 @@ func (a *OrderAPIService) ReportFulfillmentNotResolvable(ctx context.Context) Or
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ReportFulfillmentNotResolvableExecute(r OrderAPIReportFulfillmentNotResolvableRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ReportFulfillmentNotResolvableExecute(r ApiReportFulfillmentNotResolvableRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -6370,18 +5755,18 @@ func (a *OrderAPIService) ReportFulfillmentNotResolvableExecute(r OrderAPIReport
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIReportFulfillmentReadyRequest struct {
+type ApiReportFulfillmentReadyRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderReportFulfillmentReadyRequest
 }
 
-func (r OrderAPIReportFulfillmentReadyRequest) Body(body OrderReportFulfillmentReadyRequest) OrderAPIReportFulfillmentReadyRequest {
+func (r ApiReportFulfillmentReadyRequest) Body(body OrderReportFulfillmentReadyRequest) ApiReportFulfillmentReadyRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIReportFulfillmentReadyRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiReportFulfillmentReadyRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ReportFulfillmentReadyExecute(r)
 }
 
@@ -6389,10 +5774,10 @@ func (r OrderAPIReportFulfillmentReadyRequest) Execute() (map[string]interface{}
 ReportFulfillmentReady Report Fulfillment Ready
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIReportFulfillmentReadyRequest
+ @return ApiReportFulfillmentReadyRequest
 */
-func (a *OrderAPIService) ReportFulfillmentReady(ctx context.Context) OrderAPIReportFulfillmentReadyRequest {
-	return OrderAPIReportFulfillmentReadyRequest{
+func (a *OrderAPIService) ReportFulfillmentReady(ctx context.Context) ApiReportFulfillmentReadyRequest {
+	return ApiReportFulfillmentReadyRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6400,7 +5785,7 @@ func (a *OrderAPIService) ReportFulfillmentReady(ctx context.Context) OrderAPIRe
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ReportFulfillmentReadyExecute(r OrderAPIReportFulfillmentReadyRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ReportFulfillmentReadyExecute(r ApiReportFulfillmentReadyRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -6522,18 +5907,18 @@ func (a *OrderAPIService) ReportFulfillmentReadyExecute(r OrderAPIReportFulfillm
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIReportShipmentDeliveryRequest struct {
+type ApiReportShipmentDeliveryRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderReportShipmentDeliveryRequest
 }
 
-func (r OrderAPIReportShipmentDeliveryRequest) Body(body OrderReportShipmentDeliveryRequest) OrderAPIReportShipmentDeliveryRequest {
+func (r ApiReportShipmentDeliveryRequest) Body(body OrderReportShipmentDeliveryRequest) ApiReportShipmentDeliveryRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIReportShipmentDeliveryRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiReportShipmentDeliveryRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ReportShipmentDeliveryExecute(r)
 }
 
@@ -6541,10 +5926,10 @@ func (r OrderAPIReportShipmentDeliveryRequest) Execute() (map[string]interface{}
 ReportShipmentDelivery Report Shipment Delivery
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIReportShipmentDeliveryRequest
+ @return ApiReportShipmentDeliveryRequest
 */
-func (a *OrderAPIService) ReportShipmentDelivery(ctx context.Context) OrderAPIReportShipmentDeliveryRequest {
-	return OrderAPIReportShipmentDeliveryRequest{
+func (a *OrderAPIService) ReportShipmentDelivery(ctx context.Context) ApiReportShipmentDeliveryRequest {
+	return ApiReportShipmentDeliveryRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6552,7 +5937,7 @@ func (a *OrderAPIService) ReportShipmentDelivery(ctx context.Context) OrderAPIRe
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ReportShipmentDeliveryExecute(r OrderAPIReportShipmentDeliveryRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ReportShipmentDeliveryExecute(r ApiReportShipmentDeliveryRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -6674,18 +6059,18 @@ func (a *OrderAPIService) ReportShipmentDeliveryExecute(r OrderAPIReportShipment
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIReportShipmentMissingStockRequest struct {
+type ApiReportShipmentMissingStockRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderReportShipmentMissingStockRequest
 }
 
-func (r OrderAPIReportShipmentMissingStockRequest) Body(body OrderReportShipmentMissingStockRequest) OrderAPIReportShipmentMissingStockRequest {
+func (r ApiReportShipmentMissingStockRequest) Body(body OrderReportShipmentMissingStockRequest) ApiReportShipmentMissingStockRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIReportShipmentMissingStockRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiReportShipmentMissingStockRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ReportShipmentMissingStockExecute(r)
 }
 
@@ -6693,10 +6078,10 @@ func (r OrderAPIReportShipmentMissingStockRequest) Execute() (map[string]interfa
 ReportShipmentMissingStock Report Shipment Missing Stock
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIReportShipmentMissingStockRequest
+ @return ApiReportShipmentMissingStockRequest
 */
-func (a *OrderAPIService) ReportShipmentMissingStock(ctx context.Context) OrderAPIReportShipmentMissingStockRequest {
-	return OrderAPIReportShipmentMissingStockRequest{
+func (a *OrderAPIService) ReportShipmentMissingStock(ctx context.Context) ApiReportShipmentMissingStockRequest {
+	return ApiReportShipmentMissingStockRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6704,7 +6089,7 @@ func (a *OrderAPIService) ReportShipmentMissingStock(ctx context.Context) OrderA
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ReportShipmentMissingStockExecute(r OrderAPIReportShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ReportShipmentMissingStockExecute(r ApiReportShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -6826,18 +6211,18 @@ func (a *OrderAPIService) ReportShipmentMissingStockExecute(r OrderAPIReportShip
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIResolveShipmentMissingStockRequest struct {
+type ApiResolveShipmentMissingStockRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderResolveShipmentMissingStockRequest
 }
 
-func (r OrderAPIResolveShipmentMissingStockRequest) Body(body OrderResolveShipmentMissingStockRequest) OrderAPIResolveShipmentMissingStockRequest {
+func (r ApiResolveShipmentMissingStockRequest) Body(body OrderResolveShipmentMissingStockRequest) ApiResolveShipmentMissingStockRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIResolveShipmentMissingStockRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiResolveShipmentMissingStockRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ResolveShipmentMissingStockExecute(r)
 }
 
@@ -6845,10 +6230,10 @@ func (r OrderAPIResolveShipmentMissingStockRequest) Execute() (map[string]interf
 ResolveShipmentMissingStock Resolve Shipment Missing Stock
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIResolveShipmentMissingStockRequest
+ @return ApiResolveShipmentMissingStockRequest
 */
-func (a *OrderAPIService) ResolveShipmentMissingStock(ctx context.Context) OrderAPIResolveShipmentMissingStockRequest {
-	return OrderAPIResolveShipmentMissingStockRequest{
+func (a *OrderAPIService) ResolveShipmentMissingStock(ctx context.Context) ApiResolveShipmentMissingStockRequest {
+	return ApiResolveShipmentMissingStockRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -6856,7 +6241,7 @@ func (a *OrderAPIService) ResolveShipmentMissingStock(ctx context.Context) Order
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) ResolveShipmentMissingStockExecute(r OrderAPIResolveShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) ResolveShipmentMissingStockExecute(r ApiResolveShipmentMissingStockRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -6978,18 +6363,18 @@ func (a *OrderAPIService) ResolveShipmentMissingStockExecute(r OrderAPIResolveSh
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIRetryFulfillmentRequest struct {
+type ApiRetryFulfillmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderRetryFulfillmentRequest
 }
 
-func (r OrderAPIRetryFulfillmentRequest) Body(body OrderRetryFulfillmentRequest) OrderAPIRetryFulfillmentRequest {
+func (r ApiRetryFulfillmentRequest) Body(body OrderRetryFulfillmentRequest) ApiRetryFulfillmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIRetryFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiRetryFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.RetryFulfillmentExecute(r)
 }
 
@@ -6997,10 +6382,10 @@ func (r OrderAPIRetryFulfillmentRequest) Execute() (map[string]interface{}, *htt
 RetryFulfillment Retry Fulfillment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIRetryFulfillmentRequest
+ @return ApiRetryFulfillmentRequest
 */
-func (a *OrderAPIService) RetryFulfillment(ctx context.Context) OrderAPIRetryFulfillmentRequest {
-	return OrderAPIRetryFulfillmentRequest{
+func (a *OrderAPIService) RetryFulfillment(ctx context.Context) ApiRetryFulfillmentRequest {
+	return ApiRetryFulfillmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7008,7 +6393,7 @@ func (a *OrderAPIService) RetryFulfillment(ctx context.Context) OrderAPIRetryFul
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) RetryFulfillmentExecute(r OrderAPIRetryFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) RetryFulfillmentExecute(r ApiRetryFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7130,18 +6515,18 @@ func (a *OrderAPIService) RetryFulfillmentExecute(r OrderAPIRetryFulfillmentRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPISearchOrdersRequest struct {
+type ApiSearchOrdersRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderSearchOrdersRequest
 }
 
-func (r OrderAPISearchOrdersRequest) Body(body OrderSearchOrdersRequest) OrderAPISearchOrdersRequest {
+func (r ApiSearchOrdersRequest) Body(body OrderSearchOrdersRequest) ApiSearchOrdersRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPISearchOrdersRequest) Execute() (*OrderSearchOrdersResponse, *http.Response, error) {
+func (r ApiSearchOrdersRequest) Execute() (*OrderSearchOrdersResponse, *http.Response, error) {
 	return r.ApiService.SearchOrdersExecute(r)
 }
 
@@ -7149,10 +6534,10 @@ func (r OrderAPISearchOrdersRequest) Execute() (*OrderSearchOrdersResponse, *htt
 SearchOrders Search Orders
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPISearchOrdersRequest
+ @return ApiSearchOrdersRequest
 */
-func (a *OrderAPIService) SearchOrders(ctx context.Context) OrderAPISearchOrdersRequest {
-	return OrderAPISearchOrdersRequest{
+func (a *OrderAPIService) SearchOrders(ctx context.Context) ApiSearchOrdersRequest {
+	return ApiSearchOrdersRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7160,7 +6545,7 @@ func (a *OrderAPIService) SearchOrders(ctx context.Context) OrderAPISearchOrders
 
 // Execute executes the request
 //  @return OrderSearchOrdersResponse
-func (a *OrderAPIService) SearchOrdersExecute(r OrderAPISearchOrdersRequest) (*OrderSearchOrdersResponse, *http.Response, error) {
+func (a *OrderAPIService) SearchOrdersExecute(r ApiSearchOrdersRequest) (*OrderSearchOrdersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7282,18 +6667,18 @@ func (a *OrderAPIService) SearchOrdersExecute(r OrderAPISearchOrdersRequest) (*O
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPISendFulfillmentRequest struct {
+type ApiSendFulfillmentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderSendFulfillmentRequest
 }
 
-func (r OrderAPISendFulfillmentRequest) Body(body OrderSendFulfillmentRequest) OrderAPISendFulfillmentRequest {
+func (r ApiSendFulfillmentRequest) Body(body OrderSendFulfillmentRequest) ApiSendFulfillmentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPISendFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiSendFulfillmentRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.SendFulfillmentExecute(r)
 }
 
@@ -7301,10 +6686,10 @@ func (r OrderAPISendFulfillmentRequest) Execute() (map[string]interface{}, *http
 SendFulfillment Send Fulfillment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPISendFulfillmentRequest
+ @return ApiSendFulfillmentRequest
 */
-func (a *OrderAPIService) SendFulfillment(ctx context.Context) OrderAPISendFulfillmentRequest {
-	return OrderAPISendFulfillmentRequest{
+func (a *OrderAPIService) SendFulfillment(ctx context.Context) ApiSendFulfillmentRequest {
+	return ApiSendFulfillmentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7312,7 +6697,7 @@ func (a *OrderAPIService) SendFulfillment(ctx context.Context) OrderAPISendFulfi
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) SendFulfillmentExecute(r OrderAPISendFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) SendFulfillmentExecute(r ApiSendFulfillmentRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7434,18 +6819,18 @@ func (a *OrderAPIService) SendFulfillmentExecute(r OrderAPISendFulfillmentReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPISendOrderNotificationRequest struct {
+type ApiSendOrderNotificationRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderSendOrderNotificationRequest
 }
 
-func (r OrderAPISendOrderNotificationRequest) Body(body OrderSendOrderNotificationRequest) OrderAPISendOrderNotificationRequest {
+func (r ApiSendOrderNotificationRequest) Body(body OrderSendOrderNotificationRequest) ApiSendOrderNotificationRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPISendOrderNotificationRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiSendOrderNotificationRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.SendOrderNotificationExecute(r)
 }
 
@@ -7453,10 +6838,10 @@ func (r OrderAPISendOrderNotificationRequest) Execute() (map[string]interface{},
 SendOrderNotification Send Order Notification
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPISendOrderNotificationRequest
+ @return ApiSendOrderNotificationRequest
 */
-func (a *OrderAPIService) SendOrderNotification(ctx context.Context) OrderAPISendOrderNotificationRequest {
-	return OrderAPISendOrderNotificationRequest{
+func (a *OrderAPIService) SendOrderNotification(ctx context.Context) ApiSendOrderNotificationRequest {
+	return ApiSendOrderNotificationRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7464,7 +6849,7 @@ func (a *OrderAPIService) SendOrderNotification(ctx context.Context) OrderAPISen
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) SendOrderNotificationExecute(r OrderAPISendOrderNotificationRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) SendOrderNotificationExecute(r ApiSendOrderNotificationRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7586,18 +6971,18 @@ func (a *OrderAPIService) SendOrderNotificationExecute(r OrderAPISendOrderNotifi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIStartFulfillmentProcessingRequest struct {
+type ApiStartFulfillmentProcessingRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderStartFulfillmentProcessingRequest
 }
 
-func (r OrderAPIStartFulfillmentProcessingRequest) Body(body OrderStartFulfillmentProcessingRequest) OrderAPIStartFulfillmentProcessingRequest {
+func (r ApiStartFulfillmentProcessingRequest) Body(body OrderStartFulfillmentProcessingRequest) ApiStartFulfillmentProcessingRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIStartFulfillmentProcessingRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiStartFulfillmentProcessingRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.StartFulfillmentProcessingExecute(r)
 }
 
@@ -7605,10 +6990,10 @@ func (r OrderAPIStartFulfillmentProcessingRequest) Execute() (map[string]interfa
 StartFulfillmentProcessing Start Fulfillment Processing
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIStartFulfillmentProcessingRequest
+ @return ApiStartFulfillmentProcessingRequest
 */
-func (a *OrderAPIService) StartFulfillmentProcessing(ctx context.Context) OrderAPIStartFulfillmentProcessingRequest {
-	return OrderAPIStartFulfillmentProcessingRequest{
+func (a *OrderAPIService) StartFulfillmentProcessing(ctx context.Context) ApiStartFulfillmentProcessingRequest {
+	return ApiStartFulfillmentProcessingRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7616,7 +7001,7 @@ func (a *OrderAPIService) StartFulfillmentProcessing(ctx context.Context) OrderA
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) StartFulfillmentProcessingExecute(r OrderAPIStartFulfillmentProcessingRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) StartFulfillmentProcessingExecute(r ApiStartFulfillmentProcessingRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7738,18 +7123,18 @@ func (a *OrderAPIService) StartFulfillmentProcessingExecute(r OrderAPIStartFulfi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIStartShipmentProcessingRequest struct {
+type ApiStartShipmentProcessingRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderStartShipmentProcessingRequest
 }
 
-func (r OrderAPIStartShipmentProcessingRequest) Body(body OrderStartShipmentProcessingRequest) OrderAPIStartShipmentProcessingRequest {
+func (r ApiStartShipmentProcessingRequest) Body(body OrderStartShipmentProcessingRequest) ApiStartShipmentProcessingRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIStartShipmentProcessingRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiStartShipmentProcessingRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.StartShipmentProcessingExecute(r)
 }
 
@@ -7757,10 +7142,10 @@ func (r OrderAPIStartShipmentProcessingRequest) Execute() (map[string]interface{
 StartShipmentProcessing Start Shipment Processing
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIStartShipmentProcessingRequest
+ @return ApiStartShipmentProcessingRequest
 */
-func (a *OrderAPIService) StartShipmentProcessing(ctx context.Context) OrderAPIStartShipmentProcessingRequest {
-	return OrderAPIStartShipmentProcessingRequest{
+func (a *OrderAPIService) StartShipmentProcessing(ctx context.Context) ApiStartShipmentProcessingRequest {
+	return ApiStartShipmentProcessingRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7768,7 +7153,7 @@ func (a *OrderAPIService) StartShipmentProcessing(ctx context.Context) OrderAPIS
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) StartShipmentProcessingExecute(r OrderAPIStartShipmentProcessingRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) StartShipmentProcessingExecute(r ApiStartShipmentProcessingRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -7890,18 +7275,18 @@ func (a *OrderAPIService) StartShipmentProcessingExecute(r OrderAPIStartShipment
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIUnholdOrderRequest struct {
+type ApiUnholdOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderUnholdOrderRequest
 }
 
-func (r OrderAPIUnholdOrderRequest) Body(body OrderUnholdOrderRequest) OrderAPIUnholdOrderRequest {
+func (r ApiUnholdOrderRequest) Body(body OrderUnholdOrderRequest) ApiUnholdOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIUnholdOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiUnholdOrderRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.UnholdOrderExecute(r)
 }
 
@@ -7909,10 +7294,10 @@ func (r OrderAPIUnholdOrderRequest) Execute() (map[string]interface{}, *http.Res
 UnholdOrder Unhold Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIUnholdOrderRequest
+ @return ApiUnholdOrderRequest
 */
-func (a *OrderAPIService) UnholdOrder(ctx context.Context) OrderAPIUnholdOrderRequest {
-	return OrderAPIUnholdOrderRequest{
+func (a *OrderAPIService) UnholdOrder(ctx context.Context) ApiUnholdOrderRequest {
+	return ApiUnholdOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -7920,7 +7305,7 @@ func (a *OrderAPIService) UnholdOrder(ctx context.Context) OrderAPIUnholdOrderRe
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OrderAPIService) UnholdOrderExecute(r OrderAPIUnholdOrderRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OrderAPIService) UnholdOrderExecute(r ApiUnholdOrderRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -8042,18 +7427,18 @@ func (a *OrderAPIService) UnholdOrderExecute(r OrderAPIUnholdOrderRequest) (map[
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIUpdateOrderRequest struct {
+type ApiUpdateOrderRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderUpdateOrderRequest
 }
 
-func (r OrderAPIUpdateOrderRequest) Body(body OrderUpdateOrderRequest) OrderAPIUpdateOrderRequest {
+func (r ApiUpdateOrderRequest) Body(body OrderUpdateOrderRequest) ApiUpdateOrderRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIUpdateOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
+func (r ApiUpdateOrderRequest) Execute() (*OrderOrderData, *http.Response, error) {
 	return r.ApiService.UpdateOrderExecute(r)
 }
 
@@ -8061,10 +7446,10 @@ func (r OrderAPIUpdateOrderRequest) Execute() (*OrderOrderData, *http.Response, 
 UpdateOrder Update Order
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIUpdateOrderRequest
+ @return ApiUpdateOrderRequest
 */
-func (a *OrderAPIService) UpdateOrder(ctx context.Context) OrderAPIUpdateOrderRequest {
-	return OrderAPIUpdateOrderRequest{
+func (a *OrderAPIService) UpdateOrder(ctx context.Context) ApiUpdateOrderRequest {
+	return ApiUpdateOrderRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -8072,7 +7457,7 @@ func (a *OrderAPIService) UpdateOrder(ctx context.Context) OrderAPIUpdateOrderRe
 
 // Execute executes the request
 //  @return OrderOrderData
-func (a *OrderAPIService) UpdateOrderExecute(r OrderAPIUpdateOrderRequest) (*OrderOrderData, *http.Response, error) {
+func (a *OrderAPIService) UpdateOrderExecute(r ApiUpdateOrderRequest) (*OrderOrderData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -8194,18 +7579,18 @@ func (a *OrderAPIService) UpdateOrderExecute(r OrderAPIUpdateOrderRequest) (*Ord
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OrderAPIUpdatePaymentRequest struct {
+type ApiUpdatePaymentRequest struct {
 	ctx context.Context
-	ApiService OrderAPI
+	ApiService *OrderAPIService
 	body *OrderUpdatePaymentRequest
 }
 
-func (r OrderAPIUpdatePaymentRequest) Body(body OrderUpdatePaymentRequest) OrderAPIUpdatePaymentRequest {
+func (r ApiUpdatePaymentRequest) Body(body OrderUpdatePaymentRequest) ApiUpdatePaymentRequest {
 	r.body = &body
 	return r
 }
 
-func (r OrderAPIUpdatePaymentRequest) Execute() (*OrderPayment, *http.Response, error) {
+func (r ApiUpdatePaymentRequest) Execute() (*OrderPayment, *http.Response, error) {
 	return r.ApiService.UpdatePaymentExecute(r)
 }
 
@@ -8213,10 +7598,10 @@ func (r OrderAPIUpdatePaymentRequest) Execute() (*OrderPayment, *http.Response, 
 UpdatePayment Update Payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrderAPIUpdatePaymentRequest
+ @return ApiUpdatePaymentRequest
 */
-func (a *OrderAPIService) UpdatePayment(ctx context.Context) OrderAPIUpdatePaymentRequest {
-	return OrderAPIUpdatePaymentRequest{
+func (a *OrderAPIService) UpdatePayment(ctx context.Context) ApiUpdatePaymentRequest {
+	return ApiUpdatePaymentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -8224,7 +7609,7 @@ func (a *OrderAPIService) UpdatePayment(ctx context.Context) OrderAPIUpdatePayme
 
 // Execute executes the request
 //  @return OrderPayment
-func (a *OrderAPIService) UpdatePaymentExecute(r OrderAPIUpdatePaymentRequest) (*OrderPayment, *http.Response, error) {
+func (a *OrderAPIService) UpdatePaymentExecute(r ApiUpdatePaymentRequest) (*OrderPayment, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}

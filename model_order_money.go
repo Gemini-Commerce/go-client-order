@@ -24,10 +24,7 @@ type OrderMoney struct {
 	Units *string `json:"units,omitempty"`
 	// Number of micro (10^-6) units of the amount. The value must be between -999,999 and +999,999 inclusive. If `units` is positive, `micros` must be positive or zero. If `units` is zero, `micros` can be positive, zero, or negative. If `units` is negative, `micros` must be negative or zero. For example $-1.75 is represented as `units`=-1 and `micros`=-750,000.
 	Micros *int32 `json:"micros,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderMoney OrderMoney
 
 // NewOrderMoney instantiates a new OrderMoney object
 // This constructor will assign default values to properties that have it defined,
@@ -126,54 +123,9 @@ func (o OrderMoney) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Micros) {
 		toSerialize["micros"] = o.Micros
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderMoney) UnmarshalJSON(data []byte) (err error) {
-	varOrderMoney := _OrderMoney{}
-
-	err = json.Unmarshal(data, &varOrderMoney)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderMoney(varOrderMoney)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "units")
-		delete(additionalProperties, "micros")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderMoney) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderMoney) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderMoney struct {
 	value *OrderMoney
 	isSet bool

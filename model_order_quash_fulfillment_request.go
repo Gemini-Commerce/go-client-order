@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -24,7 +25,6 @@ type OrderQuashFulfillmentRequest struct {
 	TenantId string `json:"tenantId"`
 	FulfillmentId string `json:"fulfillmentId"`
 	Reason *string `json:"reason,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderQuashFulfillmentRequest OrderQuashFulfillmentRequest
@@ -143,11 +143,6 @@ func (o OrderQuashFulfillmentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Reason) {
 		toSerialize["reason"] = o.Reason
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -176,7 +171,9 @@ func (o *OrderQuashFulfillmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderQuashFulfillmentRequest := _OrderQuashFulfillmentRequest{}
 
-	err = json.Unmarshal(data, &varOrderQuashFulfillmentRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderQuashFulfillmentRequest)
 
 	if err != nil {
 		return err
@@ -184,36 +181,9 @@ func (o *OrderQuashFulfillmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderQuashFulfillmentRequest(varOrderQuashFulfillmentRequest)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "tenantId")
-		delete(additionalProperties, "fulfillmentId")
-		delete(additionalProperties, "reason")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderQuashFulfillmentRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderQuashFulfillmentRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderQuashFulfillmentRequest struct {
 	value *OrderQuashFulfillmentRequest
 	isSet bool

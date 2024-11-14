@@ -27,10 +27,7 @@ type OrderTransaction struct {
 	Type *OrderTransactionType `json:"type,omitempty"`
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
 	ChildTransactions []OrderTransaction `json:"childTransactions,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderTransaction OrderTransaction
 
 // NewOrderTransaction instantiates a new OrderTransaction object
 // This constructor will assign default values to properties that have it defined,
@@ -273,58 +270,9 @@ func (o OrderTransaction) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ChildTransactions) {
 		toSerialize["childTransactions"] = o.ChildTransactions
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderTransaction) UnmarshalJSON(data []byte) (err error) {
-	varOrderTransaction := _OrderTransaction{}
-
-	err = json.Unmarshal(data, &varOrderTransaction)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderTransaction(varOrderTransaction)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "createdAt")
-		delete(additionalProperties, "paymentId")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "type")
-		delete(additionalProperties, "additionalInfo")
-		delete(additionalProperties, "childTransactions")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderTransaction) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderTransaction) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderTransaction struct {
 	value *OrderTransaction
 	isSet bool

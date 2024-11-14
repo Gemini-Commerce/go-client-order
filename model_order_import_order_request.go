@@ -14,6 +14,7 @@ package order
 import (
 	"encoding/json"
 	"time"
+	"bytes"
 	"fmt"
 )
 
@@ -40,7 +41,6 @@ type OrderImportOrderRequest struct {
 	Status string `json:"status"`
 	Currency OrderCurrency `json:"currency"`
 	VatIncluded *bool `json:"vatIncluded,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderImportOrderRequest OrderImportOrderRequest
@@ -569,11 +569,6 @@ func (o OrderImportOrderRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.VatIncluded) {
 		toSerialize["vatIncluded"] = o.VatIncluded
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -615,7 +610,9 @@ func (o *OrderImportOrderRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderImportOrderRequest := _OrderImportOrderRequest{}
 
-	err = json.Unmarshal(data, &varOrderImportOrderRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderImportOrderRequest)
 
 	if err != nil {
 		return err
@@ -623,51 +620,9 @@ func (o *OrderImportOrderRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderImportOrderRequest(varOrderImportOrderRequest)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "tenantId")
-		delete(additionalProperties, "createdAt")
-		delete(additionalProperties, "number")
-		delete(additionalProperties, "channel")
-		delete(additionalProperties, "market")
-		delete(additionalProperties, "locale")
-		delete(additionalProperties, "customerInfo")
-		delete(additionalProperties, "shippingAddress")
-		delete(additionalProperties, "billingAddress")
-		delete(additionalProperties, "payments")
-		delete(additionalProperties, "paymentsInfo")
-		delete(additionalProperties, "shipmentsInfo")
-		delete(additionalProperties, "items")
-		delete(additionalProperties, "subtotals")
-		delete(additionalProperties, "totals")
-		delete(additionalProperties, "status")
-		delete(additionalProperties, "currency")
-		delete(additionalProperties, "vatIncluded")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderImportOrderRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderImportOrderRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderImportOrderRequest struct {
 	value *OrderImportOrderRequest
 	isSet bool

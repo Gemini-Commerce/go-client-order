@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -23,7 +24,6 @@ var _ MappedNullable = &OrderGetTransactionRequest{}
 type OrderGetTransactionRequest struct {
 	TenantId string `json:"tenantId"`
 	Id string `json:"id"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderGetTransactionRequest OrderGetTransactionRequest
@@ -107,11 +107,6 @@ func (o OrderGetTransactionRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenantId"] = o.TenantId
 	toSerialize["id"] = o.Id
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -140,7 +135,9 @@ func (o *OrderGetTransactionRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderGetTransactionRequest := _OrderGetTransactionRequest{}
 
-	err = json.Unmarshal(data, &varOrderGetTransactionRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderGetTransactionRequest)
 
 	if err != nil {
 		return err
@@ -148,35 +145,9 @@ func (o *OrderGetTransactionRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderGetTransactionRequest(varOrderGetTransactionRequest)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "tenantId")
-		delete(additionalProperties, "id")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderGetTransactionRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderGetTransactionRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderGetTransactionRequest struct {
 	value *OrderGetTransactionRequest
 	isSet bool

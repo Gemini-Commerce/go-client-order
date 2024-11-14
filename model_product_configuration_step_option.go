@@ -27,10 +27,7 @@ type ProductConfigurationStepOption struct {
 	Image *OptionImage `json:"image,omitempty"`
 	HasQuantity *bool `json:"hasQuantity,omitempty"`
 	Quantity *int64 `json:"quantity,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _ProductConfigurationStepOption ProductConfigurationStepOption
 
 // NewProductConfigurationStepOption instantiates a new ProductConfigurationStepOption object
 // This constructor will assign default values to properties that have it defined,
@@ -304,59 +301,9 @@ func (o ProductConfigurationStepOption) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.Quantity) {
 		toSerialize["quantity"] = o.Quantity
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *ProductConfigurationStepOption) UnmarshalJSON(data []byte) (err error) {
-	varProductConfigurationStepOption := _ProductConfigurationStepOption{}
-
-	err = json.Unmarshal(data, &varProductConfigurationStepOption)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProductConfigurationStepOption(varProductConfigurationStepOption)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "grn")
-		delete(additionalProperties, "label")
-		delete(additionalProperties, "priceVariation")
-		delete(additionalProperties, "image")
-		delete(additionalProperties, "hasQuantity")
-		delete(additionalProperties, "quantity")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *ProductConfigurationStepOption) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *ProductConfigurationStepOption) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableProductConfigurationStepOption struct {
 	value *ProductConfigurationStepOption
 	isSet bool

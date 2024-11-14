@@ -21,10 +21,7 @@ var _ MappedNullable = &OrderCalculateRefundResponse{}
 // OrderCalculateRefundResponse struct for OrderCalculateRefundResponse
 type OrderCalculateRefundResponse struct {
 	CreateRefundRequest *OrderCreateRefundRequest `json:"createRefundRequest,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderCalculateRefundResponse OrderCalculateRefundResponse
 
 // NewOrderCalculateRefundResponse instantiates a new OrderCalculateRefundResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -88,53 +85,9 @@ func (o OrderCalculateRefundResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CreateRefundRequest) {
 		toSerialize["createRefundRequest"] = o.CreateRefundRequest
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderCalculateRefundResponse) UnmarshalJSON(data []byte) (err error) {
-	varOrderCalculateRefundResponse := _OrderCalculateRefundResponse{}
-
-	err = json.Unmarshal(data, &varOrderCalculateRefundResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderCalculateRefundResponse(varOrderCalculateRefundResponse)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "createRefundRequest")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderCalculateRefundResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderCalculateRefundResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderCalculateRefundResponse struct {
 	value *OrderCalculateRefundResponse
 	isSet bool

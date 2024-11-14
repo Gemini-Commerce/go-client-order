@@ -23,10 +23,7 @@ type OrderSearchOrdersResponse struct {
 	Orders []OrderOrderData `json:"orders,omitempty"`
 	// A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages.
 	NextPageToken *string `json:"nextPageToken,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderSearchOrdersResponse OrderSearchOrdersResponse
 
 // NewOrderSearchOrdersResponse instantiates a new OrderSearchOrdersResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -125,54 +122,9 @@ func (o OrderSearchOrdersResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderSearchOrdersResponse) UnmarshalJSON(data []byte) (err error) {
-	varOrderSearchOrdersResponse := _OrderSearchOrdersResponse{}
-
-	err = json.Unmarshal(data, &varOrderSearchOrdersResponse)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderSearchOrdersResponse(varOrderSearchOrdersResponse)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "orders")
-		delete(additionalProperties, "nextPageToken")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderSearchOrdersResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderSearchOrdersResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderSearchOrdersResponse struct {
 	value *OrderSearchOrdersResponse
 	isSet bool

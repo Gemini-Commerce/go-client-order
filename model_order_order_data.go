@@ -14,6 +14,7 @@ package order
 import (
 	"encoding/json"
 	"time"
+	"bytes"
 	"fmt"
 )
 
@@ -56,7 +57,6 @@ type OrderOrderData struct {
 	// this field is used to save the original created_at order date. The created_at field is used to filter data.
 	InsertedAt *time.Time `json:"insertedAt,omitempty"`
 	DeletedAt *time.Time `json:"deletedAt,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderOrderData OrderOrderData
@@ -1203,11 +1203,6 @@ func (o OrderOrderData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DeletedAt) {
 		toSerialize["deletedAt"] = o.DeletedAt
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -1235,7 +1230,9 @@ func (o *OrderOrderData) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderOrderData := _OrderOrderData{}
 
-	err = json.Unmarshal(data, &varOrderOrderData)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderOrderData)
 
 	if err != nil {
 		return err
@@ -1243,65 +1240,9 @@ func (o *OrderOrderData) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderOrderData(varOrderOrderData)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "createdAt")
-		delete(additionalProperties, "updatedAt")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "grn")
-		delete(additionalProperties, "number")
-		delete(additionalProperties, "status")
-		delete(additionalProperties, "channel")
-		delete(additionalProperties, "market")
-		delete(additionalProperties, "locale")
-		delete(additionalProperties, "additionalInfo")
-		delete(additionalProperties, "documents")
-		delete(additionalProperties, "items")
-		delete(additionalProperties, "payments")
-		delete(additionalProperties, "shipments")
-		delete(additionalProperties, "paymentsInfo")
-		delete(additionalProperties, "shipmentsInfo")
-		delete(additionalProperties, "promotions")
-		delete(additionalProperties, "currency")
-		delete(additionalProperties, "subtotals")
-		delete(additionalProperties, "totals")
-		delete(additionalProperties, "vatIncluded")
-		delete(additionalProperties, "billingAddress")
-		delete(additionalProperties, "shippingAddress")
-		delete(additionalProperties, "customerInfo")
-		delete(additionalProperties, "cartGrn")
-		delete(additionalProperties, "onHold")
-		delete(additionalProperties, "historyEvents")
-		delete(additionalProperties, "fulfillments")
-		delete(additionalProperties, "notes")
-		delete(additionalProperties, "isDeleted")
-		delete(additionalProperties, "insertedAt")
-		delete(additionalProperties, "deletedAt")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderOrderData) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderOrderData) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderOrderData struct {
 	value *OrderOrderData
 	isSet bool

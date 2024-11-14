@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -26,7 +27,6 @@ type CreateOrderRequestInitialPayment struct {
 	Amount OrderMoney `json:"amount"`
 	CcInfo *PaymentCcInfo `json:"ccInfo,omitempty"`
 	Transaction *InitialPaymentInitialTransaction `json:"transaction,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _CreateOrderRequestInitialPayment CreateOrderRequestInitialPayment
@@ -215,11 +215,6 @@ func (o CreateOrderRequestInitialPayment) ToMap() (map[string]interface{}, error
 	if !IsNil(o.Transaction) {
 		toSerialize["transaction"] = o.Transaction
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -248,7 +243,9 @@ func (o *CreateOrderRequestInitialPayment) UnmarshalJSON(data []byte) (err error
 
 	varCreateOrderRequestInitialPayment := _CreateOrderRequestInitialPayment{}
 
-	err = json.Unmarshal(data, &varCreateOrderRequestInitialPayment)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varCreateOrderRequestInitialPayment)
 
 	if err != nil {
 		return err
@@ -256,38 +253,9 @@ func (o *CreateOrderRequestInitialPayment) UnmarshalJSON(data []byte) (err error
 
 	*o = CreateOrderRequestInitialPayment(varCreateOrderRequestInitialPayment)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "additionalInfo")
-		delete(additionalProperties, "amount")
-		delete(additionalProperties, "ccInfo")
-		delete(additionalProperties, "transaction")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *CreateOrderRequestInitialPayment) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *CreateOrderRequestInitialPayment) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableCreateOrderRequestInitialPayment struct {
 	value *CreateOrderRequestInitialPayment
 	isSet bool

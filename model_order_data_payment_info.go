@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -31,7 +32,6 @@ type OrderDataPaymentInfo struct {
 	VatCalculated *bool `json:"vatCalculated,omitempty"`
 	Title *OrderLocalizedText `json:"title,omitempty"`
 	Label *OrderLocalizedText `json:"label,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderDataPaymentInfo OrderDataPaymentInfo
@@ -395,11 +395,6 @@ func (o OrderDataPaymentInfo) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -428,7 +423,9 @@ func (o *OrderDataPaymentInfo) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderDataPaymentInfo := _OrderDataPaymentInfo{}
 
-	err = json.Unmarshal(data, &varOrderDataPaymentInfo)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataPaymentInfo)
 
 	if err != nil {
 		return err
@@ -436,43 +433,9 @@ func (o *OrderDataPaymentInfo) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderDataPaymentInfo(varOrderDataPaymentInfo)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "additionalInfo")
-		delete(additionalProperties, "amount")
-		delete(additionalProperties, "fee")
-		delete(additionalProperties, "vatAmount")
-		delete(additionalProperties, "vatPercentage")
-		delete(additionalProperties, "vatInaccurate")
-		delete(additionalProperties, "vatCalculated")
-		delete(additionalProperties, "title")
-		delete(additionalProperties, "label")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderDataPaymentInfo) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderDataPaymentInfo) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderDataPaymentInfo struct {
 	value *OrderDataPaymentInfo
 	isSet bool

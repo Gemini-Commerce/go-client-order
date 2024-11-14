@@ -22,10 +22,7 @@ var _ MappedNullable = &OrderRefundItem{}
 type OrderRefundItem struct {
 	OrderItemId *string `json:"orderItemId,omitempty"`
 	Qty *int64 `json:"qty,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderRefundItem OrderRefundItem
 
 // NewOrderRefundItem instantiates a new OrderRefundItem object
 // This constructor will assign default values to properties that have it defined,
@@ -124,54 +121,9 @@ func (o OrderRefundItem) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Qty) {
 		toSerialize["qty"] = o.Qty
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderRefundItem) UnmarshalJSON(data []byte) (err error) {
-	varOrderRefundItem := _OrderRefundItem{}
-
-	err = json.Unmarshal(data, &varOrderRefundItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderRefundItem(varOrderRefundItem)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "orderItemId")
-		delete(additionalProperties, "qty")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderRefundItem) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderRefundItem) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderRefundItem struct {
 	value *OrderRefundItem
 	isSet bool

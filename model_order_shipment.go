@@ -32,10 +32,7 @@ type OrderShipment struct {
 	ReturnAddress *OrderPostalAddress `json:"returnAddress,omitempty"`
 	Tracking []ShipmentTracking `json:"tracking,omitempty"`
 	ReturnTracking []ShipmentTracking `json:"returnTracking,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderShipment OrderShipment
 
 // NewOrderShipment instantiates a new OrderShipment object
 // This constructor will assign default values to properties that have it defined,
@@ -449,63 +446,9 @@ func (o OrderShipment) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ReturnTracking) {
 		toSerialize["returnTracking"] = o.ReturnTracking
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderShipment) UnmarshalJSON(data []byte) (err error) {
-	varOrderShipment := _OrderShipment{}
-
-	err = json.Unmarshal(data, &varOrderShipment)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderShipment(varOrderShipment)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "createdAt")
-		delete(additionalProperties, "updatedAt")
-		delete(additionalProperties, "orderId")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "status")
-		delete(additionalProperties, "items")
-		delete(additionalProperties, "address")
-		delete(additionalProperties, "fromAddress")
-		delete(additionalProperties, "returnAddress")
-		delete(additionalProperties, "tracking")
-		delete(additionalProperties, "returnTracking")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderShipment) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderShipment) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderShipment struct {
 	value *OrderShipment
 	isSet bool

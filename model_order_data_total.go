@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -23,7 +24,6 @@ var _ MappedNullable = &OrderDataTotal{}
 type OrderDataTotal struct {
 	Code OrderDataTotalCode `json:"code"`
 	Value OrderMoney `json:"value"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderDataTotal OrderDataTotal
@@ -109,11 +109,6 @@ func (o OrderDataTotal) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["code"] = o.Code
 	toSerialize["value"] = o.Value
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -142,7 +137,9 @@ func (o *OrderDataTotal) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderDataTotal := _OrderDataTotal{}
 
-	err = json.Unmarshal(data, &varOrderDataTotal)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataTotal)
 
 	if err != nil {
 		return err
@@ -150,35 +147,9 @@ func (o *OrderDataTotal) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderDataTotal(varOrderDataTotal)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "value")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderDataTotal) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderDataTotal) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderDataTotal struct {
 	value *OrderDataTotal
 	isSet bool

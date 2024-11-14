@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -31,7 +32,6 @@ type OrderCreateShipmentRequest struct {
 	ReturnTracking []ShipmentTracking `json:"returnTracking,omitempty"`
 	Code *string `json:"code,omitempty"`
 	Method *string `json:"method,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderCreateShipmentRequest OrderCreateShipmentRequest
@@ -377,11 +377,6 @@ func (o OrderCreateShipmentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Method) {
 		toSerialize["method"] = o.Method
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -412,7 +407,9 @@ func (o *OrderCreateShipmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderCreateShipmentRequest := _OrderCreateShipmentRequest{}
 
-	err = json.Unmarshal(data, &varOrderCreateShipmentRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderCreateShipmentRequest)
 
 	if err != nil {
 		return err
@@ -420,43 +417,9 @@ func (o *OrderCreateShipmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderCreateShipmentRequest(varOrderCreateShipmentRequest)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "tenantId")
-		delete(additionalProperties, "orderId")
-		delete(additionalProperties, "items")
-		delete(additionalProperties, "address")
-		delete(additionalProperties, "fromAddress")
-		delete(additionalProperties, "returnAddress")
-		delete(additionalProperties, "tracking")
-		delete(additionalProperties, "returnTracking")
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "method")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderCreateShipmentRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderCreateShipmentRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderCreateShipmentRequest struct {
 	value *OrderCreateShipmentRequest
 	isSet bool

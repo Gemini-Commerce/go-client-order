@@ -49,10 +49,7 @@ type OrderOrderDataItem struct {
 	PromotionGrn []string `json:"promotionGrn,omitempty"`
 	ProductIsVirtual *bool `json:"productIsVirtual,omitempty"`
 	ProductConfiguration []ItemProductConfigurationStep `json:"productConfiguration,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderOrderDataItem OrderOrderDataItem
 
 // NewOrderOrderDataItem instantiates a new OrderOrderDataItem object
 // This constructor will assign default values to properties that have it defined,
@@ -1096,81 +1093,9 @@ func (o OrderOrderDataItem) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ProductConfiguration) {
 		toSerialize["productConfiguration"] = o.ProductConfiguration
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderOrderDataItem) UnmarshalJSON(data []byte) (err error) {
-	varOrderOrderDataItem := _OrderOrderDataItem{}
-
-	err = json.Unmarshal(data, &varOrderOrderDataItem)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderOrderDataItem(varOrderOrderDataItem)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "productGrn")
-		delete(additionalProperties, "qtyOrdered")
-		delete(additionalProperties, "freeQty")
-		delete(additionalProperties, "qtyCommitted")
-		delete(additionalProperties, "unitSalePrice")
-		delete(additionalProperties, "unitListPrice")
-		delete(additionalProperties, "unitBasePrice")
-		delete(additionalProperties, "unitVatAmount")
-		delete(additionalProperties, "rowSalePrice")
-		delete(additionalProperties, "rowListPrice")
-		delete(additionalProperties, "rowVatAmount")
-		delete(additionalProperties, "discountAmount")
-		delete(additionalProperties, "rowBasePrice")
-		delete(additionalProperties, "unitCustomPrice")
-		delete(additionalProperties, "rowCustomPrice")
-		delete(additionalProperties, "vatPercentage")
-		delete(additionalProperties, "vatInaccurate")
-		delete(additionalProperties, "vatCalculated")
-		delete(additionalProperties, "productName")
-		delete(additionalProperties, "productCode")
-		delete(additionalProperties, "productSku")
-		delete(additionalProperties, "productOptions")
-		delete(additionalProperties, "productImg")
-		delete(additionalProperties, "productData")
-		delete(additionalProperties, "shipmentInfoReference")
-		delete(additionalProperties, "promotionGrn")
-		delete(additionalProperties, "productIsVirtual")
-		delete(additionalProperties, "productConfiguration")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderOrderDataItem) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderOrderDataItem) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderOrderDataItem struct {
 	value *OrderOrderDataItem
 	isSet bool

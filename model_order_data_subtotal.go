@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -23,7 +24,6 @@ var _ MappedNullable = &OrderDataSubtotal{}
 type OrderDataSubtotal struct {
 	Code OrderDataSubtotalCode `json:"code"`
 	Value OrderMoney `json:"value"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderDataSubtotal OrderDataSubtotal
@@ -109,11 +109,6 @@ func (o OrderDataSubtotal) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["code"] = o.Code
 	toSerialize["value"] = o.Value
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -142,7 +137,9 @@ func (o *OrderDataSubtotal) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderDataSubtotal := _OrderDataSubtotal{}
 
-	err = json.Unmarshal(data, &varOrderDataSubtotal)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderDataSubtotal)
 
 	if err != nil {
 		return err
@@ -150,35 +147,9 @@ func (o *OrderDataSubtotal) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderDataSubtotal(varOrderDataSubtotal)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "value")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderDataSubtotal) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderDataSubtotal) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderDataSubtotal struct {
 	value *OrderDataSubtotal
 	isSet bool

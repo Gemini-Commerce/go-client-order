@@ -23,10 +23,7 @@ type PrintOrdersLabelsResponseFailedOrder struct {
 	OrderNumber *string `json:"orderNumber,omitempty"`
 	ErrorMessage *string `json:"errorMessage,omitempty"`
 	ErrorCode *string `json:"errorCode,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _PrintOrdersLabelsResponseFailedOrder PrintOrdersLabelsResponseFailedOrder
 
 // NewPrintOrdersLabelsResponseFailedOrder instantiates a new PrintOrdersLabelsResponseFailedOrder object
 // This constructor will assign default values to properties that have it defined,
@@ -160,55 +157,9 @@ func (o PrintOrdersLabelsResponseFailedOrder) ToMap() (map[string]interface{}, e
 	if !IsNil(o.ErrorCode) {
 		toSerialize["errorCode"] = o.ErrorCode
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *PrintOrdersLabelsResponseFailedOrder) UnmarshalJSON(data []byte) (err error) {
-	varPrintOrdersLabelsResponseFailedOrder := _PrintOrdersLabelsResponseFailedOrder{}
-
-	err = json.Unmarshal(data, &varPrintOrdersLabelsResponseFailedOrder)
-
-	if err != nil {
-		return err
-	}
-
-	*o = PrintOrdersLabelsResponseFailedOrder(varPrintOrdersLabelsResponseFailedOrder)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "orderNumber")
-		delete(additionalProperties, "errorMessage")
-		delete(additionalProperties, "errorCode")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *PrintOrdersLabelsResponseFailedOrder) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *PrintOrdersLabelsResponseFailedOrder) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullablePrintOrdersLabelsResponseFailedOrder struct {
 	value *PrintOrdersLabelsResponseFailedOrder
 	isSet bool

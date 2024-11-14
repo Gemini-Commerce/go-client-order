@@ -28,10 +28,7 @@ type OrderPayment struct {
 	Amounts []OrderPaymentAmount `json:"amounts,omitempty"`
 	CcInfo *PaymentCcInfo `json:"ccInfo,omitempty"`
 	Transactions []OrderTransaction `json:"transactions,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderPayment OrderPayment
 
 // NewOrderPayment instantiates a new OrderPayment object
 // This constructor will assign default values to properties that have it defined,
@@ -305,59 +302,9 @@ func (o OrderPayment) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Transactions) {
 		toSerialize["transactions"] = o.Transactions
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderPayment) UnmarshalJSON(data []byte) (err error) {
-	varOrderPayment := _OrderPayment{}
-
-	err = json.Unmarshal(data, &varOrderPayment)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderPayment(varOrderPayment)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "orderId")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "additionalInfo")
-		delete(additionalProperties, "amounts")
-		delete(additionalProperties, "ccInfo")
-		delete(additionalProperties, "transactions")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderPayment) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderPayment) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderPayment struct {
 	value *OrderPayment
 	isSet bool

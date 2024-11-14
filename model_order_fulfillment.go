@@ -27,10 +27,7 @@ type OrderFulfillment struct {
 	Id *string `json:"id,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Items []OrderFulfillmentItem `json:"items,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
-
-type _OrderFulfillment OrderFulfillment
 
 // NewOrderFulfillment instantiates a new OrderFulfillment object
 // This constructor will assign default values to properties that have it defined,
@@ -269,58 +266,9 @@ func (o OrderFulfillment) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Items) {
 		toSerialize["items"] = o.Items
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
-func (o *OrderFulfillment) UnmarshalJSON(data []byte) (err error) {
-	varOrderFulfillment := _OrderFulfillment{}
-
-	err = json.Unmarshal(data, &varOrderFulfillment)
-
-	if err != nil {
-		return err
-	}
-
-	*o = OrderFulfillment(varOrderFulfillment)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "createdAt")
-		delete(additionalProperties, "updatedAt")
-		delete(additionalProperties, "orderId")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "status")
-		delete(additionalProperties, "items")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
-}
-
-// GetValue returns the value of well-known types
-func (o *OrderFulfillment) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderFulfillment) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderFulfillment struct {
 	value *OrderFulfillment
 	isSet bool

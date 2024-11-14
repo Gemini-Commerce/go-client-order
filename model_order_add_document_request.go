@@ -13,6 +13,7 @@ package order
 
 import (
 	"encoding/json"
+	"bytes"
 	"fmt"
 )
 
@@ -27,7 +28,6 @@ type OrderAddDocumentRequest struct {
 	Label *string `json:"label,omitempty"`
 	AssetGrn *string `json:"assetGrn,omitempty"`
 	Url *string `json:"url,omitempty"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _OrderAddDocumentRequest OrderAddDocumentRequest
@@ -242,11 +242,6 @@ func (o OrderAddDocumentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -276,7 +271,9 @@ func (o *OrderAddDocumentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varOrderAddDocumentRequest := _OrderAddDocumentRequest{}
 
-	err = json.Unmarshal(data, &varOrderAddDocumentRequest)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varOrderAddDocumentRequest)
 
 	if err != nil {
 		return err
@@ -284,39 +281,9 @@ func (o *OrderAddDocumentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	*o = OrderAddDocumentRequest(varOrderAddDocumentRequest)
 
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "tenantId")
-		delete(additionalProperties, "orderId")
-		delete(additionalProperties, "code")
-		delete(additionalProperties, "label")
-		delete(additionalProperties, "assetGrn")
-		delete(additionalProperties, "url")
-		o.AdditionalProperties = additionalProperties
-	}
-
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderAddDocumentRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderAddDocumentRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderAddDocumentRequest struct {
 	value *OrderAddDocumentRequest
 	isSet bool
