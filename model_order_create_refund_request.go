@@ -118,8 +118,8 @@ func (o *OrderCreateRefundRequest) GetItemsOk() ([]OrderRefundItem, bool) {
 	return o.Items, true
 }
 
-// &#39;Has&#39;Items returns a boolean if a field has been set.
-func (o *OrderCreateRefundRequest) &#39;Has&#39;Items() bool {
+// HasItems returns a boolean if a field has been set.
+func (o *OrderCreateRefundRequest) HasItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -174,8 +174,8 @@ func (o *OrderCreateRefundRequest) GetNoteOk() (*string, bool) {
 	return o.Note, true
 }
 
-// &#39;Has&#39;Note returns a boolean if a field has been set.
-func (o *OrderCreateRefundRequest) &#39;Has&#39;Note() bool {
+// HasNote returns a boolean if a field has been set.
+func (o *OrderCreateRefundRequest) HasNote() bool {
 	if o != nil && !IsNil(o.Note) {
 		return true
 	}
@@ -206,8 +206,8 @@ func (o *OrderCreateRefundRequest) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *OrderCreateRefundRequest) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *OrderCreateRefundRequest) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

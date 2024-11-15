@@ -62,8 +62,8 @@ func (o *OrderPrintOrdersLabelsResponse) GetDownloadUrlOk() (*string, bool) {
 	return o.DownloadUrl, true
 }
 
-// &#39;Has&#39;DownloadUrl returns a boolean if a field has been set.
-func (o *OrderPrintOrdersLabelsResponse) &#39;Has&#39;DownloadUrl() bool {
+// HasDownloadUrl returns a boolean if a field has been set.
+func (o *OrderPrintOrdersLabelsResponse) HasDownloadUrl() bool {
 	if o != nil && !IsNil(o.DownloadUrl) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *OrderPrintOrdersLabelsResponse) GetFailedOrdersOk() ([]PrintOrdersLabel
 	return o.FailedOrders, true
 }
 
-// &#39;Has&#39;FailedOrders returns a boolean if a field has been set.
-func (o *OrderPrintOrdersLabelsResponse) &#39;Has&#39;FailedOrders() bool {
+// HasFailedOrders returns a boolean if a field has been set.
+func (o *OrderPrintOrdersLabelsResponse) HasFailedOrders() bool {
 	if o != nil && !IsNil(o.FailedOrders) {
 		return true
 	}

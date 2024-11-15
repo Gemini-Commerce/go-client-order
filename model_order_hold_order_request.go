@@ -65,8 +65,8 @@ func (o *OrderHoldOrderRequest) GetTenantIdOk() (*string, bool) {
 	return o.TenantId, true
 }
 
-// &#39;Has&#39;TenantId returns a boolean if a field has been set.
-func (o *OrderHoldOrderRequest) &#39;Has&#39;TenantId() bool {
+// HasTenantId returns a boolean if a field has been set.
+func (o *OrderHoldOrderRequest) HasTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -121,8 +121,8 @@ func (o *OrderHoldOrderRequest) GetReasonOk() (*string, bool) {
 	return o.Reason, true
 }
 
-// &#39;Has&#39;Reason returns a boolean if a field has been set.
-func (o *OrderHoldOrderRequest) &#39;Has&#39;Reason() bool {
+// HasReason returns a boolean if a field has been set.
+func (o *OrderHoldOrderRequest) HasReason() bool {
 	if o != nil && !IsNil(o.Reason) {
 		return true
 	}

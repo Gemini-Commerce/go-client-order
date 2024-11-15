@@ -61,8 +61,8 @@ func (o *OrderCalculateRefundResponse) GetCreateRefundRequestOk() (*OrderCreateR
 	return o.CreateRefundRequest, true
 }
 
-// &#39;Has&#39;CreateRefundRequest returns a boolean if a field has been set.
-func (o *OrderCalculateRefundResponse) &#39;Has&#39;CreateRefundRequest() bool {
+// HasCreateRefundRequest returns a boolean if a field has been set.
+func (o *OrderCalculateRefundResponse) HasCreateRefundRequest() bool {
 	if o != nil && !IsNil(o.CreateRefundRequest) {
 		return true
 	}

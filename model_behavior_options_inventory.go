@@ -65,8 +65,8 @@ func (o *BehaviorOptionsInventory) GetActionOk() (*BehaviorOptionsInventoryActio
 	return o.Action, true
 }
 
-// &#39;Has&#39;Action returns a boolean if a field has been set.
-func (o *BehaviorOptionsInventory) &#39;Has&#39;Action() bool {
+// HasAction returns a boolean if a field has been set.
+func (o *BehaviorOptionsInventory) HasAction() bool {
 	if o != nil && !IsNil(o.Action) {
 		return true
 	}

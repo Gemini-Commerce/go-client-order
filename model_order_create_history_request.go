@@ -114,8 +114,8 @@ func (o *OrderCreateHistoryRequest) GetCommentOk() (*string, bool) {
 	return o.Comment, true
 }
 
-// &#39;Has&#39;Comment returns a boolean if a field has been set.
-func (o *OrderCreateHistoryRequest) &#39;Has&#39;Comment() bool {
+// HasComment returns a boolean if a field has been set.
+func (o *OrderCreateHistoryRequest) HasComment() bool {
 	if o != nil && !IsNil(o.Comment) {
 		return true
 	}

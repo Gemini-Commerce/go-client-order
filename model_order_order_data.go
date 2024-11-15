@@ -101,8 +101,8 @@ func (o *OrderOrderData) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;CreatedAt() bool {
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *OrderOrderData) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -133,8 +133,8 @@ func (o *OrderOrderData) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// &#39;Has&#39;UpdatedAt returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;UpdatedAt() bool {
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *OrderOrderData) HasUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -165,8 +165,8 @@ func (o *OrderOrderData) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *OrderOrderData) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -197,8 +197,8 @@ func (o *OrderOrderData) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// &#39;Has&#39;Grn returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Grn() bool {
+// HasGrn returns a boolean if a field has been set.
+func (o *OrderOrderData) HasGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -229,8 +229,8 @@ func (o *OrderOrderData) GetNumberOk() (*string, bool) {
 	return o.Number, true
 }
 
-// &#39;Has&#39;Number returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Number() bool {
+// HasNumber returns a boolean if a field has been set.
+func (o *OrderOrderData) HasNumber() bool {
 	if o != nil && !IsNil(o.Number) {
 		return true
 	}
@@ -261,8 +261,8 @@ func (o *OrderOrderData) GetStatusOk() (*string, bool) {
 	return o.Status, true
 }
 
-// &#39;Has&#39;Status returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Status() bool {
+// HasStatus returns a boolean if a field has been set.
+func (o *OrderOrderData) HasStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}
@@ -293,8 +293,8 @@ func (o *OrderOrderData) GetChannelOk() (*string, bool) {
 	return o.Channel, true
 }
 
-// &#39;Has&#39;Channel returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Channel() bool {
+// HasChannel returns a boolean if a field has been set.
+func (o *OrderOrderData) HasChannel() bool {
 	if o != nil && !IsNil(o.Channel) {
 		return true
 	}
@@ -325,8 +325,8 @@ func (o *OrderOrderData) GetMarketOk() (*string, bool) {
 	return o.Market, true
 }
 
-// &#39;Has&#39;Market returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Market() bool {
+// HasMarket returns a boolean if a field has been set.
+func (o *OrderOrderData) HasMarket() bool {
 	if o != nil && !IsNil(o.Market) {
 		return true
 	}
@@ -381,8 +381,8 @@ func (o *OrderOrderData) GetAdditionalInfoOk() (map[string]interface{}, bool) {
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *OrderOrderData) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -413,8 +413,8 @@ func (o *OrderOrderData) GetDocumentsOk() ([]OrderDataDocument, bool) {
 	return o.Documents, true
 }
 
-// &#39;Has&#39;Documents returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Documents() bool {
+// HasDocuments returns a boolean if a field has been set.
+func (o *OrderOrderData) HasDocuments() bool {
 	if o != nil && !IsNil(o.Documents) {
 		return true
 	}
@@ -445,8 +445,8 @@ func (o *OrderOrderData) GetItemsOk() ([]OrderOrderDataItem, bool) {
 	return o.Items, true
 }
 
-// &#39;Has&#39;Items returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Items() bool {
+// HasItems returns a boolean if a field has been set.
+func (o *OrderOrderData) HasItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -477,8 +477,8 @@ func (o *OrderOrderData) GetPaymentsOk() ([]OrderPayment, bool) {
 	return o.Payments, true
 }
 
-// &#39;Has&#39;Payments returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Payments() bool {
+// HasPayments returns a boolean if a field has been set.
+func (o *OrderOrderData) HasPayments() bool {
 	if o != nil && !IsNil(o.Payments) {
 		return true
 	}
@@ -509,8 +509,8 @@ func (o *OrderOrderData) GetShipmentsOk() ([]OrderShipment, bool) {
 	return o.Shipments, true
 }
 
-// &#39;Has&#39;Shipments returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Shipments() bool {
+// HasShipments returns a boolean if a field has been set.
+func (o *OrderOrderData) HasShipments() bool {
 	if o != nil && !IsNil(o.Shipments) {
 		return true
 	}
@@ -541,8 +541,8 @@ func (o *OrderOrderData) GetPaymentsInfoOk() ([]OrderDataPaymentInfo, bool) {
 	return o.PaymentsInfo, true
 }
 
-// &#39;Has&#39;PaymentsInfo returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;PaymentsInfo() bool {
+// HasPaymentsInfo returns a boolean if a field has been set.
+func (o *OrderOrderData) HasPaymentsInfo() bool {
 	if o != nil && !IsNil(o.PaymentsInfo) {
 		return true
 	}
@@ -573,8 +573,8 @@ func (o *OrderOrderData) GetShipmentsInfoOk() ([]OrderDataShipmentInfo, bool) {
 	return o.ShipmentsInfo, true
 }
 
-// &#39;Has&#39;ShipmentsInfo returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;ShipmentsInfo() bool {
+// HasShipmentsInfo returns a boolean if a field has been set.
+func (o *OrderOrderData) HasShipmentsInfo() bool {
 	if o != nil && !IsNil(o.ShipmentsInfo) {
 		return true
 	}
@@ -605,8 +605,8 @@ func (o *OrderOrderData) GetPromotionsOk() ([]OrderDataPromotionInfo, bool) {
 	return o.Promotions, true
 }
 
-// &#39;Has&#39;Promotions returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Promotions() bool {
+// HasPromotions returns a boolean if a field has been set.
+func (o *OrderOrderData) HasPromotions() bool {
 	if o != nil && !IsNil(o.Promotions) {
 		return true
 	}
@@ -637,8 +637,8 @@ func (o *OrderOrderData) GetCurrencyOk() (*OrderCurrency, bool) {
 	return o.Currency, true
 }
 
-// &#39;Has&#39;Currency returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Currency() bool {
+// HasCurrency returns a boolean if a field has been set.
+func (o *OrderOrderData) HasCurrency() bool {
 	if o != nil && !IsNil(o.Currency) {
 		return true
 	}
@@ -669,8 +669,8 @@ func (o *OrderOrderData) GetSubtotalsOk() (*map[string]OrderDataSubtotal, bool) 
 	return o.Subtotals, true
 }
 
-// &#39;Has&#39;Subtotals returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Subtotals() bool {
+// HasSubtotals returns a boolean if a field has been set.
+func (o *OrderOrderData) HasSubtotals() bool {
 	if o != nil && !IsNil(o.Subtotals) {
 		return true
 	}
@@ -701,8 +701,8 @@ func (o *OrderOrderData) GetTotalsOk() (*map[string]OrderDataTotal, bool) {
 	return o.Totals, true
 }
 
-// &#39;Has&#39;Totals returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Totals() bool {
+// HasTotals returns a boolean if a field has been set.
+func (o *OrderOrderData) HasTotals() bool {
 	if o != nil && !IsNil(o.Totals) {
 		return true
 	}
@@ -733,8 +733,8 @@ func (o *OrderOrderData) GetVatIncludedOk() (*bool, bool) {
 	return o.VatIncluded, true
 }
 
-// &#39;Has&#39;VatIncluded returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;VatIncluded() bool {
+// HasVatIncluded returns a boolean if a field has been set.
+func (o *OrderOrderData) HasVatIncluded() bool {
 	if o != nil && !IsNil(o.VatIncluded) {
 		return true
 	}
@@ -765,8 +765,8 @@ func (o *OrderOrderData) GetBillingAddressOk() (*OrderPostalAddress, bool) {
 	return o.BillingAddress, true
 }
 
-// &#39;Has&#39;BillingAddress returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;BillingAddress() bool {
+// HasBillingAddress returns a boolean if a field has been set.
+func (o *OrderOrderData) HasBillingAddress() bool {
 	if o != nil && !IsNil(o.BillingAddress) {
 		return true
 	}
@@ -797,8 +797,8 @@ func (o *OrderOrderData) GetShippingAddressOk() (*OrderPostalAddress, bool) {
 	return o.ShippingAddress, true
 }
 
-// &#39;Has&#39;ShippingAddress returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;ShippingAddress() bool {
+// HasShippingAddress returns a boolean if a field has been set.
+func (o *OrderOrderData) HasShippingAddress() bool {
 	if o != nil && !IsNil(o.ShippingAddress) {
 		return true
 	}
@@ -829,8 +829,8 @@ func (o *OrderOrderData) GetCustomerInfoOk() (*OrderDataCustomerInfo, bool) {
 	return o.CustomerInfo, true
 }
 
-// &#39;Has&#39;CustomerInfo returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;CustomerInfo() bool {
+// HasCustomerInfo returns a boolean if a field has been set.
+func (o *OrderOrderData) HasCustomerInfo() bool {
 	if o != nil && !IsNil(o.CustomerInfo) {
 		return true
 	}
@@ -861,8 +861,8 @@ func (o *OrderOrderData) GetCartGrnOk() (*string, bool) {
 	return o.CartGrn, true
 }
 
-// &#39;Has&#39;CartGrn returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;CartGrn() bool {
+// HasCartGrn returns a boolean if a field has been set.
+func (o *OrderOrderData) HasCartGrn() bool {
 	if o != nil && !IsNil(o.CartGrn) {
 		return true
 	}
@@ -893,8 +893,8 @@ func (o *OrderOrderData) GetOnHoldOk() (*bool, bool) {
 	return o.OnHold, true
 }
 
-// &#39;Has&#39;OnHold returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;OnHold() bool {
+// HasOnHold returns a boolean if a field has been set.
+func (o *OrderOrderData) HasOnHold() bool {
 	if o != nil && !IsNil(o.OnHold) {
 		return true
 	}
@@ -925,8 +925,8 @@ func (o *OrderOrderData) GetHistoryEventsOk() ([]OrderDataHistory, bool) {
 	return o.HistoryEvents, true
 }
 
-// &#39;Has&#39;HistoryEvents returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;HistoryEvents() bool {
+// HasHistoryEvents returns a boolean if a field has been set.
+func (o *OrderOrderData) HasHistoryEvents() bool {
 	if o != nil && !IsNil(o.HistoryEvents) {
 		return true
 	}
@@ -957,8 +957,8 @@ func (o *OrderOrderData) GetFulfillmentsOk() ([]OrderFulfillment, bool) {
 	return o.Fulfillments, true
 }
 
-// &#39;Has&#39;Fulfillments returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Fulfillments() bool {
+// HasFulfillments returns a boolean if a field has been set.
+func (o *OrderOrderData) HasFulfillments() bool {
 	if o != nil && !IsNil(o.Fulfillments) {
 		return true
 	}
@@ -989,8 +989,8 @@ func (o *OrderOrderData) GetNotesOk() (*string, bool) {
 	return o.Notes, true
 }
 
-// &#39;Has&#39;Notes returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;Notes() bool {
+// HasNotes returns a boolean if a field has been set.
+func (o *OrderOrderData) HasNotes() bool {
 	if o != nil && !IsNil(o.Notes) {
 		return true
 	}
@@ -1021,8 +1021,8 @@ func (o *OrderOrderData) GetIsDeletedOk() (*bool, bool) {
 	return o.IsDeleted, true
 }
 
-// &#39;Has&#39;IsDeleted returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;IsDeleted() bool {
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *OrderOrderData) HasIsDeleted() bool {
 	if o != nil && !IsNil(o.IsDeleted) {
 		return true
 	}
@@ -1053,8 +1053,8 @@ func (o *OrderOrderData) GetInsertedAtOk() (*time.Time, bool) {
 	return o.InsertedAt, true
 }
 
-// &#39;Has&#39;InsertedAt returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;InsertedAt() bool {
+// HasInsertedAt returns a boolean if a field has been set.
+func (o *OrderOrderData) HasInsertedAt() bool {
 	if o != nil && !IsNil(o.InsertedAt) {
 		return true
 	}
@@ -1085,8 +1085,8 @@ func (o *OrderOrderData) GetDeletedAtOk() (*time.Time, bool) {
 	return o.DeletedAt, true
 }
 
-// &#39;Has&#39;DeletedAt returns a boolean if a field has been set.
-func (o *OrderOrderData) &#39;Has&#39;DeletedAt() bool {
+// HasDeletedAt returns a boolean if a field has been set.
+func (o *OrderOrderData) HasDeletedAt() bool {
 	if o != nil && !IsNil(o.DeletedAt) {
 		return true
 	}

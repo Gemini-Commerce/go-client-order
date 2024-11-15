@@ -89,8 +89,8 @@ func (o *OrderOrderDataItem) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -121,8 +121,8 @@ func (o *OrderOrderDataItem) GetProductGrnOk() (*string, bool) {
 	return o.ProductGrn, true
 }
 
-// &#39;Has&#39;ProductGrn returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductGrn() bool {
+// HasProductGrn returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}
@@ -153,8 +153,8 @@ func (o *OrderOrderDataItem) GetQtyOrderedOk() (*int64, bool) {
 	return o.QtyOrdered, true
 }
 
-// &#39;Has&#39;QtyOrdered returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;QtyOrdered() bool {
+// HasQtyOrdered returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasQtyOrdered() bool {
 	if o != nil && !IsNil(o.QtyOrdered) {
 		return true
 	}
@@ -185,8 +185,8 @@ func (o *OrderOrderDataItem) GetFreeQtyOk() (*int64, bool) {
 	return o.FreeQty, true
 }
 
-// &#39;Has&#39;FreeQty returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;FreeQty() bool {
+// HasFreeQty returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasFreeQty() bool {
 	if o != nil && !IsNil(o.FreeQty) {
 		return true
 	}
@@ -217,8 +217,8 @@ func (o *OrderOrderDataItem) GetQtyCommittedOk() (*int64, bool) {
 	return o.QtyCommitted, true
 }
 
-// &#39;Has&#39;QtyCommitted returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;QtyCommitted() bool {
+// HasQtyCommitted returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasQtyCommitted() bool {
 	if o != nil && !IsNil(o.QtyCommitted) {
 		return true
 	}
@@ -249,8 +249,8 @@ func (o *OrderOrderDataItem) GetUnitSalePriceOk() (*OrderMoney, bool) {
 	return o.UnitSalePrice, true
 }
 
-// &#39;Has&#39;UnitSalePrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;UnitSalePrice() bool {
+// HasUnitSalePrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasUnitSalePrice() bool {
 	if o != nil && !IsNil(o.UnitSalePrice) {
 		return true
 	}
@@ -281,8 +281,8 @@ func (o *OrderOrderDataItem) GetUnitListPriceOk() (*OrderMoney, bool) {
 	return o.UnitListPrice, true
 }
 
-// &#39;Has&#39;UnitListPrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;UnitListPrice() bool {
+// HasUnitListPrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasUnitListPrice() bool {
 	if o != nil && !IsNil(o.UnitListPrice) {
 		return true
 	}
@@ -313,8 +313,8 @@ func (o *OrderOrderDataItem) GetUnitBasePriceOk() (*OrderMoney, bool) {
 	return o.UnitBasePrice, true
 }
 
-// &#39;Has&#39;UnitBasePrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;UnitBasePrice() bool {
+// HasUnitBasePrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasUnitBasePrice() bool {
 	if o != nil && !IsNil(o.UnitBasePrice) {
 		return true
 	}
@@ -345,8 +345,8 @@ func (o *OrderOrderDataItem) GetUnitVatAmountOk() (*OrderMoney, bool) {
 	return o.UnitVatAmount, true
 }
 
-// &#39;Has&#39;UnitVatAmount returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;UnitVatAmount() bool {
+// HasUnitVatAmount returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasUnitVatAmount() bool {
 	if o != nil && !IsNil(o.UnitVatAmount) {
 		return true
 	}
@@ -377,8 +377,8 @@ func (o *OrderOrderDataItem) GetRowSalePriceOk() (*OrderMoney, bool) {
 	return o.RowSalePrice, true
 }
 
-// &#39;Has&#39;RowSalePrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;RowSalePrice() bool {
+// HasRowSalePrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasRowSalePrice() bool {
 	if o != nil && !IsNil(o.RowSalePrice) {
 		return true
 	}
@@ -409,8 +409,8 @@ func (o *OrderOrderDataItem) GetRowListPriceOk() (*OrderMoney, bool) {
 	return o.RowListPrice, true
 }
 
-// &#39;Has&#39;RowListPrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;RowListPrice() bool {
+// HasRowListPrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasRowListPrice() bool {
 	if o != nil && !IsNil(o.RowListPrice) {
 		return true
 	}
@@ -441,8 +441,8 @@ func (o *OrderOrderDataItem) GetRowVatAmountOk() (*OrderMoney, bool) {
 	return o.RowVatAmount, true
 }
 
-// &#39;Has&#39;RowVatAmount returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;RowVatAmount() bool {
+// HasRowVatAmount returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasRowVatAmount() bool {
 	if o != nil && !IsNil(o.RowVatAmount) {
 		return true
 	}
@@ -473,8 +473,8 @@ func (o *OrderOrderDataItem) GetDiscountAmountOk() (*OrderMoney, bool) {
 	return o.DiscountAmount, true
 }
 
-// &#39;Has&#39;DiscountAmount returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;DiscountAmount() bool {
+// HasDiscountAmount returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasDiscountAmount() bool {
 	if o != nil && !IsNil(o.DiscountAmount) {
 		return true
 	}
@@ -505,8 +505,8 @@ func (o *OrderOrderDataItem) GetRowBasePriceOk() (*OrderMoney, bool) {
 	return o.RowBasePrice, true
 }
 
-// &#39;Has&#39;RowBasePrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;RowBasePrice() bool {
+// HasRowBasePrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasRowBasePrice() bool {
 	if o != nil && !IsNil(o.RowBasePrice) {
 		return true
 	}
@@ -537,8 +537,8 @@ func (o *OrderOrderDataItem) GetUnitCustomPriceOk() (*OrderMoney, bool) {
 	return o.UnitCustomPrice, true
 }
 
-// &#39;Has&#39;UnitCustomPrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;UnitCustomPrice() bool {
+// HasUnitCustomPrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasUnitCustomPrice() bool {
 	if o != nil && !IsNil(o.UnitCustomPrice) {
 		return true
 	}
@@ -569,8 +569,8 @@ func (o *OrderOrderDataItem) GetRowCustomPriceOk() (*OrderMoney, bool) {
 	return o.RowCustomPrice, true
 }
 
-// &#39;Has&#39;RowCustomPrice returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;RowCustomPrice() bool {
+// HasRowCustomPrice returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasRowCustomPrice() bool {
 	if o != nil && !IsNil(o.RowCustomPrice) {
 		return true
 	}
@@ -601,8 +601,8 @@ func (o *OrderOrderDataItem) GetVatPercentageOk() (*float32, bool) {
 	return o.VatPercentage, true
 }
 
-// &#39;Has&#39;VatPercentage returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;VatPercentage() bool {
+// HasVatPercentage returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasVatPercentage() bool {
 	if o != nil && !IsNil(o.VatPercentage) {
 		return true
 	}
@@ -633,8 +633,8 @@ func (o *OrderOrderDataItem) GetVatInaccurateOk() (*bool, bool) {
 	return o.VatInaccurate, true
 }
 
-// &#39;Has&#39;VatInaccurate returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;VatInaccurate() bool {
+// HasVatInaccurate returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasVatInaccurate() bool {
 	if o != nil && !IsNil(o.VatInaccurate) {
 		return true
 	}
@@ -665,8 +665,8 @@ func (o *OrderOrderDataItem) GetVatCalculatedOk() (*bool, bool) {
 	return o.VatCalculated, true
 }
 
-// &#39;Has&#39;VatCalculated returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;VatCalculated() bool {
+// HasVatCalculated returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasVatCalculated() bool {
 	if o != nil && !IsNil(o.VatCalculated) {
 		return true
 	}
@@ -697,8 +697,8 @@ func (o *OrderOrderDataItem) GetProductNameOk() (*string, bool) {
 	return o.ProductName, true
 }
 
-// &#39;Has&#39;ProductName returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductName() bool {
+// HasProductName returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductName() bool {
 	if o != nil && !IsNil(o.ProductName) {
 		return true
 	}
@@ -729,8 +729,8 @@ func (o *OrderOrderDataItem) GetProductCodeOk() (*string, bool) {
 	return o.ProductCode, true
 }
 
-// &#39;Has&#39;ProductCode returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductCode() bool {
+// HasProductCode returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductCode() bool {
 	if o != nil && !IsNil(o.ProductCode) {
 		return true
 	}
@@ -761,8 +761,8 @@ func (o *OrderOrderDataItem) GetProductSkuOk() (*string, bool) {
 	return o.ProductSku, true
 }
 
-// &#39;Has&#39;ProductSku returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductSku() bool {
+// HasProductSku returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductSku() bool {
 	if o != nil && !IsNil(o.ProductSku) {
 		return true
 	}
@@ -793,8 +793,8 @@ func (o *OrderOrderDataItem) GetProductOptionsOk() (*string, bool) {
 	return o.ProductOptions, true
 }
 
-// &#39;Has&#39;ProductOptions returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductOptions() bool {
+// HasProductOptions returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductOptions() bool {
 	if o != nil && !IsNil(o.ProductOptions) {
 		return true
 	}
@@ -825,8 +825,8 @@ func (o *OrderOrderDataItem) GetProductImgOk() (*string, bool) {
 	return o.ProductImg, true
 }
 
-// &#39;Has&#39;ProductImg returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductImg() bool {
+// HasProductImg returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductImg() bool {
 	if o != nil && !IsNil(o.ProductImg) {
 		return true
 	}
@@ -857,8 +857,8 @@ func (o *OrderOrderDataItem) GetProductDataOk() (*string, bool) {
 	return o.ProductData, true
 }
 
-// &#39;Has&#39;ProductData returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductData() bool {
+// HasProductData returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductData() bool {
 	if o != nil && !IsNil(o.ProductData) {
 		return true
 	}
@@ -889,8 +889,8 @@ func (o *OrderOrderDataItem) GetShipmentInfoReferenceOk() (*string, bool) {
 	return o.ShipmentInfoReference, true
 }
 
-// &#39;Has&#39;ShipmentInfoReference returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ShipmentInfoReference() bool {
+// HasShipmentInfoReference returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasShipmentInfoReference() bool {
 	if o != nil && !IsNil(o.ShipmentInfoReference) {
 		return true
 	}
@@ -921,8 +921,8 @@ func (o *OrderOrderDataItem) GetPromotionGrnOk() ([]string, bool) {
 	return o.PromotionGrn, true
 }
 
-// &#39;Has&#39;PromotionGrn returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;PromotionGrn() bool {
+// HasPromotionGrn returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasPromotionGrn() bool {
 	if o != nil && !IsNil(o.PromotionGrn) {
 		return true
 	}
@@ -953,8 +953,8 @@ func (o *OrderOrderDataItem) GetProductIsVirtualOk() (*bool, bool) {
 	return o.ProductIsVirtual, true
 }
 
-// &#39;Has&#39;ProductIsVirtual returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductIsVirtual() bool {
+// HasProductIsVirtual returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductIsVirtual() bool {
 	if o != nil && !IsNil(o.ProductIsVirtual) {
 		return true
 	}
@@ -985,8 +985,8 @@ func (o *OrderOrderDataItem) GetProductConfigurationOk() ([]ItemProductConfigura
 	return o.ProductConfiguration, true
 }
 
-// &#39;Has&#39;ProductConfiguration returns a boolean if a field has been set.
-func (o *OrderOrderDataItem) &#39;Has&#39;ProductConfiguration() bool {
+// HasProductConfiguration returns a boolean if a field has been set.
+func (o *OrderOrderDataItem) HasProductConfiguration() bool {
 	if o != nil && !IsNil(o.ProductConfiguration) {
 		return true
 	}

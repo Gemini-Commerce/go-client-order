@@ -97,8 +97,8 @@ func (o *OrderDataPaymentInfo) GetAdditionalInfoOk() (*string, bool) {
 	return o.AdditionalInfo, true
 }
 
-// &#39;Has&#39;AdditionalInfo returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;AdditionalInfo() bool {
+// HasAdditionalInfo returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -153,8 +153,8 @@ func (o *OrderDataPaymentInfo) GetFeeOk() (*OrderMoney, bool) {
 	return o.Fee, true
 }
 
-// &#39;Has&#39;Fee returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;Fee() bool {
+// HasFee returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasFee() bool {
 	if o != nil && !IsNil(o.Fee) {
 		return true
 	}
@@ -185,8 +185,8 @@ func (o *OrderDataPaymentInfo) GetVatAmountOk() (*OrderMoney, bool) {
 	return o.VatAmount, true
 }
 
-// &#39;Has&#39;VatAmount returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;VatAmount() bool {
+// HasVatAmount returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasVatAmount() bool {
 	if o != nil && !IsNil(o.VatAmount) {
 		return true
 	}
@@ -217,8 +217,8 @@ func (o *OrderDataPaymentInfo) GetVatPercentageOk() (*float32, bool) {
 	return o.VatPercentage, true
 }
 
-// &#39;Has&#39;VatPercentage returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;VatPercentage() bool {
+// HasVatPercentage returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasVatPercentage() bool {
 	if o != nil && !IsNil(o.VatPercentage) {
 		return true
 	}
@@ -249,8 +249,8 @@ func (o *OrderDataPaymentInfo) GetVatInaccurateOk() (*bool, bool) {
 	return o.VatInaccurate, true
 }
 
-// &#39;Has&#39;VatInaccurate returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;VatInaccurate() bool {
+// HasVatInaccurate returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasVatInaccurate() bool {
 	if o != nil && !IsNil(o.VatInaccurate) {
 		return true
 	}
@@ -281,8 +281,8 @@ func (o *OrderDataPaymentInfo) GetVatCalculatedOk() (*bool, bool) {
 	return o.VatCalculated, true
 }
 
-// &#39;Has&#39;VatCalculated returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;VatCalculated() bool {
+// HasVatCalculated returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasVatCalculated() bool {
 	if o != nil && !IsNil(o.VatCalculated) {
 		return true
 	}
@@ -313,8 +313,8 @@ func (o *OrderDataPaymentInfo) GetTitleOk() (*OrderLocalizedText, bool) {
 	return o.Title, true
 }
 
-// &#39;Has&#39;Title returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;Title() bool {
+// HasTitle returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasTitle() bool {
 	if o != nil && !IsNil(o.Title) {
 		return true
 	}
@@ -345,8 +345,8 @@ func (o *OrderDataPaymentInfo) GetLabelOk() (*OrderLocalizedText, bool) {
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *OrderDataPaymentInfo) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *OrderDataPaymentInfo) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}

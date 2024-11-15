@@ -77,8 +77,8 @@ func (o *OrderDataCustomerInfo) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// &#39;Has&#39;Grn returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;Grn() bool {
+// HasGrn returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -181,8 +181,8 @@ func (o *OrderDataCustomerInfo) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// &#39;Has&#39;Phone returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;Phone() bool {
+// HasPhone returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasPhone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}
@@ -213,8 +213,8 @@ func (o *OrderDataCustomerInfo) GetSegmentOk() (*string, bool) {
 	return o.Segment, true
 }
 
-// &#39;Has&#39;Segment returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;Segment() bool {
+// HasSegment returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasSegment() bool {
 	if o != nil && !IsNil(o.Segment) {
 		return true
 	}
@@ -245,8 +245,8 @@ func (o *OrderDataCustomerInfo) GetDataOk() (*string, bool) {
 	return o.Data, true
 }
 
-// &#39;Has&#39;Data returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;Data() bool {
+// HasData returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasData() bool {
 	if o != nil && !IsNil(o.Data) {
 		return true
 	}
@@ -277,8 +277,8 @@ func (o *OrderDataCustomerInfo) GetCertifiedEmailOk() (*string, bool) {
 	return o.CertifiedEmail, true
 }
 
-// &#39;Has&#39;CertifiedEmail returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;CertifiedEmail() bool {
+// HasCertifiedEmail returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasCertifiedEmail() bool {
 	if o != nil && !IsNil(o.CertifiedEmail) {
 		return true
 	}
@@ -309,8 +309,8 @@ func (o *OrderDataCustomerInfo) GetTaxCodeOk() (*string, bool) {
 	return o.TaxCode, true
 }
 
-// &#39;Has&#39;TaxCode returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;TaxCode() bool {
+// HasTaxCode returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasTaxCode() bool {
 	if o != nil && !IsNil(o.TaxCode) {
 		return true
 	}
@@ -341,8 +341,8 @@ func (o *OrderDataCustomerInfo) GetSdiCodeOk() (*string, bool) {
 	return o.SdiCode, true
 }
 
-// &#39;Has&#39;SdiCode returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;SdiCode() bool {
+// HasSdiCode returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasSdiCode() bool {
 	if o != nil && !IsNil(o.SdiCode) {
 		return true
 	}
@@ -373,8 +373,8 @@ func (o *OrderDataCustomerInfo) GetFiscalCodeOk() (*string, bool) {
 	return o.FiscalCode, true
 }
 
-// &#39;Has&#39;FiscalCode returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;FiscalCode() bool {
+// HasFiscalCode returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasFiscalCode() bool {
 	if o != nil && !IsNil(o.FiscalCode) {
 		return true
 	}
@@ -405,8 +405,8 @@ func (o *OrderDataCustomerInfo) GetCompanyNameOk() (*string, bool) {
 	return o.CompanyName, true
 }
 
-// &#39;Has&#39;CompanyName returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;CompanyName() bool {
+// HasCompanyName returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasCompanyName() bool {
 	if o != nil && !IsNil(o.CompanyName) {
 		return true
 	}
@@ -437,8 +437,8 @@ func (o *OrderDataCustomerInfo) GetAgentGrnOk() (*string, bool) {
 	return o.AgentGrn, true
 }
 
-// &#39;Has&#39;AgentGrn returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) &#39;Has&#39;AgentGrn() bool {
+// HasAgentGrn returns a boolean if a field has been set.
+func (o *OrderDataCustomerInfo) HasAgentGrn() bool {
 	if o != nil && !IsNil(o.AgentGrn) {
 		return true
 	}

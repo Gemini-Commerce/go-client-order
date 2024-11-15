@@ -61,8 +61,8 @@ func (o *OrderListFulfillmentsResponse) GetFulfillmentsOk() ([]OrderFulfillment,
 	return o.Fulfillments, true
 }
 
-// &#39;Has&#39;Fulfillments returns a boolean if a field has been set.
-func (o *OrderListFulfillmentsResponse) &#39;Has&#39;Fulfillments() bool {
+// HasFulfillments returns a boolean if a field has been set.
+func (o *OrderListFulfillmentsResponse) HasFulfillments() bool {
 	if o != nil && !IsNil(o.Fulfillments) {
 		return true
 	}

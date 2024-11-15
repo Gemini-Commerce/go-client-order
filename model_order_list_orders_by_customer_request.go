@@ -118,8 +118,8 @@ func (o *OrderListOrdersByCustomerRequest) GetPageSizeOk() (*int64, bool) {
 	return o.PageSize, true
 }
 
-// &#39;Has&#39;PageSize returns a boolean if a field has been set.
-func (o *OrderListOrdersByCustomerRequest) &#39;Has&#39;PageSize() bool {
+// HasPageSize returns a boolean if a field has been set.
+func (o *OrderListOrdersByCustomerRequest) HasPageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -150,8 +150,8 @@ func (o *OrderListOrdersByCustomerRequest) GetPageTokenOk() (*string, bool) {
 	return o.PageToken, true
 }
 
-// &#39;Has&#39;PageToken returns a boolean if a field has been set.
-func (o *OrderListOrdersByCustomerRequest) &#39;Has&#39;PageToken() bool {
+// HasPageToken returns a boolean if a field has been set.
+func (o *OrderListOrdersByCustomerRequest) HasPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -182,8 +182,8 @@ func (o *OrderListOrdersByCustomerRequest) GetOrderByOk() ([]OrderOrderBy, bool)
 	return o.OrderBy, true
 }
 
-// &#39;Has&#39;OrderBy returns a boolean if a field has been set.
-func (o *OrderListOrdersByCustomerRequest) &#39;Has&#39;OrderBy() bool {
+// HasOrderBy returns a boolean if a field has been set.
+func (o *OrderListOrdersByCustomerRequest) HasOrderBy() bool {
 	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}

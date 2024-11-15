@@ -66,8 +66,8 @@ func (o *OrderDataDocument) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// &#39;Has&#39;Code returns a boolean if a field has been set.
-func (o *OrderDataDocument) &#39;Has&#39;Code() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *OrderDataDocument) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -98,8 +98,8 @@ func (o *OrderDataDocument) GetLabelOk() (*string, bool) {
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *OrderDataDocument) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *OrderDataDocument) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -130,8 +130,8 @@ func (o *OrderDataDocument) GetAssetGrnOk() (*string, bool) {
 	return o.AssetGrn, true
 }
 
-// &#39;Has&#39;AssetGrn returns a boolean if a field has been set.
-func (o *OrderDataDocument) &#39;Has&#39;AssetGrn() bool {
+// HasAssetGrn returns a boolean if a field has been set.
+func (o *OrderDataDocument) HasAssetGrn() bool {
 	if o != nil && !IsNil(o.AssetGrn) {
 		return true
 	}
@@ -162,8 +162,8 @@ func (o *OrderDataDocument) GetUrlOk() (*string, bool) {
 	return o.Url, true
 }
 
-// &#39;Has&#39;Url returns a boolean if a field has been set.
-func (o *OrderDataDocument) &#39;Has&#39;Url() bool {
+// HasUrl returns a boolean if a field has been set.
+func (o *OrderDataDocument) HasUrl() bool {
 	if o != nil && !IsNil(o.Url) {
 		return true
 	}
@@ -194,8 +194,8 @@ func (o *OrderDataDocument) GetInsertedAtOk() (*time.Time, bool) {
 	return o.InsertedAt, true
 }
 
-// &#39;Has&#39;InsertedAt returns a boolean if a field has been set.
-func (o *OrderDataDocument) &#39;Has&#39;InsertedAt() bool {
+// HasInsertedAt returns a boolean if a field has been set.
+func (o *OrderDataDocument) HasInsertedAt() bool {
 	if o != nil && !IsNil(o.InsertedAt) {
 		return true
 	}
