@@ -115,7 +115,7 @@ func (o *OrderUpdatePaymentRequest) GetCcInfoOk() (*PaymentCcInfo, bool) {
 }
 
 // HasCcInfo returns a boolean if a field has been set.
-func (o *OrderUpdatePaymentRequest) HasCcInfo() bool {
+func (o *OrderUpdatePaymentRequest) IsSetCcInfo() bool {
 	if o != nil && !IsNil(o.CcInfo) {
 		return true
 	}

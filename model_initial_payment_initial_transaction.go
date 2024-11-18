@@ -91,7 +91,7 @@ func (o *InitialPaymentInitialTransaction) GetAdditionalInfoOk() (*string, bool)
 }
 
 // HasAdditionalInfo returns a boolean if a field has been set.
-func (o *InitialPaymentInitialTransaction) HasAdditionalInfo() bool {
+func (o *InitialPaymentInitialTransaction) IsSetAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

@@ -73,7 +73,7 @@ func (o *OrderShipment) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *OrderShipment) HasCreatedAt() bool {
+func (o *OrderShipment) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -105,7 +105,7 @@ func (o *OrderShipment) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *OrderShipment) HasUpdatedAt() bool {
+func (o *OrderShipment) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -137,7 +137,7 @@ func (o *OrderShipment) GetOrderIdOk() (*string, bool) {
 }
 
 // HasOrderId returns a boolean if a field has been set.
-func (o *OrderShipment) HasOrderId() bool {
+func (o *OrderShipment) IsSetOrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
@@ -169,7 +169,7 @@ func (o *OrderShipment) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *OrderShipment) HasId() bool {
+func (o *OrderShipment) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -201,7 +201,7 @@ func (o *OrderShipment) GetStatusOk() (*string, bool) {
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *OrderShipment) HasStatus() bool {
+func (o *OrderShipment) IsSetStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}
@@ -233,7 +233,7 @@ func (o *OrderShipment) GetItemsOk() ([]OrderShipmentItem, bool) {
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *OrderShipment) HasItems() bool {
+func (o *OrderShipment) IsSetItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}
@@ -265,7 +265,7 @@ func (o *OrderShipment) GetAddressOk() (*OrderPostalAddress, bool) {
 }
 
 // HasAddress returns a boolean if a field has been set.
-func (o *OrderShipment) HasAddress() bool {
+func (o *OrderShipment) IsSetAddress() bool {
 	if o != nil && !IsNil(o.Address) {
 		return true
 	}
@@ -297,7 +297,7 @@ func (o *OrderShipment) GetFromAddressOk() (*OrderPostalAddress, bool) {
 }
 
 // HasFromAddress returns a boolean if a field has been set.
-func (o *OrderShipment) HasFromAddress() bool {
+func (o *OrderShipment) IsSetFromAddress() bool {
 	if o != nil && !IsNil(o.FromAddress) {
 		return true
 	}
@@ -329,7 +329,7 @@ func (o *OrderShipment) GetReturnAddressOk() (*OrderPostalAddress, bool) {
 }
 
 // HasReturnAddress returns a boolean if a field has been set.
-func (o *OrderShipment) HasReturnAddress() bool {
+func (o *OrderShipment) IsSetReturnAddress() bool {
 	if o != nil && !IsNil(o.ReturnAddress) {
 		return true
 	}
@@ -361,7 +361,7 @@ func (o *OrderShipment) GetTrackingOk() ([]ShipmentTracking, bool) {
 }
 
 // HasTracking returns a boolean if a field has been set.
-func (o *OrderShipment) HasTracking() bool {
+func (o *OrderShipment) IsSetTracking() bool {
 	if o != nil && !IsNil(o.Tracking) {
 		return true
 	}
@@ -393,7 +393,7 @@ func (o *OrderShipment) GetReturnTrackingOk() ([]ShipmentTracking, bool) {
 }
 
 // HasReturnTracking returns a boolean if a field has been set.
-func (o *OrderShipment) HasReturnTracking() bool {
+func (o *OrderShipment) IsSetReturnTracking() bool {
 	if o != nil && !IsNil(o.ReturnTracking) {
 		return true
 	}

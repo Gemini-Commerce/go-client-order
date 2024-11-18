@@ -144,7 +144,7 @@ func (o *OrderCreatePaymentRequest) GetAdditionalInfoOk() (*string, bool) {
 }
 
 // HasAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderCreatePaymentRequest) HasAdditionalInfo() bool {
+func (o *OrderCreatePaymentRequest) IsSetAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -200,7 +200,7 @@ func (o *OrderCreatePaymentRequest) GetCcInfoOk() (*PaymentCcInfo, bool) {
 }
 
 // HasCcInfo returns a boolean if a field has been set.
-func (o *OrderCreatePaymentRequest) HasCcInfo() bool {
+func (o *OrderCreatePaymentRequest) IsSetCcInfo() bool {
 	if o != nil && !IsNil(o.CcInfo) {
 		return true
 	}

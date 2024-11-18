@@ -67,7 +67,7 @@ func (o *OrderOrderBy) GetFieldOk() (*string, bool) {
 }
 
 // HasField returns a boolean if a field has been set.
-func (o *OrderOrderBy) HasField() bool {
+func (o *OrderOrderBy) IsSetField() bool {
 	if o != nil && !IsNil(o.Field) {
 		return true
 	}
@@ -99,7 +99,7 @@ func (o *OrderOrderBy) GetDirectionOk() (*OrderByDirection, bool) {
 }
 
 // HasDirection returns a boolean if a field has been set.
-func (o *OrderOrderBy) HasDirection() bool {
+func (o *OrderOrderBy) IsSetDirection() bool {
 	if o != nil && !IsNil(o.Direction) {
 		return true
 	}

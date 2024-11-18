@@ -67,7 +67,7 @@ func (o *OrderPaymentAmount) GetCodeOk() (*OrderPaymentAmountCode, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *OrderPaymentAmount) HasCode() bool {
+func (o *OrderPaymentAmount) IsSetCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -99,7 +99,7 @@ func (o *OrderPaymentAmount) GetValueOk() (*OrderMoney, bool) {
 }
 
 // HasValue returns a boolean if a field has been set.
-func (o *OrderPaymentAmount) HasValue() bool {
+func (o *OrderPaymentAmount) IsSetValue() bool {
 	if o != nil && !IsNil(o.Value) {
 		return true
 	}

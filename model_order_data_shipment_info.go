@@ -127,7 +127,7 @@ func (o *OrderDataShipmentInfo) GetMethodOk() (*string, bool) {
 }
 
 // HasMethod returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasMethod() bool {
+func (o *OrderDataShipmentInfo) IsSetMethod() bool {
 	if o != nil && !IsNil(o.Method) {
 		return true
 	}
@@ -159,7 +159,7 @@ func (o *OrderDataShipmentInfo) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasTitle() bool {
+func (o *OrderDataShipmentInfo) IsSetTitle() bool {
 	if o != nil && !IsNil(o.Title) {
 		return true
 	}
@@ -191,7 +191,7 @@ func (o *OrderDataShipmentInfo) GetAdditionalInfoOk() (*string, bool) {
 }
 
 // HasAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasAdditionalInfo() bool {
+func (o *OrderDataShipmentInfo) IsSetAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -247,7 +247,7 @@ func (o *OrderDataShipmentInfo) GetFeeOk() (*OrderMoney, bool) {
 }
 
 // HasFee returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasFee() bool {
+func (o *OrderDataShipmentInfo) IsSetFee() bool {
 	if o != nil && !IsNil(o.Fee) {
 		return true
 	}
@@ -279,7 +279,7 @@ func (o *OrderDataShipmentInfo) GetVatAmountOk() (*OrderMoney, bool) {
 }
 
 // HasVatAmount returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasVatAmount() bool {
+func (o *OrderDataShipmentInfo) IsSetVatAmount() bool {
 	if o != nil && !IsNil(o.VatAmount) {
 		return true
 	}
@@ -311,7 +311,7 @@ func (o *OrderDataShipmentInfo) GetVatPercentageOk() (*float32, bool) {
 }
 
 // HasVatPercentage returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasVatPercentage() bool {
+func (o *OrderDataShipmentInfo) IsSetVatPercentage() bool {
 	if o != nil && !IsNil(o.VatPercentage) {
 		return true
 	}
@@ -343,7 +343,7 @@ func (o *OrderDataShipmentInfo) GetVatInaccurateOk() (*bool, bool) {
 }
 
 // HasVatInaccurate returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasVatInaccurate() bool {
+func (o *OrderDataShipmentInfo) IsSetVatInaccurate() bool {
 	if o != nil && !IsNil(o.VatInaccurate) {
 		return true
 	}
@@ -375,7 +375,7 @@ func (o *OrderDataShipmentInfo) GetVatCalculatedOk() (*bool, bool) {
 }
 
 // HasVatCalculated returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasVatCalculated() bool {
+func (o *OrderDataShipmentInfo) IsSetVatCalculated() bool {
 	if o != nil && !IsNil(o.VatCalculated) {
 		return true
 	}
@@ -407,7 +407,7 @@ func (o *OrderDataShipmentInfo) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasGrn() bool {
+func (o *OrderDataShipmentInfo) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -439,7 +439,7 @@ func (o *OrderDataShipmentInfo) GetFromAddressOk() (*OrderPostalAddress, bool) {
 }
 
 // HasFromAddress returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasFromAddress() bool {
+func (o *OrderDataShipmentInfo) IsSetFromAddress() bool {
 	if o != nil && !IsNil(o.FromAddress) {
 		return true
 	}
@@ -471,7 +471,7 @@ func (o *OrderDataShipmentInfo) GetReturnAddressOk() (*OrderPostalAddress, bool)
 }
 
 // HasReturnAddress returns a boolean if a field has been set.
-func (o *OrderDataShipmentInfo) HasReturnAddress() bool {
+func (o *OrderDataShipmentInfo) IsSetReturnAddress() bool {
 	if o != nil && !IsNil(o.ReturnAddress) {
 		return true
 	}

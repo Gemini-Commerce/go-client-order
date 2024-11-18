@@ -172,7 +172,7 @@ func (o *OrderCreateShipmentRequest) GetFromAddressOk() (*OrderPostalAddress, bo
 }
 
 // HasFromAddress returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasFromAddress() bool {
+func (o *OrderCreateShipmentRequest) IsSetFromAddress() bool {
 	if o != nil && !IsNil(o.FromAddress) {
 		return true
 	}
@@ -204,7 +204,7 @@ func (o *OrderCreateShipmentRequest) GetReturnAddressOk() (*OrderPostalAddress, 
 }
 
 // HasReturnAddress returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasReturnAddress() bool {
+func (o *OrderCreateShipmentRequest) IsSetReturnAddress() bool {
 	if o != nil && !IsNil(o.ReturnAddress) {
 		return true
 	}
@@ -236,7 +236,7 @@ func (o *OrderCreateShipmentRequest) GetTrackingOk() ([]ShipmentTracking, bool) 
 }
 
 // HasTracking returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasTracking() bool {
+func (o *OrderCreateShipmentRequest) IsSetTracking() bool {
 	if o != nil && !IsNil(o.Tracking) {
 		return true
 	}
@@ -268,7 +268,7 @@ func (o *OrderCreateShipmentRequest) GetReturnTrackingOk() ([]ShipmentTracking, 
 }
 
 // HasReturnTracking returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasReturnTracking() bool {
+func (o *OrderCreateShipmentRequest) IsSetReturnTracking() bool {
 	if o != nil && !IsNil(o.ReturnTracking) {
 		return true
 	}
@@ -300,7 +300,7 @@ func (o *OrderCreateShipmentRequest) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasCode() bool {
+func (o *OrderCreateShipmentRequest) IsSetCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -332,7 +332,7 @@ func (o *OrderCreateShipmentRequest) GetMethodOk() (*string, bool) {
 }
 
 // HasMethod returns a boolean if a field has been set.
-func (o *OrderCreateShipmentRequest) HasMethod() bool {
+func (o *OrderCreateShipmentRequest) IsSetMethod() bool {
 	if o != nil && !IsNil(o.Method) {
 		return true
 	}

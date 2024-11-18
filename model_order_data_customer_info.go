@@ -78,7 +78,7 @@ func (o *OrderDataCustomerInfo) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasGrn() bool {
+func (o *OrderDataCustomerInfo) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -182,7 +182,7 @@ func (o *OrderDataCustomerInfo) GetPhoneOk() (*string, bool) {
 }
 
 // HasPhone returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasPhone() bool {
+func (o *OrderDataCustomerInfo) IsSetPhone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}
@@ -214,7 +214,7 @@ func (o *OrderDataCustomerInfo) GetSegmentOk() (*string, bool) {
 }
 
 // HasSegment returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasSegment() bool {
+func (o *OrderDataCustomerInfo) IsSetSegment() bool {
 	if o != nil && !IsNil(o.Segment) {
 		return true
 	}
@@ -246,7 +246,7 @@ func (o *OrderDataCustomerInfo) GetDataOk() (*string, bool) {
 }
 
 // HasData returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasData() bool {
+func (o *OrderDataCustomerInfo) IsSetData() bool {
 	if o != nil && !IsNil(o.Data) {
 		return true
 	}
@@ -278,7 +278,7 @@ func (o *OrderDataCustomerInfo) GetCertifiedEmailOk() (*string, bool) {
 }
 
 // HasCertifiedEmail returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasCertifiedEmail() bool {
+func (o *OrderDataCustomerInfo) IsSetCertifiedEmail() bool {
 	if o != nil && !IsNil(o.CertifiedEmail) {
 		return true
 	}
@@ -310,7 +310,7 @@ func (o *OrderDataCustomerInfo) GetTaxCodeOk() (*string, bool) {
 }
 
 // HasTaxCode returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasTaxCode() bool {
+func (o *OrderDataCustomerInfo) IsSetTaxCode() bool {
 	if o != nil && !IsNil(o.TaxCode) {
 		return true
 	}
@@ -342,7 +342,7 @@ func (o *OrderDataCustomerInfo) GetSdiCodeOk() (*string, bool) {
 }
 
 // HasSdiCode returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasSdiCode() bool {
+func (o *OrderDataCustomerInfo) IsSetSdiCode() bool {
 	if o != nil && !IsNil(o.SdiCode) {
 		return true
 	}
@@ -374,7 +374,7 @@ func (o *OrderDataCustomerInfo) GetFiscalCodeOk() (*string, bool) {
 }
 
 // HasFiscalCode returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasFiscalCode() bool {
+func (o *OrderDataCustomerInfo) IsSetFiscalCode() bool {
 	if o != nil && !IsNil(o.FiscalCode) {
 		return true
 	}
@@ -406,7 +406,7 @@ func (o *OrderDataCustomerInfo) GetCompanyNameOk() (*string, bool) {
 }
 
 // HasCompanyName returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasCompanyName() bool {
+func (o *OrderDataCustomerInfo) IsSetCompanyName() bool {
 	if o != nil && !IsNil(o.CompanyName) {
 		return true
 	}
@@ -438,7 +438,7 @@ func (o *OrderDataCustomerInfo) GetAgentGrnOk() (*string, bool) {
 }
 
 // HasAgentGrn returns a boolean if a field has been set.
-func (o *OrderDataCustomerInfo) HasAgentGrn() bool {
+func (o *OrderDataCustomerInfo) IsSetAgentGrn() bool {
 	if o != nil && !IsNil(o.AgentGrn) {
 		return true
 	}

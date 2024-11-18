@@ -64,7 +64,7 @@ func (o *OrderShipmentItem) GetOrderItemIdOk() (*string, bool) {
 }
 
 // HasOrderItemId returns a boolean if a field has been set.
-func (o *OrderShipmentItem) HasOrderItemId() bool {
+func (o *OrderShipmentItem) IsSetOrderItemId() bool {
 	if o != nil && !IsNil(o.OrderItemId) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *OrderShipmentItem) GetQtyOk() (*int64, bool) {
 }
 
 // HasQty returns a boolean if a field has been set.
-func (o *OrderShipmentItem) HasQty() bool {
+func (o *OrderShipmentItem) IsSetQty() bool {
 	if o != nil && !IsNil(o.Qty) {
 		return true
 	}
@@ -128,7 +128,7 @@ func (o *OrderShipmentItem) GetRowWeightOk() (*string, bool) {
 }
 
 // HasRowWeight returns a boolean if a field has been set.
-func (o *OrderShipmentItem) HasRowWeight() bool {
+func (o *OrderShipmentItem) IsSetRowWeight() bool {
 	if o != nil && !IsNil(o.RowWeight) {
 		return true
 	}

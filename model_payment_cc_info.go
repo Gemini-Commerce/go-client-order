@@ -70,7 +70,7 @@ func (o *PaymentCcInfo) GetApprovalOk() (*string, bool) {
 }
 
 // HasApproval returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasApproval() bool {
+func (o *PaymentCcInfo) IsSetApproval() bool {
 	if o != nil && !IsNil(o.Approval) {
 		return true
 	}
@@ -102,7 +102,7 @@ func (o *PaymentCcInfo) GetExpMonthOk() (*int32, bool) {
 }
 
 // HasExpMonth returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasExpMonth() bool {
+func (o *PaymentCcInfo) IsSetExpMonth() bool {
 	if o != nil && !IsNil(o.ExpMonth) {
 		return true
 	}
@@ -134,7 +134,7 @@ func (o *PaymentCcInfo) GetExpYearOk() (*string, bool) {
 }
 
 // HasExpYear returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasExpYear() bool {
+func (o *PaymentCcInfo) IsSetExpYear() bool {
 	if o != nil && !IsNil(o.ExpYear) {
 		return true
 	}
@@ -166,7 +166,7 @@ func (o *PaymentCcInfo) GetLast4Ok() (*string, bool) {
 }
 
 // HasLast4 returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasLast4() bool {
+func (o *PaymentCcInfo) IsSetLast4() bool {
 	if o != nil && !IsNil(o.Last4) {
 		return true
 	}
@@ -198,7 +198,7 @@ func (o *PaymentCcInfo) GetNumberEncOk() (*string, bool) {
 }
 
 // HasNumberEnc returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasNumberEnc() bool {
+func (o *PaymentCcInfo) IsSetNumberEnc() bool {
 	if o != nil && !IsNil(o.NumberEnc) {
 		return true
 	}
@@ -230,7 +230,7 @@ func (o *PaymentCcInfo) GetOwnerOk() (*string, bool) {
 }
 
 // HasOwner returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasOwner() bool {
+func (o *PaymentCcInfo) IsSetOwner() bool {
 	if o != nil && !IsNil(o.Owner) {
 		return true
 	}
@@ -262,7 +262,7 @@ func (o *PaymentCcInfo) GetAvsStatusOk() (*string, bool) {
 }
 
 // HasAvsStatus returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasAvsStatus() bool {
+func (o *PaymentCcInfo) IsSetAvsStatus() bool {
 	if o != nil && !IsNil(o.AvsStatus) {
 		return true
 	}
@@ -294,7 +294,7 @@ func (o *PaymentCcInfo) GetTypeOk() (*string, bool) {
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *PaymentCcInfo) HasType() bool {
+func (o *PaymentCcInfo) IsSetType() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}

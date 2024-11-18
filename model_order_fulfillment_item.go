@@ -63,7 +63,7 @@ func (o *OrderFulfillmentItem) GetOrderItemIdOk() (*string, bool) {
 }
 
 // HasOrderItemId returns a boolean if a field has been set.
-func (o *OrderFulfillmentItem) HasOrderItemId() bool {
+func (o *OrderFulfillmentItem) IsSetOrderItemId() bool {
 	if o != nil && !IsNil(o.OrderItemId) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *OrderFulfillmentItem) GetQtyOk() (*int64, bool) {
 }
 
 // HasQty returns a boolean if a field has been set.
-func (o *OrderFulfillmentItem) HasQty() bool {
+func (o *OrderFulfillmentItem) IsSetQty() bool {
 	if o != nil && !IsNil(o.Qty) {
 		return true
 	}

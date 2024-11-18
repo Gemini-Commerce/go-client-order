@@ -65,7 +65,7 @@ func (o *OrderDataHistory) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *OrderDataHistory) HasCreatedAt() bool {
+func (o *OrderDataHistory) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *OrderDataHistory) GetStatusOk() (*string, bool) {
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *OrderDataHistory) HasStatus() bool {
+func (o *OrderDataHistory) IsSetStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}
@@ -129,7 +129,7 @@ func (o *OrderDataHistory) GetCommentOk() (*string, bool) {
 }
 
 // HasComment returns a boolean if a field has been set.
-func (o *OrderDataHistory) HasComment() bool {
+func (o *OrderDataHistory) IsSetComment() bool {
 	if o != nil && !IsNil(o.Comment) {
 		return true
 	}

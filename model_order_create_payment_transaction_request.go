@@ -143,7 +143,7 @@ func (o *OrderCreatePaymentTransactionRequest) GetAdditionalInfoOk() (*string, b
 }
 
 // HasAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderCreatePaymentTransactionRequest) HasAdditionalInfo() bool {
+func (o *OrderCreatePaymentTransactionRequest) IsSetAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}

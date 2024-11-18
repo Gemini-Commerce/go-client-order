@@ -67,7 +67,7 @@ func (o *OrderPaymentFilter) GetCodesOk() ([]string, bool) {
 }
 
 // HasCodes returns a boolean if a field has been set.
-func (o *OrderPaymentFilter) HasCodes() bool {
+func (o *OrderPaymentFilter) IsSetCodes() bool {
 	if o != nil && !IsNil(o.Codes) {
 		return true
 	}
@@ -99,7 +99,7 @@ func (o *OrderPaymentFilter) GetConditionOk() (*OrderPaymentFilterCondition, boo
 }
 
 // HasCondition returns a boolean if a field has been set.
-func (o *OrderPaymentFilter) HasCondition() bool {
+func (o *OrderPaymentFilter) IsSetCondition() bool {
 	if o != nil && !IsNil(o.Condition) {
 		return true
 	}

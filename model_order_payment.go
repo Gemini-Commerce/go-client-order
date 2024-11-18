@@ -69,7 +69,7 @@ func (o *OrderPayment) GetOrderIdOk() (*string, bool) {
 }
 
 // HasOrderId returns a boolean if a field has been set.
-func (o *OrderPayment) HasOrderId() bool {
+func (o *OrderPayment) IsSetOrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
@@ -101,7 +101,7 @@ func (o *OrderPayment) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *OrderPayment) HasId() bool {
+func (o *OrderPayment) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -133,7 +133,7 @@ func (o *OrderPayment) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *OrderPayment) HasCode() bool {
+func (o *OrderPayment) IsSetCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -165,7 +165,7 @@ func (o *OrderPayment) GetAdditionalInfoOk() (*string, bool) {
 }
 
 // HasAdditionalInfo returns a boolean if a field has been set.
-func (o *OrderPayment) HasAdditionalInfo() bool {
+func (o *OrderPayment) IsSetAdditionalInfo() bool {
 	if o != nil && !IsNil(o.AdditionalInfo) {
 		return true
 	}
@@ -197,7 +197,7 @@ func (o *OrderPayment) GetAmountsOk() ([]OrderPaymentAmount, bool) {
 }
 
 // HasAmounts returns a boolean if a field has been set.
-func (o *OrderPayment) HasAmounts() bool {
+func (o *OrderPayment) IsSetAmounts() bool {
 	if o != nil && !IsNil(o.Amounts) {
 		return true
 	}
@@ -229,7 +229,7 @@ func (o *OrderPayment) GetCcInfoOk() (*PaymentCcInfo, bool) {
 }
 
 // HasCcInfo returns a boolean if a field has been set.
-func (o *OrderPayment) HasCcInfo() bool {
+func (o *OrderPayment) IsSetCcInfo() bool {
 	if o != nil && !IsNil(o.CcInfo) {
 		return true
 	}
@@ -261,7 +261,7 @@ func (o *OrderPayment) GetTransactionsOk() ([]OrderTransaction, bool) {
 }
 
 // HasTransactions returns a boolean if a field has been set.
-func (o *OrderPayment) HasTransactions() bool {
+func (o *OrderPayment) IsSetTransactions() bool {
 	if o != nil && !IsNil(o.Transactions) {
 		return true
 	}

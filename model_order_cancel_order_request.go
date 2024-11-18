@@ -116,7 +116,7 @@ func (o *OrderCancelOrderRequest) GetReasonOk() (*string, bool) {
 }
 
 // HasReason returns a boolean if a field has been set.
-func (o *OrderCancelOrderRequest) HasReason() bool {
+func (o *OrderCancelOrderRequest) IsSetReason() bool {
 	if o != nil && !IsNil(o.Reason) {
 		return true
 	}
@@ -148,7 +148,7 @@ func (o *OrderCancelOrderRequest) GetOptionsOk() (*CancelOrderRequestBehaviorOpt
 }
 
 // HasOptions returns a boolean if a field has been set.
-func (o *OrderCancelOrderRequest) HasOptions() bool {
+func (o *OrderCancelOrderRequest) IsSetOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}

@@ -89,7 +89,7 @@ func (o *OrderListShipmentsRequest) GetOrderIdOk() (*string, bool) {
 }
 
 // HasOrderId returns a boolean if a field has been set.
-func (o *OrderListShipmentsRequest) HasOrderId() bool {
+func (o *OrderListShipmentsRequest) IsSetOrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}

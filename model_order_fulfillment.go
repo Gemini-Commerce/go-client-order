@@ -68,7 +68,7 @@ func (o *OrderFulfillment) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasCreatedAt() bool {
+func (o *OrderFulfillment) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -100,7 +100,7 @@ func (o *OrderFulfillment) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasUpdatedAt() bool {
+func (o *OrderFulfillment) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -132,7 +132,7 @@ func (o *OrderFulfillment) GetOrderIdOk() (*string, bool) {
 }
 
 // HasOrderId returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasOrderId() bool {
+func (o *OrderFulfillment) IsSetOrderId() bool {
 	if o != nil && !IsNil(o.OrderId) {
 		return true
 	}
@@ -164,7 +164,7 @@ func (o *OrderFulfillment) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasId() bool {
+func (o *OrderFulfillment) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -196,7 +196,7 @@ func (o *OrderFulfillment) GetStatusOk() (*string, bool) {
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasStatus() bool {
+func (o *OrderFulfillment) IsSetStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}
@@ -228,7 +228,7 @@ func (o *OrderFulfillment) GetItemsOk() ([]OrderFulfillmentItem, bool) {
 }
 
 // HasItems returns a boolean if a field has been set.
-func (o *OrderFulfillment) HasItems() bool {
+func (o *OrderFulfillment) IsSetItems() bool {
 	if o != nil && !IsNil(o.Items) {
 		return true
 	}

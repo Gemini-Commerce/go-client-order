@@ -68,7 +68,7 @@ func (o *ProductConfigurationStepOption) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductConfigurationStepOption) HasId() bool {
+func (o *ProductConfigurationStepOption) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -100,7 +100,7 @@ func (o *ProductConfigurationStepOption) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductConfigurationStepOption) HasGrn() bool {
+func (o *ProductConfigurationStepOption) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -132,7 +132,7 @@ func (o *ProductConfigurationStepOption) GetLabelOk() (*string, bool) {
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductConfigurationStepOption) HasLabel() bool {
+func (o *ProductConfigurationStepOption) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -164,7 +164,7 @@ func (o *ProductConfigurationStepOption) GetPriceVariationOk() (*OrderMoney, boo
 }
 
 // HasPriceVariation returns a boolean if a field has been set.
-func (o *ProductConfigurationStepOption) HasPriceVariation() bool {
+func (o *ProductConfigurationStepOption) IsSetPriceVariation() bool {
 	if o != nil && !IsNil(o.PriceVariation) {
 		return true
 	}
@@ -196,7 +196,7 @@ func (o *ProductConfigurationStepOption) GetImageOk() (*OptionImage, bool) {
 }
 
 // HasImage returns a boolean if a field has been set.
-func (o *ProductConfigurationStepOption) HasImage() bool {
+func (o *ProductConfigurationStepOption) IsSetImage() bool {
 	if o != nil && !IsNil(o.Image) {
 		return true
 	}
@@ -228,7 +228,7 @@ func (o *ProductConfigurationStepOption) GetHasQuantityOk() (*bool, bool) {
 }
 
 // HasHasQuantity returns a boolean if a field has been set.
-func (o *ProductConfigurationStepOption) HasHasQuantity() bool {
+func (o *ProductConfigurationStepOption) IsSetHasQuantity() bool {
 	if o != nil && !IsNil(o.HasQuantity) {
 		return true
 	}
@@ -260,7 +260,7 @@ func (o *ProductConfigurationStepOption) GetQuantityOk() (*int64, bool) {
 }
 
 // HasQuantity returns a boolean if a field has been set.
-func (o *ProductConfigurationStepOption) HasQuantity() bool {
+func (o *ProductConfigurationStepOption) IsSetQuantity() bool {
 	if o != nil && !IsNil(o.Quantity) {
 		return true
 	}
