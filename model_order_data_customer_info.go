@@ -21,19 +21,19 @@ var _ MappedNullable = &OrderDataCustomerInfo{}
 
 // OrderDataCustomerInfo struct for OrderDataCustomerInfo
 type OrderDataCustomerInfo struct {
-	Grn *string `json:"grn,omitempty"`
-	Firstname string `json:"firstname"`
-	Lastname string `json:"lastname"`
-	Email string `json:"email"`
-	Phone *string `json:"phone,omitempty"`
-	Segment *string `json:"segment,omitempty"`
-	Data *string `json:"data,omitempty"`
-	CertifiedEmail *string `json:"certifiedEmail,omitempty"`
-	TaxCode *string `json:"taxCode,omitempty"`
-	SdiCode *string `json:"sdiCode,omitempty"`
-	FiscalCode *string `json:"fiscalCode,omitempty"`
-	CompanyName *string `json:"companyName,omitempty"`
-	AgentGrn *string `json:"agentGrn,omitempty"`
+	Grn                  *string `json:"grn,omitempty"`
+	Firstname            string  `json:"firstname"`
+	Lastname             string  `json:"lastname"`
+	Email                string  `json:"email"`
+	Phone                *string `json:"phone,omitempty"`
+	Segment              *string `json:"segment,omitempty"`
+	Data                 *string `json:"data,omitempty"`
+	CertifiedEmail       *string `json:"certifiedEmail,omitempty"`
+	TaxCode              *string `json:"taxCode,omitempty"`
+	SdiCode              *string `json:"sdiCode,omitempty"`
+	FiscalCode           *string `json:"fiscalCode,omitempty"`
+	CompanyName          *string `json:"companyName,omitempty"`
+	AgentGrn             *string `json:"agentGrn,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -452,7 +452,7 @@ func (o *OrderDataCustomerInfo) SetAgentGrn(v string) {
 }
 
 func (o OrderDataCustomerInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -517,10 +517,10 @@ func (o *OrderDataCustomerInfo) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -560,22 +560,24 @@ func (o *OrderDataCustomerInfo) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderDataCustomerInfo) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderDataCustomerInfo) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderDataCustomerInfo struct {
 	value *OrderDataCustomerInfo
 	isSet bool
@@ -611,5 +613,3 @@ func (v *NullableOrderDataCustomerInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

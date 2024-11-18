@@ -21,11 +21,11 @@ type OrderPaymentAmountCode string
 
 // List of orderPaymentAmountCode
 const (
-	ORDERPAYMENTAMOUNTCODE_UNKNOWN OrderPaymentAmountCode = "UNKNOWN"
-	ORDERPAYMENTAMOUNTCODE_CANCELED OrderPaymentAmountCode = "CANCELED"
-	ORDERPAYMENTAMOUNTCODE_ORDERED OrderPaymentAmountCode = "ORDERED"
-	ORDERPAYMENTAMOUNTCODE_PAID OrderPaymentAmountCode = "PAID"
-	ORDERPAYMENTAMOUNTCODE_REFUNDED OrderPaymentAmountCode = "REFUNDED"
+	ORDERPAYMENTAMOUNTCODE_UNKNOWN    OrderPaymentAmountCode = "UNKNOWN"
+	ORDERPAYMENTAMOUNTCODE_CANCELED   OrderPaymentAmountCode = "CANCELED"
+	ORDERPAYMENTAMOUNTCODE_ORDERED    OrderPaymentAmountCode = "ORDERED"
+	ORDERPAYMENTAMOUNTCODE_PAID       OrderPaymentAmountCode = "PAID"
+	ORDERPAYMENTAMOUNTCODE_REFUNDED   OrderPaymentAmountCode = "REFUNDED"
 	ORDERPAYMENTAMOUNTCODE_AUTHORIZED OrderPaymentAmountCode = "AUTHORIZED"
 )
 
@@ -117,4 +117,3 @@ func (v *NullableOrderPaymentAmountCode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

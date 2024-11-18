@@ -20,15 +20,15 @@ var _ MappedNullable = &PaymentCcInfo{}
 
 // PaymentCcInfo struct for PaymentCcInfo
 type PaymentCcInfo struct {
-	Approval *string `json:"approval,omitempty"`
-	ExpMonth *int32 `json:"expMonth,omitempty"`
-	ExpYear *string `json:"expYear,omitempty"`
-	Last4 *string `json:"last4,omitempty"`
+	Approval  *string `json:"approval,omitempty"`
+	ExpMonth  *int32  `json:"expMonth,omitempty"`
+	ExpYear   *string `json:"expYear,omitempty"`
+	Last4     *string `json:"last4,omitempty"`
 	NumberEnc *string `json:"numberEnc,omitempty"`
-	Owner *string `json:"owner,omitempty"`
+	Owner     *string `json:"owner,omitempty"`
 	AvsStatus *string `json:"avsStatus,omitempty"`
 	// card type MasterCard, Visa..
-	Type *string `json:"type,omitempty"`
+	Type                 *string `json:"type,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -308,7 +308,7 @@ func (o *PaymentCcInfo) SetType(v string) {
 }
 
 func (o PaymentCcInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,22 +379,24 @@ func (o *PaymentCcInfo) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *PaymentCcInfo) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *PaymentCcInfo) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullablePaymentCcInfo struct {
 	value *PaymentCcInfo
 	isSet bool
@@ -430,5 +432,3 @@ func (v *NullablePaymentCcInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

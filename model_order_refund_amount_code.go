@@ -21,8 +21,8 @@ type OrderRefundAmountCode string
 
 // List of orderRefundAmountCode
 const (
-	ORDERREFUNDAMOUNTCODE_UNKNOWN OrderRefundAmountCode = "UNKNOWN"
-	ORDERREFUNDAMOUNTCODE_ORDERED OrderRefundAmountCode = "ORDERED"
+	ORDERREFUNDAMOUNTCODE_UNKNOWN  OrderRefundAmountCode = "UNKNOWN"
+	ORDERREFUNDAMOUNTCODE_ORDERED  OrderRefundAmountCode = "ORDERED"
 	ORDERREFUNDAMOUNTCODE_SHIPPING OrderRefundAmountCode = "SHIPPING"
 )
 
@@ -111,4 +111,3 @@ func (v *NullableOrderRefundAmountCode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

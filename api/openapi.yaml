@@ -2412,6 +2412,7 @@ components:
       - code
       - value
       type: object
+      x-golang-getsetvalue-exists: true
     OrderDataSubtotalCode:
       default: UNKNOWN
       description: |2-
@@ -2442,6 +2443,7 @@ components:
       - code
       - value
       type: object
+      x-golang-getsetvalue-exists: true
     OrderDataTotalCode:
       default: UNKNOWN
       enum:
@@ -8315,6 +8317,7 @@ components:
             type: string
           type: object
       type: object
+      x-golang-getsetvalue-exists: true
     orderMoney:
       example:
         micros: 6
@@ -9486,6 +9489,7 @@ components:
         value:
           $ref: '#/components/schemas/orderMoney'
       type: object
+      x-golang-getsetvalue-exists: true
     orderPaymentAmountCode:
       default: UNKNOWN
       enum:
@@ -9798,6 +9802,7 @@ components:
         value:
           $ref: '#/components/schemas/orderMoney'
       type: object
+      x-golang-getsetvalue-exists: true
     orderRefundAmountCode:
       default: UNKNOWN
       enum:

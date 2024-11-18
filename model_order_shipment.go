@@ -21,17 +21,17 @@ var _ MappedNullable = &OrderShipment{}
 
 // OrderShipment struct for OrderShipment
 type OrderShipment struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	OrderId *string `json:"orderId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Items []OrderShipmentItem `json:"items,omitempty"`
-	Address *OrderPostalAddress `json:"address,omitempty"`
-	FromAddress *OrderPostalAddress `json:"fromAddress,omitempty"`
-	ReturnAddress *OrderPostalAddress `json:"returnAddress,omitempty"`
-	Tracking []ShipmentTracking `json:"tracking,omitempty"`
-	ReturnTracking []ShipmentTracking `json:"returnTracking,omitempty"`
+	CreatedAt            *time.Time          `json:"createdAt,omitempty"`
+	UpdatedAt            *time.Time          `json:"updatedAt,omitempty"`
+	OrderId              *string             `json:"orderId,omitempty"`
+	Id                   *string             `json:"id,omitempty"`
+	Status               *string             `json:"status,omitempty"`
+	Items                []OrderShipmentItem `json:"items,omitempty"`
+	Address              *OrderPostalAddress `json:"address,omitempty"`
+	FromAddress          *OrderPostalAddress `json:"fromAddress,omitempty"`
+	ReturnAddress        *OrderPostalAddress `json:"returnAddress,omitempty"`
+	Tracking             []ShipmentTracking  `json:"tracking,omitempty"`
+	ReturnTracking       []ShipmentTracking  `json:"returnTracking,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -407,7 +407,7 @@ func (o *OrderShipment) SetReturnTracking(v []ShipmentTracking) {
 }
 
 func (o OrderShipment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -490,22 +490,24 @@ func (o *OrderShipment) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderShipment) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderShipment) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderShipment struct {
 	value *OrderShipment
 	isSet bool
@@ -541,5 +543,3 @@ func (v *NullableOrderShipment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

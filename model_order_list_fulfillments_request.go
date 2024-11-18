@@ -21,8 +21,8 @@ var _ MappedNullable = &OrderListFulfillmentsRequest{}
 
 // OrderListFulfillmentsRequest struct for OrderListFulfillmentsRequest
 type OrderListFulfillmentsRequest struct {
-	TenantId string `json:"tenantId"`
-	OrderId *string `json:"orderId,omitempty"`
+	TenantId             string  `json:"tenantId"`
+	OrderId              *string `json:"orderId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -103,7 +103,7 @@ func (o *OrderListFulfillmentsRequest) SetOrderId(v string) {
 }
 
 func (o OrderListFulfillmentsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -137,10 +137,10 @@ func (o *OrderListFulfillmentsRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -169,22 +169,24 @@ func (o *OrderListFulfillmentsRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderListFulfillmentsRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderListFulfillmentsRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderListFulfillmentsRequest struct {
 	value *OrderListFulfillmentsRequest
 	isSet bool
@@ -220,5 +222,3 @@ func (v *NullableOrderListFulfillmentsRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

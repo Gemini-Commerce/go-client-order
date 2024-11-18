@@ -21,16 +21,16 @@ type OrderTransactionType string
 
 // List of orderTransactionType
 const (
-	ORDERTRANSACTIONTYPE_UNKNOWN OrderTransactionType = "UNKNOWN"
+	ORDERTRANSACTIONTYPE_UNKNOWN       OrderTransactionType = "UNKNOWN"
 	ORDERTRANSACTIONTYPE_AUTHORIZATION OrderTransactionType = "AUTHORIZATION"
-	ORDERTRANSACTIONTYPE_CAPTURE OrderTransactionType = "CAPTURE"
-	ORDERTRANSACTIONTYPE_SALE OrderTransactionType = "SALE"
-	ORDERTRANSACTIONTYPE_REFUND OrderTransactionType = "REFUND"
-	ORDERTRANSACTIONTYPE_VOID OrderTransactionType = "VOID"
-	ORDERTRANSACTIONTYPE_FAILED OrderTransactionType = "FAILED"
-	ORDERTRANSACTIONTYPE_PENDING OrderTransactionType = "PENDING"
-	ORDERTRANSACTIONTYPE_FRAUD OrderTransactionType = "FRAUD"
-	ORDERTRANSACTIONTYPE_NOOP OrderTransactionType = "NOOP"
+	ORDERTRANSACTIONTYPE_CAPTURE       OrderTransactionType = "CAPTURE"
+	ORDERTRANSACTIONTYPE_SALE          OrderTransactionType = "SALE"
+	ORDERTRANSACTIONTYPE_REFUND        OrderTransactionType = "REFUND"
+	ORDERTRANSACTIONTYPE_VOID          OrderTransactionType = "VOID"
+	ORDERTRANSACTIONTYPE_FAILED        OrderTransactionType = "FAILED"
+	ORDERTRANSACTIONTYPE_PENDING       OrderTransactionType = "PENDING"
+	ORDERTRANSACTIONTYPE_FRAUD         OrderTransactionType = "FRAUD"
+	ORDERTRANSACTIONTYPE_NOOP          OrderTransactionType = "NOOP"
 )
 
 // All allowed values of OrderTransactionType enum
@@ -125,4 +125,3 @@ func (v *NullableOrderTransactionType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

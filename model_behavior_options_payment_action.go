@@ -21,7 +21,7 @@ type BehaviorOptionsPaymentAction string
 
 // List of BehaviorOptionsPaymentAction
 const (
-	BEHAVIOROPTIONSPAYMENTACTION_UNKNOWN BehaviorOptionsPaymentAction = "UNKNOWN"
+	BEHAVIOROPTIONSPAYMENTACTION_UNKNOWN       BehaviorOptionsPaymentAction = "UNKNOWN"
 	BEHAVIOROPTIONSPAYMENTACTION_DO_NOT_HANDLE BehaviorOptionsPaymentAction = "DO_NOT_HANDLE"
 )
 
@@ -109,4 +109,3 @@ func (v *NullableBehaviorOptionsPaymentAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

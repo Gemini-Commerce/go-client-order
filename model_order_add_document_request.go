@@ -21,12 +21,12 @@ var _ MappedNullable = &OrderAddDocumentRequest{}
 
 // OrderAddDocumentRequest struct for OrderAddDocumentRequest
 type OrderAddDocumentRequest struct {
-	TenantId string `json:"tenantId"`
-	OrderId string `json:"orderId"`
-	Code string `json:"code"`
-	Label *string `json:"label,omitempty"`
-	AssetGrn *string `json:"assetGrn,omitempty"`
-	Url *string `json:"url,omitempty"`
+	TenantId             string  `json:"tenantId"`
+	OrderId              string  `json:"orderId"`
+	Code                 string  `json:"code"`
+	Label                *string `json:"label,omitempty"`
+	AssetGrn             *string `json:"assetGrn,omitempty"`
+	Url                  *string `json:"url,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -221,7 +221,7 @@ func (o *OrderAddDocumentRequest) SetUrl(v string) {
 }
 
 func (o OrderAddDocumentRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -265,10 +265,10 @@ func (o *OrderAddDocumentRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -301,22 +301,24 @@ func (o *OrderAddDocumentRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderAddDocumentRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderAddDocumentRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderAddDocumentRequest struct {
 	value *OrderAddDocumentRequest
 	isSet bool
@@ -352,5 +354,3 @@ func (v *NullableOrderAddDocumentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

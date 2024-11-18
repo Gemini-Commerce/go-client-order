@@ -13,8 +13,8 @@ package order
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the OrderSearchOrdersRequest type satisfies the MappedNullable interface at compile time
@@ -22,21 +22,21 @@ var _ MappedNullable = &OrderSearchOrdersRequest{}
 
 // OrderSearchOrdersRequest struct for OrderSearchOrdersRequest
 type OrderSearchOrdersRequest struct {
-	TenantId string `json:"tenantId"`
+	TenantId    string  `json:"tenantId"`
 	SearchQuery *string `json:"searchQuery,omitempty"`
 	// The maximum number of orders to return. The service may return fewer than this value. If unspecified, at most 10 orders will be returned. The maximum value is 100; values above 100 will be coerced to 100.
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// A page token, received from a previous `ListOrders` call. Provide this to retrieve the subsequent page.   When paginating, all other parameters provided to `ListOrders` must match the call that provided the page token.
-	PageToken *string `json:"pageToken,omitempty"`
-	OrderBy []OrderOrderBy `json:"orderBy,omitempty"`
-	StatusFilter *OrderStatusFilter `json:"statusFilter,omitempty"`
-	FromDate *time.Time `json:"fromDate,omitempty"`
-	ToDate *time.Time `json:"toDate,omitempty"`
-	PaymentFilter *OrderPaymentFilter `json:"paymentFilter,omitempty"`
-	AgentGrn *string `json:"agentGrn,omitempty"`
-	UpdatedAtFrom *time.Time `json:"updatedAtFrom,omitempty"`
-	UpdatedAtTo *time.Time `json:"updatedAtTo,omitempty"`
-	OnHold *bool `json:"onHold,omitempty"`
+	PageToken            *string             `json:"pageToken,omitempty"`
+	OrderBy              []OrderOrderBy      `json:"orderBy,omitempty"`
+	StatusFilter         *OrderStatusFilter  `json:"statusFilter,omitempty"`
+	FromDate             *time.Time          `json:"fromDate,omitempty"`
+	ToDate               *time.Time          `json:"toDate,omitempty"`
+	PaymentFilter        *OrderPaymentFilter `json:"paymentFilter,omitempty"`
+	AgentGrn             *string             `json:"agentGrn,omitempty"`
+	UpdatedAtFrom        *time.Time          `json:"updatedAtFrom,omitempty"`
+	UpdatedAtTo          *time.Time          `json:"updatedAtTo,omitempty"`
+	OnHold               *bool               `json:"onHold,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -469,7 +469,7 @@ func (o *OrderSearchOrdersRequest) SetOnHold(v bool) {
 }
 
 func (o OrderSearchOrdersRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -536,10 +536,10 @@ func (o *OrderSearchOrdersRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -579,22 +579,24 @@ func (o *OrderSearchOrdersRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderSearchOrdersRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderSearchOrdersRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderSearchOrdersRequest struct {
 	value *OrderSearchOrdersRequest
 	isSet bool
@@ -630,5 +632,3 @@ func (v *NullableOrderSearchOrdersRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

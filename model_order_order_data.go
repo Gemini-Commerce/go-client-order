@@ -13,8 +13,8 @@ package order
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the OrderOrderData type satisfies the MappedNullable interface at compile time
@@ -22,40 +22,40 @@ var _ MappedNullable = &OrderOrderData{}
 
 // OrderOrderData struct for OrderOrderData
 type OrderOrderData struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Grn *string `json:"grn,omitempty"`
-	Number *string `json:"number,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Channel *string `json:"channel,omitempty"`
-	Market *string `json:"market,omitempty"`
-	Locale string `json:"locale"`
-	AdditionalInfo map[string]interface{} `json:"additionalInfo,omitempty"`
-	Documents []OrderDataDocument `json:"documents,omitempty"`
-	Items []OrderOrderDataItem `json:"items,omitempty"`
-	Payments []OrderPayment `json:"payments,omitempty"`
-	Shipments []OrderShipment `json:"shipments,omitempty"`
-	PaymentsInfo []OrderDataPaymentInfo `json:"paymentsInfo,omitempty"`
-	ShipmentsInfo []OrderDataShipmentInfo `json:"shipmentsInfo,omitempty"`
-	Promotions []OrderDataPromotionInfo `json:"promotions,omitempty"`
-	Currency *OrderCurrency `json:"currency,omitempty"`
-	Subtotals *map[string]OrderDataSubtotal `json:"subtotals,omitempty"`
-	Totals *map[string]OrderDataTotal `json:"totals,omitempty"`
-	VatIncluded *bool `json:"vatIncluded,omitempty"`
-	BillingAddress *OrderPostalAddress `json:"billingAddress,omitempty"`
-	ShippingAddress *OrderPostalAddress `json:"shippingAddress,omitempty"`
-	CustomerInfo *OrderDataCustomerInfo `json:"customerInfo,omitempty"`
-	CartGrn *string `json:"cartGrn,omitempty"`
-	OnHold *bool `json:"onHold,omitempty"`
-	HistoryEvents []OrderDataHistory `json:"historyEvents,omitempty"`
-	Fulfillments []OrderFulfillment `json:"fulfillments,omitempty"`
-	Notes *string `json:"notes,omitempty"`
+	CreatedAt       *time.Time                    `json:"createdAt,omitempty"`
+	UpdatedAt       *time.Time                    `json:"updatedAt,omitempty"`
+	Id              *string                       `json:"id,omitempty"`
+	Grn             *string                       `json:"grn,omitempty"`
+	Number          *string                       `json:"number,omitempty"`
+	Status          *string                       `json:"status,omitempty"`
+	Channel         *string                       `json:"channel,omitempty"`
+	Market          *string                       `json:"market,omitempty"`
+	Locale          string                        `json:"locale"`
+	AdditionalInfo  map[string]interface{}        `json:"additionalInfo,omitempty"`
+	Documents       []OrderDataDocument           `json:"documents,omitempty"`
+	Items           []OrderOrderDataItem          `json:"items,omitempty"`
+	Payments        []OrderPayment                `json:"payments,omitempty"`
+	Shipments       []OrderShipment               `json:"shipments,omitempty"`
+	PaymentsInfo    []OrderDataPaymentInfo        `json:"paymentsInfo,omitempty"`
+	ShipmentsInfo   []OrderDataShipmentInfo       `json:"shipmentsInfo,omitempty"`
+	Promotions      []OrderDataPromotionInfo      `json:"promotions,omitempty"`
+	Currency        *OrderCurrency                `json:"currency,omitempty"`
+	Subtotals       *map[string]OrderDataSubtotal `json:"subtotals,omitempty"`
+	Totals          *map[string]OrderDataTotal    `json:"totals,omitempty"`
+	VatIncluded     *bool                         `json:"vatIncluded,omitempty"`
+	BillingAddress  *OrderPostalAddress           `json:"billingAddress,omitempty"`
+	ShippingAddress *OrderPostalAddress           `json:"shippingAddress,omitempty"`
+	CustomerInfo    *OrderDataCustomerInfo        `json:"customerInfo,omitempty"`
+	CartGrn         *string                       `json:"cartGrn,omitempty"`
+	OnHold          *bool                         `json:"onHold,omitempty"`
+	HistoryEvents   []OrderDataHistory            `json:"historyEvents,omitempty"`
+	Fulfillments    []OrderFulfillment            `json:"fulfillments,omitempty"`
+	Notes           *string                       `json:"notes,omitempty"`
 	// this field is used to delete an order in \"soft-delete mode\". This field must be used from get/list endpoint to exclude these orders.
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// this field is used to save the original created_at order date. The created_at field is used to filter data.
-	InsertedAt *time.Time `json:"insertedAt,omitempty"`
-	DeletedAt *time.Time `json:"deletedAt,omitempty"`
+	InsertedAt           *time.Time `json:"insertedAt,omitempty"`
+	DeletedAt            *time.Time `json:"deletedAt,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -1100,7 +1100,7 @@ func (o *OrderOrderData) SetDeletedAt(v time.Time) {
 }
 
 func (o OrderOrderData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1224,10 +1224,10 @@ func (o *OrderOrderData) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -1286,22 +1286,24 @@ func (o *OrderOrderData) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderOrderData) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderOrderData) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderOrderData struct {
 	value *OrderOrderData
 	isSet bool
@@ -1337,5 +1339,3 @@ func (v *NullableOrderOrderData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

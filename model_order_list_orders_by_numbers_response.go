@@ -22,7 +22,7 @@ var _ MappedNullable = &OrderListOrdersByNumbersResponse{}
 type OrderListOrdersByNumbersResponse struct {
 	Orders []OrderOrderData `json:"orders,omitempty"`
 	// A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages.
-	NextPageToken *string `json:"nextPageToken,omitempty"`
+	NextPageToken        *string `json:"nextPageToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *OrderListOrdersByNumbersResponse) SetNextPageToken(v string) {
 }
 
 func (o OrderListOrdersByNumbersResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -157,22 +157,24 @@ func (o *OrderListOrdersByNumbersResponse) UnmarshalJSON(data []byte) (err error
 
 // GetValue returns the value of well-known types
 func (o *OrderListOrdersByNumbersResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderListOrdersByNumbersResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderListOrdersByNumbersResponse struct {
 	value *OrderListOrdersByNumbersResponse
 	isSet bool
@@ -208,5 +210,3 @@ func (v *NullableOrderListOrdersByNumbersResponse) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

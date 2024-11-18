@@ -21,8 +21,8 @@ var _ MappedNullable = &OrderDataSubtotal{}
 
 // OrderDataSubtotal struct for OrderDataSubtotal
 type OrderDataSubtotal struct {
-	Code OrderDataSubtotalCode `json:"code"`
-	Value OrderMoney `json:"value"`
+	Code                 OrderDataSubtotalCode `json:"code"`
+	Value                OrderMoney            `json:"value"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -98,7 +98,7 @@ func (o *OrderDataSubtotal) SetValue(v OrderMoney) {
 }
 
 func (o OrderDataSubtotal) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -131,10 +131,10 @@ func (o *OrderDataSubtotal) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -161,24 +161,6 @@ func (o *OrderDataSubtotal) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderDataSubtotal) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderDataSubtotal) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderDataSubtotal struct {
 	value *OrderDataSubtotal
 	isSet bool
@@ -214,5 +196,3 @@ func (v *NullableOrderDataSubtotal) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,9 +21,9 @@ var _ MappedNullable = &OrderCancelShipmentRequest{}
 
 // OrderCancelShipmentRequest struct for OrderCancelShipmentRequest
 type OrderCancelShipmentRequest struct {
-	TenantId string `json:"tenantId"`
-	ShipmentId string `json:"shipmentId"`
-	Reason *string `json:"reason,omitempty"`
+	TenantId             string  `json:"tenantId"`
+	ShipmentId           string  `json:"shipmentId"`
+	Reason               *string `json:"reason,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -129,7 +129,7 @@ func (o *OrderCancelShipmentRequest) SetReason(v string) {
 }
 
 func (o OrderCancelShipmentRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -165,10 +165,10 @@ func (o *OrderCancelShipmentRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -198,22 +198,24 @@ func (o *OrderCancelShipmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderCancelShipmentRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderCancelShipmentRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderCancelShipmentRequest struct {
 	value *OrderCancelShipmentRequest
 	isSet bool
@@ -249,5 +251,3 @@ func (v *NullableOrderCancelShipmentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

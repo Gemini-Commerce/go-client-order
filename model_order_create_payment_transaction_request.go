@@ -21,10 +21,10 @@ var _ MappedNullable = &OrderCreatePaymentTransactionRequest{}
 
 // OrderCreatePaymentTransactionRequest struct for OrderCreatePaymentTransactionRequest
 type OrderCreatePaymentTransactionRequest struct {
-	TenantId string `json:"tenantId"`
-	PaymentId string `json:"paymentId"`
-	Type OrderTransactionType `json:"type"`
-	AdditionalInfo *string `json:"additionalInfo,omitempty"`
+	TenantId             string               `json:"tenantId"`
+	PaymentId            string               `json:"paymentId"`
+	Type                 OrderTransactionType `json:"type"`
+	AdditionalInfo       *string              `json:"additionalInfo,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -157,7 +157,7 @@ func (o *OrderCreatePaymentTransactionRequest) SetAdditionalInfo(v string) {
 }
 
 func (o OrderCreatePaymentTransactionRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,10 +195,10 @@ func (o *OrderCreatePaymentTransactionRequest) UnmarshalJSON(data []byte) (err e
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -229,22 +229,24 @@ func (o *OrderCreatePaymentTransactionRequest) UnmarshalJSON(data []byte) (err e
 
 // GetValue returns the value of well-known types
 func (o *OrderCreatePaymentTransactionRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderCreatePaymentTransactionRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderCreatePaymentTransactionRequest struct {
 	value *OrderCreatePaymentTransactionRequest
 	isSet bool
@@ -280,5 +282,3 @@ func (v *NullableOrderCreatePaymentTransactionRequest) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

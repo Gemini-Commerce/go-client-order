@@ -20,8 +20,8 @@ var _ MappedNullable = &OrderPaymentFilter{}
 
 // OrderPaymentFilter struct for OrderPaymentFilter
 type OrderPaymentFilter struct {
-	Codes []string `json:"codes,omitempty"`
-	Condition *OrderPaymentFilterCondition `json:"condition,omitempty"`
+	Codes                []string                     `json:"codes,omitempty"`
+	Condition            *OrderPaymentFilterCondition `json:"condition,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -113,7 +113,7 @@ func (o *OrderPaymentFilter) SetCondition(v OrderPaymentFilterCondition) {
 }
 
 func (o OrderPaymentFilter) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,22 +160,24 @@ func (o *OrderPaymentFilter) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderPaymentFilter) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderPaymentFilter) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderPaymentFilter struct {
 	value *OrderPaymentFilter
 	isSet bool
@@ -211,5 +213,3 @@ func (v *NullableOrderPaymentFilter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

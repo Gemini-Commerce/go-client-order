@@ -22,8 +22,8 @@ type OrderByDirection string
 // List of OrderByDirection
 const (
 	ORDERBYDIRECTION_DEFAULT OrderByDirection = "DEFAULT"
-	ORDERBYDIRECTION_ASC OrderByDirection = "ASC"
-	ORDERBYDIRECTION_DESC OrderByDirection = "DESC"
+	ORDERBYDIRECTION_ASC     OrderByDirection = "ASC"
+	ORDERBYDIRECTION_DESC    OrderByDirection = "DESC"
 )
 
 // All allowed values of OrderByDirection enum
@@ -111,4 +111,3 @@ func (v *NullableOrderByDirection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

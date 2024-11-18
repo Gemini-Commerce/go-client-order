@@ -20,8 +20,8 @@ var _ MappedNullable = &CancelOrderRequestBehaviorOptions{}
 
 // CancelOrderRequestBehaviorOptions struct for CancelOrderRequestBehaviorOptions
 type CancelOrderRequestBehaviorOptions struct {
-	Inventory *BehaviorOptionsInventory `json:"inventory,omitempty"`
-	Payment *CancelOrderRequestBehaviorOptionsPayment `json:"payment,omitempty"`
+	Inventory            *BehaviorOptionsInventory                 `json:"inventory,omitempty"`
+	Payment              *CancelOrderRequestBehaviorOptionsPayment `json:"payment,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *CancelOrderRequestBehaviorOptions) SetPayment(v CancelOrderRequestBehav
 }
 
 func (o CancelOrderRequestBehaviorOptions) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,22 +156,24 @@ func (o *CancelOrderRequestBehaviorOptions) UnmarshalJSON(data []byte) (err erro
 
 // GetValue returns the value of well-known types
 func (o *CancelOrderRequestBehaviorOptions) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *CancelOrderRequestBehaviorOptions) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableCancelOrderRequestBehaviorOptions struct {
 	value *CancelOrderRequestBehaviorOptions
 	isSet bool
@@ -207,5 +209,3 @@ func (v *NullableCancelOrderRequestBehaviorOptions) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

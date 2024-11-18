@@ -20,9 +20,9 @@ var _ MappedNullable = &PrintOrdersLabelsResponseFailedOrder{}
 
 // PrintOrdersLabelsResponseFailedOrder struct for PrintOrdersLabelsResponseFailedOrder
 type PrintOrdersLabelsResponseFailedOrder struct {
-	OrderNumber *string `json:"orderNumber,omitempty"`
-	ErrorMessage *string `json:"errorMessage,omitempty"`
-	ErrorCode *string `json:"errorCode,omitempty"`
+	OrderNumber          *string `json:"orderNumber,omitempty"`
+	ErrorMessage         *string `json:"errorMessage,omitempty"`
+	ErrorCode            *string `json:"errorCode,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -142,7 +142,7 @@ func (o *PrintOrdersLabelsResponseFailedOrder) SetErrorCode(v string) {
 }
 
 func (o PrintOrdersLabelsResponseFailedOrder) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -193,22 +193,24 @@ func (o *PrintOrdersLabelsResponseFailedOrder) UnmarshalJSON(data []byte) (err e
 
 // GetValue returns the value of well-known types
 func (o *PrintOrdersLabelsResponseFailedOrder) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *PrintOrdersLabelsResponseFailedOrder) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullablePrintOrdersLabelsResponseFailedOrder struct {
 	value *PrintOrdersLabelsResponseFailedOrder
 	isSet bool
@@ -244,5 +246,3 @@ func (v *NullablePrintOrdersLabelsResponseFailedOrder) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

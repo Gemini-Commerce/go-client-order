@@ -13,8 +13,8 @@ package order
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the OrderImportOrderRequest type satisfies the MappedNullable interface at compile time
@@ -22,24 +22,24 @@ var _ MappedNullable = &OrderImportOrderRequest{}
 
 // OrderImportOrderRequest struct for OrderImportOrderRequest
 type OrderImportOrderRequest struct {
-	TenantId string `json:"tenantId"`
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	Number string `json:"number"`
-	Channel *string `json:"channel,omitempty"`
-	Market string `json:"market"`
-	Locale string `json:"locale"`
-	CustomerInfo OrderDataCustomerInfo `json:"customerInfo"`
-	ShippingAddress OrderPostalAddress `json:"shippingAddress"`
-	BillingAddress OrderPostalAddress `json:"billingAddress"`
-	Payments []ImportOrderRequestImportedPayment `json:"payments"`
-	PaymentsInfo []OrderDataPaymentInfo `json:"paymentsInfo"`
-	ShipmentsInfo []OrderDataShipmentInfo `json:"shipmentsInfo"`
-	Items []OrderOrderDataItem `json:"items"`
-	Subtotals map[string]OrderDataSubtotal `json:"subtotals"`
-	Totals map[string]OrderDataTotal `json:"totals"`
-	Status string `json:"status"`
-	Currency OrderCurrency `json:"currency"`
-	VatIncluded *bool `json:"vatIncluded,omitempty"`
+	TenantId             string                              `json:"tenantId"`
+	CreatedAt            *time.Time                          `json:"createdAt,omitempty"`
+	Number               string                              `json:"number"`
+	Channel              *string                             `json:"channel,omitempty"`
+	Market               string                              `json:"market"`
+	Locale               string                              `json:"locale"`
+	CustomerInfo         OrderDataCustomerInfo               `json:"customerInfo"`
+	ShippingAddress      OrderPostalAddress                  `json:"shippingAddress"`
+	BillingAddress       OrderPostalAddress                  `json:"billingAddress"`
+	Payments             []ImportOrderRequestImportedPayment `json:"payments"`
+	PaymentsInfo         []OrderDataPaymentInfo              `json:"paymentsInfo"`
+	ShipmentsInfo        []OrderDataShipmentInfo             `json:"shipmentsInfo"`
+	Items                []OrderOrderDataItem                `json:"items"`
+	Subtotals            map[string]OrderDataSubtotal        `json:"subtotals"`
+	Totals               map[string]OrderDataTotal           `json:"totals"`
+	Status               string                              `json:"status"`
+	Currency             OrderCurrency                       `json:"currency"`
+	VatIncluded          *bool                               `json:"vatIncluded,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -536,7 +536,7 @@ func (o *OrderImportOrderRequest) SetVatIncluded(v bool) {
 }
 
 func (o OrderImportOrderRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -604,10 +604,10 @@ func (o *OrderImportOrderRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -652,22 +652,24 @@ func (o *OrderImportOrderRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderImportOrderRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderImportOrderRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderImportOrderRequest struct {
 	value *OrderImportOrderRequest
 	isSet bool
@@ -703,5 +705,3 @@ func (v *NullableOrderImportOrderRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

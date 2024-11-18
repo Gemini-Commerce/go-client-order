@@ -21,14 +21,14 @@ var _ MappedNullable = &OrderRefund{}
 
 // OrderRefund struct for OrderRefund
 type OrderRefund struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	PaymentId *string `json:"paymentId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Items []OrderRefundItem `json:"items,omitempty"`
-	Amounts []OrderRefundAmount `json:"amounts,omitempty"`
-	Note *string `json:"note,omitempty"`
-	AdditionalInfo *string `json:"additionalInfo,omitempty"`
-	TransactionIds []string `json:"transactionIds,omitempty"`
+	CreatedAt            *time.Time          `json:"createdAt,omitempty"`
+	PaymentId            *string             `json:"paymentId,omitempty"`
+	Id                   *string             `json:"id,omitempty"`
+	Items                []OrderRefundItem   `json:"items,omitempty"`
+	Amounts              []OrderRefundAmount `json:"amounts,omitempty"`
+	Note                 *string             `json:"note,omitempty"`
+	AdditionalInfo       *string             `json:"additionalInfo,omitempty"`
+	TransactionIds       []string            `json:"transactionIds,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -308,7 +308,7 @@ func (o *OrderRefund) SetTransactionIds(v []string) {
 }
 
 func (o OrderRefund) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,22 +379,24 @@ func (o *OrderRefund) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderRefund) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderRefund) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderRefund struct {
 	value *OrderRefund
 	isSet bool
@@ -430,5 +432,3 @@ func (v *NullableOrderRefund) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

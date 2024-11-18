@@ -20,7 +20,7 @@ var _ MappedNullable = &BehaviorOptionsInventory{}
 
 // BehaviorOptionsInventory struct for BehaviorOptionsInventory
 type BehaviorOptionsInventory struct {
-	Action *BehaviorOptionsInventoryAction `json:"action,omitempty"`
+	Action               *BehaviorOptionsInventoryAction `json:"action,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,7 @@ func (o *BehaviorOptionsInventory) SetAction(v BehaviorOptionsInventoryAction) {
 }
 
 func (o BehaviorOptionsInventory) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,22 +123,24 @@ func (o *BehaviorOptionsInventory) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *BehaviorOptionsInventory) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *BehaviorOptionsInventory) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableBehaviorOptionsInventory struct {
 	value *BehaviorOptionsInventory
 	isSet bool
@@ -174,5 +176,3 @@ func (v *NullableBehaviorOptionsInventory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

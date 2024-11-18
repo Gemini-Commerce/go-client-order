@@ -20,36 +20,36 @@ var _ MappedNullable = &OrderOrderDataItem{}
 
 // OrderOrderDataItem struct for OrderOrderDataItem
 type OrderOrderDataItem struct {
-	Id *string `json:"id,omitempty"`
-	ProductGrn *string `json:"productGrn,omitempty"`
-	QtyOrdered *int64 `json:"qtyOrdered,omitempty"`
-	FreeQty *int64 `json:"freeQty,omitempty"`
-	QtyCommitted *int64 `json:"qtyCommitted,omitempty"`
-	UnitSalePrice *OrderMoney `json:"unitSalePrice,omitempty"`
-	UnitListPrice *OrderMoney `json:"unitListPrice,omitempty"`
-	UnitBasePrice *OrderMoney `json:"unitBasePrice,omitempty"`
-	UnitVatAmount *OrderMoney `json:"unitVatAmount,omitempty"`
-	RowSalePrice *OrderMoney `json:"rowSalePrice,omitempty"`
-	RowListPrice *OrderMoney `json:"rowListPrice,omitempty"`
-	RowVatAmount *OrderMoney `json:"rowVatAmount,omitempty"`
-	DiscountAmount *OrderMoney `json:"discountAmount,omitempty"`
-	RowBasePrice *OrderMoney `json:"rowBasePrice,omitempty"`
-	UnitCustomPrice *OrderMoney `json:"unitCustomPrice,omitempty"`
-	RowCustomPrice *OrderMoney `json:"rowCustomPrice,omitempty"`
-	VatPercentage *float32 `json:"vatPercentage,omitempty"`
-	VatInaccurate *bool `json:"vatInaccurate,omitempty"`
-	VatCalculated *bool `json:"vatCalculated,omitempty"`
-	ProductName *string `json:"productName,omitempty"`
-	ProductCode *string `json:"productCode,omitempty"`
-	ProductSku *string `json:"productSku,omitempty"`
-	ProductOptions *string `json:"productOptions,omitempty"`
-	ProductImg *string `json:"productImg,omitempty"`
-	ProductData *string `json:"productData,omitempty"`
-	ShipmentInfoReference *string `json:"shipmentInfoReference,omitempty"`
-	PromotionGrn []string `json:"promotionGrn,omitempty"`
-	ProductIsVirtual *bool `json:"productIsVirtual,omitempty"`
-	ProductConfiguration []ItemProductConfigurationStep `json:"productConfiguration,omitempty"`
-	AdditionalProperties map[string]interface{}
+	Id                    *string                        `json:"id,omitempty"`
+	ProductGrn            *string                        `json:"productGrn,omitempty"`
+	QtyOrdered            *int64                         `json:"qtyOrdered,omitempty"`
+	FreeQty               *int64                         `json:"freeQty,omitempty"`
+	QtyCommitted          *int64                         `json:"qtyCommitted,omitempty"`
+	UnitSalePrice         *OrderMoney                    `json:"unitSalePrice,omitempty"`
+	UnitListPrice         *OrderMoney                    `json:"unitListPrice,omitempty"`
+	UnitBasePrice         *OrderMoney                    `json:"unitBasePrice,omitempty"`
+	UnitVatAmount         *OrderMoney                    `json:"unitVatAmount,omitempty"`
+	RowSalePrice          *OrderMoney                    `json:"rowSalePrice,omitempty"`
+	RowListPrice          *OrderMoney                    `json:"rowListPrice,omitempty"`
+	RowVatAmount          *OrderMoney                    `json:"rowVatAmount,omitempty"`
+	DiscountAmount        *OrderMoney                    `json:"discountAmount,omitempty"`
+	RowBasePrice          *OrderMoney                    `json:"rowBasePrice,omitempty"`
+	UnitCustomPrice       *OrderMoney                    `json:"unitCustomPrice,omitempty"`
+	RowCustomPrice        *OrderMoney                    `json:"rowCustomPrice,omitempty"`
+	VatPercentage         *float32                       `json:"vatPercentage,omitempty"`
+	VatInaccurate         *bool                          `json:"vatInaccurate,omitempty"`
+	VatCalculated         *bool                          `json:"vatCalculated,omitempty"`
+	ProductName           *string                        `json:"productName,omitempty"`
+	ProductCode           *string                        `json:"productCode,omitempty"`
+	ProductSku            *string                        `json:"productSku,omitempty"`
+	ProductOptions        *string                        `json:"productOptions,omitempty"`
+	ProductImg            *string                        `json:"productImg,omitempty"`
+	ProductData           *string                        `json:"productData,omitempty"`
+	ShipmentInfoReference *string                        `json:"shipmentInfoReference,omitempty"`
+	PromotionGrn          []string                       `json:"promotionGrn,omitempty"`
+	ProductIsVirtual      *bool                          `json:"productIsVirtual,omitempty"`
+	ProductConfiguration  []ItemProductConfigurationStep `json:"productConfiguration,omitempty"`
+	AdditionalProperties  map[string]interface{}
 }
 
 type _OrderOrderDataItem OrderOrderDataItem
@@ -1000,7 +1000,7 @@ func (o *OrderOrderDataItem) SetProductConfiguration(v []ItemProductConfiguratio
 }
 
 func (o OrderOrderDataItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1155,22 +1155,24 @@ func (o *OrderOrderDataItem) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderOrderDataItem) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderOrderDataItem) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderOrderDataItem struct {
 	value *OrderOrderDataItem
 	isSet bool
@@ -1206,5 +1208,3 @@ func (v *NullableOrderOrderDataItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

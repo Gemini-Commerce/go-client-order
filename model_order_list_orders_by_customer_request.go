@@ -21,13 +21,13 @@ var _ MappedNullable = &OrderListOrdersByCustomerRequest{}
 
 // OrderListOrdersByCustomerRequest struct for OrderListOrdersByCustomerRequest
 type OrderListOrdersByCustomerRequest struct {
-	TenantId string `json:"tenantId"`
+	TenantId    string `json:"tenantId"`
 	CustomerGrn string `json:"customerGrn"`
 	// The maximum number of orders to return. The service may return fewer than this value. If unspecified, at most 10 orders will be returned. The maximum value is 100; values above 100 will be coerced to 100.
 	PageSize *int64 `json:"pageSize,omitempty"`
 	// A page token, received from a previous `ListOrders` call. Provide this to retrieve the subsequent page.   When paginating, all other parameters provided to `ListOrders` must match the call that provided the page token.
-	PageToken *string `json:"pageToken,omitempty"`
-	OrderBy []OrderOrderBy `json:"orderBy,omitempty"`
+	PageToken            *string        `json:"pageToken,omitempty"`
+	OrderBy              []OrderOrderBy `json:"orderBy,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -197,7 +197,7 @@ func (o *OrderListOrdersByCustomerRequest) SetOrderBy(v []OrderOrderBy) {
 }
 
 func (o OrderListOrdersByCustomerRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -239,10 +239,10 @@ func (o *OrderListOrdersByCustomerRequest) UnmarshalJSON(data []byte) (err error
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -274,22 +274,24 @@ func (o *OrderListOrdersByCustomerRequest) UnmarshalJSON(data []byte) (err error
 
 // GetValue returns the value of well-known types
 func (o *OrderListOrdersByCustomerRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderListOrdersByCustomerRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderListOrdersByCustomerRequest struct {
 	value *OrderListOrdersByCustomerRequest
 	isSet bool
@@ -325,5 +327,3 @@ func (v *NullableOrderListOrdersByCustomerRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

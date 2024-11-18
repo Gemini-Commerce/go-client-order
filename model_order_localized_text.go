@@ -20,7 +20,7 @@ var _ MappedNullable = &OrderLocalizedText{}
 
 // OrderLocalizedText struct for OrderLocalizedText
 type OrderLocalizedText struct {
-	Value *map[string]string `json:"value,omitempty"`
+	Value                *map[string]string `json:"value,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *OrderLocalizedText) SetValue(v map[string]string) {
 }
 
 func (o OrderLocalizedText) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -117,24 +117,6 @@ func (o *OrderLocalizedText) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *OrderLocalizedText) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *OrderLocalizedText) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableOrderLocalizedText struct {
 	value *OrderLocalizedText
 	isSet bool
@@ -170,5 +152,3 @@ func (v *NullableOrderLocalizedText) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ var _ MappedNullable = &ItemProductConfigurationStep{}
 
 // ItemProductConfigurationStep struct for ItemProductConfigurationStep
 type ItemProductConfigurationStep struct {
-	Id *string `json:"id,omitempty"`
-	Grn *string `json:"grn,omitempty"`
-	Label *string `json:"label,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Options []ProductConfigurationStepOption `json:"options,omitempty"`
+	Id                   *string                          `json:"id,omitempty"`
+	Grn                  *string                          `json:"grn,omitempty"`
+	Label                *string                          `json:"label,omitempty"`
+	Description          *string                          `json:"description,omitempty"`
+	Options              []ProductConfigurationStepOption `json:"options,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -208,7 +208,7 @@ func (o *ItemProductConfigurationStep) SetOptions(v []ProductConfigurationStepOp
 }
 
 func (o ItemProductConfigurationStep) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,22 +267,24 @@ func (o *ItemProductConfigurationStep) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *ItemProductConfigurationStep) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ItemProductConfigurationStep) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableItemProductConfigurationStep struct {
 	value *ItemProductConfigurationStep
 	isSet bool
@@ -318,5 +320,3 @@ func (v *NullableItemProductConfigurationStep) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,8 +21,8 @@ var _ MappedNullable = &InitialPaymentInitialTransaction{}
 
 // InitialPaymentInitialTransaction struct for InitialPaymentInitialTransaction
 type InitialPaymentInitialTransaction struct {
-	Type OrderTransactionType `json:"type"`
-	AdditionalInfo *string `json:"additionalInfo,omitempty"`
+	Type                 OrderTransactionType `json:"type"`
+	AdditionalInfo       *string              `json:"additionalInfo,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -105,7 +105,7 @@ func (o *InitialPaymentInitialTransaction) SetAdditionalInfo(v string) {
 }
 
 func (o InitialPaymentInitialTransaction) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -139,10 +139,10 @@ func (o *InitialPaymentInitialTransaction) UnmarshalJSON(data []byte) (err error
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -171,22 +171,24 @@ func (o *InitialPaymentInitialTransaction) UnmarshalJSON(data []byte) (err error
 
 // GetValue returns the value of well-known types
 func (o *InitialPaymentInitialTransaction) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *InitialPaymentInitialTransaction) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableInitialPaymentInitialTransaction struct {
 	value *InitialPaymentInitialTransaction
 	isSet bool
@@ -222,5 +224,3 @@ func (v *NullableInitialPaymentInitialTransaction) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

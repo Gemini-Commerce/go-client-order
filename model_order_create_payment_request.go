@@ -21,12 +21,12 @@ var _ MappedNullable = &OrderCreatePaymentRequest{}
 
 // OrderCreatePaymentRequest struct for OrderCreatePaymentRequest
 type OrderCreatePaymentRequest struct {
-	TenantId string `json:"tenantId"`
-	OrderId string `json:"orderId"`
-	Code string `json:"code"`
-	AdditionalInfo *string `json:"additionalInfo,omitempty"`
-	Amount OrderMoney `json:"amount"`
-	CcInfo *PaymentCcInfo `json:"ccInfo,omitempty"`
+	TenantId             string         `json:"tenantId"`
+	OrderId              string         `json:"orderId"`
+	Code                 string         `json:"code"`
+	AdditionalInfo       *string        `json:"additionalInfo,omitempty"`
+	Amount               OrderMoney     `json:"amount"`
+	CcInfo               *PaymentCcInfo `json:"ccInfo,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -214,7 +214,7 @@ func (o *OrderCreatePaymentRequest) SetCcInfo(v PaymentCcInfo) {
 }
 
 func (o OrderCreatePaymentRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -257,10 +257,10 @@ func (o *OrderCreatePaymentRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -293,22 +293,24 @@ func (o *OrderCreatePaymentRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderCreatePaymentRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderCreatePaymentRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderCreatePaymentRequest struct {
 	value *OrderCreatePaymentRequest
 	isSet bool
@@ -344,5 +346,3 @@ func (v *NullableOrderCreatePaymentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

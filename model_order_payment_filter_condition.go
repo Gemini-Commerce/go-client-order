@@ -21,7 +21,7 @@ type OrderPaymentFilterCondition string
 
 // List of orderPaymentFilterCondition
 const (
-	ORDERPAYMENTFILTERCONDITION_IN OrderPaymentFilterCondition = "IN"
+	ORDERPAYMENTFILTERCONDITION_IN     OrderPaymentFilterCondition = "IN"
 	ORDERPAYMENTFILTERCONDITION_NOT_IN OrderPaymentFilterCondition = "NOT_IN"
 )
 
@@ -109,4 +109,3 @@ func (v *NullableOrderPaymentFilterCondition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

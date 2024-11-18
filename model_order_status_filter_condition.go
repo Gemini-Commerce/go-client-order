@@ -21,7 +21,7 @@ type OrderStatusFilterCondition string
 
 // List of orderStatusFilterCondition
 const (
-	ORDERSTATUSFILTERCONDITION_IN OrderStatusFilterCondition = "IN"
+	ORDERSTATUSFILTERCONDITION_IN     OrderStatusFilterCondition = "IN"
 	ORDERSTATUSFILTERCONDITION_NOT_IN OrderStatusFilterCondition = "NOT_IN"
 )
 
@@ -109,4 +109,3 @@ func (v *NullableOrderStatusFilterCondition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

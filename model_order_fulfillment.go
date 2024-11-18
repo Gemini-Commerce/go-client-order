@@ -21,12 +21,12 @@ var _ MappedNullable = &OrderFulfillment{}
 
 // OrderFulfillment struct for OrderFulfillment
 type OrderFulfillment struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	OrderId *string `json:"orderId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Items []OrderFulfillmentItem `json:"items,omitempty"`
+	CreatedAt            *time.Time             `json:"createdAt,omitempty"`
+	UpdatedAt            *time.Time             `json:"updatedAt,omitempty"`
+	OrderId              *string                `json:"orderId,omitempty"`
+	Id                   *string                `json:"id,omitempty"`
+	Status               *string                `json:"status,omitempty"`
+	Items                []OrderFulfillmentItem `json:"items,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -242,7 +242,7 @@ func (o *OrderFulfillment) SetItems(v []OrderFulfillmentItem) {
 }
 
 func (o OrderFulfillment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -305,22 +305,24 @@ func (o *OrderFulfillment) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderFulfillment) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderFulfillment) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderFulfillment struct {
 	value *OrderFulfillment
 	isSet bool
@@ -356,5 +358,3 @@ func (v *NullableOrderFulfillment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

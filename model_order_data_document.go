@@ -21,11 +21,11 @@ var _ MappedNullable = &OrderDataDocument{}
 
 // OrderDataDocument struct for OrderDataDocument
 type OrderDataDocument struct {
-	Code *string `json:"code,omitempty"`
-	Label *string `json:"label,omitempty"`
-	AssetGrn *string `json:"assetGrn,omitempty"`
-	Url *string `json:"url,omitempty"`
-	InsertedAt *time.Time `json:"insertedAt,omitempty"`
+	Code                 *string    `json:"code,omitempty"`
+	Label                *string    `json:"label,omitempty"`
+	AssetGrn             *string    `json:"assetGrn,omitempty"`
+	Url                  *string    `json:"url,omitempty"`
+	InsertedAt           *time.Time `json:"insertedAt,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -209,7 +209,7 @@ func (o *OrderDataDocument) SetInsertedAt(v time.Time) {
 }
 
 func (o OrderDataDocument) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -268,22 +268,24 @@ func (o *OrderDataDocument) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderDataDocument) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderDataDocument) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderDataDocument struct {
 	value *OrderDataDocument
 	isSet bool
@@ -319,5 +321,3 @@ func (v *NullableOrderDataDocument) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

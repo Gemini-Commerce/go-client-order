@@ -21,8 +21,8 @@ var _ MappedNullable = &OrderGetOrderByOrderNumberRequest{}
 
 // OrderGetOrderByOrderNumberRequest struct for OrderGetOrderByOrderNumberRequest
 type OrderGetOrderByOrderNumberRequest struct {
-	TenantId string `json:"tenantId"`
-	OrderNumber string `json:"orderNumber"`
+	TenantId             string `json:"tenantId"`
+	OrderNumber          string `json:"orderNumber"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -96,7 +96,7 @@ func (o *OrderGetOrderByOrderNumberRequest) SetOrderNumber(v string) {
 }
 
 func (o OrderGetOrderByOrderNumberRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -129,10 +129,10 @@ func (o *OrderGetOrderByOrderNumberRequest) UnmarshalJSON(data []byte) (err erro
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -161,22 +161,24 @@ func (o *OrderGetOrderByOrderNumberRequest) UnmarshalJSON(data []byte) (err erro
 
 // GetValue returns the value of well-known types
 func (o *OrderGetOrderByOrderNumberRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderGetOrderByOrderNumberRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderGetOrderByOrderNumberRequest struct {
 	value *OrderGetOrderByOrderNumberRequest
 	isSet bool
@@ -212,5 +214,3 @@ func (v *NullableOrderGetOrderByOrderNumberRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,9 +21,9 @@ var _ MappedNullable = &OrderDataHistory{}
 
 // OrderDataHistory struct for OrderDataHistory
 type OrderDataHistory struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Comment *string `json:"comment,omitempty"`
+	CreatedAt            *time.Time `json:"createdAt,omitempty"`
+	Status               *string    `json:"status,omitempty"`
+	Comment              *string    `json:"comment,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -143,7 +143,7 @@ func (o *OrderDataHistory) SetComment(v string) {
 }
 
 func (o OrderDataHistory) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,22 +194,24 @@ func (o *OrderDataHistory) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderDataHistory) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderDataHistory) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderDataHistory struct {
 	value *OrderDataHistory
 	isSet bool
@@ -245,5 +247,3 @@ func (v *NullableOrderDataHistory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

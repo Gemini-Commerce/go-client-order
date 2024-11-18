@@ -21,7 +21,7 @@ type BehaviorOptionsInventoryAction string
 
 // List of BehaviorOptionsInventoryAction
 const (
-	BEHAVIOROPTIONSINVENTORYACTION_UNKNOWN BehaviorOptionsInventoryAction = "UNKNOWN"
+	BEHAVIOROPTIONSINVENTORYACTION_UNKNOWN       BehaviorOptionsInventoryAction = "UNKNOWN"
 	BEHAVIOROPTIONSINVENTORYACTION_DO_NOT_HANDLE BehaviorOptionsInventoryAction = "DO_NOT_HANDLE"
 )
 
@@ -109,4 +109,3 @@ func (v *NullableBehaviorOptionsInventoryAction) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

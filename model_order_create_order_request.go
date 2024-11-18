@@ -21,26 +21,26 @@ var _ MappedNullable = &OrderCreateOrderRequest{}
 
 // OrderCreateOrderRequest struct for OrderCreateOrderRequest
 type OrderCreateOrderRequest struct {
-	TenantId string `json:"tenantId"`
-	Number string `json:"number"`
-	Channel *string `json:"channel,omitempty"`
-	Market string `json:"market"`
-	Locale string `json:"locale"`
-	Items []OrderOrderDataItem `json:"items"`
-	PaymentsInfo []OrderDataPaymentInfo `json:"paymentsInfo,omitempty"`
-	ShipmentsInfo []OrderDataShipmentInfo `json:"shipmentsInfo,omitempty"`
-	Promotions []OrderDataPromotionInfo `json:"promotions,omitempty"`
-	Payments []CreateOrderRequestInitialPayment `json:"payments,omitempty"`
-	Currency OrderCurrency `json:"currency"`
-	Subtotals map[string]OrderDataSubtotal `json:"subtotals"`
-	Totals map[string]OrderDataTotal `json:"totals"`
-	VatIncluded bool `json:"vatIncluded"`
-	BillingAddress OrderPostalAddress `json:"billingAddress"`
-	ShippingAddress OrderPostalAddress `json:"shippingAddress"`
-	CustomerInfo OrderDataCustomerInfo `json:"customerInfo"`
-	CartGrn *string `json:"cartGrn,omitempty"`
-	OnHold *bool `json:"onHold,omitempty"`
-	Notes *string `json:"notes,omitempty"`
+	TenantId             string                             `json:"tenantId"`
+	Number               string                             `json:"number"`
+	Channel              *string                            `json:"channel,omitempty"`
+	Market               string                             `json:"market"`
+	Locale               string                             `json:"locale"`
+	Items                []OrderOrderDataItem               `json:"items"`
+	PaymentsInfo         []OrderDataPaymentInfo             `json:"paymentsInfo,omitempty"`
+	ShipmentsInfo        []OrderDataShipmentInfo            `json:"shipmentsInfo,omitempty"`
+	Promotions           []OrderDataPromotionInfo           `json:"promotions,omitempty"`
+	Payments             []CreateOrderRequestInitialPayment `json:"payments,omitempty"`
+	Currency             OrderCurrency                      `json:"currency"`
+	Subtotals            map[string]OrderDataSubtotal       `json:"subtotals"`
+	Totals               map[string]OrderDataTotal          `json:"totals"`
+	VatIncluded          bool                               `json:"vatIncluded"`
+	BillingAddress       OrderPostalAddress                 `json:"billingAddress"`
+	ShippingAddress      OrderPostalAddress                 `json:"shippingAddress"`
+	CustomerInfo         OrderDataCustomerInfo              `json:"customerInfo"`
+	CartGrn              *string                            `json:"cartGrn,omitempty"`
+	OnHold               *bool                              `json:"onHold,omitempty"`
+	Notes                *string                            `json:"notes,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -622,7 +622,7 @@ func (o *OrderCreateOrderRequest) SetNotes(v string) {
 }
 
 func (o OrderCreateOrderRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -699,10 +699,10 @@ func (o *OrderCreateOrderRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -749,22 +749,24 @@ func (o *OrderCreateOrderRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *OrderCreateOrderRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *OrderCreateOrderRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableOrderCreateOrderRequest struct {
 	value *OrderCreateOrderRequest
 	isSet bool
@@ -800,5 +802,3 @@ func (v *NullableOrderCreateOrderRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
